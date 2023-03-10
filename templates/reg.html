@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="region-main">
+    <h1 align="center" class="HH1">Регистрация</h1>
+    <br>
+    <form method="post" class="form_reg">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Имя"><br><br>
+        <input type="text" name="surname" id="surname" class="form-control" placeholder="Фамилия"><br><br>
+        <input type="text" name="fatherland" id="fatherland" class="form-control" placeholder="Отечество"><br><br>
+        <input type="email" name="login" id="login" class="form-control" placeholder="Email"><br><br>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Пароль"><br><br>
+        Я <select name="pos" class="form-control">
+            <option name="pos_var1" class="form-control">Ученик</option>
+            <option name="pos_var2" class="form-control">Преподаватель</option>
+        </select><br><br>
+        Вариант для <select name="s" class="form-control">
+            <option name="s_var1" class="form-control">Экстроверта</option>
+            <option name="s_var2" class="form-control">Интроверта</option>
+        </select><br><br>
+        <input type="submit" class="sub" value="Зарегистрироваться" ><br><br>
+        <input type="checkbox" name="sogl"><a href="/Claudius/staticus/static" download>Согласен с пользовательским соглашение</a>
+
+        </form>
+    </div>
+{% endblock %}
