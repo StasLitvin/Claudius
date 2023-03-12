@@ -15,7 +15,7 @@
               <div class="form">
             <h2 class="form__title title">Зарегистрируйтесь</h2>
             {% if error_text is defined %}
-            <div style="border:5px solid red; border-radius: 5px; font-size: 25px; margin-bottom: 15px;"> Этот e-mail уже зареган</div>
+            <div style="border:5px solid red; border-radius: 5px; font-size: 25px; margin-bottom: 15px;"> {{error_text}}</div>
             {% endif %}
             <div class="form__btns btns">
                 <label class="visuallyhidden"  for="name">Имя</label>
