@@ -1,12 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="region-main">
-    <h1 align="center" class="HH1">Авторизация</h1>
-    <br>
-    <form method="post" class="form_reg">
-        <input type="email" name="login" id="login" class="form-control" placeholder="Email"><br><br>
-        <input type="password" name="password" id="password" class="form-control" placeholder="Пароль"><br><br>
-        <input type="submit" class="sub" value="Войти"><br><br>
-</div>
-</form>
+      <main>
+    <section class="auth">
+      <div class="auth__container container">
+        <div class="auth__left-section left-section">
+          <h2 class="auth__title">Добро пожаловать!</h2>
+          <p class="auth__text">
+            Если вы еще не зарегистрированы, создайте свою учетную запись
+          </p>
+          <a class="auth__button" href="/register">Регистрация</a>
+        </div>
+        <div class="auth__right-section right-section">
+          <form method="post">
+              <div class="form">
+            <h2 class="form__title title">Войдите в аккаунт</h2>
+            <div class="form__btns btns">
+              <label class="visuallyhidden"  for="login">Login</label>
+              <input class="btns__login login" name="login" id="login" type="text"  placeholder="Логин | E-mail почта">
+              <label class="visuallyhidden" for="password">password</label>
+              <div class="btns__password-container">
+                <input class="btns__password password" name="password" id="password"  type="password"  placeholder="Пароль">
+              <span class="btns__show-password btns__show-password--open"></span>
+              </div>
+              <a class="form__refresh-link refresh-link" href="/reset">Забыли пароль?</a>
+              <input type="submit" class="form__submit-btn submit-btn"  value="Войти">
+            </div>
+                  </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="../static/js/index.js"></script>
 {% endblock %}

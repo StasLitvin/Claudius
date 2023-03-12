@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, session, url_for, redirect, abort
-from base import coups_mas, coup_mas, del_coup, data_user_reg, input_login
+from base import coups_mas, coup_mas, del_coup, data_user_reg, input_login, data_user, user_update_coin
+from mail import send_mail
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'fsa87asd782asd'
@@ -26,6 +27,7 @@ def login():
     if request.method == "GET":
         return render_template('login.html', title="Авторизация")
     if request.method == "POST":
+        print(request.form)
         req = (request.form['login'], request.form['password'])
         print(req)
         if input_login(req[0])[0][1] == req[1]:
@@ -42,10 +44,16 @@ def mag():
         return render_template("mag.html", coup=coups_mas())
     elif request.method == "POST":
         id_coup = request.form['id_coup']
-        coup_mas(id_coup)
-        if 1 == 0:  # Вот тут должно быть обращение к базе данных пользователя сесси
-            # и далее проверка баллов и соответсвенно удаление купона из БД и отправка
-            del_coup(id_coup)
+        coup = coup_mas(id_coup)
+        if 'id_user' not in session:
+            return redirect(url_for('login', title="Aвторизация"))
+        else:
+            user = data_user(session['id_user'])
+            if coup[0][-1] <= user[0][-1]:
+                print(1)
+                user_update_coin(session['id_user'], user[0][-1] - coup[0][-1])
+                send_mail(user[0][4], coup[0][-2])
+                del_coup(id_coup)
         return render_template("mag.html", coup=coups_mas())
 
 
@@ -54,7 +62,7 @@ def profile(username):
     if 'id_user' not in session or session['login_user'] != username:
         abort(401)
     else:
-        return "ЛК"
+        return render_template('base.html', title="Главная")
 
 
 if __name__ == '__main__':

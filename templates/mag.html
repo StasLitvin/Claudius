@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-<ul class="coupons__list">
+<div class="cards">
             {% for c in coup %}
-            <li class="coupons__list-item">
-                <div class="coupons__image-block">
+            <div class="card">
+                <div class="card_top">
                     <img src="/Claudius/staticC.jpg" height="173px" width="250px" alt="">
                 </div>
                 <form method="post">
+                    <div class="card_botom">
                     <p class="coupons__cathegory">{{ c[1] }}</p>
                     <h3 class="coupons__name">{{ c[2] }}</h3>
                     <p class="coupons__price" name="coin">{{ c[4] }}</p>
                     <input hidden type="text" name="id_coup" value="{{ c[0] }}">
                     <input type="submit" class="coupons__sub" value="Обменять пряники">
+                        </div>
                 </form>
-            </li>
+            </div>
             {% endfor %}
-</ul>
+</div>
 {% endblock %}

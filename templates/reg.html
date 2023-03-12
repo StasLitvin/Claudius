@@ -1,25 +1,49 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="region-main">
-    <h1 align="center" class="HH1">Регистрация</h1>
-    <br>
-    <form method="post" class="form_reg">
-        <input type="text" name="name" id="name" class="form-control" placeholder="Имя"><br><br>
-        <input type="text" name="surname" id="surname" class="form-control" placeholder="Фамилия"><br><br>
-        <input type="text" name="fatherland" id="fatherland" class="form-control" placeholder="Отечество"><br><br>
-        <input type="email" name="login" id="login" class="form-control" placeholder="Email"><br><br>
-        <input type="password" name="password" id="password" class="form-control" placeholder="Пароль"><br><br>
-        Я <select name="pos" class="form-control">
-            <option name="pos_var1" class="form-control">Ученик</option>
-            <option name="pos_var2" class="form-control">Преподаватель</option>
-        </select><br><br>
-        Вариант для <select name="s" class="form-control">
-            <option name="s_var1" class="form-control">Экстроверта</option>
-            <option name="s_var2" class="form-control">Интроверта</option>
-        </select><br><br>
-        <input type="submit" class="sub" value="Зарегистрироваться" ><br><br>
-        <input type="checkbox" name="sogl"><a href="/Claudius/staticus/static" download>Согласен с пользовательским соглашение</a>
+          <main>
+    <section class="auth">
+      <div class="auth__container container">
+        <div class="auth__left-section left-section">
+          <h2 class="auth__title">Добро пожаловать!</h2>
+          <p class="auth__text">
+            Если вы уже зарегистрированы, войдите в свою учетную запись
+          </p>
+          <a class="auth__button" href="/login">Авторизация</a>
+        </div>
+        <div class="auth__right-section right-section">
+          <form method="post">
+              <div class="form">
+            <h2 class="form__title title">Зарегистрируйтесь</h2>
+            <div class="form__btns btns">
+                <label class="visuallyhidden"  for="name">Имя</label>
+              <input class="btns__login login" name="name" id="name" type="text"  placeholder="Имя">
+                <label class="visuallyhidden"  for="surname">Фамилия</label>
+              <input class="btns__login login" name="surname" id="surname" type="text"  placeholder="Фамилия">
+                <label class="visuallyhidden"  for="fatherland">Отечество</label>
+              <input class="btns__login login" name="fatherland" id="fatherland" type="text"  placeholder="Отечество">
+              <label class="visuallyhidden"  for="login">Login</label>
+              <input class="btns__login login" name="login" id="login" type="text"  placeholder="Логин | E-mail почта">
+              <label class="visuallyhidden" for="password">password</label>
+              <div class="btns__password-container">
+                <input class="btns__password password" name="password" id="password"  type="password"  placeholder="Пароль">
+              <span class="btns__show-password btns__show-password--open"></span>
+              </div>
+                <select name="s" class="form-control" onchange="myNewFunction(this)">
+            <option name="s_var1" class="form-control">Интроверт</option>
+            <option name="s_var2" class="form-control">Экстроверт</option>
+            <option name="s_var3" class="form-control">Не помню кто</option>
+        </select>
+              <input type="submit" class="form__submit-btn submit-btn"  value="Зарегистрироваться">
+                <div>
+                <input type="checkbox" name="sogl"><a href="../static/dok/sogl.pdf">Согласен с пользовательским соглашение</a>
+             </div>
+                </div>
+                  </div>
 
-        </form>
-    </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="../static/js/index.js"></script>
 {% endblock %}
