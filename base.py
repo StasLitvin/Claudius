@@ -45,12 +45,23 @@ def del_coup(id):
     cursor.close()
     connection.close()
 
+def check_user_exist(email: str):
+    connection = data_con()
+    cursor = connection.cursor()
+
+    query = '''SELECT email FROM users WHERE email=(%s)'''
+    cursor.execute(query, (email,))
+    result = cursor.fetchall()
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return len(result) > 0
 
 def data_user_reg(data):
     connection = data_con()
     cursor = connection.cursor()
 
-    quary = '''INSERT INTO users(name,surname,fatherland,email,password,pos,s,coin) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)'''
+    quary = '''INSERT INTO users(name,surname,fatherland,email,password,s,coin) VALUES(%s,%s,%s,%s,%s,%s,%s)'''
     cursor.execute(quary, data)
     connection.commit()
     cursor.close()
