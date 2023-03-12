@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, url_for, redirect, abort
-from base import coups_mas, coup_mas, del_coup, data_user_reg, input_login, data_user, user_update_coin
+from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg, input_login, data_user, user_update_coin
 from mail import send_mail
 
 app = Flask(__name__)
@@ -16,10 +16,13 @@ def reg():
     if request.method == "GET":
         return render_template('reg.html', title="Регистарция")
     if request.method == "POST":
+        
         req = (request.form['name'], request.form['surname'], request.form['fatherland'], request.form['login'],
-               request.form['password'], request.form['pos'], request.form['s'], 0)
+               request.form['password'], request.form['s'], 0)
+        if check_user_exist(request.form['login']):
+            return render_template('reg.html', error_text="Этот e-mail уже зарегистрирован")
         data_user_reg(list(req))
-        return render_template('login.html', title="Авторизация")
+        return redirect('/login')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -29,7 +32,9 @@ def login():
     if request.method == "POST":
         print(request.form)
         req = (request.form['login'], request.form['password'])
-        print(req)
+        if not check_user_exist(request.form['login']):
+            return render_template('login.html', error_text="Этот пользователь не существует")
+        print(req[0])
         if input_login(req[0])[0][1] == req[1]:
             print(input_login(req[0])[0])
             session['id_user'] = input_login(req[0])[0][0]
