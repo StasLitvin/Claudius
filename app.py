@@ -32,7 +32,8 @@ def login():
     if request.method == "POST":
         print(request.form)
         req = (request.form['login'], request.form['password'])
-
+        if not check_user_exist(request.form['login']):
+            return render_template('login.html', error_text="Этот пользователь не существует")
         print(req[0])
         if input_login(req[0])[0][1] == req[1]:
             print(input_login(req[0])[0])
