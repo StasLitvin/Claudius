@@ -72,3 +72,27 @@ document.addEventListener('DOMContentLoaded', function () {
         e.target.classList.toggle('btns__show-password--open')
     })
 }, false);
+
+function togglePassword() {
+	var passwordField = document.getElementById("password");
+	var passwordToggle = document.getElementById("password-toggle");
+	if (passwordField.type === "password") {
+	  passwordField.type = "text";
+	  passwordToggle.querySelector("img").src = "../static/img/eye_logo.png";
+	} else {
+	  passwordField.type = "password";
+	  passwordToggle.querySelector("img").src = "../static/img/eye_logo.png";
+	}
+ }
+
+
+function clearPlaceholder1(input) {
+	input.placeholder = "";
+ }
+
+function addPlaceholder1(input, placeholder) {
+	if (input.value === "") {
+	  input.placeholder = placeholder;
+	}
+ }
+

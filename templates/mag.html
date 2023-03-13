@@ -4,15 +4,16 @@
             {% for c in coup %}
             <div class="card">
                 <div class="card_top">
-                    <img src="/Claudius/staticC.jpg" height="173px" width="250px" alt="">
+                    <img src="../static/img/img.png" height="173px" width="250px" alt="">
                 </div>
                 <form method="post">
                     <div class="card_botom">
-                    <p class="coupons__cathegory">{{ c[1] }}</p>
-                    <h3 class="coupons__name">{{ c[2] }}</h3>
-                    <p class="coupons__price" name="coin">{{ c[4] }}</p>
+                    <p class="card_title">{{ c[1] }}</p>
+                    <h3 class="card_title">{{ c[2] }}</h3>
+
+                    <p class="card_price" name="coin">{{ c[4] }}</p>
                     <input hidden type="text" name="id_coup" value="{{ c[0] }}">
-                    <input type="submit" class="coupons__sub" value="Обменять пряники">
+                    <input type="submit" class="card_trade" value="Обменять пряники">
                         </div>
                 </form>
             </div>

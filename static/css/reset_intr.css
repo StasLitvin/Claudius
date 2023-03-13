@@ -49,3 +49,14 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+.show-password-btn {
+	position: absolute;
+	top: 50%;
+	right: 25px;
+	transform: translateY(-50%);
+	cursor: pointer;
+ }
+.form-field-2{
+	margin-bottom: 51px;
+	position: relative;
+}

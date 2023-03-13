@@ -21,7 +21,7 @@
     --font-main: 'Montserrat';
     --font-secondary: 'Quicksand';
     font-family: var(--font-main);
-    --header-color: #2278EE;
+    --header-color:#2278EE;
     --main-color:linear-gradient(141.69deg, rgba(21, 112, 237, 0.96) 0%, rgba(27, 114, 234, 0.73) 70.83%, rgba(27, 114, 234, 0.22) 100%);
     --secondary-color:#2278EE;
     --hover-submit:rgba(76, 133, 212, 0.8);

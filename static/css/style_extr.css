@@ -27,7 +27,7 @@
 }
 
 .header {
-    background: var(--header-color);
+    background: #330F13;
     min-height: 60px;
     margin-bottom: 66px;
 }
@@ -67,7 +67,7 @@
     font-family: inherit;
     line-height: 188.5%;
     text-align: center;
-    color: #FFFFFF;
+    color: #A4BA93;
 }
 
 .nav__links {
@@ -87,7 +87,7 @@
     line-height: 15px;
     text-decoration: none;
     text-align: center;
-    color: #FFFFFF;
+    color: #A4BA93;
 }
 
 .container {

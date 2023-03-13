@@ -1,0 +1,478 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    color: #A4BA93;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+body {
+	background: center no-repeat var(--body-color);
+}
+
+
+
+:root {
+    --body-color:white;
+    --header-color:#330F13;
+    --header-color-2: #A4BA93;
+    --text-header-color: #A4BA93;
+    --text-color:#A4BA93;
+    --div-color:#330F13;
+    --button-color:#330F13;
+}
+
+.header {
+	width: 100%;
+	min-width: 1200px;
+	height: 1%;
+	margin: 0 auto;
+
+	font-family: 'Ubuntu';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 17px;
+}
+
+.header a, p {
+	text-decoration: none;
+	color: #A4BA93;
+}
+
+.header img {
+	margin: 0 auto;
+}
+
+.header-1 {	
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background: center no-repeat #A4BA93;
+}
+
+.logo {
+	margin: 0.2% 0 0.6% 5%;
+
+	font-size: 32px;
+	line-height: 37px;
+}
+
+.courses {
+	margin: 1.2% 0 1% 30%;
+	font-size: 20px;
+}
+
+.lk-up {
+	margin: 1.2% 0 1% 0.1%;
+	font-size: 20px;
+}
+
+.reg {
+	margin: 1.2% 0 1% 0.1%;
+	font-size: 20px;
+}
+
+.span {
+	margin: 1.2% 0.5% 1% 0.5%;
+}
+
+.phone-img {
+	margin: 1.2% 0 1% 8%;
+}
+
+.phone {
+	margin: 1.2% 0 1% 0;
+}
+
+.email-img {
+	margin: 1.5% 0 1% 2%;
+}
+
+.email {
+	margin: 1.2% 3% 1% 0;
+}
+
+
+
+.header-2 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background: center no-repeat #A4BA93;
+}
+
+
+.app-img {
+	margin: 1.2% 0 1% 5%;
+}
+
+.vector-img {
+	margin: 1.2% 0 1% 0.2%;
+}
+
+.lk-bottom {
+	margin: 1.2% 0 1% 1%;
+
+	font-size: 24px;
+	line-height: 28px;
+}
+
+.turn-img {
+	margin: 1.2% 0 1% 68%;
+}
+
+.turn {
+	margin: 1.2% 3% 1% 1%;
+}
+
+
+
+.main-osn {
+	width: 100%;
+	min-width: 1200px;
+	height: 97%;
+	margin: 0 auto;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+.main-osn p, a, div, li {
+	color: #A4BA93;
+}
+
+.main-1 {
+	margin: 0 0 0 2.5%;
+
+	font-family: 'Ubuntu';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 28px;
+
+	flex: 1 1 50%;
+}
+
+.my_profile {
+	margin: 2.5% 0 0 5%;
+
+	font-size: 32px;
+	line-height: 37px;
+}
+
+.my_education {
+	margin: 4% 0 0 5%;
+}
+
+
+.first-ed {
+	margin: 2.5% 0 0 3%;
+	width: 536px;
+	height: 267px;
+	border-radius: 37px;
+
+	background: var(--div-color);
+}
+
+.stars {
+	padding: 10px 0 0 30px;
+}
+
+.h__first-ed {
+	padding: 1px 0 0 14px;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.h__first-ed a{
+	text-decoration: none;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 17px;
+}
+
+.rect1 {
+	padding: 10px 0 0 0;
+}
+
+.rect1-dop {
+	margin: -28px 0 0 0;
+}
+
+.dop-info {
+	padding: 22px 0 0 0;
+}
+
+
+.bottom__first-ed {
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.for-button {
+	margin: 15px 0 0 0;
+}
+
+.first-ed-button-continue {
+	padding: 0;
+	border: none;
+	background: none;
+	cursor: pointer;
+
+	width: 130px;
+	height: 52px;
+	background: var(--button-color);
+	color: #A4BA93;
+	border-radius: 50px;
+
+
+	align-items: center;
+
+	transition: background-color 0.2s ease-in;
+}
+
+	.first-ed-button-continie:hover {
+		background-color: #A4BA93;
+	}
+
+.Python {
+	width: 50px;
+	height: 50px;
+	margin: -25px 15px 0 0;
+}
+
+
+.like {
+	margin: -35px 0 0 485px;
+}
+
+.first-ed-button-like {
+	padding: 0;
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
+.first-ed-button-like:active {
+	background-image: url(../img/Vector9-dop.png);
+}
+
+.second-ed {
+	margin: 6% 0 0 3%;
+	width: 536px;
+	height: 267px;
+	border-radius: 37px;
+
+	background: var(--div-color);
+}
+
+
+.main-2 {
+	font-family: 'Ubuntu';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 32px;
+
+	flex: 0 0 50%;
+}
+
+.main-2-1 {
+	display: flex;
+	justify-content: space-between;
+}
+
+.photo {
+	margin: 15% 0 0 13%;
+	width: 250px;
+	height: 195px;
+
+	overflow: hidden;
+	border-radius: 100px;
+
+	position: relative;
+}
+
+.icon-photo {
+	top: -190px;
+	right: -200px;
+
+	position: relative;
+}
+
+.info-ul {
+	margin: 5% 1% 0 0;
+	width: 270px;
+	height: 300px;
+
+	font-size: 20px;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+.name {
+	font-size: 26px;
+	margin-bottom: 14px;
+}
+
+.smile {
+	margin: -29px 0 0 130px;
+
+	position: relative;
+}
+
+.edit {
+	margin: 12% 10% 0 1%;
+
+	width: 153px;
+	height: 42px;
+
+	border-radius: 100px;
+	background: var(--header-color);
+}
+
+.edit a {
+	text-decoration: none;
+	color: #A4BA93;
+
+	font-size: 13px;
+	margin-left: 10px;
+}
+
+.main-2-2 {
+	font-family: 'Ubuntu';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 70px;
+}
+
+.emo {
+	margin-left: 30%;
+	margin-top: 10px;
+}
+
+.emotional {
+	margin: -100px 0 0 0;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.emotional-dop {
+	line-height: 86px;
+	margin-left: -40%;
+	margin-right: 23%;
+}
+
+.main-2-3 {
+	font-family: 'Ubuntu';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 40px;
+
+	margin: 5% 0 0 4%;
+}
+
+.stat {
+	display: flex;
+	justify-content: space-between;
+}
+
+.table {
+	margin: 2%;
+}
+
+.table th, td {
+	color: #A4BA93;
+	padding-left: 15px;
+	padding-right: 15px;
+
+	font-size: 16px;
+	text-align: center; 
+}
+
+.stat-data {
+	margin: 4% 10% 0 1% ;
+}
+
+.main-dop {
+	font-family: 'Ubuntu';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 30px;
+
+	margin: 1% 0 0 1%;
+}
+
+.now {
+	margin: 1% 0 0 5%;
+}
+
+.now-dop {
+	display: flex;
+	justify-content: space-between;
+}
+
+.border {
+	margin-left: 3%;
+	margin-top: 1%;
+
+	width: 60px;
+	height: 60px;
+
+	background: #A4BA93;
+}
+
+.now-content {
+	margin: 2% 50% 0 0;
+}
