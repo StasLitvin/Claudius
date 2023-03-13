@@ -13,7 +13,7 @@ function myNewFunction(sel) {
 document.addEventListener('DOMContentLoaded', function () {
     let showPass = document.querySelector(".btns__show-password");
     let pass = document.querySelector(".password");
-    let login = document.querySelector(".login");
+    let logins = document.querySelectorAll(".login");
     let form = document.querySelector('.form')
     let sogl = document.querySelector("input[name='sogl']");
     let submit = document.querySelector(".submit-btn");
