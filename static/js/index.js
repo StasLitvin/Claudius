@@ -8,6 +8,10 @@ function myNewFunction(sel) {
         document.getElementById("reset").href = "../static/css/reset_intr.css";
         document.getElementById("style").href = "../static/css/style_intr.css";
     }
+    if (s == "Амбиверт") {
+        document.getElementById("reset").href = "../static/css/reset_ambr.css";
+        document.getElementById("style").href = "../static/css/style_ambr.css";
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
