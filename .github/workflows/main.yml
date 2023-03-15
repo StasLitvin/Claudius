@@ -15,4 +15,4 @@ jobs:
         with:
           token: ${{ secrets.PERSONAL_TOKEN }}
           head: main
-          base: mail
+          base: main
