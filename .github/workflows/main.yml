@@ -13,6 +13,4 @@ jobs:
     steps:
       - uses: tgymnich/fork-sync@v1.8
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          personal_token: ${{ secrets.GH_PERSONAL_TOKEN }}
-
+          token: ${{ secrets.PERSONAL_TOKEN }}
