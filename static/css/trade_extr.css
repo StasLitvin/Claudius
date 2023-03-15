@@ -1,29 +1,30 @@
+body{
+  margin: 0;
+  background-color: white;
+}
 .header{
-	background: #6495ED;
+	background: #330F13;
 	position: relative;
 }
-.title{
-	color: white;
+.title {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
 }
-.call{	
-}
-.login{
-}
-
-
 
 .cards { /*для сетки*/
+
   display: grid;
   grid-template-columns: repeat(auto-fill, 225px);
   width: 100%;
-  max-width: 100%;
+  max-width: 1000px; 
   justify-content: center;
   justify-items: center; 
-  column-gap: 50px; /*растояние между карточками*/
+  column-gap: 20px; /*растояние между карточками*/
   row-gap: 30px; /*растояние между рядами*/
-  margin: 70 auto;
+  margin: auto;
 }
 .card{
+  margin-top: 10%;
 	width: 230px; /*ширина карточки*/
 	min-height: 300px; /*высота карточки*/
 	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
@@ -32,6 +33,8 @@
     border-radius: 4px;
     transition: 0.2s;
     position: relative;
+    background-color: #330F13;
+    border: 3px solid #330F13;
 }
 .card_top {
   flex: 0 0 220px;  
@@ -62,12 +65,14 @@
   padding: 10px;
 }
 .card_price {
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 20px;
-  color: #606060;
   display: flex;
   flex-wrap: wrap-reverse;
   justify-content: flex-start;
+  margin-left: 10%;
+  color: white;
 }
 .card_trade { /*кнопка*/
   display: block;
@@ -83,10 +88,34 @@
   margin-top: auto; 
 }
 .card_title {
+  margin-left: 10%;
   display: block;
   margin-bottom: 10px;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 20px;
   line-height: 150%;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
 }
 
+.header_line {
+  justify-content: space-around;
+  display: flex;
+  align-items:center;
+}
+
+.nav_item{
+  font-family: 'Montserrat', sans-serif;
+  color: White;
+  margin-right: 25px;
+}
+
+.nav_item:hover {
+  color: #66FCF1;
+  transition: color;
+  transition-duration: 300ms;
+}
+
+.cookie{
+
+}

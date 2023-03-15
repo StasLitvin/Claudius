@@ -21,13 +21,13 @@
     --font-main: 'Montserrat';
     --font-secondary: 'Quicksand';
     font-family: var(--font-main);
-    --header-color: #330F13;
+    --header-color: #0C2A22;
     --size-font: 12px;
     font-style: normal;
 }
 
 .header {
-    background: #330F13;
+    background: #0C2A22;
     min-height: 60px;
     margin-bottom: 66px;
 }
@@ -107,7 +107,7 @@
 }
 
 .left-section {
-    background: linear-gradient(141.69deg, #330F13 0%, #90817C 72.92%, #FEFAEF 100%);
+    background: linear-gradient(141.69deg, #0C2A22 0%, #ADC89D 72.92%, #FEFAEF 100%);
     border-radius: 60px 0px 0px 60px;
     display: flex;
     flex-direction: column;
@@ -172,7 +172,7 @@
     font-size: 50px;
     line-height: 61px;
     text-align: center;
-    color: #330F13;
+    color: #0C2A22;
 }
 
 .form__btns {
@@ -192,7 +192,7 @@
 
 .login {
     background: #FFFFFF;
-    border: 3px solid #330F13;
+    border: 3px solid #0C2A22;
     border-radius: 25px;
     font-weight: 400;
     font-size: 25px;
@@ -209,7 +209,7 @@
 
 .password {
     background: #FFFFFF;
-    border: 3px solid #330F13;
+    border: 3px solid #0C2A22;
     border-radius: 25px;
     font-weight: 400;
     font-size: 25px;
@@ -226,7 +226,7 @@
 }
 
 .login:focus,.password:focus{
-    border: 3px solid #267AEE;
+    border: 3px solid #0C2A22;
     outline: 0;
     color:black;
 }
@@ -295,9 +295,9 @@
     font-size: 30px;
     line-height: 37px;
     text-align: center;
-    color: #330F13;
+    color: #0C2A22;
 }
 .submit-btn:hover{
     color: white;
-   background: rgba(82, 43, 47, 0.6);
+   background: #ADC89D;
 }

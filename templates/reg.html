@@ -14,6 +14,9 @@
           <form method="post">
               <div class="form">
             <h2 class="form__title title">Зарегистрируйтесь</h2>
+            {% if error_text is defined %}
+            <div style="border:5px solid palevioletred; border-radius: 5px; font-size: 25px; margin-bottom: 15px; background-color: palevioletred"> {{error_text}}</div>
+            {% endif %}
             <div class="form__btns btns">
                 <label class="visuallyhidden"  for="name">Имя</label>
               <input class="btns__login login" name="name" id="name" type="text"  placeholder="Имя">
@@ -21,19 +24,30 @@
               <input class="btns__login login" name="surname" id="surname" type="text"  placeholder="Фамилия">
                 <label class="visuallyhidden"  for="fatherland">Отечество</label>
               <input class="btns__login login" name="fatherland" id="fatherland" type="text"  placeholder="Отечество">
+                 <label class="visuallyhidden"  for="s">Тип личности</label>
+                <select name="s" class="btns__login login"  onchange="myNewFunction(this)">
+            <option name="s_var1" class="btns__login login">Интроверт</option>
+            <option name="s_var2" class="btns__login login">Экстроверт</option>
+            <option name="s_var3" class="btns__login login">Амбиверт</option>
+        </select>
+                <label class="visuallyhidden"  for="pos">Статус</label>
+                <select name="pos" class="btns__login login" >
+            <option name="pos_var1" class="btns__login login">Ученик</option>
+            <option name="pos_var2" class="btns__login login">Преподаватель</option>
+        </select><br>
               <label class="visuallyhidden"  for="login">Login</label>
               <input class="btns__login login" name="login" id="login" type="text"  placeholder="Логин | E-mail почта">
               <label class="visuallyhidden" for="password">password</label>
-              <div class="btns__password-container">
-                <input class="btns__password password" name="password" id="password"  type="password"  placeholder="Пароль">
-              <span class="btns__show-password btns__show-password--open"></span>
+              <div class="form-field-2">
+                <input class="btns__password password" name="password" id="password"  type="text"  placeholder="Введите пароль" required onfocus="clearPlaceholder1(this)" onblur="addPlaceholder1(this, 'Введите пароль')">
+              <div class="show-password-btn" id="password-toggle" onclick="togglePassword()">
+					<img src="../static/img/eye_logo.png" alt="">
+				</div>
+
               </div>
-                <select name="s" class="form-control" onchange="myNewFunction(this)">
-            <option name="s_var1" class="form-control">Интроверт</option>
-            <option name="s_var2" class="form-control">Экстроверт</option>
-            <option name="s_var3" class="form-control">Не помню кто</option>
-        </select>
-              <input type="submit" class="form__submit-btn submit-btn"  value="Зарегистрироваться">
+
+
+              <input type="submit" class="form__submit-btn submit-btn"  value="Зарегистрироваться" disabled="true">
                 <div>
                 <input type="checkbox" name="sogl"><a href="../static/dok/sogl.pdf">Согласен с пользовательским соглашение</a>
              </div>
