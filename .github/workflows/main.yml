@@ -12,7 +12,4 @@ jobs:
 
     steps:
       - uses: tgymnich/fork-sync@v1.8
-        with:
-          owner: StasLitvin
-          base: main
-          head: main
+
