@@ -63,17 +63,17 @@ def login():
     if request.method == "POST":
         print(request.form)
         if request.form['CSRFToken'] == session['csrf_token']:
-            req = (request.form['login'], request.form['password'])
+            request_login, request_password = request.form['login'], request.form['password']
             if not check_user_exist(request.form['login']):
                 return render_template('login.html', error_text="Этого пользователя не существует", href=href_intr)
-            print(req[0])
-            if input_login(req[0])[0][1] == req[1]:
-                print(input_login(req[0])[0])
-                session['id_user'] = input_login(req[0])[0][0]
-                session['user_href'] = input_login(req[0])[0][2]
+            print(request_login)
+            user_id, user_password, user_s = input_login(request_login)[0]
+            if user_password == request_password:
+                print(input_login(request_login)[0])
+                session['id_user'] = user_id
+                session['user_href'] = user_s
                 print(input_login(session['user_href']))
-                session['login_user'] = req[0]
-                return redirect(url_for('profile', username=session['login_user']))
+                session['login_user'] = request_login
         else:
             csrf_token = generate_csrf_token()
             session['csrf_token'] = csrf_token
