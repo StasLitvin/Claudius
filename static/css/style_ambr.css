@@ -21,14 +21,15 @@
   --font-main: "Montserrat";
   --font-secondary: "Quicksand", sans-serif;
   font-family: var(--font-main);
-  --header-color: #0C2A22;
+  --header-color: #0c2a22;
   --main-color: linear-gradient(
     141.69deg,
-    #0C2A22 0%,
-    rgb(18, 63, 53) 70.83%,
-    rgb(8, 86, 67) 100%
+    #0c2a22 0%,
+    #23af8a 64.7%,
+    #b9ba80 100%
   );
-  --secondary-color: #0C2A22;
+
+  --secondary-color: #0c2a22;
   --hover-submit: rgb(18, 63, 53);
   --size-font: 12px;
   font-style: normal;
@@ -189,7 +190,7 @@
 
 .login {
   background: #ffffff;
-  border: 3px solid #0C2A22;
+  border: 3px solid #0c2a22;
   border-radius: 25px;
   font-weight: 400;
   font-size: 25px;
@@ -204,7 +205,7 @@
 
 .password {
   background: #ffffff;
-  border: 3px solid #0C2A22;
+  border: 3px solid #0c2a22;
   border-radius: 25px;
   font-weight: 400;
   font-size: 25px;
@@ -223,7 +224,7 @@
 
 .login:focus,
 .password:focus {
-  border: 3px solid #0C2A22;
+  border: 3px solid #0c2a22;
   outline: 0;
   color: black;
 }
