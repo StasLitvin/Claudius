@@ -21,14 +21,14 @@
   --font-main: "Montserrat";
   --font-secondary: "Quicksand", sans-serif;
   font-family: var(--font-main);
-  --header-color: #330F13;
+  --header-color: #330f13;
   --main-color: linear-gradient(
     141.69deg,
-    #330F13 0%,
-    rgb(89, 24, 31) 70.83%,
-    rgb(154, 17, 32) 100%
+    #330f13 0%,
+    #90817c 72.92%,
+    #fefaef 100%
   );
-  --secondary-color: #330F13;
+  --secondary-color: #330f13;
   --hover-submit: rgb(89, 24, 31);
   --size-font: 12px;
   font-style: normal;
@@ -55,7 +55,7 @@
   font-weight: 600;
   font-size: 28px;
   line-height: 97%;
-  color: #A4BA93;
+  color: white;
   text-decoration: none;
 }
 
@@ -70,7 +70,7 @@
   font-family: inherit;
   line-height: 188.5%;
   text-align: center;
-  color: #A4BA93;
+  color: white;
 }
 
 .nav__links {
@@ -90,7 +90,7 @@
   line-height: 15px;
   text-decoration: none;
   text-align: center;
-  color: #A4BA93;
+  color: white;
 }
 
 .container {
@@ -114,7 +114,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #A4BA93;
+  color: white;
 }
 
 .auth__title {
@@ -132,7 +132,7 @@
 
 .auth__button {
   text-decoration: none;
-  color: #A4BA93;
+  color: white;
   font-size: 30px;
   font-weight: 500;
   padding: 1rem 2rem;
@@ -223,15 +223,15 @@
 
 .login:focus,
 .password:focus {
-  border: 3px solid #330F13;
+  border: 3px solid #330f13;
   outline: 0;
   color: black;
 }
 .password--invalid,
 .login--invalid {
-  border: 3px solid #330F13;
+  border: 3px solid #330f13;
   outline: 0;
-  color: #330F13;
+  color: #330f13;
 }
 
 .password:focus::placeholder,
