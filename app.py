@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, session, url_for, redirect, abort
 from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg, input_login, data_user, \
-    user_update_coin
+    user_update_coin, class_stud, user_rez, task_class, tasks_lec, answer_user, tasks_lec_rez, rez_coin, task_eval, \
+    update_answer_coin
 from mail import send_mail
 
 app = Flask(__name__)
@@ -18,7 +19,8 @@ type_css = {"Интроверт": href_intr, "Экстроверт": href_extr, 
 @app.route('/')
 def base():
     if 'user_href' in session:
-        return render_template('base.html', title="Главная", href=type_css[session['user_href']],user=data_user(session['id_user']))
+        return render_template('base.html', title="Главная", href=type_css[session['user_href']],
+                               user=data_user(session['id_user']))
     return render_template('base.html', title="Главная", href=href_intr)
 
 
@@ -66,7 +68,8 @@ def login():
 def mag():
     if request.method == "GET":
         if 'user_href' in session:
-            return render_template('mag.html', title="Обменник", coup=coups_mas(), href=type_css[session['user_href']],user=data_user(session['id_user']))
+            return render_template('mag.html', title="Обменник", coup=coups_mas(), href=type_css[session['user_href']],
+                                   user=data_user(session['id_user']))
         return render_template("mag.html", coup=coups_mas(), title="Обменник", href=href_intr)
     if request.method == "POST":
         id_coup = request.form['id_coup']
@@ -88,8 +91,76 @@ def profile(username):
     if 'id_user' not in session or session['login_user'] != username:
         abort(401)
     else:
-        return render_template('profile.html', title="Главная", href=type_css[session['user_href']],
+        return render_template('profile.html', title="Личный кабинет", href=type_css[session['user_href']],
                                user=data_user(session['id_user']))
+
+
+@app.route('/class/<id_class>', methods=['GET'])
+def class_rez(id_class):
+    session['id_class'] = 1
+    if session['id_class'] == id_class:
+        abort(401)
+    else:
+        stud = class_stud(session['id_class'])
+        task = task_class(session['id_class'])
+        print(stud)
+        print(task)
+        mas_studs = []
+        for i in stud:
+            mas_stud = []
+            user = data_user(i[2])[0]
+            mas_stud.append([str(user[1]) + " " + str(user[2]) + " " + str(user[3])])
+            for j in range(len(task[0])):
+                m = user_rez(i[2], task[0][j])
+                if m != []:
+                    true_count = m.count([(1,)])
+                    mas_stud.append([str(true_count) + '/' + str(len(task[0][j])), task[1][j][0], i[2]])
+                else:
+                    mas_stud.append(['-/' + str(len(task[0][j]))])
+            mas_studs.append(mas_stud)
+        sh = ["ФИО"]
+        for i in task[1]:
+            sh.append(i[1])
+        print(sh)
+        print(mas_studs)
+        return render_template('class.html', title="Результаты курса", href=href_intr, sh=sh, mas_studs=mas_studs)
+
+
+@app.route('/tasks/<id_lecture>', methods=['GET', 'POST'])
+def tasks(id_lecture):
+    if request.method == "GET":
+        session['id_lecture'] = 1
+        if session['id_lecture'] == id_lecture:
+            abort(401)
+        else:
+            mas = tasks_lec(id_lecture)
+            return render_template('tasks.html', title="Задания к лекцие", href=href_intr, mas_tasks=mas)
+    if request.method == "POST":
+        print(request.form)
+        session['id_user'] = 12
+        for i in request.form:
+            answer_user(session['id_user'], int(i), int(request.form[i].split("/")[1]))
+        mas = task_eval(id_lecture, session['id_user'])
+        for i in mas:
+            if i[1] == i[3]:
+                update_answer_coin(session['id_user'], i[3], i[2])
+            else:
+                update_answer_coin(session['id_user'], i[3], 0)
+        return redirect(url_for('rez_tasks', id_lecture=id_lecture, id_user=session['id_user']))
+
+
+@app.route('/rez_tasks/<id_lecture><id_user>', methods=['GET', 'POST'])
+def rez_tasks(id_lecture, id_user):
+    print(id_user)
+    print(id_lecture)
+    session['id_lecture'] = id_lecture
+    if request.method == "GET":
+        session['id_user'] = id_user
+        mas = tasks_lec_rez(id_lecture, session['id_user'])
+        rez_coins = rez_coin(id_lecture, session['id_user'])
+        print(mas)
+        return render_template('task_rez.html', title="Результаты заданий", href=href_intr, mas_tasks=mas,
+                               rez_coin=rez_coins)
 
 
 @app.route('/exit', methods=['GET'])
