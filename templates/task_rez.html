@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="">
+    {% for i in mas_tasks %}
+        <div id="{{ i[0] }}">
+            <h3>Решите задание</h3>
+            <img src="{{ i[1] }}" alt="Тестовое изображение" title="Картинка" />
+            {% for j in i[2] %}
+                {% if j!=i[3][-1][0] %}
+                {% if j[0]!= i[3][-1][0] %}
+                <p><input type="radio" disabled="disabled" name="{{ i[0] }}" value="{{ j[1] }}">{{ j[1] }}</p>
+                {% else %}
+                <p><input type="radio" disabled="disabled"  name="{{ i[0] }}" value="{{ j[1] }}" checked="checked">{{ j[1] }}</p>
+            {% endif %}
+
+                {% endif %}
+
+            {% endfor %}
+        {% for r in rez_coin %}
+                    {% if r[0]==i[0] %}
+                        <p>Вы получили: {{ r[2] }} из {{ r[1] }}</p>
+                        {% endif %}
+                    {% endfor %}
+        </div>
+
+    {% endfor %}
+    </form>
+{% endblock %}
