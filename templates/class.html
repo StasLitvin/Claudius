@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <table bgcolor="#a9a9a9" border="1" width="1000">
+    <tr>
+    {% for i in sh %}
+        <th>{{ i }}</th>
+    {% endfor %}
+    </tr>
+    {% for i in mas_studs %}
+    <tr>
+        {% for j in i %}
+        <td>
+        {% if j[1] in j %}
+            <a href="{{url_for('rez_tasks',id_lecture=j[1], id_user=j[2])}}">{{ j[0] }}</a>
+        {% else %}
+            {{ j[0] }}
+        {% endif %}
+        </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
