@@ -74,6 +74,7 @@ def login():
                 session['user_href'] = user_s
                 print(input_login(session['user_href']))
                 session['login_user'] = request_login
+                return redirect(f'/profile/{session["login_user"]}')
         else:
             csrf_token = generate_csrf_token()
             session['csrf_token'] = csrf_token
