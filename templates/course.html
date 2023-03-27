@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main>
+    <section class="course">
+      <div class="course__tittle">
+          <img src="../static/img/computer.png" alt="">
+          <p class="fs-48">Определённый курс</p>
+      </div>
+      <div class="course__container container">
+        <div class="course__section course__left-section">
+            <div class="arrow"></div>
+            <img src="../static/img/course_left.png" alt="">
+            <div class="arrow arrow_rotate--right"></div>
+        </div>
+        <div class="course__section right-section">
+            <div class="course__right-section">
+                <p class="fs-36">Курс язык Python</p>
+                <p>
+                    Курс содержит материал для изучения языка программирования Python.
+                    Курс содержит 15 уроков, один рубежный
+                    контроль, один экзамен. Курс рассчитан
+                    на начинающих программистов и т.д.
+                </p>
+                <button class="course__btn fs-36">Продолжить</button>
+                <div class="course__progressbar">
+                  <div></div>
+                </div>
+                <p class="fs-20 course__flex-content--center">Макс. баллов - 120</p>
+            </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="../static/js/index.js"></script>
+{% endblock %}

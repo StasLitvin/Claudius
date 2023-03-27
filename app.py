@@ -162,6 +162,11 @@ def rez_tasks(id_lecture, id_user):
         return render_template('task_rez.html', title="Результаты заданий", href=href_intr, mas_tasks=mas,
                                rez_coin=rez_coins)
 
+@app.route('/courses/course', methods=['GET', 'POST'])
+def course():
+    if request.method == "GET":
+        return render_template('course.html', tittle="Курс", href=href_intr)
+
 
 @app.route('/exit', methods=['GET'])
 def exit():
