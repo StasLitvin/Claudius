@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat+Alternates:wght@600;800&family=Montserrat:wght@400;500;600&family=Quicksand:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/reset.css" />
+    <link rel="stylesheet" href={{ href[4] }} />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__information">
+        <span class="header__logo">Claudius</span>
+        <span class="header__additional-inf">Бонусная система поощрения</span>
+      </div>
+      <div class="contact__information">
+        <a href="tel:+79995553322" class="header__link number-link">
+          <img src="../static/img/phone.png" alt="Phone" class="phone-img" />
+          <span class="number">8 999 555 3322</span>
+        </a>
+        <a href="mail:support@claudius.ru" class="header__link mail-link">
+          <img src="../static/img/mail.png" alt="Mail" class="mail-img" />
+          <span class="mail">support@claudius.ru</span>
+        </a>
+        <a href="" class="exit-link">
+          <img src="../static/img/exit.png" alt="Exit" class="exit-img" />
+        </a>
+      </div>
+    </header>
+    <main class="main">
+      <section class="path">
+        <div class="current-path">
+          <img src="../static/img/home.svg" alt="Home image" />
+          <img src="../static/img/arrow-right.svg" alt="Arrow rigth" />
+          <h3 class="path__h3">Курсы</h3>
+        </div>
+        <div class="reminder">
+          <img src="../static/img/bell.png" alt="Bell" />
+          <h3 class="reminder__h3">Напоминание</h3>
+        </div>
+      </section>
+      <section class="courses">
+        <div class="container">
+          <div class="courses__content">
+            <h1 class="courses__h1">Все курсы представлены здесь</h1>
+            <span class="courses__additional-inf">
+              Мы всегда рады вашим успехам.
+            </span>
+            <div class="search">
+              <label for="search__input">
+                <input
+                  type="search"
+                  id="search__input"
+                  placeholder="Поиск по курсу"
+                />
+              </label>
+              <img src="../static/img/search.png" alt="Search" class="search__img" />
+              <div class="search__span">Всего курсов: {{ count_courses }} </div>
+            </div>
+
+            <div class="cards">
+                {% for i in courses %}
+              <div class="card">
+                <img src="../static/img/star.png" alt="Star" class="card__star" />
+                <h2 class="card__h2">{{ i[0] }}</h2>
+                <h3 class="card__h3">{{ i[1] }}</h3>
+                <div class="card__bottom">
+                  <div class="bottom__left">
+                    <div class="bottom__information">
+                      <div class="time">
+                        <img
+                          src="../static/img/clock.png"
+                          alt="Clock"
+                          class="time__img"
+                        />
+                        <span class="time__inf">{{ i[2]*3 }} ч.</span>
+                      </div>
+                      <div class="views">
+                        <img src="../static/img/eye.png" alt="Eye" class="views__img" />
+                        <span class="views__inf">{{ i[3] }}</span>
+                      </div>
+                    </div>
+                    <a href="#" class="card__start">начать</a>
+                  </div>
+                  <div class="bottom__right">
+                    <img src="../static/img/{{ i[4] }}" alt="img_course" />
+                  </div>
+                </div>
+              </div>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

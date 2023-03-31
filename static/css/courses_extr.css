@@ -1,0 +1,235 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1520px;
+  padding: 0 150px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  background-color: #330f13;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 24px 16px 100px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  color: #fff;
+}
+
+.header__information {
+  display: flex;
+  align-items: flex-end;
+}
+
+.header__logo {
+  margin-right: 8px;
+  color: #adc89d;
+  font-size: 28px;
+  line-height: 27.16px;
+}
+
+.header__additional-inf {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22.62px;
+}
+
+.contact__information {
+  display: flex;
+  column-gap: 38px;
+  align-items: center;
+}
+
+.phone-img,
+.mail-img {
+  margin-right: 6px;
+}
+
+.header__link {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 15px;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Section path */
+.path {
+  background-color: #90817c;
+  padding: 12px 46px 12px 59px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.current-path {
+  display: flex;
+  align-items: center;
+  column-gap: 18px;
+}
+
+.path__h3 {
+  line-height: 10px;
+}
+
+.reminder {
+  display: flex;
+  align-items: center;
+  column-gap: 18px;
+}
+
+.reminder__h3 {
+  line-height: 32px;
+}
+
+/* Section courses */
+.courses {
+  background-color: #fefaef;
+  padding-top: 80px;
+  padding-bottom: 14px;
+}
+
+.courses__h1 {
+  margin-bottom: 50px;
+  font-family: "Montserrat Alternates", sans-serif;
+  line-height: 60px;
+  font-weight: 800;
+  font-size: 55px;
+}
+
+.courses__additional-inf {
+  display: block;
+
+  margin-bottom: 35px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.search {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 36px;
+}
+
+#search__input {
+  padding: 20px 18px 20px 50px;
+  width: 384px;
+  border: none;
+  background-color: #e2e2e2;
+  border-radius: 4px;
+}
+
+#search__input::placeholder {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 0.01em;
+}
+
+.search__img {
+  position: relative;
+  bottom: 18px;
+  right: 370px;
+}
+
+.search__span {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 22px;
+  color: #787878;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  padding: 0 25px 21px 32px;
+  margin-bottom: 30px;
+  width: 384px;
+  background-image: linear-gradient(116.48deg, #fff5e0 0%, #ffdef3 100%);
+}
+
+.card__star {
+  position: relative;
+  left: 300px;
+  top: 24px;
+}
+
+.card__h2 {
+  margin-bottom: 16px;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 22px;
+  line-height: 32px;
+}
+
+.card__h3 {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+.card__bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottom__information {
+  margin-top: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+}
+
+.time,
+.views {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.time__inf,
+.views__inf {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 7.3px;
+  line-height: 23.33px;
+  color: #000;
+}
+
+.card__start {
+  padding: 8px 12px;
+  background-color: #00ac65;
+  border-radius: 4px;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 22px;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+}

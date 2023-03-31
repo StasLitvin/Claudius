@@ -3,18 +3,18 @@ import os
 from flask import Flask, render_template, request, session, url_for, redirect, abort
 from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg, input_login, data_user, \
     user_update_coin, class_stud, user_rez, task_class, tasks_lec, answer_user, tasks_lec_rez, rez_coin, task_eval, \
-    update_answer_coin
+    update_answer_coin, cards_corsers
 from mail import send_mail
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'fsa87asd782asd'
 
 href_intr = ["../static/css/trade_intr.css", "../static/css/profile_intr.css", "../static/css/style_intr.css",
-             "../static/css/reset_intr.css"]
+             "../static/css/reset_intr.css", "../static/css/courses_intr.css"]
 href_extr = ["../static/css/trade_extr.css", "../static/css/profile_extr.css", "../static/css/style_extr.css",
-             "../static/css/reset_extr.css"]
+             "../static/css/reset_extr.css", "../static/css/courses_extr.css"]
 href_ambr = ["../static/css/trade_ambr.css", "../static/css/profile_ambr.css", "../static/css/style_ambr.css",
-             "../static/css/reset_ambr.css"]
+             "../static/css/reset_ambr.css", "../static/css/courses_ambr.css"]
 type_css = {"Интроверт": href_intr, "Экстроверт": href_extr, "Амбиверт": href_ambr}
 
 
@@ -51,7 +51,9 @@ def reg():
         else:
             csrf_token = generate_csrf_token()
             session['csrf_token'] = csrf_token
-            return render_template('reg.html', title="Главная", href=href_intr, csrf_token=csrf_token, error_text='Invalid cstf token')
+            return render_template('reg.html', title="Главная", href=href_intr, csrf_token=csrf_token,
+                                   error_text='Invalid cstf token')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -78,7 +80,8 @@ def login():
         else:
             csrf_token = generate_csrf_token()
             session['csrf_token'] = csrf_token
-            return render_template('login.html', title="Авторизация", href=href_intr, csrf_token=csrf_token, error_text='Invalid cstf token')
+            return render_template('login.html', title="Авторизация", href=href_intr, csrf_token=csrf_token,
+                                   error_text='Invalid cstf token')
 
 
 @app.route('/mag', methods=['GET', 'POST'])
@@ -179,10 +182,21 @@ def rez_tasks(id_lecture, id_user):
         return render_template('task_rez.html', title="Результаты заданий", href=href_intr, mas_tasks=mas,
                                rez_coin=rez_coins)
 
+
 @app.route('/courses/course', methods=['GET', 'POST'])
 def course():
     if request.method == "GET":
         return render_template('course.html', tittle="Курс", href=href_intr)
+
+
+@app.route('/courses', methods=['GET', 'POST'])
+def courses():
+    if request.method == "GET":
+        cards = cards_corsers()
+        if 'user_href' in session:
+            return render_template('courses.html', title="Курсы", count_courses=cards[0], courses=cards[1],
+                                   href=type_css[session['user_href']], user=data_user(session['id_user']))
+        return render_template('courses.html', title="Курсы", count_courses=cards[0], courses=cards[1], href=href_intr)
 
 
 @app.route('/exit', methods=['GET'])
@@ -192,4 +206,4 @@ def exit():
 
 
 if __name__ == '__main__':
-    app.run(debug=True) 
+    app.run(debug=True)
