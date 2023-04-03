@@ -63,7 +63,7 @@ def data_user_reg(data):
     connection = data_con()
     cursor = connection.cursor()
 
-    quary = '''INSERT INTO users(name,surname,fatherland,email,password,pos,s,coin) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)'''
+    quary = '''INSERT INTO users(name,surname,fatherland,email,password,salt,pos,s,coin) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)'''
     cursor.execute(quary, data)
     connection.commit()
     cursor.close()
@@ -73,7 +73,7 @@ def data_user_reg(data):
 def input_login(login):
     connection = data_con()
     cursor = connection.cursor()
-    quary = '''SELECT id,password,s FROM users WHERE email=%s'''
+    quary = '''SELECT id,password,s,salt FROM users WHERE email=%s'''
     cursor.execute(quary, (login,))
     result = cursor.fetchall()
     connection.commit()
