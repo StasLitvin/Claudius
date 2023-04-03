@@ -1,23 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
-    <table bgcolor="#a9a9a9" border="1" width="1000">
-    <tr>
-    {% for i in sh %}
-        <th>{{ i }}</th>
-    {% endfor %}
-    </tr>
-    {% for i in mas_studs %}
-    <tr>
-        {% for j in i %}
-        <td>
-        {% if j[1] in j %}
-            <a href="{{url_for('rez_tasks',id_lecture=j[1], id_user=j[2])}}">{{ j[0] }}</a>
-        {% else %}
-            {{ j[0] }}
-        {% endif %}
-        </td>
-        {% endfor %}
-    </tr>
-    {% endfor %}
-    </table>
+<link rel="stylesheet" href="../static/css/table.css" />
+  <main>
+    <section class="table-tests">
+        <div class="container">
+          <div class="table">
+            <div class="table__item item">
+               {% for i in sh %}
+              <p class="item__header">{{ i }}</p>
+                {% endfor %}
+            </div>
+          {% for i in mas_studs %}
+            <div class="table__item item">
+                {% for j in i %}
+                {% if j[1] in j %}
+              <p class="item__value"><a style="text-decoration: none;color:#e3d3d3;" href="{{url_for('rez_tasks',id_lecture=j[1], id_user=j[2])}}">{{ j[0] }}</a></p>
+                {% else %}
+                <p class="item__value">{{ j[0] }}</p>
+                {% endif %}
+            {% endfor %}
+            </div>
+          {% endfor %}
+          </div>
+            </div>
+        </div>
+    </section>
+  </main>
 {% endblock %}

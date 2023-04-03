@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+.visuallyhidden:not(:focus):not(:active) {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+:root {
+    --font-main: 'Montserrat';
+    --font-secondary: 'Quicksand';
+    font-family: var(--font-main);
+
+    --header-color: #2278EE;
+    --main-color:linear-gradient(141.69deg, rgba(21, 112, 237, 0.96) 0%, rgba(27, 114, 234, 0.73) 70.83%, rgba(27, 114, 234, 0.22) 100%);
+    --secondary-color:#2278EE;
+    --hover-submit:rgba(76, 133, 212, 0.8);
+    --item-color:#2c80ee;
+    --shadow-color:#a6b4c7;
+    --selection-color:#adcaf0;
+    font-size:12px;
+    font-style: normal;
+    font-weight: 400;
+}
+::selection{
+    background-color:var(--selection-color) ;
+}
+
+
+
+
+.anchor {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 2.34rem;
+    line-height: 97%;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+
+.anchor__desc {
+    display: inline-block;
+    margin-left: 1.5em;
+}
+
+.desc {
+   
+    font-size: .45em;
+    line-height: 97%;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.link {
+    font-family: var(--font-secondary);
+
+    line-height: 1.25em;
+    text-decoration: none;
+    text-align: center;
+    color: #FFFFFF;
+}
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+.table-tests{
+    font-size:1rem;
+}
+.table{
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    justify-content: center;
+}
+
+.table__item{
+    flex-basis: 50px;
+    display: flex;
+    gap: .5em;
+    align-content: center;
+    justify-content: space-around;
+   
+}
+.item{
+    color: white;
+}
+.item__header{
+    flex: 2 0 10%;
+    border: 3px solid #e3d3d3;
+    
+    background-color: var(--item-color);
+    box-shadow: 8px 1px 12px 6px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.item__value{
+    flex: 1 0 5%;
+    border: 3px solid #e3d3d3;
+    background-color: var(--item-color);
+    box-shadow: 8px 1px 12px 6px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}

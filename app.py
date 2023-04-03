@@ -1,13 +1,23 @@
 import hashlib
 import os
+from config import UPLOAD_FOLDER, ALLOWED_EXTENSIONS
 from flask import Flask, render_template, request, session, url_for, redirect, abort
 from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg, input_login, data_user, \
     user_update_coin, class_stud, user_rez, task_class, tasks_lec, answer_user, tasks_lec_rez, rez_coin, task_eval, \
     update_answer_coin, cards_corsers
+from werkzeug.utils import secure_filename
 from mail import send_mail
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'fsa87asd782asd'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+
+def allowed_file(filename):
+    """ Функция проверки расширения файла """
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 href_intr = ["../static/css/trade_intr.css", "../static/css/profile_intr.css", "../static/css/style_intr.css",
              "../static/css/reset_intr.css", "../static/css/courses_intr.css"]
@@ -179,7 +189,7 @@ def tasks(id_lecture):
         return redirect(url_for('rez_tasks', id_lecture=id_lecture, id_user=session['id_user']))
 
 
-@app.route('/rez_tasks/<id_lecture><id_user>', methods=['GET', 'POST'])
+@app.route('/rez_tasks/<id_user><id_lecture>', methods=['GET', 'POST'])
 def rez_tasks(id_lecture, id_user):
     print(id_user)
     print(id_lecture)
@@ -207,6 +217,20 @@ def courses():
             return render_template('courses.html', title="Курсы", count_courses=cards[0], courses=cards[1],
                                    href=type_css[session['user_href']], user=data_user(session['id_user']))
         return render_template('courses.html', title="Курсы", count_courses=cards[0], courses=cards[1], href=href_intr)
+
+
+@app.route('/down', methods=['GET', 'POST'])
+def down():
+    if request.method == "GET":
+        print(0)
+        return render_template('down.html', name="NO")
+    elif request.method == 'POST':
+        print(request.files)
+        file = request.files['imges']
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return render_template('down.html', name=filename)
 
 
 @app.route('/exit', methods=['GET'])

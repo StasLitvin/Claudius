@@ -81,7 +81,6 @@ def input_login(login):
     connection.close()
     return result
 
-
 def data_user(id):
     connection = data_con()
     cursor = connection.cursor()
@@ -277,4 +276,3 @@ def cards_corsers():
     cursor.close()
     connection.close()
     return [len(rez), rez]
-
