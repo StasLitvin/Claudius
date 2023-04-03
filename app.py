@@ -25,7 +25,7 @@ def generate_salt():
     return hashlib.sha256(os.urandom(32)).hexdigest()
 
 def generate_password_hash(password, salt):
-    return hashlib.sha3_256(str(password + salt).encode())
+    return hashlib.sha3_256(str(password + salt).encode()).hexdigest()
 
 @app.route('/')
 def base():
@@ -77,7 +77,7 @@ def login():
             if not check_user_exist(request_login):
                 return render_template('login.html', error_text="Этого пользователя не существует", href=href_intr)
             print(request_login)
-            user_id, user_password, user_s, salt = input_login(request_login)[0]
+            user_id, user_password, user_s, salt  = input_login(request_login)[0]
             password_hash = generate_password_hash(request_password, salt)
             if user_password == password_hash:
                 print(input_login(request_login)[0])
@@ -86,6 +86,7 @@ def login():
                 print(input_login(session['user_href']))
                 session['login_user'] = request_login
                 return redirect(url_for('profile', username=session['login_user']))
+            return render_template('login.html', href=href_intr, csrf_token=csrf_token, error_text='Неправильный логин или пароль.', )
         else:
             csrf_token = generate_csrf_token()
             session['csrf_token'] = csrf_token
