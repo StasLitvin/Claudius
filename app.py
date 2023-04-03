@@ -21,6 +21,11 @@ type_css = {"Интроверт": href_intr, "Экстроверт": href_extr, 
 def generate_csrf_token():
     return hashlib.sha256(os.urandom(64)).hexdigest()
 
+def generate_salt():
+    return hashlib.sha256(os.urandom(32)).hexdigest()
+
+def generate_password_hash(password, salt):
+    return hashlib.sha3_256(str(password + salt).encode()).hexdigest()
 
 @app.route('/')
 def base():
@@ -40,8 +45,11 @@ def reg():
         return render_template('reg.html', title="Главная", href=href_intr, csrf_token=csrf_token)
     if request.method == "POST":
         if request.form['CSRFToken'] == session['csrf_token']:
+            password = request.form['password']
+            salt = generate_salt()
+            password_hash = generate_password_hash(password, salt)
             req = (request.form['name'], request.form['surname'], request.form['fatherland'], request.form['login'],
-                   request.form['password'], request.form['pos'], request.form['s'], 0)
+                   password_hash, salt, request.form['pos'], request.form['s'], 0)
             if "Заполните поле!" in req or '' in req:
                 return render_template('reg.html', error_text="Некоторые поля не заполнены", href=href_intr)
             if check_user_exist(request.form['login']):
@@ -66,17 +74,19 @@ def login():
     if request.method == "POST":
         if request.form['CSRFToken'] == session['csrf_token']:
             request_login, request_password = request.form['login'], request.form['password']
-            if not check_user_exist(request.form['login']):
+            if not check_user_exist(request_login):
                 return render_template('login.html', error_text="Этого пользователя не существует", href=href_intr)
             print(request_login)
-            user_id, user_password, user_s = input_login(request_login)[0]
-            if user_password == request_password:
+            user_id, user_password, user_s, salt  = input_login(request_login)[0]
+            password_hash = generate_password_hash(request_password, salt)
+            if user_password == password_hash:
                 print(input_login(request_login)[0])
                 session['id_user'] = user_id
                 session['user_href'] = user_s
                 print(input_login(session['user_href']))
                 session['login_user'] = request_login
                 return redirect(url_for('profile', username=session['login_user']))
+            return render_template('login.html', href=href_intr, csrf_token=csrf_token, error_text='Неправильный логин или пароль.', )
         else:
             csrf_token = generate_csrf_token()
             session['csrf_token'] = csrf_token
