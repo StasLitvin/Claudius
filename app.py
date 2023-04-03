@@ -45,7 +45,7 @@ def reg():
         return render_template('reg.html', title="Главная", href=href_intr, csrf_token=csrf_token)
     if request.method == "POST":
         if request.form['CSRFToken'] == session['csrf_token']:
-            password = request['password']
+            password = request.form['password']
             salt = generate_salt()
             password_hash = generate_password_hash(password, salt)
             req = (request.form['name'], request.form['surname'], request.form['fatherland'], request.form['login'],
