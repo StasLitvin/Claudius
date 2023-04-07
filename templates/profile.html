@@ -1,135 +1,171 @@
-{% extends 'base.html' %}
-{% block content %}
-        <link rel="stylesheet" href={{ href[1]}}>
+<!-- Сообщаем браузеру как стоит обрабатывать эту страницу -->
+<!DOCTYPE html>
+<!-- Оболочка документа, указываем язык содержимого -->
+<html lang="ru">
+	<!-- Заголовок страницы, контейнер для других важных данных (не отображается) -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<!-- Заголовок страницы в браузере -->
+		<title>{{ title }}</title>
+		<!-- Bootstrap CSS (jsDelivr CDN) -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic" rel="stylesheet">
+		<!-- CSS -->
+		<link rel="stylesheet" href={{ href[1] }} />
 
-  <main class="main-osn">
-            <div class="main-1">
-                <div class="my_profile">Мой профиль</div>
-                <div class="my_profile"><a href="/exit">Выход из профиля</a></div>
-                <div class="my_education">Моё обучение:</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+		<script src="../static/js/account.scroll.button.js"></script>
+		<script src="../static/js/account.edit.and.save.button.js"></script>
+		<!-- <script src="js/account.emotional_condition.button.js"></script> -->
+	</head>
 
-                <div class="first-ed">
-                    <div class="stars"><img src="../static/img/Vector8.png" alt=""> <img src="../static/img/Vector8.png" alt=""> <img src="../static/img/Vector8.png" alt=""> <img src="../static/img/Vector8.png" alt=""> <img src="../static/img/Vector8.png" alt=""></div>
-                    <div class="h__first-ed">
-                        <div>Основы программирования на Python
-                            <div class="rect1"><img src="../static/img/Rectangle1.png" alt=""></div>
-                            <div class="rect1-dop"><img src="../static/img/Rectangle1-dop.png" alt=""></div>
-                            <div class="dop-info">
-                                5% материала пройдено<br>
-                                2/40 баллов получено
-                            </div>
-                            <div class="for-button"><button class="first-ed-button-continue">Продолжить</button></div>
-                        </div>
-                        <div class="Python"><img src="../static/img/Python.png" alt=""></div>
-                    </div>
+	<body>
+		<header class="header">
+			<div class="header-1">
+				<div class="logo text-glow"><a href="#">Claudius</a></div>
+				<div class="logo-info">Бонусная система поощрения</div>
 
-                    <div class="like first-ed-button-like"><img src="../static/img/Vector9.png" alt=""></div>
-                </div>
+				<div class="courses text-glow"><a href="#">Курсы</a></div><div class="span"><span>|</span></div>
+				<div class="lk-up text-glow"><a href="#">Личный кабинет</a></div><div class="span"><span>|</span></div>
+				<div class="reg text-glow"><a href="#">Регистрация</a></div>
+				<div class="phone-img"><img src="../static/img/phone.svg" alt=""></div>
+				<div class="phone"><a href="#">+7&nbsp999&nbsp555&nbsp3322</a></div>
+				<div class="email-img"><img src="../static/img/email.svg" alt=""></div>
+				<div class="email"><a href="#">support@claudius.ru</a></div>
+				<div class="exit-img"><a href="#"><img src="../static/img/exit.svg" alt=""></a></div>
+			</div>
+		</header>
 
-                <div class="second-ed">
-                    <div class="stars"><img src="../static/img/Vector8.png" alt=""> <img src="../static/img/Vector8.png" alt=""></div>
-                    <div class="h__first-ed">
-                        <div>Основы программирования Java Script
-                            <div class="rect1"><img src="../static/img/Rectangle1.png" alt=""></div>
-                            <div class="rect1-dop"><img src="../static/img/Rectangle2-dop.png" alt=""></div>
-                            <div class="dop-info">
-                                85% материала пройдено<br>
-                                33/40 баллов получено
-                            </div>
-                            <div class="for-button"><button class="first-ed-button-continue">Продолжить</button></div>
-                        </div>
-                        <div class="Python"><img src="../static/img/js.png" alt=""></div>
-                    </div>
+		<div class="header">
+			<div class="header-2">
+				<div class="app-img"><img src="../static/img/apps.svg" alt=""></div>
+				<div class="choice-img"><img src="../static/img/choice.svg" alt=""></div>
+				<div class="lk-bottom"><a href="#">Личный кабинет</a></div>
 
-                    <div class="like first-ed-button-like"><img src="../static/img/Vector9.png" alt=""></div>
-                </div>
-            </div>
+				<div class="notifications-img"><img src="../static/img/notifications.svg" alt=""></div>
+				<div class="notifications"><a href="#">Напоминания</a></div>
+			</div>
+		</div>
 
-            <div class="main-2">
-                <div class="main-2-1">
-                    <div class="photo-main">
-                        <div class="photo"><img src="../static/img/img.png" alt=""></div>
-                        <div class="icon-photo"><a href="#"><img src="../static/img/Vector6.png" alt=""></a></div>
-                    </div>
+		<main class="main">
+			<div class="Balance">
+				<div class="B-static">Баланс:</div>
+				<div class="B-changing">{{ user[9] }}</div>
+				<div class="B-img"><img src="../static/img/gingerbread.svg" alt=""></div>
+			</div>
 
-                    <div class="info-ul">
-                        <ul>
-                            <li class="name">{{user[0][1]+' '+user[0][2]+' '+user[0][3]}}</li>
-                            <li>Статус: {{ user[0][7] }}</li>
-                            <li>Типа личности: {{ user[0][8] }}</li>
-                            <li>Пряники: {{ user[0][9] }}</li>
-                            <li>Ваш статус <div class="smile"><img src="../static/img/tilt.png" alt=""></div></li>
-                        </ul>
-                    </div>
+			<form method="post" id="form_1" onsubmit="submitForm()">
+                <input type="hidden" name="nick" id="fio">
+				<div class="main__osn">
+					<div class="Personal-Info">
+						<div class="PI-photo"><img src="../static/img/photo.svg" name="photo" class="PI-photo-img" id="PI-photo-img" alt=""><input type="file" class="PI-photo-img-input" id="PI-photo-img-input"></div>
+						<div><div class="PI-name-and-edit"><p id="PI-name-and-edit">{{ user[1]+" "+user[2]+" "+user[3] }}</p></div><div class="PI-name-input"><input type="text" maxlength="50" minlength="4" required placeholder="ФИО через пробел" value="" id="PI-name-input"></div></div>
 
-                    <div class="edit pos-info"><a href="#"> <img src="../static/img/Vector7.png" alt=""> Редактировать</a></div>
-                </div>
+						<div class="PI-dop">
+							<div class="PI-dop-code">Код&nbspстудента&nbsp&nbsp<p>2022-1234</p></div>
+							<div class="PI-dop-group">Всего&nbspвыбрано&nbspкурсов&nbsp&nbsp<p>7</p></div>
+							<div class="PI-dop-courses-finish">Пройдено&nbspкурсов&nbsp&nbsp<p>2</p></div>
 
-                <div class="main-2-2">
-                    <div class="emotional">
-                        <div class="emo">
-                            <ul>
-                                <li><img src="../static/img/tilt2.png" alt=""></li>
-                                <li><img src="../static/img/norm.png" alt=""></li>
-                                <li><img src="../static/img/glad.png" alt=""></li>
-                            </ul>
-                        </div>
-                        <div class="emotional-dop">
-                            <ul>
-                                <li><img src="../static/img/Vector10.png" alt=""> 0 дней без перерыва</li>
-                                <li><img src="../static/img/Vector10.png" alt=""> 7 дней без перерыва</li>
-                                <li><img src="../static/img/Vector10.png" alt=""> 14 дней без перерыва</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+							<div class="PI-edit-button-block"><button onClick="edit()" class="PI-edit-button"><img src="../static/img/edit.svg" class="PI-edit"></button></div>
 
-                <div class="main-2-3">
-                    <div>АКТИВНОСТЬ ЗА ПОСЛЕДНИЕ 7 ДНЕЙ</div>
-                    <div class="stat">
-                        <div>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>ПН</th>
-                                        <th>ВТ</th>
-                                        <th>СР</th>
-                                        <th>ЧТ</th>
-                                        <th>ПТ</th>
-                                        <th>СБ</th>
-                                        <th>ВС</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>6</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>5</td>
-                                        <td>11</td>
-                                        <td>16</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+								<input type="submit" class="PI-save-button" value="Save">
+						</div>
+					</div>
 
-                        <div class="stat-data">{{"В БД такого нет"}}</div>
-                    </div>
-                </div>
-            </div>
-        </main>
+					<div class="Courses__Info">
 
-        <main class="main-dop">
-            <div>
-                <div class="now">Прохожу сейчас:</div>
-                <div class="now-dop">
-                    <div class="border"></div>
+						<div class="CI-my-education">
+							<div class="CI-my-education-text">Моё обучение</div>
+							<div><button onClick="rotateImg()" class="CI-my-education-img button__scroll"><img id="imgScrollBar" src="../static/img/choice.svg" /></button></div>
+						</div>
 
-                    <div class="now-content">{{"В БД такого нет"}}<img src="../static/img/Vector11.png" alt=""> 6/100</div>
-                </div>
-            </div>
-        </main>
-    </body>
+						<div class="CI-container">
+							<div class="CI-viewport">
+								<div class="CI-content-box" id="content__box">
+									<div class="CI-content-list">
+										<div class="CI-cours">
+											<div>
+												<div class="CI-cours-name">Python-разработчик</div>
+												<div class="CI-cours-info"><p>80%</p> материала пройдено</div>
+											</div>
+											<div class="CI-cours-button"><a href="#"><button class="continue">Продолжить</button></a></div>
+										</div>
+
+										<div class="CI-cours">
+											<div>
+												<div class="CI-cours-name">Java-разработчик</div>
+												<div class="CI-cours-info"><p>78%</p> материала пройдено</div>
+											</div>
+											<div class="CI-cours-button"><a href="#"><button class="continue">Продолжить</button></a></div>
+										</div>
+
+										<div class="CI-cours">
+											<div>
+												<div class="CI-cours-name">Веб-разработчик</div>
+												<div class="CI-cours-info"><p>46%</p> материала пройдено</div>
+											</div>
+											<div class="CI-cours-button"><a href="#"><button class="continue">Продолжить</button></a></div>
+										</div>
+
+										<div class="CI-cours">
+											<div>
+												<div class="CI-cours-name">Data Scientist</div>
+												<div class="CI-cours-info"><p>38%</p> материала пройдено</div>
+											</div>
+											<div class="CI-cours-button"><a href="#"><button class="continue">Продолжить</button></a></div>
+										</div>
+
+										<div class="CI-cours">
+											<div>
+												<div class="CI-cours-name">1C-разработчик</div>
+												<div class="CI-cours-info"><p>20%</p> материала пройдено</div>
+											</div>
+											<div class="CI-cours-button"><a href="#"><button class="continue">Продолжить</button></a></div>
+										</div>
+
+										<div class="CI-cours">
+											<div>
+												<div class="CI-cours-name">Frontend-разработчик</div>
+												<div class="CI-cours-info"><p>100%</p> материала пройдено</div>
+											</div>
+											<div class="CI-cours-stars">
+												<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/afterStar.svg" alt="">
+											</div>
+										</div>
+
+										<div class="CI-cours">
+											<div>
+												<div class="CI-cours-name">Инженер по тестированию</div>
+												<div class="CI-cours-info"><p>100%</p> материала пройдено</div>
+											</div>
+											<div class="CI-cours-stars">
+												<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/beforeStar.svg" alt="">
+											</div>
+										</div>
+
+									</div>
+
+									<script src="../static/js/account.customScrollBar.js"></script>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="main-bottom-change">
+					<div class="main-bottom-change-first">
+						<select class="emotional-condition" id="emotional-condition" name="emotional_condition">
+							<option value="Интроверт">Интроверт</option>
+							<option value="Амбиверт">Амбиверт</option>
+							<option value="Экстраверт">Экстраверт</option>
+						</select>
+					</div>
+					<div class="main-bottom-change-second link" id="main-bottom-change-second">Интроверт</div>
+					<div class="dop-content" id="dop-content">Information about your emotional condition.</div>
+				</div>
+			</form>
+		</main>
+	</body>
 </html>
-{% endblock %}

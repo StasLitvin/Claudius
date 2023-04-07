@@ -221,6 +221,7 @@ def rez_coin(id_lecture, id_user):
         quary = f'''SELECT point FROM complexity WHERE id="{i[1]}"'''
         cursor.execute(quary)
         mas.append(cursor.fetchall()[0][0])
+        print(i[0],id_user)
         quary = f'''SELECT coin FROM answer_user WHERE id_task="{i[0]}" AND id_user="{id_user}"'''
         cursor.execute(quary)
         mas.append(cursor.fetchall()[0][0])
@@ -286,3 +287,26 @@ def cards_course(id):
     cursor.close()
     connection.close()
     return rez
+
+def class_pre(id):
+    connection = data_con()
+    cursor = connection.cursor()
+    quary = f'''SELECT id_pre FROM classes WHERE id="{id}"'''
+    cursor.execute(quary)
+    rez = cursor.fetchall()[0][0]
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return rez
+
+def href_update(id_user,href_user,mas):
+    connection = data_con()
+    cursor = connection.cursor()
+    if mas!=[]:
+        quary = f'''UPDATE users SET s="{href_user}",name="{mas[1]}",surname="{mas[0]}", fatherland="{mas[2]}" WHERE id="{id_user}"'''
+    else:
+        quary = f'''UPDATE users SET s="{href_user}" WHERE id="{id_user}"'''
+    cursor.execute(quary)
+    connection.commit()
+    cursor.close()
+    connection.close()

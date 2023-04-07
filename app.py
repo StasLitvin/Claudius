@@ -5,7 +5,7 @@ from main import rezult_test_lic
 from flask import Flask, render_template, request, session, url_for, redirect, abort
 from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg, input_login, data_user, \
     user_update_coin, class_stud, user_rez, task_class, tasks_lec, answer_user, tasks_lec_rez, rez_coin, task_eval, \
-    update_answer_coin, cards_corsers, cards_course
+    update_answer_coin, cards_corsers, cards_course, class_pre, href_update
 from werkzeug.utils import secure_filename
 from mail import send_mail
 
@@ -26,7 +26,7 @@ href_extr = ["../static/css/trade_extr.css", "../static/css/profile_extr.css", "
              "../static/css/reset_extr.css", "../static/css/courses_extr.css"]
 href_ambr = ["../static/css/trade_ambr.css", "../static/css/profile_ambr.css", "../static/css/style_ambr.css",
              "../static/css/reset_ambr.css", "../static/css/courses_ambr.css"]
-type_css = {"Интроверт": href_intr, "Экстроверт": href_extr, "Амбиверт": href_ambr}
+type_css = {"Интроверт": href_intr, "Экстраверт": href_extr, "Амбиверт": href_ambr}
 
 
 def generate_csrf_token():
@@ -56,7 +56,6 @@ def base():
             session['tasks_test_lich_rez'][session['now_task_test_lich'] - 1] = request.form['radio']
             session['now_task_test_lich'] += 1
         if 'finish' in request.form:
-            print(request.form)
             session['tasks_test_lich_rez'][session['now_task_test_lich'] - 1] = request.form['radio']
             rezult = rezult_test_lic(session['tasks_test_lich_rez'])
             session['tasks_test_lich_rez'] = [' '] * session['count_tasks_test_lich']
@@ -67,7 +66,8 @@ def base():
             return render_template('main_rez.html', title="Главная", href=href_intr, task=[rezult])
     if 'user_href' in session:
         return render_template('main.html', title="Главная", href=type_css[session['user_href']],
-                               user=data_user(session['id_user']), task=session['task_test_lich'],
+                               user=data_user(session['id_user']),
+                               task=session['tasks_test_lich'][session['now_task_test_lich'] - 1],
                                count_tasks=session['count_tasks_test_lich'], now_task=session['now_task_test_lich'],
                                rez_task=session['tasks_test_lich_rez'][session['now_task_test_lich'] - 1])
     return render_template('main.html', title="Главная", href=href_intr,
@@ -158,23 +158,31 @@ def mag():
         return render_template('mag.html', title="Обменник", coup=coups_mas(), href=type_css[session['user_href']])
 
 
-@app.route('/profile/<username>', methods=['GET'])
+@app.route('/profile/<username>', methods=['GET', 'POST'])
 def profile(username):
     if 'id_user' not in session or session['login_user'] != username:
         abort(401)
     else:
+        if request.method == "POST":
+            print(request.form['nick'])
+            print(request.form)
+            session['user_href'] = request.form['emotional_condition']
+            if len(request.form['nick'].split(" "))==3:
+                href_update(session['id_user'], session['user_href'],request.form['nick'].split(" "))
+            else:
+                href_update(session['id_user'], session['user_href'],[])
         return render_template('profile.html', title="Личный кабинет", href=type_css[session['user_href']],
-                               user=data_user(session['id_user']))
+                               user=data_user(session['id_user'])[0])
 
 
 @app.route('/class/<id_class>', methods=['GET'])
 def class_rez(id_class):
-    session['id_class'] = 1
-    if session['id_class'] == id_class:
+    print(class_pre(id_class))
+    if int(session['id_user']) != class_pre(id_class):
         abort(401)
     else:
-        stud = class_stud(session['id_class'])
-        task = task_class(session['id_class'])
+        stud = class_stud(id_class)
+        task = task_class(id_class)
         print(stud)
         print(task)
         mas_studs = []
@@ -200,16 +208,14 @@ def class_rez(id_class):
 
 @app.route('/tasks/<id_lecture>', methods=['GET', 'POST'])
 def tasks(id_lecture):
+    if 'id_user' not in session:
+        return redirect(url_for('login'))
     if request.method == "GET":
-        session['id_lecture'] = 1
-        if session['id_lecture'] == id_lecture:
-            abort(401)
-        else:
-            mas = tasks_lec(id_lecture)
-            return render_template('tasks.html', title="Задания к лекцие", href=href_intr, mas_tasks=mas)
+        mas = tasks_lec(id_lecture)
+        print(mas, id_lecture)
+        return render_template('tasks.html', title="Задания к лекцие", href=href_intr, mas_tasks=mas)
     if request.method == "POST":
         print(request.form)
-        session['id_user'] = 12
         for i in request.form:
             answer_user(session['id_user'], int(i), int(request.form[i].split("/")[1]))
         mas = task_eval(id_lecture, session['id_user'])
@@ -221,13 +227,15 @@ def tasks(id_lecture):
         return redirect(url_for('rez_tasks', id_lecture=id_lecture, id_user=session['id_user']))
 
 
-@app.route('/rez_tasks/<id_user><id_lecture>', methods=['GET', 'POST'])
+@app.route('/rez_tasks/<id_lecture>/<id_user>', methods=['GET', 'POST'])
 def rez_tasks(id_lecture, id_user):
     print(id_user)
     print(id_lecture)
-    session['id_lecture'] = id_lecture
+    if 'id_user' not in session:
+        return redirect(url_for('login'))
+    if session['id_user'] != id_user:
+        abort(401)
     if request.method == "GET":
-        session['id_user'] = id_user
         mas = tasks_lec_rez(id_lecture, session['id_user'])
         rez_coins = rez_coin(id_lecture, session['id_user'])
         print(mas)
