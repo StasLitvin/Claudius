@@ -1,54 +1,23 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title }}</title>
+{% extends 'base.html' %}
+{% block content %}
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat+Alternates:wght@600;800&family=Montserrat:wght@400;500;600&family=Quicksand:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="../static/css/reset.css" />
-    <link rel="stylesheet" href={{ href[4] }} />
-  </head>
-  <body>
-    <header class="header">
-      <div class="header__information">
-        <span class="header__logo">Claudius</span>
-        <span class="header__additional-inf">Бонусная система поощрения</span>
-      </div>
-      <div class="contact__information">
-        <a href="tel:+79995553322" class="header__link number-link">
-          <img src="../static/img/phone.png" alt="Phone" class="phone-img" />
-          <span class="number">8 999 555 3322</span>
-        </a>
-        <a href="mail:support@claudius.ru" class="header__link mail-link">
-          <img src="../static/img/mail.png" alt="Mail" class="mail-img" />
-          <span class="mail">support@claudius.ru</span>
-        </a>
-        <a href="" class="exit-link">
-          <img src="../static/img/exit.png" alt="Exit" class="exit-img" />
-        </a>
-      </div>
-    </header>
     <main class="main">
-      <section class="path">
-        <div class="current-path">
-          <img src="../static/img/home.svg" alt="Home image" />
-          <img src="../static/img/arrow-right.svg" alt="Arrow rigth" />
-          <h3 class="path__h3">Курсы</h3>
-        </div>
-        <div class="reminder">
-          <img src="../static/img/bell.png" alt="Bell" />
-          <h3 class="reminder__h3">Напоминание</h3>
-        </div>
-      </section>
+        <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+      <section class="navigation">
+            <div class="wrapper navigation__panel">
+                <nav class="navigation__menu">
+                    <ul class="navigation__menu-container">
+                        <li class="menu__link-container"><a href="/" class="menu__link-icon"><img src="../static/img/Home-icon.svg" alt="home icon" class="menu__link-img"></a></li>
+                        <img src="../static/img/arrow-right.svg" alt="Arrow rigth" />
+                        <li class="menu__link-container"><a href="/courses" class="menu__link">Курсы</a></li>
+                    </ul>
+                </nav>
+                <a href="#" class="navigation__reminder-link">Напоминание</a>
+            </div>
+        </section>
       <section class="courses">
         <div class="container">
           <div class="courses__content">
@@ -90,7 +59,7 @@
                         <span class="views__inf">{{ i[3] }}</span>
                       </div>
                     </div>
-                    <a href="#" class="card__start">начать</a>
+                    <a href="/courses/{{ i[5] }}" class="card__start">начать</a>
                   </div>
                   <div class="bottom__right">
                     <img src="../static/img/{{ i[4] }}" alt="img_course" />
@@ -103,5 +72,4 @@
         </div>
       </section>
     </main>
-  </body>
-</html>
+{% endblock %}

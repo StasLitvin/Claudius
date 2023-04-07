@@ -1,297 +1,166 @@
-/* font-family: 'Quicksand', sans-serif; */
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
 
-:root {
-    --blue-color:#5984B6;
-    --white-color: white;
-    --yellow-color: #FEC746;
-    --gray-color: #D9D9D9 ;
-    --bright-gray: ;
-}
-.header {
-    background-color: var(--blue-color);
-    min-height: 60px;
-    
-}
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
 
-.header__block {
-    display: flex;
-    align-items: center;
-    max-width: 1250px;
-    margin: 0 auto;
-    min-height: 60px;
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
-.header__logo {
-    font-family: 'Quicksand', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 30px;
-    line-height: 27px;
-    color: var(--white-color);
-    text-decoration: none;
-    text-align: center;
-    /*margin-left: 223px;*/
+* {
+  font-family: 'Montserrat';
 }
 
-.header__logo-name {
-    font-family: 'Quicksand', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 23px;
-    color: var(--white-color);
-    text-decoration: none;
-    text-align: center;
-    margin-left: 10px;
+.wrapper {
+  max-width: 1920px;
+  width: 100%;
+  box-sizing: border-box; 
+  margin: auto;
 }
 
-.header__pryanik-logo {
-    margin-left: 91px;
+.navigation {
+  background-color: #B4F0FF;
+  padding: 12px 50px;
 }
 
-.header__balance {
-    display: flex;
-    background-color:#D9D9D9 ;
-    border-radius: 4px;
-    min-width: 130px;
-    max-height: 16px;
-    align-items: center;
+a, li {
+  text-decoration: none;
+  color: black;
 }
 
-.header__pryanik-count {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 15px;
-    color: black;
-    text-align: center;
-    padding: 0px 2px 0px 2px;
-    max-height: 16px;
-    max-width: 130px;
-    margin-left: 5px;
+.menu__link {
+  font-style: normal; 
+  font-weight: 600; 
+  font-size: 18px; 
+  line-height: 10px; 
+  display: flex;
+  align-items: center;
 }
 
-.header__pryanik-amount {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 15px;
-    text-align: center;
-    margin-right: 10px;
-    margin-left: 10px;
+.navigation__reminder-link::before {
+  content: url(/img/Bell-icon.png);
+  padding-right: 12px;
 }
 
-.header__phone-logo {
-    margin-left: 248px;
+
+.navigation__reminder-link {
+  display: flex; 
+  color: black; 
+  font-style: normal; 
+  font-weight: 600; 
+  font-size: 18px; 
+  line-height: 3px; 
+  align-items: center; 
 }
 
-.header__phone-link {
-    font-family: 'Quicksand', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 15px;
-    text-align: center;
-    color: var(--white-color);
-    text-decoration: none;
-    margin-left: 7px;
+.navigation__menu-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
-.header__mail-logo {
-    margin-left: 48px;
+.menu__link::before {
+  content: url(/img/ChevronRight.svg);
+  padding-right: 12px;
 }
 
-.header__mail-link {
-    font-family: 'Quicksand', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 15px;
-    text-align: center;
-    color: var(--white-color);
-    text-decoration: none;
-    margin-left: 7px;
+.navigation__panel {
+  display: flex;
+  justify-content: space-between;
 }
 
-.header__exit-link {
-    font-family: 'Quicksand', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 15px;
-    text-align: center;
-    color: var(--white-color);
-    text-decoration: none;
-    margin-left: 82px;
-    
+.course {
+  padding-top: 30px;
 }
 
-.partners__heading {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 15px;
-    color: var(--blue-color);
-    text-align: center;
-    padding-top: 17px;
-    padding-bottom: 17px;
-
+.course__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px;
+  background-color: #FFFFFF;
+  border-radius: 71px;
 }
 
-.partners__list {
-    max-width: 750px;
-    max-height: 458px;
-    background-color: var(--yellow-color);
-    border-radius: 8px;
-    margin: 0 auto;
-    display: flex;
-    padding: 32px;
-    flex-wrap: wrap;
-    gap: 28px;
-    justify-content: center;
-    
+.course__title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 21px;
+  padding-bottom: 50px;
+  padding-left: 410px;
+  display: flex;
+  align-items: center;
 }
 
-.partners__list-item:hover {
-    transform: translateY(-10px) translateX(10px);
-    box-shadow: 0px 10px 7px 0px rgba(0, 0, 0, 0.603);
+.course__title::before {
+  content: url(/img/computer.svg);
+  padding-right: 15px;
 }
 
-.partners__list-item {
-    background-color: var(--white-color);
-    min-height: 80px;
-    min-width: 160px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    transition: 0.4s;
-    
-    
-}
-.coupons__heading {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 600;
-    font-size: 25px;
-    line-height: 31px;
-    color: var(--blue-color);
-    padding-top: 42px;
-    padding-bottom: 35px;
-    max-width: 1250px;
-    margin: 0 auto;
+.course__content {
+  background-color: #E9E9E9;
+  border-radius: 57px;
+  max-width: fit-content;
+  padding: 60px 90px;
+  display: flex;
+  justify-content: space-between;
+  gap: 140px;
+  margin: 0 auto;
 }
 
-.coupons__list {
-    max-width: 1250px;
-    margin:  0 auto;
-    display: flex;
-    justify-content: space-between;
+.course__description-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 28px;
 }
 
-.coupons__image-block {
-    background-color: var(--gray-color);
-    min-height: 173px;
-    min-width: 250px;
-    border-radius: 8px;
+.course__description-txt {
+  max-width: 555px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 42px;
 }
 
-.coupons__cathegory {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 18px;
-    color: black;
-    padding-top: 4px;
+.course__button-start {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 28px;
+  background-color: #B4F0FF;
+  border-radius: 50px;
+  padding: 30px 80px;
+  max-width: fit-content;
+  margin: 0 auto;
 }
 
-.coupons__name {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-    color: black;
-    padding-top: 4px;
+.course__scale {
+  padding: 15px 220px;
+  background-color: #D9D9D9;
+  border-radius: 20px;
+  max-width: fit-content;
+  margin: 0 auto;
 }
 
-.coupons__price {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 20px;
-    color: black;
-    padding-top: 4px;
+.course__score-max {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 10px;
+  text-align: center;
 }
-.coupons__sub{
-    text-decoration: none;
-  display: inline-block;
-  color: white;
-  padding: 5px 10px;
-  margin: 5px 10px;
-  border-radius: 10px;
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  background-image: linear-gradient(to right, darkgoldenrod 0%, goldenrod 51%, var(--yellow-color) 100%);
-  background-size: 200% auto;
-  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
-  transition: .5s;
-}
-.coupons__sub:hover {
-  background-position: right center;
-}
-.reg_input{
-    display: block;
-    border: 7px groove white;
-    min-height: 60px;
-    min-width: 200px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    background-color: #4830F0;
-    margin: 2px;
-    padding: 3px;
-}
-.region-main {
-    text-align: center;
-    display: inline-block;
-    position: absolute;
-    background-color: aliceblue;
-    left: 40%;
-    min-width: 250px;
-    min-height: 300px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    margin: 10px;
-    padding: 10px;
-}
-.HH1{
-    text-align: center;
-    color: var(--yellow-color);
-    font-size: xx-large;
-}
-input{
-    background: transparent;
-    width: 200px;
-    padding: 1em;
-    margin-bottom: 2em;
-    border: none;
-    border-left: 1px solid white;
-    border-top: 1px solid white;
-    border-radius: 50px;
-    backdrop-filter: blur(5px);
-    box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
-    color: black;
-    font-family: Quicksand, sans-serif;
-    font-weight: 500;
-    transition: all 0.2s ease-in-out;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-}
-.sub{
-    color: white;
-    border-left: 1px solid yellow;
-    border-top: 1px solid yellow;
-    background-color: var(--yellow-color);
+
+.course__slider-img {
+  border-radius: 66px;
 }

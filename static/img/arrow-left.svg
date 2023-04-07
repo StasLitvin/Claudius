@@ -1,0 +1,13 @@
+<svg width="82" height="34" xmlns="http://www.w3.org/2000/svg" fill="none">
+ <defs>
+  <filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="41" width="88" y="0" x="-3" id="filter0_d_592_1246">
+   <feGaussianBlur stdDeviation="2"/>
+  </filter>
+ </defs>
+ <g>
+  <title>Layer 1</title>
+  <g transform="rotate(-180 40.9678 16.5012)" id="svg_1" filter="url(#filter0_d_592_1246)">
+   <path id="svg_2" fill="#0F0F0F" d="m55.3839,22.9184c-1.3018,0.5369 -1.3018,1.4075 0,1.9445c1.3017,0.537 3.4123,0.537 4.714,0l15.552,-6.4152c2.6035,-1.0739 2.6035,-2.8152 0,-3.8891l-15.5614,-6.41907c-1.3018,-0.53697 -3.4123,-0.53697 -4.7141,0c-1.3017,0.53698 -1.3017,1.40758 0,1.94457l12.2201,5.0408l-59.92816,0c-1.84095,0 -3.33334,0.6156 -3.33334,1.375c0,0.7594 1.49239,1.375 3.33334,1.375l59.94416,0l-12.2266,5.0435z"/>
+  </g>
+ </g>
+</svg>

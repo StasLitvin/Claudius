@@ -269,10 +269,20 @@ def update_answer_coin(id_user, id_answer, coin):
 def cards_corsers():
     connection = data_con()
     cursor = connection.cursor()
-    quary = f'''SELECT name,subject,lecture_count,users_count,img FROM classes'''
+    quary = f'''SELECT name,subject,lecture_count,users_count,img,id FROM classes'''
     cursor.execute(quary)
     rez = cursor.fetchall()
     connection.commit()
     cursor.close()
     connection.close()
     return [len(rez), rez]
+def cards_course(id):
+    connection = data_con()
+    cursor = connection.cursor()
+    quary = f'''SELECT name,subject,lecture_count,users_count,img,description FROM classes WHERE id="{id}"'''
+    cursor.execute(quary)
+    rez = cursor.fetchall()
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return rez

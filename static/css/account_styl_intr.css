@@ -1,0 +1,500 @@
+/* Claudius // css */
+
+/* Doesn't work */
+$font-family-base: 'League Spartan', sans-serif;
+@import "~bootstrap/css/bootstrap";
+
+/* HTML5 // reset css for browsers */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	color: #E2E2E2;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; margin: 0;}
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+
+/* For colours */
+:root {
+	/* Main */
+	--header-1:#70C6F9;
+	--header-2:#B4F0FF;
+	--text-header-1:#FFF;
+	--text-header-2:#000;
+	--text-glow: #B4F0FF;
+
+	/* Balance */
+	--B-static:#5087CD;
+	--B-changing:#000;
+
+	/* Personal-Info */
+	--PI-name:#000;
+	--PI-info-block:#F8F5FE;
+	--PI-text-static:#74777C;
+	--PI-text-changing:#012034;
+
+	/* Courses-Info */
+	--CI-main-block-1:#B1D3FF;
+	--CI-main-block-2:#B1D3FF;
+	--CI-name:#000;
+	--CI-static:#57595B;
+	--CI-changing:#044368;
+	--CI-button:#99B8CC;
+	--CI-text-button:#FFF;
+}
+
+
+
+/* Header-Main */
+.header {
+	width: 100%;
+	min-width: 1290px;
+	margin: 0 auto;
+
+	font-family: 'League Spartan';
+	font-style: normal;
+	font-weight: 550;
+	font-size: 17px;
+	line-height: 14px;
+	letter-spacing: -0.015em;
+}
+
+	.header a {
+		text-decoration: none;
+	}
+
+	.header img {
+		margin: 0 auto;
+	}
+
+/* Header-1 */
+.header-1 {
+	height: 45px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background: center no-repeat var(--header-1);
+}
+
+	.header-1 a, p, div, span{
+		text-decoration: none;
+		color: var(--text-header-1);
+	}
+
+.text-glow a:hover {
+	color: var(--text-glow);
+}
+
+.logo {
+	margin: 0.2% 0 0.6% 4%;
+	font-size: 29px;
+}
+
+.logo-info {
+	margin: 1% 0 1% 0.6%;
+	font-size: 15px;
+}
+
+.courses {
+	margin: 1% 0 1% 23%;
+	font-size: 20px;
+}
+
+.lk-up {
+	margin: 1% 0 1% 0.1%;
+	font-size: 20px;
+}
+
+.reg {
+	margin: 1% 0 1% 0.1%;
+	font-size: 20px;
+}
+
+.span {
+	margin: 0.9% 0.5% 1% 0.5%;
+}
+
+.phone-img {
+	margin: 1.4% 0.3% 1% 5%;
+}
+
+.phone {
+	margin: 1.2% 0 1% 0;
+}
+
+.email-img {
+	margin: 1.5% 0.3% 1% 1.5%;
+}
+
+.email {
+	margin: 1.2% 1.7% 1% 0;
+}
+
+.exit-img {
+	margin:1.5% 4% 1% 0;
+}
+
+/* Header-2 */
+.header-2 {
+	height: 45px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background: center no-repeat var(--header-2);
+}
+
+	.header-2 a {
+		text-decoration: none;
+		color: var(--text-header-2);
+	}
+
+.app-img {
+	margin: 1.2% 0 1% 4%;
+}
+
+.choice-img {
+	margin: 1.2% 0 1% 0.5%;
+}
+
+.lk-bottom {
+	margin: 1.2% 0 1% 0.6%;
+}
+
+.notifications-img {
+	margin: 1.2% 0 1% 73.5%;
+}
+
+.notifications {
+	margin: 1.2% 4% 1% 0.5%;
+}
+
+
+/* Main */
+
+/* Main-dop */
+.main {
+	width: 100%;
+	min-width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+
+	font-family: 'League Spartan';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 34px;
+	letter-spacing: -0.015em;
+}
+
+.main a {
+	text-decoration: none;
+	color: var(--text-header-2);
+}
+.main p {
+	color: #000;
+}
+
+.test-name {
+	position: relative;
+	margin: 1% 0 0 27%;
+
+	font-family: 'Montserrat Alternates';
+	font-style: normal;
+	font-weight: 800;
+	font-size: 50px;
+	line-height: 60px;
+
+	color: #000000;
+}
+
+.test-descr {
+	position: relative;
+	margin: 0.3% 0 0 40%;
+
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 32px;
+
+	color: #000000;
+}
+
+.start {
+	position: absolute;
+	background: #00AC65;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+
+	color: #fff;
+
+	margin: 18% 0 0 40.5%;
+
+	width: 300px;
+	height: 50px;
+}
+
+.start.dop {
+	visibility: hidden;
+}
+
+.osn-inf-1, .osn-inf-2, .osn-inf-3, .osn-inf-4, .osn-inf-5, .osn-inf-6, .osn-inf-7, .osn-inf-8 {
+	position: absolute;
+	width: 1100px;
+	height: 580px;
+	margin: 2% 0 0 17%;
+
+	visibility: visible;
+
+	background: linear-gradient(116.48deg, #DCF2FF 0%, #E5FAFF 100%);
+}
+
+.osn-inf-1.dop, .osn-inf-2.dop, .osn-inf-3.dop, .osn-inf-4.dop, .osn-inf-5.dop, .osn-inf-6.dop, .osn-inf-7.dop, .osn-inf-8.dop {
+	visibility: visible;
+}
+
+.questions-left {
+	margin: 4% 0 0 91%;
+
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 32px;
+
+	color: #000000;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.question {
+	margin: -1% 0 0 16%;
+
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 80px;
+
+	color: #000000;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.answer {
+	margin: 7% 0 0 16%;
+	position: relative;
+
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 32px;
+
+	color: #000000;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+input[type='radio']:after {
+
+
+	width: 24px;
+	height: 24px;
+	border-radius: 15px;
+	top: -2px;
+	left: -1px;
+	position: relative;
+	background-color: #DCF2FF;
+	border: 2px solid ;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid black;
+}
+
+input[type='radio']:checked:after {
+	width: 24px;
+	height: 24px;
+	border-radius: 15px;
+	top: -2px;
+	left: -1px;
+	position: relative;
+	background-color:#70C6F9;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid black;
+}
+
+.another-question {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 17px;
+	line-height: 32px;
+
+	margin: 10% 8% 8% 8%;
+}
+
+.radio-item-1 {
+	position: relative;
+	padding-left: 50px;
+	top: 5px;
+
+	display: inline;
+}
+
+.another-question-center {
+	margin-top: -8%;
+	padding: 4px;
+	width: 200px;
+
+	background: #00AC65;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+
+	color: #fff;
+}
+
+.another-question-center.dop {
+	visibility: visible;
+}
+
+.another-question-left-img {
+	position: relative;
+	border: none;
+	background: #DCF2FF;
+	cursor: pointer;
+
+	margin-left: 60px;
+	bottom: -30px;
+	transform: rotate(180deg);
+}
+
+.another-question-right-img {
+	position: relative;
+	border: none;
+	background: #E5FAFF;
+	cursor: pointer;
+
+	margin-left: 60px;
+	bottom: -30px;
+}
+
+
+.link {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 15px;
+	position: relative;
+
+	color: var(--text-header-1);
+	text-decoration: none;
+
+	transition: color .1s linear;
+}
+
+	.link:after {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 3px;
+		opacity: 0;
+
+		background-color: var(--CI-button);
+
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 1;
+
+		transition: opacity .1s linear;
+	}
+
+	.link:hover {
+		color: var(--CI-button);
+	}
+
+	.link:hover:after {
+		opacity: 1;
+	}
+
+
+.main-bottom-change {
+	margin: 35% 0 0 4%;
+
+	color: var(--text-header-2);
+	font-size: 21px;
+	letter-spacing: 0.025em;
+}
+
+.main-bottom-change-first {
+	visibility: hidden;
+}
+
+.main-bottom-change-first select {
+	border: none;
+	background: var(--header-2);
+	border-radius: 8px;
+	text-align: center;
+	color: var(--text-header-2);
+	font-size: 18px;
+	padding: 2px;
+}
+
+.main-bottom-change-first.dop {
+	visibility: visible;
+}
+
+.main-bottom-change-second {
+	visibility: visible;
+
+	color: var(--text-header-2);
+}
+
+.main-bottom-change-second.dop {
+	visibility: hidden;
+}
+
+.dop-content {
+	display: none;
+	margin: 0.2% 0 0 1%;
+
+	color: var(--CI-button);
+}
+
+.main-bottom-change-second:hover ~ .dop-content {
+	display: block;
+}

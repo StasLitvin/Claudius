@@ -1,5 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+      <section class="navigation">
+            <div class="wrapper navigation__panel">
+                <nav class="navigation__menu">
+                    <ul class="navigation__menu-container">
+                        <li class="menu__link-container"><a href="/" class="menu__link-icon"><img src="../static/img/Home-icon.svg" alt="home icon" class="menu__link-img"></a></li>
+                        <img src="../static/img/arrow-right.svg" alt="Arrow rigth" />
+                        <li class="menu__link-container"><a href="/mag" class="menu__link">Обменник</a></li>
+                    </ul>
+                </nav>
+                <a href="#" class="navigation__reminder-link">Напоминание</a>
+            </div>
+        </section>
+        <link rel="stylesheet" href={{ href[3]}}>
+        <link rel="stylesheet" href={{ href[0]}}>
 <div class="cards">
             {% for c in coup %}
             <div class="card">

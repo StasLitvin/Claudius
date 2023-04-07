@@ -1,35 +1,44 @@
 {% extends 'base.html' %}
 {% block content %}
-    <main>
-    <section class="course">
-      <div class="course__tittle">
-          <img src="../static/img/computer.png" alt="">
-          <p class="fs-48">Определённый курс</p>
-      </div>
-      <div class="course__container container">
-        <div class="course__section course__left-section">
-            <div class="arrow"></div>
-            <img src="../static/img/course_left.png" alt="">
-            <div class="arrow arrow_rotate--right"></div>
-        </div>
-        <div class="course__section right-section">
-            <div class="course__right-section">
-                <p class="fs-36">Курс язык Python</p>
-                <p>
-                    Курс содержит материал для изучения языка программирования Python.
-                    Курс содержит 15 уроков, один рубежный
-                    контроль, один экзамен. Курс рассчитан
-                    на начинающих программистов и т.д.
-                </p>
-                <button class="course__btn fs-36">Продолжить</button>
-                <div class="course__progressbar">
-                  <div></div>
-                </div>
-                <p class="fs-20 course__flex-content--center">Макс. баллов - 120</p>
+
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <main class="main">
+        <h1 class="visually-hidden">Course page</h1>
+        <section class="navigation">
+            <div class="wrapper navigation__panel">
+                <nav class="navigation__menu">
+                    <ul class="navigation__menu-container">
+                        <li class="menu__link-container"><a href="/" class="menu__link-icon"><img src="../static/img/Home-icon.svg" alt="home icon" class="menu__link-img"></a></li>
+                        <img src="../static/img/arrow-right.svg" alt="Arrow rigth" />
+                        <li class="menu__link-container"><a href="/courses" class="menu__link">Курсы</a></li>
+                        <img src="../static/img/arrow-right.svg" alt="Arrow rigth" />
+                        <li class="menu__link-container"><a href="" class="menu__link">{{ course[0] }}</a></li>
+                    </ul>
+                </nav>
+                <a href="#" class="navigation__reminder-link">Напоминание</a>
             </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <script src="../static/js/index.js"></script>
+        </section>
+
+        <section class="course">
+            <div class="wrapper">
+                <h2 class="course__title">Профиль курса: {{ course[1] }}</h2>
+                <div class="course__content">
+                    <div class="course__slider">
+                        <img src="../static/img/slide-picture.jpg" alt="slide picture" class="course__slider-img">
+                    </div>
+                    <div class="course__description">
+                        <h3 class="course__description-title">{{ course[0] }}</h3>
+                        <p class="course__description-txt">{{ course[5] }}</p>
+                        <a href="#" class="course__button-start">Начать!</a>
+                        <span class="course__scale"></span>
+                        <span class="course__score-max">Макс. баллов - 120</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 {% endblock %}

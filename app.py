@@ -1,10 +1,11 @@
 import hashlib
 import os
-from config import UPLOAD_FOLDER, ALLOWED_EXTENSIONS
+from config import UPLOAD_FOLDER, ALLOWED_EXTENSIONS, mas_test_lich
+from main import rezult_test_lic
 from flask import Flask, render_template, request, session, url_for, redirect, abort
 from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg, input_login, data_user, \
     user_update_coin, class_stud, user_rez, task_class, tasks_lec, answer_user, tasks_lec_rez, rez_coin, task_eval, \
-    update_answer_coin, cards_corsers
+    update_answer_coin, cards_corsers, cards_course
 from werkzeug.utils import secure_filename
 from mail import send_mail
 
@@ -31,18 +32,48 @@ type_css = {"Интроверт": href_intr, "Экстроверт": href_extr, 
 def generate_csrf_token():
     return hashlib.sha256(os.urandom(64)).hexdigest()
 
+
 def generate_salt():
     return hashlib.sha256(os.urandom(32)).hexdigest()
+
 
 def generate_password_hash(password, salt):
     return hashlib.sha3_256(str(password + salt).encode()).hexdigest()
 
-@app.route('/')
+
+@app.route('/', methods=['GET', 'POST'])
 def base():
+    if request.method == "GET" and 'tasks_test_lich' not in session:
+        session['tasks_test_lich'] = mas_test_lich
+        session['now_task_test_lich'] = 1
+        session['count_tasks_test_lich'] = len(session['tasks_test_lich'])
+        session['tasks_test_lich_rez'] = [' '] * session['count_tasks_test_lich']
+    if request.method == "POST":
+        if 'back' in request.form and session['now_task_test_lich'] > 1:
+            session['tasks_test_lich_rez'][session['now_task_test_lich'] - 1] = request.form['radio']
+            session['now_task_test_lich'] -= 1
+        if 'next' in request.form and session['now_task_test_lich'] < session['count_tasks_test_lich']:
+            session['tasks_test_lich_rez'][session['now_task_test_lich'] - 1] = request.form['radio']
+            session['now_task_test_lich'] += 1
+        if 'finish' in request.form:
+            print(request.form)
+            session['tasks_test_lich_rez'][session['now_task_test_lich'] - 1] = request.form['radio']
+            rezult = rezult_test_lic(session['tasks_test_lich_rez'])
+            session['tasks_test_lich_rez'] = [' '] * session['count_tasks_test_lich']
+            session['now_task_test_lich'] = 1
+            if 'user_href' in session:
+                return render_template('main_rez.html', title="Главная", href=type_css[session['user_href']],
+                                       user=data_user(session['id_user']), task=[rezult])
+            return render_template('main_rez.html', title="Главная", href=href_intr, task=[rezult])
     if 'user_href' in session:
-        return render_template('base.html', title="Главная", href=type_css[session['user_href']],
-                               user=data_user(session['id_user']))
-    return render_template('base.html', title="Главная", href=href_intr)
+        return render_template('main.html', title="Главная", href=type_css[session['user_href']],
+                               user=data_user(session['id_user']), task=session['task_test_lich'],
+                               count_tasks=session['count_tasks_test_lich'], now_task=session['now_task_test_lich'],
+                               rez_task=session['tasks_test_lich_rez'][session['now_task_test_lich'] - 1])
+    return render_template('main.html', title="Главная", href=href_intr,
+                           task=session['tasks_test_lich'][session['now_task_test_lich'] - 1],
+                           count_tasks=session['count_tasks_test_lich'], now_task=session['now_task_test_lich'],
+                           rez_task=session['tasks_test_lich_rez'][session['now_task_test_lich'] - 1])
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -87,7 +118,7 @@ def login():
             if not check_user_exist(request_login):
                 return render_template('login.html', error_text="Этого пользователя не существует", href=href_intr)
             print(request_login)
-            user_id, user_password, user_s, salt  = input_login(request_login)[0]
+            user_id, user_password, user_s, salt = input_login(request_login)[0]
             password_hash = generate_password_hash(request_password, salt)
             if user_password == password_hash:
                 print(input_login(request_login)[0])
@@ -96,7 +127,8 @@ def login():
                 print(input_login(session['user_href']))
                 session['login_user'] = request_login
                 return redirect(url_for('profile', username=session['login_user']))
-            return render_template('login.html', href=href_intr, csrf_token=csrf_token, error_text='Неправильный логин или пароль.', )
+            return render_template('login.html', href=href_intr, csrf_token=csrf_token,
+                                   error_text='Неправильный логин или пароль.', )
         else:
             csrf_token = generate_csrf_token()
             session['csrf_token'] = csrf_token
@@ -203,10 +235,10 @@ def rez_tasks(id_lecture, id_user):
                                rez_coin=rez_coins)
 
 
-@app.route('/courses/course', methods=['GET', 'POST'])
-def course():
+@app.route('/courses/<id_course>', methods=['GET', 'POST'])
+def course(id_course):
     if request.method == "GET":
-        return render_template('course.html', tittle="Курс", href=href_intr)
+        return render_template('course.html', tittle="Курс", href=href_intr, course=cards_course(id_course)[0])
 
 
 @app.route('/courses', methods=['GET', 'POST'])

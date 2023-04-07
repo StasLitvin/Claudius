@@ -2,66 +2,44 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href={{ href[0]}}>
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
 
-  <link rel="stylesheet" id="reset" href={{ href[2]}} />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat+Alternates:wght@600;800&family=Montserrat:wght@400;500;600&family=Quicksand:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" id="style" href={{ href[3]}} />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/reset.css" />
+<link rel="stylesheet" href={{ href[4] }} />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__information">
+        <span class="header__logo">Claudius</span>
+        <span class="header__additional-inf">Бонусная система поощрения</span>
+      </div>
+      <div class="contact__information">
+        <a href="tel:+79995553322" class="header__link number-link">
+          <img src="../static/img/phone.png" alt="Phone" class="phone-img" />
+          <span class="number">8 999 555 3322</span>
+        </a>
+        <a href="mail:support@claudius.ru" class="header__link mail-link">
+          <img src="../static/img/mail.png" alt="Mail" class="mail-img" />
+          <span class="mail">support@claudius.ru</span>
+        </a>
+        <a href="" class="exit-link">
+          <img src="../static/img/exit.png" alt="Exit" class="exit-img" />
+        </a>
+      </div>
 
-
-
-  <title>{{ title }}</title>
-</head>
-
-<body>
-  <header class="header">
-    <div class="header-container">
-      <a class="header-container__anchor anchor" href="/">Claudius <span class="anchor__desc desc">Бонусная система
-          поощрения</span></a>
-      <nav class="header-container__nav nav">
-        <ul class="nav__links">
-        <li class="nav__item">
-         <a class="header-container__anchor anchor" href="/mag">Обменник</a>
-        </li>
-        <li class="nav__item">
-         {% if user is defined %}
-                <a class="header-container__anchor anchor" href="{{ url_for('profile',username=user[0][4]) }}">{{user[0][1]+' '+user[0][2]+' '+user[0][3]}}</a>
-            {% else  %}
-                <a class="header-container__anchor anchor" href="/login">Авторизация</a>
-            {% endif %}
-        </li>
-          <li class="nav__item">
-
-
-            <svg width="13" class="nav__icon" height="18" viewBox="0 0 13 18" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M2.38014 1.01504L3.35264 0.721904C4.45472 0.389707 5.63222 0.926569 6.10418 1.97642L6.85557 3.64786C7.25786 4.54271 7.04586 5.59438 6.32831 6.26351L5.08306 7.42472C5.04667 7.45866 5.02362 7.50451 5.0181 7.55396C4.98114 7.88492 5.20549 8.52942 5.72238 9.42469C6.09825 10.0757 6.43846 10.5323 6.72804 10.789C6.92979 10.9679 7.04085 11.0066 7.08813 10.9926L8.7634 10.4804C9.70139 10.1936 10.7179 10.5356 11.2918 11.331L12.3591 12.8102C13.0309 13.7412 12.9101 15.0256 12.0765 15.815L11.3379 16.5145C10.5408 17.2693 9.40621 17.5506 8.34891 17.2555C6.05384 16.6149 3.99609 14.6781 2.15286 11.4855C0.307066 8.28856 -0.340594 5.53485 0.256449 3.22503C0.529673 2.16796 1.33478 1.33013 2.38014 1.01504ZM2.74089 2.21185C2.11367 2.40091 1.63061 2.9036 1.46668 3.53784C0.964467 5.48077 1.53851 7.92149 3.23539 10.8605C4.93 13.7957 6.75412 15.5125 8.68497 16.0515C9.31935 16.2286 10.0001 16.0598 10.4783 15.6069L11.217 14.9074C11.5959 14.5486 11.6508 13.9648 11.3454 13.5416L10.2781 12.0624C10.0173 11.7009 9.55522 11.5454 9.12886 11.6758L7.44941 12.1892C6.47465 12.4798 5.58992 11.6952 4.63985 10.0497C3.99959 8.94074 3.70118 8.08351 3.77582 7.41522C3.81449 7.06902 3.9758 6.7481 4.23056 6.51053L5.47582 5.34932C5.80197 5.04517 5.89834 4.56714 5.71548 4.16038L4.96409 2.48895C4.74956 2.01174 4.21433 1.76771 3.71339 1.91871L2.74089 2.21185Z"
-                fill="white" />
-
-            </svg>
-
-            <a class="nav__link link"  href="tel:89995553322">8 999 555 3322</a>
-          </li>
-          <li class="nav__item">
-            <svg width="17" class="nav__icon" height="14" viewBox="0 0 17 14" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M2.87435 0.333252H14.1243C15.5685 0.333252 16.7487 1.46363 16.8284 2.8879L16.8327 3.04159V10.9582C16.8327 12.4024 15.7023 13.5826 14.278 13.6623L14.1243 13.6665H2.87435C1.43016 13.6665 0.249977 12.5362 0.170303 11.1119L0.166016 10.9582V3.04159C0.166016 1.59739 1.29639 0.417214 2.72066 0.337539L2.87435 0.333252H14.1243H2.87435ZM15.5827 4.81075L8.79044 8.38633C8.63426 8.46853 8.45196 8.48027 8.28832 8.42155L8.20826 8.38633L1.41602 4.81159V10.9582C1.41602 11.7234 2.00527 12.3509 2.75474 12.4117L2.87435 12.4165H14.1243C14.8895 12.4165 15.517 11.8273 15.5778 11.0778L15.5827 10.9582V4.81075ZM14.1243 1.58325H2.87435C2.1092 1.58325 1.48169 2.17251 1.42085 2.92198L1.41602 3.04159V3.39909L8.49935 7.12697L15.5827 3.39825V3.04159C15.5827 2.27644 14.9934 1.64893 14.244 1.58809L14.1243 1.58325Z"
-                fill="white" />
-            </svg>
-
-            <a class="nav__link link" href="mailto:support@claudius.ru">support@claudius.ru</a>
-
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    </header>
 {% block content -%}
     <p><h6>Когда-нибудь тут будет главная</h6></p>
 {% endblock -%}
