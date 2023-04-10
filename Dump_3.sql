@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
--- Host: localhost    Database: claudius
+-- Host: 127.0.0.1    Database: claudius
 -- ------------------------------------------------------
 -- Server version	8.0.32
 
@@ -245,6 +245,27 @@ INSERT INTO `lectures` VALUES (1,1,'Лекция1','asd'),(2,1,'Лекция2','
 UNLOCK TABLES;
 
 --
+-- Table structure for table `password_reset_tokens`
+--
+
+DROP TABLE IF EXISTS `password_reset_tokens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `password_reset_tokens` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `expiration_time` datetime NOT NULL DEFAULT ((now() + interval 30 minute)),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `user_id_idx` (`user_id`),
+  CONSTRAINT `` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+--
 -- Table structure for table `tasks`
 --
 
@@ -293,7 +314,7 @@ CREATE TABLE `users` (
   `s` text,
   `coin` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -302,201 +323,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO
-  `users`
-VALUES
-  (
-    1,
-    '1',
-    '2',
-    '3',
-    '4',
-    '3f93661f80004cb66a9f7893f0e1ca8e3b5f9f6ff36210fc3a3da2044ea06141',
-    '1',
-    'Преподаватель',
-    'Интроверта',
-    0
-  ),
-(
-    2,
-    '1',
-    '2',
-    '3',
-    '4',
-    '3f93661f80004cb66a9f7893f0e1ca8e3b5f9f6ff36210fc3a3da2044ea06141',
-    '1',
-    'Преподаватель',
-    'Интроверта',
-    0
-  ),
-(
-    3,
-    '1',
-    '2',
-    '3',
-    '4',
-    '3f93661f80004cb66a9f7893f0e1ca8e3b5f9f6ff36210fc3a3da2044ea06141',
-    '1',
-    'Преподаватель',
-    'Интроверта',
-    0
-  ),
-(
-    4,
-    '1',
-    '2',
-    '3',
-    '4',
-    '3f93661f80004cb66a9f7893f0e1ca8e3b5f9f6ff36210fc3a3da2044ea06141',
-    '1',
-    'Преподаватель',
-    'Интроверта',
-    0
-  ),
-(
-    5,
-    'Интроверт',
-    'Иванов',
-    'Иванович',
-    'sdfsd@gmail.ru',
-    '7488fbacdd6c64a8fab4d1145a53c15f2afa89ef680a77f86c4cd49a9a51d6df',
-    '1',
-    'Ученик',
-    'Интроверт',
-    4646
-  ),
-(
-    7,
-    'Экстровер',
-    'Иванов',
-    'Иванович',
-    'asdasd@asda.asd',
-    'ee044a085fd1ea2f7894cc08a102ff5a2b9eec7f8d4d6e8cf66f166974a65983',
-    '1',
-    'Ученик',
-    'Экстроверт',
-    497
-  ),
-(
-    8,
-    'sadasd',
-    'asdasd',
-    'sadas',
-    'asdas@sad.ru',
-    '26ba55ecc8e9a8e8f4abfcf2b2b5f92a32f88fd68b57a223d6f115bb0525d892',
-    '1',
-    'Ученик',
-    'Экстроверта',
-    0
-  ),
-(
-    9,
-    'sadasd',
-    'asdasd',
-    'sadas',
-    'asdas@sad.ru',
-    '26ba55ecc8e9a8e8f4abfcf2b2b5f92a32f88fd68b57a223d6f115bb0525d892',
-    '1',
-    'Ученик',
-    'Экстроверта',
-    0
-  ),
-(
-    10,
-    'sadasd',
-    'asdasd',
-    'sadas',
-    'asdas@sad.ru',
-    '26ba55ecc8e9a8e8f4abfcf2b2b5f92a32f88fd68b57a223d6f115bb0525d892',
-    '1',
-    'Ученик',
-    'Экстроверта',
-    0
-  ),
-(
-    11,
-    'sadasd',
-    'asdasd',
-    'sadas',
-    'asdas@sad.ru',
-    '26ba55ecc8e9a8e8f4abfcf2b2b5f92a32f88fd68b57a223d6f115bb0525d892',
-    '1',
-    'Ученик',
-    'Экстроверта',
-    0
-  ),
-(
-    12,
-    'sadasd',
-    'asdasd',
-    'sadas',
-    'asdas@sad.ru',
-    '26ba55ecc8e9a8e8f4abfcf2b2b5f92a32f88fd68b57a223d6f115bb0525d892',
-    '1',
-    'Ученик',
-    'Экстроверта',
-    0
-  ),
-(
-    13,
-    '',
-    '',
-    '',
-    '',
-    '67b176705b46206614219f47a05aee7ae6a3edbe850bbbe214c536b989aea4d2',
-    '1',
-    NULL,
-    'Интроверт',
-    0
-  ),
-(
-    14,
-    'asdadas',
-    'фывфыв',
-    'asd',
-    'фывфы@sda.asd',
-    'c335c1474a456eb26aa4ca06906846baf82ebfb4e73a6789afecdb9a61cb7184',
-    '1',
-    NULL,
-    'Интроверт',
-    0
-  ),
-(
-    15,
-    'asd',
-    'Заполните поле!',
-    'sad',
-    'asds@sad.we',
-    '65d6cf1b688f1bbee8e806d5567923883cecb860f368854fd5ea9ac61dfd0b64',
-    '1',
-    NULL,
-    'Интроверт',
-    0
-  ),
-(
-    16,
-    'asdas',
-    'asdasdas',
-    'sadasd',
-    'claud@sda.ru',
-    'b13044b9d9a77aa1eecbf8faeea73ac4b8d9d697fbca5a0a3ddaf06b38efbb35',
-    '1',
-    'Преподаватель',
-    'Экстроверт',
-    0
-  ),
-(
-    17,
-    'Амбиверт',
-    'Иванов',
-    'Иванович',
-    'Claud_ambr@mail.ru',
-    'b13044b9d9a77aa1eecbf8faeea73ac4b8d9d697fbca5a0a3ddaf06b38efbb35',
-    '1',
-    'Ученик',
-    'Амбиверт',
-    0
-  );
+INSERT INTO `users` VALUES (1,'1','2','3','4','3f93661f80004cb66a9f7893f0e1ca8e3b5f9f6ff36210fc3a3da2044ea06141','1','Преподаватель','Интроверта',0),(2,'1','2','3','4','3f93661f80004cb66a9f7893f0e1ca8e3b5f9f6ff36210fc3a3da2044ea06141','1','Преподаватель','Интроверта',0),(3,'1','2','3','4','3f93661f80004cb66a9f7893f0e1ca8e3b5f9f6ff36210fc3a3da2044ea06141','1','Преподаватель','Интроверта',0),(4,'1','2','3','4','3f93661f80004cb66a9f7893f0e1ca8e3b5f9f6ff36210fc3a3da2044ea06141','1','Преподаватель','Интроверта',0),(5,'Интроверт','Иванов','Иванович','sdfsd@gmail.ru','7488fbacdd6c64a8fab4d1145a53c15f2afa89ef680a77f86c4cd49a9a51d6df','1','Ученик','Интроверт',4646),(7,'Экстровер','Иванов','Иванович','asdasd@asda.asd','ee044a085fd1ea2f7894cc08a102ff5a2b9eec7f8d4d6e8cf66f166974a65983','1','Ученик','Экстроверт',497),(8,'sadasd','asdasd','sadas','asdas@sad.ru','26ba55ecc8e9a8e8f4abfcf2b2b5f92a32f88fd68b57a223d6f115bb0525d892','1','Ученик','Экстроверта',0),(9,'sadasd','asdasd','sadas','asdas@sad.ru','26ba55ecc8e9a8e8f4abfcf2b2b5f92a32f88fd68b57a223d6f115bb0525d892','1','Ученик','Экстроверта',0),(10,'sadasd','asdasd','sadas','asdas@sad.ru','26ba55ecc8e9a8e8f4abfcf2b2b5f92a32f88fd68b57a223d6f115bb0525d892','1','Ученик','Экстроверта',0),(11,'sadasd','asdasd','sadas','asdas@sad.ru','26ba55ecc8e9a8e8f4abfcf2b2b5f92a32f88fd68b57a223d6f115bb0525d892','1','Ученик','Экстроверта',0),(12,'sadasd','asdasd','sadas','asdas@sad.ru','26ba55ecc8e9a8e8f4abfcf2b2b5f92a32f88fd68b57a223d6f115bb0525d892','1','Ученик','Экстроверта',0),(13,'','','','','67b176705b46206614219f47a05aee7ae6a3edbe850bbbe214c536b989aea4d2','1',NULL,'Интроверт',0),(14,'asdadas','фывфыв','asd','фывфы@sda.asd','c335c1474a456eb26aa4ca06906846baf82ebfb4e73a6789afecdb9a61cb7184','1',NULL,'Интроверт',0),(15,'asd','Заполните поле!','sad','asds@sad.we','65d6cf1b688f1bbee8e806d5567923883cecb860f368854fd5ea9ac61dfd0b64','1',NULL,'Интроверт',0),(16,'asdas','asdasdas','sadasd','claud@sda.ru','b13044b9d9a77aa1eecbf8faeea73ac4b8d9d697fbca5a0a3ddaf06b38efbb35','1','Преподаватель','Экстроверт',0),(17,'Амбиверт','Иванов','Иванович','Claud_ambr@mail.ru','b13044b9d9a77aa1eecbf8faeea73ac4b8d9d697fbca5a0a3ddaf06b38efbb35','1','Ученик','Амбиверт',0),(18,'123','123','123','123@123.123','6606ec625622670ff059d705f9d388881e74038d6ef943044e05740239308df7','124bfa843b629f2aea8c89cb821a1711eb1c51f451017d68ffa182a84892621a','Ученик','Интроверт',0),(19,'123','123','123','mr.levaya.pochta@gmail.com','961810659b501b4b3eb6330dc6f674db58a3f84dbc959de416a93448c803b443','ea6fc9b391782a0296d28122ba3e439cfae720f4c0ae75aa2d76bf0efbf73b91','Ученик','Интроверт',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -509,4 +336,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-03 23:54:49
+-- Dump completed on 2023-04-10  5:54:25

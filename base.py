@@ -49,7 +49,6 @@ def del_coup(id):
 def check_user_exist(email: str):
     connection = data_con()
     cursor = connection.cursor()
-
     query = '''SELECT email FROM users WHERE email=(%s)'''
     cursor.execute(query, (email,))
     result = cursor.fetchall()
@@ -310,3 +309,52 @@ def href_update(id_user,href_user,mas):
     connection.commit()
     cursor.close()
     connection.close()
+
+
+def password_reset_token_create(user_id, token):
+    connection = data_con()
+    cursor = connection.cursor()
+    data = user_id, token
+    query = '''INSERT INTO password_reset_tokens (user_id,token) VALUES(%s,%s)'''
+    cursor.execute(query, data)
+    connection.commit()
+    cursor.close()
+    connection.close()
+
+
+def password_reset_token_find(token):
+    connection = data_con()
+    cursor = connection.cursor()
+    query = '''SELECT user_id FROM password_reset_tokens WHERE token=(%s)'''
+    cursor.execute(query, (token,))
+    result = cursor.fetchall()
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result
+
+
+def update_password(user_id, new_hash, new_salt):
+    connection = data_con()
+    cursor = connection.cursor()
+    data = (new_hash, new_salt, user_id)
+    query = '''UPDATE users SET password=(%s), salt=(%s) WHERE id=(%s)'''
+    cursor.execute(query, data)
+    result = cursor.fetchall()
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result
+
+
+def find_user_by_email(email):
+    connection = data_con()
+    cursor = connection.cursor()
+    query = '''SELECT id FROM users WHERE email=(%s)'''
+    cursor.execute(query, (email,))
+    result = cursor.fetchall()
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result
+
