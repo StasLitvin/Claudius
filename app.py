@@ -2,10 +2,12 @@ import hashlib
 import os
 from config import UPLOAD_FOLDER, ALLOWED_EXTENSIONS, mas_test_lich
 from main import rezult_test_lic
-from flask import Flask, render_template, request, session, url_for, redirect, abort
-from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg, input_login, data_user, password_reset_token_find, update_password, \
+from flask import Flask, render_template, request, session, url_for, redirect, abort, jsonify
+from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg, input_login, data_user, \
+    password_reset_token_find, update_password, \
     user_update_coin, class_stud, user_rez, task_class, tasks_lec, answer_user, tasks_lec_rez, rez_coin, task_eval, \
-    update_answer_coin, cards_corsers, cards_course, class_pre, href_update, password_reset_token_create, find_user_by_email
+    update_answer_coin, cards_corsers, cards_course, class_pre, href_update, password_reset_token_create, \
+    find_user_by_email, name_lec
 from werkzeug.utils import secure_filename
 from mail import send_mail, send_password_reset_mail
 
@@ -21,11 +23,11 @@ def allowed_file(filename):
 
 
 href_intr = ["../static/css/trade_intr.css", "../static/css/profile_intr.css", "../static/css/style_intr.css",
-             "../static/css/reset_intr.css", "../static/css/courses_intr.css"]
+             "../static/css/reset_intr.css", "../static/css/courses_intr.css", "../static/css/account_styl_intr.css"]
 href_extr = ["../static/css/trade_extr.css", "../static/css/profile_extr.css", "../static/css/style_extr.css",
-             "../static/css/reset_extr.css", "../static/css/courses_extr.css"]
+             "../static/css/reset_extr.css", "../static/css/courses_extr.css", "../static/css/account_styl_extr.css"]
 href_ambr = ["../static/css/trade_ambr.css", "../static/css/profile_ambr.css", "../static/css/style_ambr.css",
-             "../static/css/reset_ambr.css", "../static/css/courses_ambr.css"]
+             "../static/css/reset_ambr.css", "../static/css/courses_ambr.css", "../static/css/account_styl_ambr.css"]
 type_css = {"Интроверт": href_intr, "Экстраверт": href_extr, "Амбиверт": href_ambr}
 
 
@@ -53,6 +55,7 @@ def base():
         session['count_tasks_test_lich'] = len(session['tasks_test_lich'])
         session['tasks_test_lich_rez'] = [' '] * session['count_tasks_test_lich']
     if request.method == "POST":
+        print(request.form)
         if 'back' in request.form and session['now_task_test_lich'] > 1:
             session['tasks_test_lich_rez'][session['now_task_test_lich'] - 1] = request.form['radio']
             session['now_task_test_lich'] -= 1
@@ -159,8 +162,8 @@ def forgot_password():
                     print('sent')
                     return render_template('forgot_password.html', href=href_intr)
                 return render_template('forgot_password.html', href=href_intr)
-        return render_template('forgot_password.html', href=href_intr, error_text="Что-то пошло не так...<br>Invalid CSRF token.")
-
+        return render_template('forgot_password.html', href=href_intr,
+                               error_text="Что-то пошло не так...<br>Invalid CSRF token.")
 
 
 @app.route('/forgot_password/<token>', methods=['GET', 'POST'])
@@ -172,18 +175,20 @@ def reset_password(token):
             session['csrf_token'] = csrf_token
             session['user_id'] = user[0][0]
             return render_template('password_reset.html', href=href_intr, csrf_token=csrf_token)
-        return render_template('password_reset.html', href=href_intr, error_text="Что-то пошло не так...<br>Invalid password reset token.")
+        return render_template('password_reset.html', href=href_intr,
+                               error_text="Что-то пошло не так...<br>Invalid password reset token.")
     if request.method == 'POST':
         if request.form['CSRFToken'] == session['csrf_token']:
             if 'password' in request.form:
                 password = request.form['password']
                 salt = generate_salt()
                 password_hash = generate_password_hash(password, salt)
-                update_password(session['user_id'], password_hash, salt,)
+                update_password(session['user_id'], password_hash, salt, )
                 return redirect('/login')
-            return render_template('password_reset.html', href=href_intr, error_text="Что-то пошло не так...<br>Password empty.")
-        return render_template('password_reset.html', href=href_intr, error_text="Что-то пошло не так...<br>Invalid CSRF token.")
-
+            return render_template('password_reset.html', href=href_intr,
+                                   error_text="Что-то пошло не так...<br>Password empty.")
+        return render_template('password_reset.html', href=href_intr,
+                               error_text="Что-то пошло не так...<br>Invalid CSRF token.")
 
 
 @app.route('/mag', methods=['GET', 'POST'])
@@ -217,10 +222,10 @@ def profile(username):
             print(request.form['nick'])
             print(request.form)
             session['user_href'] = request.form['emotional_condition']
-            if len(request.form['nick'].split(" "))==3:
-                href_update(session['id_user'], session['user_href'],request.form['nick'].split(" "))
+            if len(request.form['nick'].split(" ")) == 3:
+                href_update(session['id_user'], session['user_href'], request.form['nick'].split(" "))
             else:
-                href_update(session['id_user'], session['user_href'],[])
+                href_update(session['id_user'], session['user_href'], [])
         return render_template('profile.html', title="Личный кабинет", href=type_css[session['user_href']],
                                user=data_user(session['id_user'])[0])
 
@@ -260,37 +265,79 @@ def class_rez(id_class):
 def tasks(id_lecture):
     if 'id_user' not in session:
         return redirect(url_for('login'))
-    if request.method == "GET":
-        mas = tasks_lec(id_lecture)
-        print(mas, id_lecture)
-        return render_template('tasks.html', title="Задания к лекцие", href=href_intr, mas_tasks=mas)
+
+    test = 'tasks_test_' + str(id_lecture)
+    count = 'count_tasks_test_' + str(id_lecture)
+    now = 'now_task_test_' + str(id_lecture)
+    rez = 'tasks_test_rez_' + str(id_lecture)
+    if request.method == "GET" and test not in session:
+        session[test] = tasks_lec(id_lecture)
+        session[now] = 1
+        session[count] = len(session[test])
+        session[rez] = [0] * session[count]
+    print(session[test])
     if request.method == "POST":
         print(request.form)
-        for i in request.form:
-            answer_user(session['id_user'], int(i), int(request.form[i].split("/")[1]))
-        mas = task_eval(id_lecture, session['id_user'])
-        for i in mas:
-            if i[1] == i[3]:
-                update_answer_coin(session['id_user'], i[3], i[2])
-            else:
-                update_answer_coin(session['id_user'], i[3], 0)
-        return redirect(url_for('rez_tasks', id_lecture=id_lecture, id_user=session['id_user']))
+        if 'back' in request.form and session[now] > 1:
+            session[rez][session[now] - 1] = int(request.form['radio'])
+            session[now] -= 1
+        if 'next' in request.form and session[now] < session[count]:
+            session[rez][session[now] - 1] = int(request.form['radio'])
+            session[now] += 1
+        print(session[rez])
+        if 'finish' in request.form:
+            session[rez][session[now] - 1] = request.form['radio']
+            for i in range(session[count]):
+                print(session['id_user'], session[test][i][0], session[rez][i])
+                answer_user(session['id_user'], session[test][i][0], session[rez][i])
+            mas = task_eval(id_lecture, session['id_user'])
+
+            for i in mas:
+                if i[1] == i[3]:
+                    update_answer_coin(session['id_user'], i[3], i[2])
+                else:
+                    update_answer_coin(session['id_user'], i[3], 0)
+            session[rez] = [' '] * session[count]
+            session[now] = 1
+            return redirect(url_for('rez_tasks', id_lecture=id_lecture, id_user=session['id_user']))
+    return render_template('tasks.html', title="Главная", href=type_css[session['user_href']],
+                           lecture=name_lec(id_lecture),
+                           user=data_user(session['id_user']),
+                           task=session[test][session[now] - 1],
+                           count_tasks=session[count], now_task=session[now],
+                           rez_task=session[rez][session[now] - 1])
 
 
-@app.route('/rez_tasks/<id_lecture>/<id_user>', methods=['GET', 'POST'])
+@app.route('/rez_tasks/<id_lecture>&<id_user>', methods=['GET', 'POST'])
 def rez_tasks(id_lecture, id_user):
-    print(id_user)
-    print(id_lecture)
     if 'id_user' not in session:
         return redirect(url_for('login'))
-    if session['id_user'] != id_user:
+    if session['id_user'] != int(id_user):
         abort(401)
-    if request.method == "GET":
-        mas = tasks_lec_rez(id_lecture, session['id_user'])
-        rez_coins = rez_coin(id_lecture, session['id_user'])
-        print(mas)
-        return render_template('task_rez.html', title="Результаты заданий", href=href_intr, mas_tasks=mas,
-                               rez_coin=rez_coins)
+    test = 'tasks_test_' + str(id_lecture)+'rez'
+    count = 'count_tasks_test_' + str(id_lecture)+'rez'
+    now = 'now_task_test_' + str(id_lecture)+'rez'
+    rez = 'tasks_test_rez_' + str(id_lecture)+'rez'
+    if request.method == "GET" and test not in session:
+        session[test] = tasks_lec_rez(id_lecture, session['id_user'])
+        session[now] = 1
+        session[count] = len(session[test])
+        session[rez] = rez_coin(id_lecture, session['id_user'])
+    print(session[test])
+    if request.method == "POST":
+        print(request.form)
+        if 'back' in request.form and session[now] > 1:
+            session[now] -= 1
+        if 'next' in request.form and session[now] < session[count]:
+            session[now] += 1
+        print(session[rez])
+    return render_template('task_rez2.html', title="Результаты заданий", href=type_css[session['user_href']],
+                           lecture=name_lec(id_lecture),
+                           user=data_user(session['id_user']),
+                           i=session[test][session[now]-1],
+                           r=session[rez][session[now]-1],
+                           count_tasks=session[count], now_task=session[now],
+                           rez_task=session[rez][session[now] - 1])
 
 
 @app.route('/courses/<id_course>', methods=['GET', 'POST'])
@@ -306,7 +353,8 @@ def courses():
         if 'user_href' in session:
             return render_template('courses.html', title="Курсы", count_courses=cards[0], courses=cards[1],
                                    href=type_css[session['user_href']], user=data_user(session['id_user']))
-        return render_template('courses.html', title="Курсы", count_courses=cards[0], courses=cards[1], href=href_intr)
+        return render_template('courses.html', title="Курсы", count_courses=cards[0], courses=cards[1],
+                               href=href_intr)
 
 
 @app.route('/down', methods=['GET', 'POST'])
@@ -315,12 +363,13 @@ def down():
         print(0)
         return render_template('down.html', name="NO")
     elif request.method == 'POST':
+        return jsonify(mas_test_lich)
         print(request.files)
         file = request.files['imges']
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return render_template('down.html', name=filename)
+            return render_template('down.html', name=filename, mas_test_lich=mas_test_lich)
 
 
 @app.route('/exit', methods=['GET'])

@@ -40,30 +40,30 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 /* For colours */
 :root {
+	--header-1: #0C2A22;
+    --header-2: #BABB8F;
+    --text-glow: #BABB8F;
+    --B-static: #0C2A22;
+    --PI-info-block: #dad9bb;
+    --PI-text-changing: #0C2A22;
+    --CI-main-block-1: #359935;
+    --CI-main-block-2: #87E251;
+    --CI-changing: #0C2A22;
+    --CI-button: #ACA878;
 	/* Main */
-	--header-1:#70C6F9;
-	--header-2:#B4F0FF;
 	--text-header-1:#FFF;
 	--text-header-2:#000;
-	--text-glow: #B4F0FF;
 
 	/* Balance */
-	--B-static:#5087CD;
 	--B-changing:#000;
 
 	/* Personal-Info */
 	--PI-name:#000;
-	--PI-info-block:#F8F5FE;
 	--PI-text-static:#74777C;
-	--PI-text-changing:#012034;
 
 	/* Courses-Info */
-	--CI-main-block-1:#B1D3FF;
-	--CI-main-block-2:#B1D3FF;
 	--CI-name:#000;
 	--CI-static:#57595B;
-	--CI-changing:#044368;
-	--CI-button:#99B8CC;
 	--CI-text-button:#FFF;
 }
 
@@ -275,7 +275,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 	visibility: visible;
 
-	background: linear-gradient(116.48deg, #DCF2FF 0%, #E5FAFF 100%);
+	background: linear-gradient(116.48deg, #F4FFE7 0%, #FEFFE3 100%);
 }
 
 .questions-left {
@@ -405,7 +405,7 @@ input[type='radio']:checked:after {
 .another-question-left-img {
 	position: relative;
 	border: none;
-	background: #DFF5FF;
+	background: #DCF2FF;
 	cursor: pointer;
 
 	margin-left: 60px;

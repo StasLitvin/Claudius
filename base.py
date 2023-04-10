@@ -22,6 +22,7 @@ def coups_mas():
     cursor.close()
     connection.close()
     return result
+print(coups_mas())
 
 
 def coup_mas(id):
@@ -358,3 +359,13 @@ def find_user_by_email(email):
     connection.close()
     return result
 
+def name_lec(id_lecture):
+    connection = data_con()
+    cursor = connection.cursor()
+    query = '''SELECT name FROM lectures WHERE id=(%s)'''
+    cursor.execute(query, (id_lecture,))
+    result = cursor.fetchall()[0][0]
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result

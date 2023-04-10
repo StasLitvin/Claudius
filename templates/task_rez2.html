@@ -45,63 +45,62 @@
 				<div class="notifications"><a href="#">Напоминания</a></div>
 			</div>
 		</div>
+    <main class="main">
+    <p class="test-name">Результаты теста к лекции - {{ lecture }}</p>
 
-		<main class="main">
-				<p class="test-name">Тест на определение типа личности</p>
-				<p class="test-descr">Кто я  - экстраверт, интроверт или амбиверт?</p>
-
-				<div class="osn-inf">
-                    {% if count_tasks!=0 %}
+        <div class="osn-inf">
+        {% if count_tasks!=0 %}
 					<p class="questions-left">{{ now_task }}/{{ count_tasks }}</p>
                  {% endif %}
-					<p class="question">{{ task[0] }}:</p>
 
+					<p class="question">{{ i[1] }}:</p>
+                    {% if r[0]==i[0] %}
+                        <p class="question">Вы получили: {{ r[2] }} из {{ r[1] }}</p>
+                    {% endif %}
 					<div class="answer">
 						<ul>
-                            {% for i in task %}
-                            {% if i!=task[0] %}
-                                {% if i==rez_task %}
-							        <li><label><input type="radio" name="radio" id="{{ i }}" value="{{ i }}" checked><p class="radio-item-1">{{i}}</p></label></li><br>
+                            {% for j in i[2] %}
+                                    {% if j[0]!= i[3][0][0] %}
+							        <li><label><input type="radio" disabled="disabled" name="radio" value="{{ j[1] }}"><p class="radio-item-1">{{ j[1] }}</p></label></li><br>
                                 {% else %}
-                                    <li><label><input type="radio" name="radio" id="{{ i }}" value="{{ i }}"><p class="radio-item-1">{{i}}</p></label></li><br>
+                                    <li><label><input type="radio" disabled="disabled"  name="radio" value="{{ j[1] }}" checked="checked"><p class="radio-item-1">{{ j[1] }}</p></label></li><br>
                                 {% endif %}
-                            {% endif %}
                             {% endfor %}
                         </ul>
 					</div>
 
+
 					<div class="another-question">
                     {% if now_task>1 %}
                         <form class="first" method="post">
-                            <input type="hidden" id="radio_back" name="radio">
+                            <input type="hidden" id="radio_back" name="radio" value="0" >
                             <input type="hidden" id="hid_back" name="back">
 						<ul>
-							<li id="back_but"><button class="another-question-left-img"  ><img src="../static/img/arrows-right.svg" style="transform: scale(1, -1);"></button></li>
+							<li onclick="radio_back()"><button class="another-question-left-img"  ><img src="../static/img/arrows-right.svg" style="transform: scale(1, -1);"></button></li>
 							<li><p class="another-question-left">Перейти к предыдущему вопросу</p></li>
 						</ul>
                             </form>
                         {% endif %}
                     {% if now_task==count_tasks %}
-                        <form class="third" method="post">
-                        <input type="hidden" id="radio_finish" name="radio">
+                        <form class="third" method="post" style="visibility: hidden">
+                        <input type="hidden" id="radio_finish" name="radio" value="0">
                         <input type="hidden" id="hid_finish" name="finish">
-						<div id="finish_but" ><input type="submit"  class="another-question-center" value="закончить тест"></div>
+						<div onclick="radio_finish()" ><input type="submit"  class="another-question-center" value="закончить тест"></div>
                           </form>
                     {% endif %}
                         {% if now_task<count_tasks %}
                          <form class="second" method="post">
-                             <input type="hidden" id="radio_next" name="radio">
+                             <input type="hidden" id="radio_next" name="radio" value="0">
                              <input type="hidden" id="hid_next" name="next">
 						<ul>
-							<li id="next_but"><button class="another-question-right-img"  ><img src="../static/img/arrows-right.svg"></button></li>
+							<li  onclick="radio_next()"><button class="another-question-right-img"  ><img src="../static/img/arrows-right.svg"></button></li>
 							<li><p class="another-question-right">Перейти к следующему вопросу</p></li>
 						</ul>
                               </form>
                         {% endif %}
 
 					</div>
-				</div>
-
+                    </div>
 				<div class="main-bottom-change">
 					<div class="main-bottom-change-first">
 						<select class="emotional-condition" id="emotional-condition" name="emotional_condition">
@@ -111,6 +110,7 @@
 						</select>
 					</div>
 				</div>
+
 		</main>
 
 	</body>
