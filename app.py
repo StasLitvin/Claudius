@@ -3,11 +3,11 @@ import os
 from config import UPLOAD_FOLDER, ALLOWED_EXTENSIONS, mas_test_lich
 from main import rezult_test_lic
 from flask import Flask, render_template, request, session, url_for, redirect, abort
-from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg, input_login, data_user, \
+from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg, input_login, data_user, password_reset_token_find, update_password, \
     user_update_coin, class_stud, user_rez, task_class, tasks_lec, answer_user, tasks_lec_rez, rez_coin, task_eval, \
-    update_answer_coin, cards_corsers, cards_course, class_pre, href_update
+    update_answer_coin, cards_corsers, cards_course, class_pre, href_update, password_reset_token_create, find_user_by_email
 from werkzeug.utils import secure_filename
-from mail import send_mail
+from mail import send_mail, send_password_reset_mail
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'fsa87asd782asd'
@@ -35,6 +35,10 @@ def generate_csrf_token():
 
 def generate_salt():
     return hashlib.sha256(os.urandom(32)).hexdigest()
+
+
+def generate_password_reset_token():
+    return hashlib.sha256(os.urandom(64)).hexdigest()
 
 
 def generate_password_hash(password, salt):
@@ -127,6 +131,8 @@ def login():
                 print(input_login(session['user_href']))
                 session['login_user'] = request_login
                 return redirect(url_for('profile', username=session['login_user']))
+            csrf_token = generate_csrf_token()
+            session['csrf_token'] = csrf_token
             return render_template('login.html', href=href_intr, csrf_token=csrf_token,
                                    error_text='Неправильный логин или пароль.', )
         else:
@@ -134,6 +140,50 @@ def login():
             session['csrf_token'] = csrf_token
             return render_template('login.html', title="Авторизация", href=href_intr, csrf_token=csrf_token,
                                    error_text='Invalid cstf token')
+
+
+@app.route('/forgot_password', methods=['GET', 'POST'])
+def forgot_password():
+    if request.method == 'GET':
+        csrf_token = generate_csrf_token()
+        session['csrf_token'] = csrf_token
+        return render_template('forgot_password.html', href=href_intr, csrf_token=csrf_token, password_not_reset=True)
+    if request.method == 'POST':
+        if request.form['CSRFToken'] == session['csrf_token']:
+            if 'email' in request.form:
+                email = request.form['email']
+                if check_user_exist(email):
+                    token = generate_password_reset_token()
+                    password_reset_token_create(find_user_by_email(email)[0][0], token)
+                    send_password_reset_mail(email, token)
+                    print('sent')
+                    return render_template('forgot_password.html', href=href_intr)
+                return render_template('forgot_password.html', href=href_intr)
+        return render_template('forgot_password.html', href=href_intr, error_text="Что-то пошло не так...<br>Invalid CSRF token.")
+
+
+
+@app.route('/forgot_password/<token>', methods=['GET', 'POST'])
+def reset_password(token):
+    if request.method == 'GET':
+        user = password_reset_token_find(token)
+        if len(user) > 0:
+            csrf_token = generate_csrf_token()
+            session['csrf_token'] = csrf_token
+            session['user_id'] = user[0][0]
+            return render_template('password_reset.html', href=href_intr, csrf_token=csrf_token)
+        return render_template('password_reset.html', href=href_intr, error_text="Что-то пошло не так...<br>Invalid password reset token.")
+    if request.method == 'POST':
+        if request.form['CSRFToken'] == session['csrf_token']:
+            if 'password' in request.form:
+                password = request.form['password']
+                salt = generate_salt()
+                password_hash = generate_password_hash(password, salt)
+                update_password(session['user_id'], password_hash, salt,)
+                return redirect('/login')
+            return render_template('password_reset.html', href=href_intr, error_text="Что-то пошло не так...<br>Password empty.")
+        return render_template('password_reset.html', href=href_intr, error_text="Что-то пошло не так...<br>Invalid CSRF token.")
+
 
 
 @app.route('/mag', methods=['GET', 'POST'])
