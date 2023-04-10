@@ -405,7 +405,7 @@ input[type='radio']:checked:after {
 .another-question-left-img {
 	position: relative;
 	border: none;
-	background: #DCF2FF;
+	background: #F6FFE6;
 	cursor: pointer;
 
 	margin-left: 60px;
@@ -416,7 +416,7 @@ input[type='radio']:checked:after {
 .another-question-right-img {
 	position: relative;
 	border: none;
-	background: #E5FAFF;
+	background: #FDFFE4;
 	cursor: pointer;
 
 	margin-left: 60px;
