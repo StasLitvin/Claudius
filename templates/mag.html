@@ -4,37 +4,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-      <section class="navigation">
-            <div class="wrapper navigation__panel">
-                <nav class="navigation__menu">
-                    <ul class="navigation__menu-container">
-                        <li class="menu__link-container"><a href="/" class="menu__link-icon"><img src="../static/img/Home-icon.svg" alt="home icon" class="menu__link-img"></a></li>
-                        <img src="../static/img/arrow-right.svg" alt="Arrow rigth" />
-                        <li class="menu__link-container"><a href="/mag" class="menu__link">Обменник</a></li>
-                    </ul>
-                </nav>
-                <a href="#" class="navigation__reminder-link">Напоминание</a>
-            </div>
-        </section>
         <link rel="stylesheet" href={{ href[3]}}>
         <link rel="stylesheet" href={{ href[0]}}>
-<div class="cards">
-            {% for c in coup %}
-            <div class="card">
-                <div class="card_top">
-                    <img src="../static/img/img.png" height="173px" width="250px" alt="">
-                </div>
-                <form method="post">
-                    <div class="card_botom">
-                    <p class="card_title">{{ c[1] }}</p>
-                    <h3 class="card_title">{{ c[2] }}</h3>
 
-                    <p class="card_price" name="coin">{{ c[4] }}</p>
-                    <input hidden type="text" name="id_coup" value="{{ c[0] }}">
-                    <input type="submit" class="card_trade" value="Обменять пряники">
-                        </div>
-                </form>
-            </div>
-            {% endfor %}
 </div>
+    <main>
+        <h1 class="visuallyhidden">Project Claudius</h1>
+        <section class="bonuses">
+            <div class="bonuses__wrapper">
+                <ul class="bonuses__list">
+                    {% for c in coup %}
+                    <li class="bonuses__item">
+                        <h2 class="bonuses__title">{{ c[1] }} за {{ c[4] }}</h2>
+                        <p class="bonuses__text">{{ c[2] }} </p>
+                        <form method="post">
+                    <input hidden type="text" name="id_coup" value="{{ c[0] }}">
+                    <button class="bonuses__button btn">Обменять</button>
+                    </form>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </main>
 {% endblock %}

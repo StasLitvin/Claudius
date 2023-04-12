@@ -1,27 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <link rel="stylesheet" href="../static/css/reset.css">
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <main class="main">
         <h1 class="visually-hidden">Course page</h1>
-        <section class="navigation">
-            <div class="wrapper navigation__panel">
-                <nav class="navigation__menu">
-                    <ul class="navigation__menu-container">
-                        <li class="menu__link-container"><a href="/" class="menu__link-icon"><img src="../static/img/Home-icon.svg" alt="home icon" class="menu__link-img"></a></li>
-                        <img src="../static/img/arrow-right.svg" alt="Arrow rigth" />
-                        <li class="menu__link-container"><a href="/courses" class="menu__link">Курсы</a></li>
-                        <img src="../static/img/arrow-right.svg" alt="Arrow rigth" />
-                        <li class="menu__link-container"><a href="" class="menu__link">{{ course[0] }}</a></li>
-                    </ul>
-                </nav>
-                <a href="#" class="navigation__reminder-link">Напоминание</a>
-            </div>
-        </section>
 
         <section class="course">
             <div class="wrapper">

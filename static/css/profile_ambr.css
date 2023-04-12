@@ -48,31 +48,33 @@ table { border-collapse: collapse; border-spacing: 0; }
 	--font-family-1:Quicksand;
 	--font-family-2:Montserrat;
 	--font-family-3: Inter;
-	--header-1: #0C2A22;
-    --header-2: #BABB8F;
-    --text-glow: #BABB8F;
-    --B-static: #0C2A22;
-    --PI-info-block: #dad9bb;
-    --PI-text-changing: #0C2A22;
-    --CI-main-block-1: #359935;
-    --CI-main-block-2: #87E251;
-    --CI-changing: #0C2A22;
-    --CI-button: #ACA878;
+
 	/* Main */
+	--header-1: #0C2A22;
+	--header-2: #BABB8F;
+	--text-glow: #BABB8F;
 	--text-header-1:#FFF;
 	--text-header-2:#000;
 
 	/* Balance */
 	--B-changing:#000;
+	--B-static: #0C2A22;
 
 	/* Personal-Info */
 	--PI-name:#000;
 	--PI-text-static:#74777C;
+	--PI-info-block: #dad9bb;
+	--PI-text-changing: #012034;
+	/*	#0C2A22*/
 
 	/* Courses-Info */
 	--CI-name:#000;
 	--CI-static:#57595B;
 	--CI-text-button:#FFF;
+	--CI-main-block-1: #ADC89D;
+	--CI-main-block-2: #ADC89D;
+	--CI-changing: #0C2A22;
+	--CI-button: #ACA878;
 }
 
 
@@ -293,7 +295,10 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 
 .PI-photo-img {
-	margin: 30px 0 0 0;
+	margin: 0 0 0 0;
+	width: 200px;
+	height: 200px;
+	content: url(../img/photo2.svg);
 }
 
 .PI-photo-img-input {
@@ -390,7 +395,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 	width: 60px;
 	height: 20px;
-
+	font-size: 18px;
 	border: var(--header-2) 1px solid;
 	background: var(--header-2);
 	border-radius: 20px;
@@ -416,7 +421,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 	text-align: left;
 
 	border-radius: 20px;
-	background: var(--PI-info-block);
+	background: rgba(218, 217, 187, 0.7);
 	box-shadow: 3px -3px 5px rgba(0,0,0,.2), -1px 5px 8px rgba(0,0,0,.3);
 }
 
@@ -487,7 +492,7 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 .CI-cours {
 	margin: 30px 0 30px 0;
 
-	background: var(--CI-main-block);
+	background: rgba(173, 200, 157, 0.5);
 	border-radius: 20px;
 
 	display: flex;
@@ -496,8 +501,6 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 	align-items: stretch;
 
 	font-size: 26px;
-
-	background: linear-gradient(180deg, var(--CI-main-block-1) 28.98%, var(--CI-main-block-2) 93.97%);
 }
 
 	.CI-cours p {
@@ -543,6 +546,10 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 
 .CI-cours-stars {
 	margin: 65px 37px 1px 0;
+}
+
+.CI-cours-stars img{
+	content: url(../static/img/afterStar2.svg);
 }
 
 .link {

@@ -35,22 +35,6 @@
   font-style: normal;
 }
 
-.header {
-  background: var(--header-color);
-  min-height: 3.75rem;
-  margin-bottom: 66px;
-}
-
-.header-container {
-  max-width: 106rem;
-  margin-inline: auto;
-  padding-top: 1rem;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .anchor {
   font-family: var(--font-secondary);
   font-weight: 600;

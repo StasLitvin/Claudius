@@ -1,52 +1,11 @@
-<!DOCTYPE html>
-<!-- Оболочка документа, указываем язык содержимого -->
-<html lang="ru">
-	<!-- Заголовок страницы, контейнер для других важных данных (не отображается) -->
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport"
-			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<!-- Заголовок страницы в браузере -->
-		<title>{{ title }}</title>
-		<!-- Bootstrap CSS (jsDelivr CDN) -->
-		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic" rel="stylesheet">
-		<!-- CSS -->
-		<link rel="stylesheet" href="{{ href[5] }}" />
+{% extends 'base.html' %}
+{% block content %}
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-		<script src="js/change.js"></script>
-	</head>
 
-	<body>
-		<header class="header">
-			<div class="header-1">
-				<div class="logo text-glow"><a href="#">Claudius</a></div>
-				<div class="logo-info">Бонусная система поощрения</div>
 
-				<div class="courses text-glow"><a href="#">Курсы</a></div><div class="span"><span>|</span></div>
-				<div class="lk-up text-glow"><a href="#">Личный кабинет</a></div><div class="span"><span>|</span></div>
-				<div class="reg text-glow"><a href="#">Регистрация</a></div>
-				<div class="phone-img"><img src="../static/img/phone.svg" alt=""></div>
-				<div class="phone"><a href="#">+7&nbsp999&nbsp555&nbsp3322</a></div>
-				<div class="email-img"><img src="../static/img/email.svg" alt=""></div>
-				<div class="email"><a href="#">support@claudius.ru</a></div>
-				<div class="exit-img"><a href="#"><img src="../static/img/exit.svg" alt=""></a></div>
-			</div>
-		</header>
-
-		<div class="header">
-			<div class="header-2">
-				<div class="app-img"><img src="../static/img/apps.svg" alt=""></div>
-				<div class="choice-img"><img src="../static/img/choice.svg" alt=""></div>
-				<div class="lk-bottom"><a href="#">Личный кабинет</a></div>
-
-				<div class="notifications-img"><img src="../static/img/notifications.svg" alt=""></div>
-				<div class="notifications"><a href="#">Напоминания</a></div>
-			</div>
-		</div>
 
 		<main class="main">
+        <link rel="stylesheet" href="{{ href[5] }}" />
 				<p class="test-name">Тест на определение типа личности</p>
 				<p class="test-descr">Кто я  - экстраверт, интроверт или амбиверт?</p>
 
@@ -111,11 +70,11 @@
 						</select>
 					</div>
 				</div>
+        <br>
+        <br>
+        <br>
 		</main>
 
-	</body>
-
-</html>
 <script>
     document.getElementById('radio_back').value=""
     document.getElementById('radio_next').value=""
@@ -133,3 +92,4 @@
         document.getElementById('radio_finish').value=document.querySelector('input[name="radio"]:checked').value
     }
 </script>
+{% endblock %}

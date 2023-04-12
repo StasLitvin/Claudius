@@ -1,22 +1,13 @@
 {% extends 'base.html' %} {% block content %}
-<main><link rel="stylesheet" href="../static/css/style.css">
+<main>
+    <br>
+<br>
+    <link rel="stylesheet" href="../static/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-      <section class="navigation">
-            <div class="wrapper navigation__panel">
-                <nav class="navigation__menu">
-                    <ul class="navigation__menu-container">
-                        <li class="menu__link-container"><a href="/" class="menu__link-icon"><img src="../static/img/Home-icon.svg" alt="home icon" class="menu__link-img"></a></li>
-                        <img src="../static/img/arrow-right.svg" alt="Arrow rigth" />
-                        <li class="menu__link-container"><a href="/register" class="menu__link">Регистрация</a></li>
-                    </ul>
-                </nav>
-                <a href="#" class="navigation__reminder-link">Напоминание</a>
-            </div>
-        </section>
-<link rel="stylesheet" href="{{ href[3] }}">
-<link rel="stylesheet" href="{{ href[2] }}">
+    <link rel="stylesheet" id="reset" href="{{ href[3] }}">
+    <link rel="stylesheet" id="style" href="{{ href[2] }}">
   <section class="auth">
     <div class="auth__container container">
       <div class="auth__left-section left-section">
@@ -141,6 +132,6 @@
       </div>
     </div>
   </section>
+<br>
 </main>
-<script src="../static/js/index.js"></script>
 {% endblock %}

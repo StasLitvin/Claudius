@@ -15,54 +15,6 @@ body {
   margin: 0 auto;
 }
 
-/* Header */
-.header {
-  background-color: #0c2a22;
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 24px 16px 100px;
-  font-family: "Quicksand", sans-serif;
-  font-weight: 600;
-  color: #fff;
-}
-
-.header__information {
-  display: flex;
-  align-items: flex-end;
-}
-
-.header__logo {
-  margin-right: 8px;
-  color: #adc89d;
-  font-size: 28px;
-  line-height: 27.16px;
-}
-
-.header__additional-inf {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 22.62px;
-}
-
-.contact__information {
-  display: flex;
-  column-gap: 38px;
-  align-items: center;
-}
-
-.phone-img,
-.mail-img {
-  margin-right: 6px;
-}
-
-.header__link {
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  line-height: 15px;
-  text-decoration: none;
-  color: #fff;
-}
 
 /* Section path */
 .path {

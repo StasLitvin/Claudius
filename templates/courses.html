@@ -2,22 +2,10 @@
 {% block content %}
 
     <main class="main">
-        <link rel="stylesheet" href="../static/css/style.css">
+        <link rel="stylesheet" href={{ href[4] }}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-      <section class="navigation">
-            <div class="wrapper navigation__panel">
-                <nav class="navigation__menu">
-                    <ul class="navigation__menu-container">
-                        <li class="menu__link-container"><a href="/" class="menu__link-icon"><img src="../static/img/Home-icon.svg" alt="home icon" class="menu__link-img"></a></li>
-                        <img src="../static/img/arrow-right.svg" alt="Arrow rigth" />
-                        <li class="menu__link-container"><a href="/courses" class="menu__link">Курсы</a></li>
-                    </ul>
-                </nav>
-                <a href="#" class="navigation__reminder-link">Напоминание</a>
-            </div>
-        </section>
       <section class="courses">
         <div class="container">
           <div class="courses__content">
@@ -59,10 +47,10 @@
                         <span class="views__inf">{{ i[3] }}</span>
                       </div>
                     </div>
-                    <a href="/courses/{{ i[5] }}" class="card__start">начать</a>
+                    <a href="/courses/{{ i[5] }}" class="card__start">Начать</a>
                   </div>
                   <div class="bottom__right">
-                    <img src="../static/img/{{ i[4] }}" alt="img_course" />
+                    <img src="../static/img/{{ href[7] }}/{{ i[4] }}" alt="img_course" width="130" height="130" />
                   </div>
                 </div>
               </div>

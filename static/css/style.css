@@ -25,10 +25,6 @@
   margin: auto;
 }
 
-.navigation {
-  background-color: #B4F0FF;
-  padding: 12px 50px;
-}
 
 a, li {
   text-decoration: none;
@@ -44,38 +40,13 @@ a, li {
   align-items: center;
 }
 
-.navigation__reminder-link::before {
-  content: url(/img/Bell-icon.png);
-  padding-right: 12px;
-}
 
-
-.navigation__reminder-link {
-  display: flex; 
-  color: black; 
-  font-style: normal; 
-  font-weight: 600; 
-  font-size: 18px; 
-  line-height: 3px; 
-  align-items: center; 
-}
-
-.navigation__menu-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
 
 .menu__link::before {
   content: url(/img/ChevronRight.svg);
   padding-right: 12px;
 }
 
-.navigation__panel {
-  display: flex;
-  justify-content: space-between;
-}
 
 .course {
   padding-top: 30px;

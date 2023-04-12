@@ -15,34 +15,13 @@ ul li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 /*--------------------*/
-.header{
-	width: auto;
-	height: 60px;
-	background-color: #2278EE;
-}
+
 .container{
 	margin: 0px 0px 0px 100px;
 }
-.header-menu{
-	padding-top: 15px;
-	display: flex;
-	align-items: center;
-}
-.header_block_text{
-	font-family: 'Quicksand', sans-serif;
-	font-size: 28px;
-	font-weight: 600;
-	color: #FFFFFF;
-	white-space: nowrap;
-}
-.header_block_info{
-	font-family: 'Quicksand', sans-serif;
-	font-size: 12px;
-	color: #FFFFFF;
-   padding-top: 8px;
-	padding-left: 8px;
-	white-space: nowrap;
-}
+
+
+
 .phone-img{
 	position: absolute;
    top: 10px;

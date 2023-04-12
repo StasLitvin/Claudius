@@ -1,121 +1,197 @@
-body{
-  margin: 0;
-  background-color: white;
-}
-.header{
-	background: #0C2A22;
-	position: relative;
-}
-.title {
-  color: white;
-  font-family: 'Montserrat', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto&display=swap'); 
+
+body {
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
 }
 
-.cards { /*для сетки*/
-
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 225px);
-  width: 100%;
-  max-width: 1000px; 
-  justify-content: center;
-  justify-items: center; 
-  column-gap: 20px; /*растояние между карточками*/
-  row-gap: 30px; /*растояние между рядами*/
-  margin: auto;
+a {
+    text-decoration: none;
 }
-.card{
-  margin-top: 10%;
-	width: 230px; /*ширина карточки*/
-	min-height: 300px; /*высота карточки*/
-	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
-	display: flex;
-    flex-direction: column;
-    border-radius: 4px;
-    transition: 0.2s;
+
+ul {
+    list-style: none;
+}
+
+h2 {
+    font-weight: 400;
+}
+
+p {
+    font-weight: 400;
+}
+
+h3 {
+    font-weight: 400;
+}
+
+.visuallyhidden:not(:focus):not(:active) {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+
+.tel {
+    margin-right: 45px;
+}
+
+.tel-logo {
+    margin-left: 834px;
+}
+
+.contacts_link {
+    color: #633C3C;
+}
+
+.contacts_link:hover {
+    opacity: .5;
+}
+
+/* Header styles end */
+
+/* Main styles start */
+
+.btn-burger-menu {
+    background-color: #fff;
+}
+
+.btn-home-page {
+    background-color: #e9f7ff;
+    border: none;
+}
+
+.btn-mail {
+    background-color: #e9f7ff;
+    border: none;
+    margin-left: 1700px;
+}
+
+
+.bonuses__wrapper {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.bonuses__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    background: linear-gradient(81.76deg, #98B188 26.48%, #C8CA81 55.96%, #E2E0A8 68.47%);
+    border: 4px solid #0C2A22;
+    border-radius: 81px;
+    padding-top: 38px;
+    padding-bottom: 65px;
+    margin-top: 58px;
+}
+
+.bonuses__item {
     position: relative;
-    background-color: #0C2A22;
-    border: 3px solid #0C2A22;
-}
-.card_top {
-  flex: 0 0 220px;  
-  position: relative;
-  overflow: hidden; 
-}
-.card_image {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.card_image > img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: 0.2s;
-}
-.card_image:hover > img {
-  transform: scale(1.1); /*зум изображения*/
-}
-.card__bottom {
-  display: flex;
-  flex-direction: column;
-  flex: 1 0 auto;
-  padding: 10px;
-}
-.card_price {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  display: flex;
-  flex-wrap: wrap-reverse;
-  justify-content: flex-start;
-  margin-left: 10%;
-  color: white;
-}
-.card_trade { /*кнопка*/
-  display: block;
-  width: 100%;
-  font-weight: 400;
-  font-size: 17px;
-  padding: 10px;
-  text-align: center;
-  border: 1px solid;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: 0.2s;
-  margin-top: auto; 
-}
-.card_title {
-  margin-left: 10%;
-  display: block;
-  margin-bottom: 10px;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 150%;
-  font-family: 'Montserrat', sans-serif;
-  color: white;
+    width: 440px;
+    height: 563px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 4px solid #11414D;
+    border-radius: 69px;
 }
 
-.header_line {
-  justify-content: space-around;
-  display: flex;
-  align-items:center;
+.bonuses__title {
+    display: block;
+    text-align: center;
+    display: block;
+    max-width: 289px;
+    margin: 0 auto;
+    margin-top: 86px;
+    color: #070707;
+    font-size: 30px;
+    line-height: 29px;
+    border-bottom: 4px solid #000;
+    padding: 21px;
 }
 
-.nav_item{
-  font-family: 'Montserrat', sans-serif;
-  color: White;
-  margin-right: 25px;
+.bonuses__text {
+    text-align: center;
+    color: #070707;
+    font-size: 25px;
+    line-height: 167.2%;
+    margin-top: 51px;
 }
 
-.nav_item:hover {
-  color: #ADC89D;
-  transition: color;
-  transition-duration: 300ms;
+.bonuses__button {
+    position: absolute;
+    bottom: 93px;
+    right: 106px;
 }
 
-.cookie{
-
+.btn {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 24px 48px;
+    border-radius: 25px;
+    font-size: 20px;
+    line-height: 19px;
 }
+
+.under-elements__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 80px;
+    margin-left: 125px;
+}
+
+.under-elements__text {
+    font-size: 22px;
+    line-height: 21px;
+    border-bottom: 1px solid #000;
+}
+
+.under-elements__available-bonuses {
+    margin-left: 655px;
+}
+
+.under-elements__message-icon {
+    margin-left: 67px;
+}
+
+
+.available-bonuses {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 209px;
+    height: 72px;
+    border: 2px solid #000;
+    border-radius: 18px;
+}
+
+.available-bonuses__text {
+    border-bottom: 1px solid #000;
+    font-weight: 700;
+}
+
+.under-elements__text2 {
+    font-size: 24px;
+    line-height: 23px;
+    border-bottom: 2px solid #000;
+}
+
+@media (min-width: 992px) and (max-width: 1500px) {
+    .under-elements__available-bonuses { margin-left: 100px;}
+    .btn-mail {margin-left: 1000px;}
+}
+
+/* Main styles end */

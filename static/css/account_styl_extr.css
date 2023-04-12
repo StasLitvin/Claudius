@@ -40,161 +40,34 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 /* For colours */
 :root {
-		--header-1: #3F0B0F;
-    --header-2: #90817C;
-    --text-glow: #90817C;
-    --B-static: #3F0B0F;
-    --PI-info-block: #FEFAEF;
-    --PI-text-changing: #3F0B0F;
-    --CI-main-block-1: #ff9edb;
-    --CI-main-block-2: #FDDFA3;
-    --CI-changing: #3F0B0F;
-    --CI-button: #3F0B0F;
 	/* Main */
+	--header-1: #3F0B0F;
+	--header-2: #90817C;
+	--text-glow: #90817C;
 	--text-header-1:#FFF;
 	--text-header-2:#000;
 
 	/* Balance */
 	--B-changing:#000;
+	--B-static: #3F0B0F;
 
 	/* Personal-Info */
 	--PI-name:#000;
 	--PI-text-static:#74777C;
+	--PI-info-block: #FEFAEF;
+	--PI-text-changing: #012034;
+	/* #3F0B0F */
 
 	/* Courses-Info */
 	--CI-name:#000;
 	--CI-static:#57595B;
 	--CI-text-button:#FFF;
+	--CI-main-block-1: #ff9edb;
+	--CI-main-block-2: #FDDFA3;
+	--CI-changing: #3F0B0F;
+	--CI-button: #3F0B0F;
 }
 
-
-
-/* Header-Main */
-.header {
-	width: 100%;
-	min-width: 1290px;
-	margin: 0 auto;
-
-	font-family: 'League Spartan';
-	font-style: normal;
-	font-weight: 550;
-	font-size: 17px;
-	line-height: 14px;
-	letter-spacing: -0.015em;
-}
-
-	.header a {
-		text-decoration: none;
-	}
-
-	.header img {
-		margin: 0 auto;
-	}
-
-/* Header-1 */
-.header-1 {
-	height: 45px;
-
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	background: center no-repeat var(--header-1);
-}
-
-	.header-1 a, p, div, span{
-		text-decoration: none;
-		color: var(--text-header-1);
-	}
-
-.text-glow a:hover {
-	color: var(--text-glow);
-}
-
-.logo {
-	margin: 0.2% 0 0.6% 4%;
-	font-size: 29px;
-}
-
-.logo-info {
-	margin: 1% 0 1% 0.6%;
-	font-size: 15px;
-}
-
-.courses {
-	margin: 1% 0 1% 23%;
-	font-size: 20px;
-}
-
-.lk-up {
-	margin: 1% 0 1% 0.1%;
-	font-size: 20px;
-}
-
-.reg {
-	margin: 1% 0 1% 0.1%;
-	font-size: 20px;
-}
-
-.span {
-	margin: 0.9% 0.5% 1% 0.5%;
-}
-
-.phone-img {
-	margin: 1.4% 0.3% 1% 5%;
-}
-
-.phone {
-	margin: 1.2% 0 1% 0;
-}
-
-.email-img {
-	margin: 1.5% 0.3% 1% 1.5%;
-}
-
-.email {
-	margin: 1.2% 1.7% 1% 0;
-}
-
-.exit-img {
-	margin:1.5% 4% 1% 0;
-}
-
-/* Header-2 */
-.header-2 {
-	height: 45px;
-
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	background: center no-repeat var(--header-2);
-}
-
-	.header-2 a {
-		text-decoration: none;
-		color: var(--text-header-2);
-	}
-
-.app-img {
-	margin: 1.2% 0 1% 4%;
-}
-
-.choice-img {
-	margin: 1.2% 0 1% 0.5%;
-}
-
-.lk-bottom {
-	margin: 1.2% 0 1% 0.6%;
-}
-
-.notifications-img {
-	margin: 1.2% 0 1% 73.5%;
-}
-
-.notifications {
-	margin: 1.2% 4% 1% 0.5%;
-}
 
 
 /* Main */
@@ -224,7 +97,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .test-name {
 	position: relative;
-	margin: 1% 0 0 27%;
+	margin: 1% 0 0 21%;
 
 	font-family: 'Montserrat Alternates';
 	font-style: normal;
@@ -271,7 +144,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 	position: absolute;
 	width: 1100px;
 	height: 700px;
-	margin: 2% 0 0 17%;
+	margin: 2% 0 0 20%;
 
 	visibility: visible;
 
@@ -292,7 +165,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 
 .question {
-	margin: -1% 0 0 16%;
+	margin: -1% 0 0 10%;
 
 	font-family: 'Montserrat';
 	font-style: normal;
@@ -305,7 +178,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 
 .answer {
-	margin: 7% 0 0 16%;
+	margin: 7% 0 0 13%;
 	position: relative;
 
 	font-family: 'Montserrat';

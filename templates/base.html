@@ -1,47 +1,109 @@
-
 <!DOCTYPE html>
 <html lang="ru">
-
- <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat+Alternates:wght@600;800&family=Montserrat:wght@400;500;600&family=Quicksand:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="../static/css/reset.css" />
-<link rel="stylesheet" href={{ href[4] }} />
+    <link rel="stylesheet" id="style_header" href={{ href[6] }}>
   </head>
-  <body>
-    <header class="header">
-      <div class="header__information">
-        <span class="header__logo">Claudius</span>
-        <span class="header__additional-inf">Бонусная система поощрения</span>
-      </div>
-      <div class="contact__information">
-        <a href="tel:+79995553322" class="header__link number-link">
-          <img src="../static/img/phone.png" alt="Phone" class="phone-img" />
-          <span class="number">8 999 555 3322</span>
-        </a>
-        <a href="mail:support@claudius.ru" class="header__link mail-link">
-          <img src="../static/img/mail.png" alt="Mail" class="mail-img" />
-          <span class="mail">support@claudius.ru</span>
-        </a>
-        <a href="" class="exit-link">
-          <img src="../static/img/exit.png" alt="Exit" class="exit-img" />
-        </a>
-      </div>
+  <body class="page">
+    <div class="content">
+        <header class="header">
+            <div class="header__logo">Claudius</div>
+            <div class="header__logomin">Бонусная система поощрения</div>
+            <div class="header__contacts">
 
-    </header>
+                <img class="header__img" src="../static/img/phone.svg">
+                <p class="header__text header__number">8 999 555 3322</p>
+
+
+                <img class="header__img" src="../static/img/mail.svg">
+                <p class="header__text">support@claudius.ru</p>
+            </div>
+        </header>
+        <div class="header__nav-container">
+          <div class="header__nav">
+            <button class="button home-button"  id="sidebar-btn"></button>
+            {% for i in navig %}
+            <button class="button wtf-button"></button>
+            <p class="header__nav-text">{{ i }}</p>
+            {% endfor %}
+          </div>
+          <div class="header__nav">
+            <button class="button mail-button"></button>
+            <p class="header__nav-text">Напоминание</p>
+
+          </div>
+
+        </div>
+
 {% block content -%}
     <p><h6>Когда-нибудь тут будет главная</h6></p>
 {% endblock -%}
-</body>
-</html>
+        <link rel="stylesheet" id="style_header" href={{ href[6] }}>
+        <footer class="footer">
+          <div class="footer__nav">
+            <img src="../static/img/mospolytech-logo-white.png" alt="" class="footer__logo">
+            <ul class="footer__links">
+              <li><a class="footer__link">Сайт Московского Политеха</a></li>
+              <li><a class="footer__link">Сайт СДО</a></li>
+              <li><a class="footer__link">Учащимся</a></li>
+              <li><a class="footer__link">Все курсы</a></li>
+              <li><a class="footer__link">Правила пользования платформой</a></li>
+              <li><a class="footer__link">О нас</a></li>
+              <li><a class="footer__link">Помощь</a></li>
+              <li><a class="footer__link">ЧаВо</a></li>
+              <li><a class="footer__link">Все контакты</a></li>
+            </ul>
+          </div>
+          <div class="footer__about">
+            <div class="footer__container">
+              <p class="footer__copyhright"> &#169;Cladius, 2023</p>
+              <p class="footer__adress">Адрес: г.Москва, ул. Большая Семеновская, д. 30, к. Н.</p>
+
+            </div>
+            <div class="footer__contacts">
+
+                  <img class="header__img" src="../static/img/phone.svg">
+                  <p class="header__text header__number">8 999 555 3322</p>
+
+
+                  <img class="header__img" src="../static/img/mail.svg">
+                  <p class="header__text">support@claudius.ru</p>
+              </div>
+          </div>
+        </footer>
+        <sidebar class="sidebar" id="sidebar" hidden>
+          <button id="closeSidebar"> Закрыть</button>
+          <img class="sidebar__logo" src="../static/img/Claudius.svg">
+          <ul class="sidebar__buttons">
+            <li>
+              <button class="sidebar__button"><a href="/profile">Личный кабинет</a></button>
+            </li>
+            <li>
+              <button class="sidebar__button"><a href="/login">Авторизация</a></button>
+            </li>
+              <li>
+              <button class="sidebar__button"><a href="/mag">Обменник</a></button>
+            </li>
+            <li>
+              <button class="sidebar__button"><a href="/courses">Курсы</a></button>
+            </li>
+            <li>
+              <button class="sidebar__button sidebar__button_category" id="progress-btn">Успеваемость</button>
+            </li>
+
+            <li>
+              <button class="sidebar__button sidebar__button_subcategory" id="progress" hidden>Оценки</button>
+            </li>
+            <li>
+              <button class="sidebar__button sidebar__button_subcategory" id="progress" hidden>Сессия</button>
+            </li>
+
+
+
+          </ul>
+        </sidebar>
+    </div>
+    <script src="../static/js/index.js" >
+    </script>

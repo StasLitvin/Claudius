@@ -1,16 +1,19 @@
 function myNewFunction(sel) {
     s = sel.options[sel.selectedIndex].text
-    if (s == "Экстроверт") {
+    if (s == "Экстраверт") {
         document.getElementById("reset").href = "../static/css/reset_extr.css";
         document.getElementById("style").href = "../static/css/style_extr.css";
+        document.getElementById("style_header").href = "../static/css/header_extr.css";
     }
     if (s == "Интроверт") {
         document.getElementById("reset").href = "../static/css/reset_intr.css";
         document.getElementById("style").href = "../static/css/style_intr.css";
+        document.getElementById("style_header").href = "../static/css/header_intr.css";
     }
     if (s == "Амбиверт") {
         document.getElementById("reset").href = "../static/css/reset_ambr.css";
         document.getElementById("style").href = "../static/css/style_ambr.css";
+        document.getElementById("style_header").href = "../static/css/header_ambr.css";
     }
 }
 
@@ -100,3 +103,15 @@ function addPlaceholder1(input, placeholder) {
 	}
  }
 
+
+const homeBtn= document.querySelector('#sidebar-btn');
+const closeSidebar=document.querySelector('#closeSidebar')
+const sidebar= document.querySelector('#sidebar');
+homeBtn.addEventListener('click', () =>sidebar.hidden = false);
+closeSidebar.addEventListener('click', () =>sidebar.hidden = true);
+const progressBtn = document.querySelector('#progress-btn');
+const progress = document.querySelectorAll('#progress');
+progressBtn.addEventListener('click', ()=> progress.forEach(i => i.hidden = !i.hidden));
+const tableBtn = document.querySelector('#table');
+const table = document.querySelectorAll('#table1');
+tableBtn.addEventListener('click', ()=> table.forEach(i => i.hidden = !i.hidden));

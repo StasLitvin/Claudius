@@ -1,9 +1,6 @@
-<!-- Сообщаем браузеру как стоит обрабатывать эту страницу -->
-<!DOCTYPE html>
-<!-- Оболочка документа, указываем язык содержимого -->
-<html lang="ru">
-	<!-- Заголовок страницы, контейнер для других важных данных (не отображается) -->
-	<head>
+{% extends 'base.html' %}
+{% block content %}
+
 		<meta charset="UTF-8">
 		<meta name="viewport"
 			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -18,36 +15,9 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 		<script src="../static/js/account.scroll.button.js"></script>
 		<script src="../static/js/account.edit.and.save.button.js"></script>
-		<!-- <script src="js/account.emotional_condition.button.js"></script> -->
-	</head>
+		<!-- <script src="js/account.emotional_condition.button.js"></script> -->>
 
 	<body>
-		<header class="header">
-			<div class="header-1">
-				<div class="logo text-glow"><a href="#">Claudius</a></div>
-				<div class="logo-info">Бонусная система поощрения</div>
-
-				<div class="courses text-glow"><a href="#">Курсы</a></div><div class="span"><span>|</span></div>
-				<div class="lk-up text-glow"><a href="/profile">Личный кабинет</a></div><div class="span"><span>|</span></div>
-				<div class="reg text-glow"><a href="/registration">Регистрация</a></div>
-				<div class="phone-img"><img src="../static/img/phone.svg" alt=""></div>
-				<div class="phone"><a href="#">+7&nbsp999&nbsp555&nbsp3322</a></div>
-				<div class="email-img"><img src="../static/img/email.svg" alt=""></div>
-				<div class="email"><a href="#">support@claudius.ru</a></div>
-				<div class="exit-img"><a href="/exit"><img src="../static/img/exit.svg" alt=""></a></div>
-			</div>
-		</header>
-
-		<div class="header">
-			<div class="header-2">
-				<div class="app-img"><img src="../static/img/apps.svg" alt=""></div>
-				<div class="choice-img"><img src="../static/img/choice.svg" alt=""></div>
-				<div class="lk-bottom"><a href="#">Личный кабинет</a></div>
-
-				<div class="notifications-img"><img src="../static/img/notifications.svg" alt=""></div>
-				<div class="notifications"><a href="#">Напоминания</a></div>
-			</div>
-		</div>
 
 		<main class="main">
 			<div class="Balance">
@@ -60,7 +30,7 @@
                 <input type="hidden" name="nick" id="fio">
 				<div class="main__osn">
 					<div class="Personal-Info">
-						<div class="PI-photo"><img src="../static/img/photo.svg" name="photo" class="PI-photo-img" id="PI-photo-img" alt=""><input type="file" class="PI-photo-img-input" id="PI-photo-img-input"></div>
+						<div class="PI-photo"><img src="../static/img/photo1.svg" name="photo" class="PI-photo-img" id="PI-photo-img" alt=""></div>
 						<div><div class="PI-name-and-edit"><p id="PI-name-and-edit">{{ user[1]+" "+user[2]+" "+user[3] }}</p></div><div class="PI-name-input"><input type="text" maxlength="50" minlength="4" required placeholder="ФИО через пробел" value="" id="PI-name-input"></div></div>
 
 						<div class="PI-dop">
@@ -168,4 +138,4 @@
 			</form>
 		</main>
 	</body>
-</html>
+{% endblock %}

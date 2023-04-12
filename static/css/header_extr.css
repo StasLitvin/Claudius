@@ -1,0 +1,227 @@
+@import url(../css/vendor/normalize.css);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&family=Montserrat+Alternates:wght@400;500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&family=Montserrat&family=Montserrat+Alternates:wght@400;500;800&display=swap');
+a{
+  text-decoration: none;
+  color: black;
+}
+body {
+ background-color: #FEFAEF;
+}
+.page{
+    min-width: 800px;
+}
+
+.header{
+    background: #330F13;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.header__contacts{
+    display: flex;
+    margin: 0 0 0 700px;
+}
+
+.header__logo{
+    margin: 0 0 0 9%;
+    font-size: 29px;
+    font-family: Quicksand;
+    color: #A4BA93;
+}
+.header__logomin{
+    margin: 0.5% 100px 0 0.6%;
+	font-size: 15px;
+    font-family: Quicksand;
+    color: #A4BA93;
+}
+.header__img{
+    margin-right: 5px;
+}
+.header__text{
+    font-family: Montserrat;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    vertical-align: middle;
+    line-height: 22px;
+    color: #A4BA93;
+}
+.header__nav-text{
+    display: inline-block;
+    font-family: Montserrat;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+.header__number{
+    margin-right: 100px;
+}
+.header__nav-container{
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 61px;
+    background: #90817C;
+}
+.header__nav{
+    display: flex;
+    align-items: center;
+}
+
+.footer__point{
+    display: block;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: 0em;
+    cursor: pointer;
+    text-align: end;
+    margin: 21px 7%;
+    transition: opacity 0.2s;
+    padding-bottom: 4px;
+}
+.footer__point:hover{
+    opacity: 0.6;
+}
+.footer{
+    background: #330F13;
+    height: 250px;
+}
+.footer__logo{
+    width: 100px;
+    object-fit: contain;
+}
+.footer__nav{
+    display: flex;
+    border-bottom: 1px solid gray;
+    padding: 20px 0;
+    margin: 20px 8%;
+}
+
+.footer__links{
+    display: flex;
+    align-items: center;
+    gap: 44px;
+    list-style-type: none;
+    flex-wrap: wrap;
+}
+
+.footer__link{
+    color: #A4BA93;
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: opacity 0.2s;
+    font-family: Montserrat;
+    font-weight: 600;
+}
+.footer__about{
+    font-family: Montserrat;
+    font-weight: 600;
+    display: flex;
+    color:#A4BA93;
+    margin:0 8%;
+    justify-content: space-between;
+}
+.footer__container{
+    display: flex;
+    gap: 30px;
+}
+.footer__contacts {
+    display: flex;
+    margin: 16px 0;
+}
+.footer__copyhright{
+    color: #A4BA93;
+}
+.footer__adress{
+    color: #A4BA93;
+}
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 510px;
+    height: 100%;
+    background-color: #fff;
+    z-index: 2;
+    border: 1px solid black;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.sidebar__logo{
+    margin: 65px 120px 95px;
+}
+.sidebar__buttons{
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+    overflow: scroll;
+    max-height: 600px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.sidebar__button{
+    background: none;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 23px;
+    text-align: center;
+    width: calc(100% - 100px);
+    border-radius: 25px;
+    margin-bottom: 29px;
+    padding: 22px 0;
+    cursor: pointer;
+
+}
+.sidebar__button_category{
+    background-image: url(../img/ic_twotone-arrow-right.svg) ;
+    background-repeat: no-repeat;
+    background-position: 9px;
+}
+.sidebar__button_subcategory{
+    width: calc(100% - 140px);
+}
+.button{
+    border: 0;
+    padding: 0;
+    margin:0;
+    width: 25px;
+    height: 25px;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-color: #90817C;
+    top: 9px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.button:hover{
+    opacity: 0.6;
+}
+.wtf-button{
+    background-image: url(../img/wtf-btn.svg) ;
+    margin: 0 15px 0 5px;
+    width: 18px;
+    height: 25px;
+    cursor:default;
+}
+.wtf-button:hover{
+    opacity: 1;
+}
+.home-button{
+    background-image: url(../img/home-btn2.svg) ;
+    margin: 0 21px 0 0;
+
+
+}
+.mail-button {
+    background-image: url(../img/Group.svg);
+    width: 32px;
+    height: 21px;
+    margin: 0 21px 0 0;
+
+}
