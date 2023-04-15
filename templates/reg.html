@@ -35,7 +35,36 @@
             </div>
             {% endif %}
             <div class="form__btns btns">
-              <label class="visuallyhidden" for="name">Имя</label>
+                <label class="visuallyhidden" for="login">Login</label>
+              <input
+                class="btns__login login"
+                name="login"
+                id="login"
+                type="text"
+                placeholder="Логин | E-mail почта"
+              />
+
+                <label class="visuallyhidden" for="password">password</label>
+              <div class="form-field-2">
+                <input
+                  class="btns__password password"
+                  name="password"
+                  id="password"
+                  type="text"
+                  placeholder="Введите пароль"
+                  required
+                  onfocus="clearPlaceholder1(this)"
+                  onblur="addPlaceholder1(this, 'Введите пароль')"
+                />
+                <div
+                  class="show-password-btn"
+                  id="password-toggle"
+                  onclick="togglePassword()"
+                >
+                  <img src="../static/img/eye_logo.png" alt="" />
+                </div>
+              </div>
+                <label class="visuallyhidden" for="name">Имя</label>
               <input
                 class="btns__login login"
                 name="name"
@@ -84,35 +113,14 @@
                   Преподаватель
                 </option></select
               ><br />
-              <label class="visuallyhidden" for="login">Login</label>
-              <input
-                class="btns__login login"
-                name="login"
-                id="login"
-                type="text"
-                placeholder="Логин | E-mail почта"
-              />
-              <label class="visuallyhidden" for="password">password</label>
-              <div class="form-field-2">
-                <input
-                  class="btns__password password"
-                  name="password"
-                  id="password"
-                  type="text"
-                  placeholder="Введите пароль"
-                  required
-                  onfocus="clearPlaceholder1(this)"
-                  onblur="addPlaceholder1(this, 'Введите пароль')"
-                />
-                <div
-                  class="show-password-btn"
-                  id="password-toggle"
-                  onclick="togglePassword()"
-                >
-                  <img src="../static/img/eye_logo.png" alt="" />
-                </div>
-              </div>
 
+
+                <div>
+                <input type="checkbox" name="sogl" /><a
+                  href="../static/dok/sogl.pdf" class="soql"
+                  >Согласен с пользовательским соглашение</a
+                >
+              </div>
               <input type="hidden" name="CSRFToken" value="{{ csrf_token }}" />
               <input
                 type="submit"
@@ -120,15 +128,10 @@
                 value="Зарегистрироваться"
                 disabled="true"
               />
-              <div>
-                <input type="checkbox" name="sogl" /><a
-                  href="../static/dok/sogl.pdf"
-                  >Согласен с пользовательским соглашение</a
-                >
-              </div>
             </div>
           </div>
         </form>
+      <br>
       </div>
     </div>
   </section>

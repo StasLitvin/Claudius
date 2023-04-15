@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<link rel="stylesheet" href="../static/css/table.css" />
+<link rel="stylesheet" href={{ href[9] }} />
   <main>
     <section class="table-tests">
         <div class="container">
@@ -14,7 +14,7 @@
             <div class="table__item item">
                 {% for j in i %}
                 {% if j[1] in j %}
-              <p class="item__value"><a style="text-decoration: none;color:#e3d3d3;" href="{{url_for('rez_tasks',id_lecture=j[1], id_user=j[2])}}">{{ j[0] }}</a></p>
+              <p class="item__value"><a href="{{url_for('rez_tasks',id_lecture=j[1], id_user=j[2])}}">{{ j[0] }}</a></p>
                 {% else %}
                 <p class="item__value">{{ j[0] }}</p>
                 {% endif %}

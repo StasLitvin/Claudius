@@ -41,14 +41,14 @@ table { border-collapse: collapse; border-spacing: 0; }
 /* For colours */
 :root {
 	/* Main */
-	--header-1:#70C6F9;
-	--header-2:#B4F0FF;
+	--header-1:#8CC5FF;
+	--header-2:#A7DDFF;
 	--text-header-1:#FFF;
 	--text-header-2:#000;
-	--text-glow: #B4F0FF;
+	--text-glow: #A7DDFF;
 
 	/* Balance */
-	--B-static:#5087CD;
+	--B-static:#8CC5FF;
 	--B-changing:#000;
 
 	/* Personal-Info */
@@ -58,8 +58,8 @@ table { border-collapse: collapse; border-spacing: 0; }
 	--PI-text-changing:#012034;
 
 	/* Courses-Info */
-	--CI-main-block-1:#B1D3FF;
-	--CI-main-block-2:#B1D3FF;
+	--CI-main-block-1:#A7DDFF;
+	--CI-main-block-2:#A7DDFF;
 	--CI-name:#000;
 	--CI-static:#57595B;
 	--CI-changing:#044368;
@@ -147,7 +147,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 	visibility: visible;
 
-	background: linear-gradient(116.48deg, #DCF2FF 0%, #E5FAFF 100%);
+	background: linear-gradient(116.48deg, #8CC5FF 0%, #A7DDFF 100%);
 }
 
 .questions-left {
@@ -277,7 +277,7 @@ input[type='radio']:checked:after {
 .another-question-left-img {
 	position: relative;
 	border: none;
-	background: #DFF5FF;
+	background: #94CCFF;
 	cursor: pointer;
 
 	margin-left: 60px;
@@ -288,7 +288,7 @@ input[type='radio']:checked:after {
 .another-question-right-img {
 	position: relative;
 	border: none;
-	background: #E5FAFF;
+	background: #A1D7FF;
 	cursor: pointer;
 
 	margin-left: 60px;

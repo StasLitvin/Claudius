@@ -24,13 +24,13 @@
   --header-color: #2278ee;
   --main-color: linear-gradient(
     141.69deg,
-    rgba(21, 112, 237, 0.96) 0%,
-    rgba(27, 114, 234, 0.73) 70.83%,
-    rgba(27, 114, 234, 0.22) 100%
+    #8CC5FF 0%,
+    #8CC5FF 67.83%,
+    #A7DDFF 100%
   );
-  --secondary-color: #2278ee;
-  --course-color: #B7E4F2;
-  --hover-submit: rgba(76, 133, 212, 0.8);
+  --secondary-color: #8CC5FF;
+  --course-color: #8CC5FF;
+  --hover-submit: #A7DDFF;
   --size-font: 12px;
   font-style: normal;
 }
@@ -186,6 +186,7 @@
   min-width: 400px;
   max-width: 401px;
   padding: 16px 0px 16px 24px;
+  margin: 0;
 }
 
 .password {
@@ -405,4 +406,10 @@
 .submit-btn:hover {
   color: white;
   background: var(--hover-submit);
+}
+
+.soql {
+  font-family: "Montserrat";
+  font-size: 21px;
+  text-decoration: none;
 }

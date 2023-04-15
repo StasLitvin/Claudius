@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href={{ href[8] }}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <main class="main">
-        <h1 class="visually-hidden">Course page</h1>
 
         <section class="course">
             <div class="wrapper">
-                <h2 class="course__title">Профиль курса: {{ course[1] }}</h2>
+                <div class="course__title">
+                <img src="../static/img/{{ href[7] }}/compu.png" width="100" height="100">
+                <h2 >Профиль курса: {{ course[1] }}</h2>
+                </div>
                 <div class="course__content">
                     <div class="course__slider">
                         <img src="../static/img/slide-picture.jpg" alt="slide picture" class="course__slider-img">

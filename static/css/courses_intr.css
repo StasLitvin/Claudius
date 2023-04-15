@@ -18,7 +18,6 @@ body {
 
 /* Section path */
 .path {
-  background-color: #b4f0ff;
   padding: 12px 46px 12px 59px;
   display: flex;
   justify-content: space-between;
@@ -118,7 +117,7 @@ body {
   padding: 0 25px 21px 32px;
   margin-bottom: 30px;
   width: 384px;
-  background-image: linear-gradient(116.48deg, #dcf2ff 0%, #f9feff 100%);
+  background-image: linear-gradient(116.48deg, #A7DDFF 0%, #8CC5FF 100%);
 }
 
 .card__star {

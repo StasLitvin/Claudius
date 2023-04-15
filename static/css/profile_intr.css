@@ -50,14 +50,14 @@ table { border-collapse: collapse; border-spacing: 0; }
 	--font-family-3:Inter;
 
 	/* Main */
-	--header-1:#70C6F9;
-	--header-2:#B4F0FF;
+	--header-1:#8CC5FF;
+	--header-2:#A7DDFF;
 	--text-header-1:#FFF;
 	--text-header-2:#000;
-	--text-glow: #B4F0FF;
+	--text-glow: #A7DDFF;
 
 	/* Balance */
-	--B-static:#5087CD;
+	--B-static:#8CC5FF;
 	--B-changing:#000;
 
 	/* Personal-Info */
@@ -67,12 +67,12 @@ table { border-collapse: collapse; border-spacing: 0; }
 	--PI-text-changing:#012034;
 
 	/* Courses-Info */
-	--CI-main-block-1:#B1D3FF;
-	--CI-main-block-2:#B1D3FF;
+	--CI-main-block-1:#A7DDFF;
+	--CI-main-block-2:#A7DDFF;
 	--CI-name:#000;
 	--CI-static:#57595B;
 	--CI-changing:#044368;
-	--CI-button:#99B8CC;
+	--CI-button:#A7DDFF;
 	--CI-text-button:#FFF;
 }
 
@@ -492,7 +492,7 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 .CI-cours {
 	margin: 30px 0 30px 0;
 
-	background: rgba(177, 211, 255, 0.5);
+	background: #A7DDFF;
 	border-radius: 20px;
 
 	display: flex;
@@ -549,7 +549,7 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 }
 
 .CI-cours-stars img{
-	content: url(../static/img/afterStar1.svg);
+	content: url(../img/afterStar1.svg);
 }
 
 .link {

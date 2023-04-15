@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
-
+p {
+    display: block;
+    margin-block-start: 1px;
+    margin-block-end: 1px;
+    margin-inline-start: 1px;
+    margin-inline-end: 1px;
+}
 .visuallyhidden:not(:focus):not(:active) {
     position: absolute;
 
@@ -28,11 +34,11 @@
     #8CC5FF 0%,
     #8CC5FF 67.83%,
     #A7DDFF 100%);
-    --secondary-color:#8CC5FF;
-    --hover-submit:#A7DDFF;
-    --item-color:#8CC5FF;
-    --shadow-color:#A7DDFF;
-    --selection-color:#A7DDFF;
+    --secondary-color:#0C2A22;
+    --hover-submit:#0C2A22;
+    --item-color:#BABB8F;
+    --shadow-color:#0C2A22;
+    --selection-color:#0C2A22;
     font-size:12px;
     font-style: normal;
     font-weight: 400;
@@ -79,7 +85,7 @@
     margin: 0 auto;
 }
 .table-tests{
-    font-size:17px;
+    font-size:20px;
 }
 .table{
 
@@ -102,9 +108,8 @@
 .item__header{
     flex: 2 0 5%;
     border: 3px solid #e3d3d3;
-    
-    background-color: var(--item-color);
-    box-shadow: 8px 1px 12px 6px var(--shadow-color);
+        background-color: var(--item-color);
+    box-shadow: 1px 1px 1px 1px var(--shadow-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,7 +120,7 @@
     flex: 1 0 5%;
     border: 3px solid #e3d3d3;
     background-color: var(--item-color);
-    box-shadow: 8px 1px 12px 6px var(--shadow-color);
+    box-shadow: 1px 1px 1px 1px var(--shadow-color);
     display: flex;
     align-items: center;
     justify-content: center;

@@ -147,7 +147,7 @@ body {
     left: 0;
     width: 510px;
     height: 100%;
-    background-color: #fff;
+    background-color: #0C2A22;
     z-index: 2;
     border: 1px solid black;
     border-top-right-radius: 25px;
@@ -177,7 +177,7 @@ body {
     margin-bottom: 29px;
     padding: 22px 0;
     cursor: pointer;
-
+    background-color: #BABB8F;
 }
 .sidebar__button_category{
     background-image: url(../img/ic_twotone-arrow-right.svg) ;

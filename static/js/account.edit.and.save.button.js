@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		root.style.setProperty('--CI-main-block-1', '#B1D3FF');
 		root.style.setProperty('--CI-main-block-2', '#B1D3FF');
 		root.style.setProperty('--CI-changing', '#044368');
-		root.style.setProperty('--CI-button', '#99B8CC');
+		root.style.setProperty('--CI-button', '#8CC5FF');
 		document.getElementById("select").value="Интроверт";
 	} else if (item === "Амбиверт") {
 		document.getElementById("dop-content").innerHTML = "Information about your emotional condition. (Ambivert)";

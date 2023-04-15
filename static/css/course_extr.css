@@ -1,0 +1,136 @@
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+* {
+  font-family: 'Montserrat';
+}
+
+.wrapper {
+  max-width: 1920px;
+  width: 100%;
+  box-sizing: border-box; 
+  margin: auto;
+}
+
+
+a, li {
+  text-decoration: none;
+  color: black;
+}
+
+.menu__link {
+  font-style: normal; 
+  font-weight: 600; 
+  font-size: 18px; 
+  line-height: 10px; 
+  display: flex;
+  align-items: center;
+}
+
+
+
+.menu__link::before {
+  content: url(../img/ChevronRight.svg);
+  padding-right: 12px;
+}
+
+
+.course {
+  padding-top: 30px;
+}
+
+.course__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px;
+  background-color: #FFFFFF;
+  border-radius: 71px;
+}
+
+.course__title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 21px;
+  padding-bottom: 50px;
+  padding-left: 410px;
+  display: flex;
+  align-items: center;
+}
+
+.course__title::before {
+  padding-right: 15px;
+}
+
+.course__content {
+  background-color: #E9E9E9;
+  border-radius: 57px;
+  max-width: fit-content;
+  padding: 60px 90px;
+  display: flex;
+  justify-content: space-between;
+  gap: 140px;
+  margin: 0 auto;
+}
+
+.course__description-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 28px;
+}
+
+.course__description-txt {
+  max-width: 555px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 42px;
+}
+
+.course__button-start {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 28px;
+  background-color: #90817C;
+  border-radius: 50px;
+  padding: 30px 80px;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
+.course__scale {
+  padding: 15px 220px;
+  background-color: #D9D9D9;
+  border-radius: 20px;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
+.course__score-max {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 10px;
+  text-align: center;
+}
+
+.course__slider-img {
+  border-radius: 66px;
+}

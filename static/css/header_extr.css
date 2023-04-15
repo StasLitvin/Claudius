@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&family=Montserrat&family=Montserrat+Alternates:wght@400;500;800&display=swap');
 a{
   text-decoration: none;
-  color: black;
+  color: #A4BA93;
 }
 body {
  background-color: #FEFAEF;
@@ -146,7 +146,7 @@ body {
     left: 0;
     width: 510px;
     height: 100%;
-    background-color: #fff;
+    background-color: #330F13;
     z-index: 2;
     border: 1px solid black;
     border-top-right-radius: 25px;
@@ -176,15 +176,18 @@ body {
     margin-bottom: 29px;
     padding: 22px 0;
     cursor: pointer;
+    background-color: #90817C;
 
 }
 .sidebar__button_category{
     background-image: url(../img/ic_twotone-arrow-right.svg) ;
     background-repeat: no-repeat;
     background-position: 9px;
+    color: #A4BA93;
 }
 .sidebar__button_subcategory{
     width: calc(100% - 140px);
+    color: #A4BA93;
 }
 .button{
     border: 0;

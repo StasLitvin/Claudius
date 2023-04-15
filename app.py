@@ -24,13 +24,13 @@ def allowed_file(filename):
 
 href_intr = ["../static/css/trade_intr.css", "../static/css/profile_intr.css", "../static/css/style_intr.css",
              "../static/css/reset_intr.css", "../static/css/courses_intr.css", "../static/css/account_styl_intr.css",
-             "../static/css/header_intr.css", "intr"]
+             "../static/css/header_intr.css", "intr", "../static/css/course_intr.css", "../static/css/table_intr.css"]
 href_extr = ["../static/css/trade_extr.css", "../static/css/profile_extr.css", "../static/css/style_extr.css",
              "../static/css/reset_extr.css", "../static/css/courses_extr.css", "../static/css/account_styl_extr.css",
-             "../static/css/header_extr.css", "extr"]
+             "../static/css/header_extr.css", "extr", "../static/css/course_extr.css", "../static/css/table_extr.css"]
 href_ambr = ["../static/css/trade_ambr.css", "../static/css/profile_ambr.css", "../static/css/style_ambr.css",
              "../static/css/reset_ambr.css", "../static/css/courses_ambr.css", "../static/css/account_styl_ambr.css",
-             "../static/css/header_ambr.css", "ambr"]
+             "../static/css/header_ambr.css", "ambr", "../static/css/course_ambr.css", "../static/css/table_ambr.css"]
 type_css = {"Интроверт": href_intr, "Экстраверт": href_extr, "Амбиверт": href_ambr}
 
 
@@ -93,7 +93,8 @@ def reg():
             return redirect(url_for('profile', username=session['login_user']))
         csrf_token = generate_csrf_token()
         session['csrf_token'] = csrf_token
-        return render_template('reg.html', title="Главная", href=href_intr, csrf_token=csrf_token, navig=["Авторизация"])
+        return render_template('reg.html', title="Главная", href=href_intr, csrf_token=csrf_token,
+                               navig=["Авторизация"])
     if request.method == "POST":
         if request.form['CSRFToken'] == session['csrf_token']:
             password = request.form['password']
@@ -102,9 +103,11 @@ def reg():
             req = (request.form['name'], request.form['surname'], request.form['fatherland'], request.form['login'],
                    password_hash, salt, request.form['pos'], request.form['s'], 0)
             if "Заполните поле!" in req or '' in req:
-                return render_template('reg.html', error_text="Некоторые поля не заполнены", href=href_intr, navig=["Авторизация"])
+                return render_template('reg.html', error_text="Некоторые поля не заполнены", href=href_intr,
+                                       navig=["Авторизация"])
             if check_user_exist(request.form['login']):
-                return render_template('reg.html', error_text="Этот e-mail уже зарегистрирован", href=href_intr, navig=["Авторизация"])
+                return render_template('reg.html', error_text="Этот e-mail уже зарегистрирован", href=href_intr,
+                                       navig=["Авторизация"])
             data_user_reg(list(req))
             return redirect('/login')
         else:
@@ -121,12 +124,14 @@ def login():
             return redirect(url_for('profile', username=session['login_user']))
         csrf_token = generate_csrf_token()
         session['csrf_token'] = csrf_token
-        return render_template('login.html', title="Авторизация", href=href_intr, csrf_token=csrf_token, navig=["Авторизация"])
+        return render_template('login.html', title="Авторизация", href=href_intr, csrf_token=csrf_token,
+                               navig=["Авторизация"])
     if request.method == "POST":
         if request.form['CSRFToken'] == session['csrf_token']:
             request_login, request_password = request.form['login'], request.form['password']
             if not check_user_exist(request_login):
-                return render_template('login.html', error_text="Этого пользователя не существует", href=href_intr, navig=["Авторизация"])
+                return render_template('login.html', error_text="Этого пользователя не существует", href=href_intr,
+                                       navig=["Авторизация"])
             print(request_login)
             user_id, user_password, user_s, salt = input_login(request_login)[0]
             password_hash = generate_password_hash(request_password, salt)
@@ -163,10 +168,13 @@ def forgot_password():
                     password_reset_token_create(find_user_by_email(email)[0][0], token)
                     send_password_reset_mail(email, token)
                     print('sent')
-                    return render_template('forgot_password.html', href=href_intr, navig=["Авторизация","Восстановление пароля"])
-                return render_template('forgot_password.html', href=href_intr, navig=["Авторизация","Восстановление пароля"])
+                    return render_template('forgot_password.html', href=href_intr,
+                                           navig=["Авторизация", "Восстановление пароля"])
+                return render_template('forgot_password.html', href=href_intr,
+                                       navig=["Авторизация", "Восстановление пароля"])
         return render_template('forgot_password.html', href=href_intr,
-                               error_text="Что-то пошло не так...<br>Invalid CSRF token.", navig=["Авторизация","Восстановление пароля"])
+                               error_text="Что-то пошло не так...<br>Invalid CSRF token.",
+                               navig=["Авторизация", "Восстановление пароля"])
 
 
 @app.route('/forgot_password/<token>', methods=['GET', 'POST'])
@@ -177,9 +185,11 @@ def reset_password(token):
             csrf_token = generate_csrf_token()
             session['csrf_token'] = csrf_token
             session['user_id'] = user[0][0]
-            return render_template('password_reset.html', href=href_intr, csrf_token=csrf_token, navig=["Авторизация","Восстановление пароля"])
+            return render_template('password_reset.html', href=href_intr, csrf_token=csrf_token,
+                                   navig=["Авторизация", "Восстановление пароля"])
         return render_template('password_reset.html', href=href_intr,
-                               error_text="Что-то пошло не так...<br>Invalid password reset token.", navig=["Авторизация","Восстановление пароля"])
+                               error_text="Что-то пошло не так...<br>Invalid password reset token.",
+                               navig=["Авторизация", "Восстановление пароля"])
     if request.method == 'POST':
         if request.form['CSRFToken'] == session['csrf_token']:
             if 'password' in request.form:
@@ -200,7 +210,7 @@ def mag():
         if 'user_href' in session:
             return render_template('mag.html', title="Обменник", coup=coups_mas(), href=type_css[session['user_href']],
                                    user=data_user(session['id_user']), navig=["Обменник"])
-        return render_template("mag.html", coup=coups_mas(), title="Обменник", href=href_intr)
+        return render_template("mag.html", coup=coups_mas(), title="Обменник", href=href_intr, navig=["Обменник"])
     if request.method == "POST":
         id_coup = request.form['id_coup']
         coup = coup_mas(id_coup)
@@ -213,7 +223,8 @@ def mag():
                 user_update_coin(session['id_user'], user[0][-1] - coup[0][-1])
                 send_mail(user[0][4], coup[0][-2])
                 del_coup(id_coup)
-        return render_template('mag.html', title="Обменник", coup=coups_mas(), href=type_css[session['user_href']], navig=["Обменник"])
+        return render_template('mag.html', title="Обменник", coup=coups_mas(), href=type_css[session['user_href']],
+                               navig=["Обменник"])
 
 
 @app.route('/profile', methods=['GET', 'POST'])
@@ -236,6 +247,8 @@ def profile():
 @app.route('/class/<id_class>', methods=['GET'])
 def class_rez(id_class):
     print(class_pre(id_class))
+    if 'id_user' not in session:
+        return redirect(url_for('login'))
     if int(session['id_user']) != class_pre(id_class):
         abort(401)
     else:
@@ -261,7 +274,8 @@ def class_rez(id_class):
             sh.append(i[1])
         print(sh)
         print(mas_studs)
-        return render_template('class.html', title="Результаты курса", href=href_intr, sh=sh, mas_studs=mas_studs, navig=["Результаты курса"])
+        return render_template('class.html', title="Результаты курса", href=type_css[session['user_href']], sh=sh, mas_studs=mas_studs,
+                               navig=["Результаты курса"])
 
 
 @app.route('/tasks/<id_lecture>', methods=['GET', 'POST'])
@@ -346,7 +360,14 @@ def rez_tasks(id_lecture, id_user):
 @app.route('/courses/<id_course>', methods=['GET', 'POST'])
 def course(id_course):
     if request.method == "GET":
-        return render_template('course.html', tittle="Курс", href=href_intr, course=cards_course(id_course)[0],navig=["Курсы", cards_course(id_course)[0][0]])
+
+        if 'user_href' in session:
+            return render_template('course.html', tittle="Курс", href=type_css[session['user_href']],
+                                   course=cards_course(id_course)[0],
+                                   navig=["Курсы", cards_course(id_course)[0][0]])
+
+        return render_template('course.html', tittle="Курс", href=href_intr, course=cards_course(id_course)[0],
+                               navig=["Курсы", cards_course(id_course)[0][0]])
 
 
 @app.route('/courses', methods=['GET', 'POST'])
@@ -355,7 +376,8 @@ def courses():
         cards = cards_corsers()
         if 'user_href' in session:
             return render_template('courses.html', title="Курсы", count_courses=cards[0], courses=cards[1],
-                                   href=type_css[session['user_href']], user=data_user(session['id_user']),navig=["Курсы"])
+                                   href=type_css[session['user_href']], user=data_user(session['id_user']),
+                                   navig=["Курсы"])
         return render_template('courses.html', title="Курсы", count_courses=cards[0], courses=cards[1],
                                href=href_intr, navig=["Курсы"])
 
