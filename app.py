@@ -52,6 +52,7 @@ def generate_password_hash(password, salt):
 
 @app.route('/', methods=['GET', 'POST'])
 def base():
+    session.clear()
     if request.method == "GET" and 'tasks_test_lich' not in session:
         session['tasks_test_lich'] = mas_test_lich
         session['now_task_test_lich'] = 1
