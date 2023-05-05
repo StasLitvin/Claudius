@@ -152,10 +152,8 @@ body {
     border: 1px solid black;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
-    ::-webkit-scrollbar {
-    display: none;
 }
-}
+.sidebar__buttons::-webkit-scrollbar{display: none;}
 .sidebar__logo{
     margin: 65px 120px 95px;
 }
