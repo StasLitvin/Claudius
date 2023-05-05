@@ -38,7 +38,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 	padding-left: 6px;
 }
 .num{
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	color: #FFFFFF;
 	font-weight: 600;
 	font-size: 12px;
@@ -47,7 +47,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 	padding-left: 6px;
 }
 .url-1{
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	color: #FFFFFF;
 	font-weight: 600;
 	font-size: 12px;
@@ -179,5 +179,6 @@ input.error {
 .button:hover{
 	background-color: #021738;
 }
+
 
 

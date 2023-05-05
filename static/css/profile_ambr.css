@@ -45,9 +45,9 @@ table { border-collapse: collapse; border-spacing: 0; }
 /* For colours */
 :root {
 
-	--font-family-1:Quicksand;
+	--font-family-1:Montserrat;
 	--font-family-2:Montserrat;
-	--font-family-3: Inter;
+	--font-family-3: Montserrat;
 
 	/* Main */
 	--header-1: #0C2A22;

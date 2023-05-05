@@ -29,7 +29,7 @@ a {
 
 :root {
     --font-main: 'Montserrat';
-    --font-secondary: 'Quicksand';
+    --font-secondary: 'Montserrat';
     font-family: var(--font-main);
 
     --header-color: #ffdef3;

@@ -19,7 +19,7 @@
 
 :root {
   --font-main: "Montserrat";
-  --font-secondary: "Quicksand", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
   font-family: var(--font-main);
   --header-color: #2278ee;
   --main-color: linear-gradient(
@@ -34,7 +34,6 @@
   --size-font: 12px;
   font-style: normal;
 }
-
 
 .anchor {
   font-family: var(--font-secondary);
@@ -114,6 +113,7 @@
   font-size: 26px;
   text-align: center;
   margin-bottom: 125px;
+  padding: 15px;
 }
 
 .auth__button {
@@ -407,9 +407,9 @@
   color: white;
   background: var(--hover-submit);
 }
-
 .soql {
   font-family: "Montserrat";
-  font-size: 21px;
+  font-size: 25px;
   text-decoration: none;
+  margin-left: 10px;
 }

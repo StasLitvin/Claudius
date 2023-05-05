@@ -1,19 +1,22 @@
 function myNewFunction(sel) {
     s = sel.options[sel.selectedIndex].text
     if (s == "Экстраверт") {
+        document.getElementById("style_header_f").href = "../static/css/header_extr.css";
         document.getElementById("reset").href = "../static/css/reset_extr.css";
         document.getElementById("style").href = "../static/css/style_extr.css";
-        document.getElementById("style_header").href = "../static/css/header_extr.css";
+
     }
     if (s == "Интроверт") {
+        document.getElementById("style_header_f").href = "../static/css/header_intr.css";
         document.getElementById("reset").href = "../static/css/reset_intr.css";
         document.getElementById("style").href = "../static/css/style_intr.css";
-        document.getElementById("style_header").href = "../static/css/header_intr.css";
+
     }
     if (s == "Амбиверт") {
+        document.getElementById("style_header_f").href = "../static/css/header_ambr.css";
         document.getElementById("reset").href = "../static/css/reset_ambr.css";
         document.getElementById("style").href = "../static/css/style_ambr.css";
-        document.getElementById("style_header").href = "../static/css/header_ambr.css";
+
     }
 }
 

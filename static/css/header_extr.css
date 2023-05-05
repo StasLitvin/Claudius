@@ -26,21 +26,21 @@ body {
 .header__logo{
     margin: 0 0 0 9%;
     font-size: 29px;
-    font-family: Quicksand;
+    font-family: 'Montserrat';
     color: #A4BA93;
 }
 .header__logomin{
     margin: 0.5% 100px 0 0.6%;
 	font-size: 15px;
-    font-family: Quicksand;
+    font-family: 'Montserrat';
     color: #A4BA93;
 }
 .header__img{
     margin-right: 5px;
 }
 .header__text{
-    font-family: Montserrat;
-    margin: 0;
+    font-family: 'Montserrat';
+    margin-left: 10px;
     font-size: 12px;
     font-weight: 600;
     vertical-align: middle;
@@ -49,7 +49,7 @@ body {
 }
 .header__nav-text{
     display: inline-block;
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     margin: 0;
     font-size: 20px;
     font-weight: 600;
@@ -72,7 +72,7 @@ body {
 
 .footer__point{
     display: block;
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     font-size: 24px;
     font-weight: 400;
     line-height: 23px;
@@ -92,6 +92,7 @@ body {
 }
 .footer__logo{
     width: 100px;
+    margin-right: 25px;
     object-fit: contain;
 }
 .footer__nav{
@@ -115,11 +116,11 @@ body {
     cursor: pointer;
 
     transition: opacity 0.2s;
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     font-weight: 600;
 }
 .footer__about{
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     font-weight: 600;
     display: flex;
     color:#A4BA93;
@@ -151,6 +152,9 @@ body {
     border: 1px solid black;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+    ::-webkit-scrollbar {
+    display: none;
+}
 }
 .sidebar__logo{
     margin: 65px 120px 95px;
@@ -188,6 +192,15 @@ body {
 .sidebar__button_subcategory{
     width: calc(100% - 140px);
     color: #A4BA93;
+}
+.close_sidebar{
+    background-image: url(../img/close.svg);
+     border-style: none;
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    margin-top: 15px;
+    background-color: #90817C;
 }
 .button{
     border: 0;

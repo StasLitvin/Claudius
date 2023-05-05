@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <link rel="stylesheet" id="style_header" href={{ href[6] }}>
+    <link rel="stylesheet" id="style_header_h" href={{ href[6] }}>
   </head>
   <body class="page">
     <div class="content">
@@ -29,18 +29,18 @@
             <p class="header__nav-text">{{ i }}</p>
             {% endfor %}
           </div>
+        {% if session['id_user'] %}
           <div class="header__nav">
-            <button class="button mail-button"></button>
-            <p class="header__nav-text">Напоминание</p>
+              <a href="/exit"><img src="../static/img/exit.svg" width="30px" height="30px"></a>
 
           </div>
-
+        {% endif %}
         </div>
 
 {% block content -%}
     <p><h6>Когда-нибудь тут будет главная</h6></p>
 {% endblock -%}
-        <link rel="stylesheet" id="style_header" href={{ href[6] }}>
+        <link rel="stylesheet" id="style_header_f" href={{ href[6] }}>
         <footer class="footer">
           <div class="footer__nav">
             <img src="../static/img/mospolytech-logo-white.png" alt="" class="footer__logo">
@@ -73,15 +73,22 @@
           </div>
         </footer>
         <sidebar class="sidebar" id="sidebar" hidden>
-          <button id="closeSidebar"> Закрыть</button>
+          <button id="closeSidebar" class="close_sidebar"></button>
           <img class="sidebar__logo" src="../static/img/Claudius.svg">
           <ul class="sidebar__buttons">
-            <li>
+          <li>
+              <button class="sidebar__button"><a href="/">Главная</a></button>
+            </li>
+              {% if session['id_user'] %}
+                  <li>
               <button class="sidebar__button"><a href="/profile">Личный кабинет</a></button>
             </li>
+
+              {% else %}
             <li>
               <button class="sidebar__button"><a href="/login">Авторизация</a></button>
             </li>
+            {% endif %}
               <li>
               <button class="sidebar__button"><a href="/mag">Обменник</a></button>
             </li>
@@ -106,3 +113,5 @@
     </div>
     <script src="../static/js/index.js" >
     </script>
+  </body>
+</html>

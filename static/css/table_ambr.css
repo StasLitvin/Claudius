@@ -25,7 +25,7 @@ p {
 
 :root {
     --font-main: 'Montserrat';
-    --font-secondary: 'Quicksand';
+    --font-secondary: 'Montserrat';
     font-family: var(--font-main);
 
     --header-color: #2278EE;

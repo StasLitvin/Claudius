@@ -24,21 +24,21 @@ a{
 .header__logo{
     margin: 0 0 0 9%;
     font-size: 29px;
-    font-family: Quicksand;
+    font-family: 'Montserrat';
     color: #fff;
 }
 .header__logomin{
     margin: 0.5% 100px 0 0.6%;
 	font-size: 15px;
-    font-family: Quicksand;
+    font-family: 'Montserrat';
     color: #fff;
 }
 .header__img{
-    margin-right: 5px;
+    margin-right: 10px;
 }
 .header__text{
-    font-family: Montserrat;
-    margin: 0;
+    font-family: 'Montserrat';
+    margin-left: 10px;
     font-size: 12px;
     font-weight: 600;
     vertical-align: middle;
@@ -47,7 +47,7 @@ a{
 }
 .header__nav-text{
     display: inline-block;
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     margin: 0;
     font-size: 20px;
     font-weight: 600;
@@ -70,7 +70,7 @@ a{
 
 .footer__point{
     display: block;
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     font-size: 24px;
     font-weight: 400;
     line-height: 23px;
@@ -90,6 +90,7 @@ a{
 }
 .footer__logo{
     width: 100px;
+    margin-right: 25px;
     object-fit: contain;
 }
 .footer__nav{
@@ -113,11 +114,11 @@ a{
     cursor: pointer;
 
     transition: opacity 0.2s;
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     font-weight: 600;
 }
 .footer__about{
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     font-weight: 600;
     display: flex;
     color:#fff;
@@ -138,6 +139,7 @@ a{
 .footer__adress{
     color: #fff;
 }
+
 .sidebar{
     position: fixed;
     top: 0;
@@ -149,6 +151,9 @@ a{
     border: 1px solid black;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+    ::-webkit-scrollbar {
+    display: none;
+}
 }
 .sidebar__logo{
     margin: 65px 120px 95px;
@@ -177,13 +182,18 @@ a{
     background-color: #A7DDFF;
 
 }
-.sidebar__button_category{
-    background-image: url(../img/ic_twotone-arrow-right.svg) ;
-    background-repeat: no-repeat;
-    background-position: 9px;
-}
-.sidebar__button_subcategory{
+
+.sidebar__button_subcategory {
     width: calc(100% - 140px);
+}
+.close_sidebar{
+    background-image: url(../img/close.svg);
+     border-style: none;
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    margin-top: 15px;
+    background-color: #8CC5FF;
 }
 .button{
     border: 0;

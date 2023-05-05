@@ -56,7 +56,7 @@ body {
 
 .courses__h1 {
   margin-bottom: 50px;
-  font-family: "Montserrat Alternates", sans-serif;
+  font-family: "Montserrat", sans-serif;
   line-height: 60px;
   font-weight: 800;
   font-size: 55px;
@@ -86,7 +86,7 @@ body {
 }
 
 #search__input::placeholder {
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 28px;
@@ -100,7 +100,7 @@ body {
 }
 
 .search__span {
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 13px;
   line-height: 22px;
@@ -129,7 +129,7 @@ body {
 
 .card__h2 {
   margin-bottom: 16px;
-  font-family: "Montserrat Alternates", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 22px;
   line-height: 32px;
 }
@@ -164,7 +164,7 @@ body {
 
 .time__inf,
 .views__inf {
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 7.3px;
   line-height: 23.33px;
@@ -176,7 +176,7 @@ body {
   background-color: #00ac65;
   border-radius: 4px;
 
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 11px;
   line-height: 22px;
