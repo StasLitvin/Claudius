@@ -20,6 +20,12 @@ function myNewFunction(sel) {
     }
 }
 
+/** 
+* @description строка заглушка для поля пароля, когда поле пустое
+*
+*/
+const defaultText = "Заполните поле!";
+
 document.addEventListener('DOMContentLoaded', function () {
     let showPass = document.querySelector(".btns__show-password");
     let pass = document.querySelector(".password");
@@ -33,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!e.target.value) {
                 console.log(e.target.value);
                 e.target.classList.add("login--invalid");
-                e.target.value = "Заполните поле!";
+                e.target.value = defaultText
             }
         });
     }
@@ -41,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!e.target.value) {
             e.target.classList.add('password--invalid')
             e.target.setAttribute('type', 'text')
-            e.target.value = 'Заполните поле!'
+            e.target.value = defaultText
         }
     })
 
@@ -83,16 +89,37 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 }, false);
 
-function togglePassword() {
-	var passwordField = document.getElementById("password");
-	var passwordToggle = document.getElementById("password-toggle");
-	if (passwordField.type === "password") {
-	  passwordField.type = "text";
-	  passwordToggle.querySelector("img").src = "../static/img/eye_logo.png";
-	} else {
-	  passwordField.type = "password";
-	  passwordToggle.querySelector("img").src = "../static/img/eye_logo.png";
-	}
+/**
+ * fix 
+     * var говно, поменял на let
+     * лучше сразу брать картинку как элемент, поместил картинку в eyeIcon
+     * чтобы не было бага, меняю картинку когда когда поле непустое и значение не равно значению по default
+     * разбил togglePassword на 2 функции
+     * 
+     */
+/**
+ * @description показывает пароль при событии onpointerdown
+ */
+const showPassword = () =>{
+    let passwordField = document.getElementById("password");
+    let eyeIcon = document.querySelector('.btns__img');
+    if(passwordField.value && passwordField.value != defaultText){
+        passwordField.type = "text";
+        eyeIcon.src = "../static/img/eye-close.svg";
+    }
+    
+ }
+ /**
+ * @description скрывает пароль при событии onpointerup
+ *
+ */
+ const hidePassword = () =>{
+    let passwordField = document.getElementById("password");
+    let eyeIcon = document.querySelector('.btns__img');
+    if(passwordField.value && passwordField.value != defaultText){
+        passwordField.type = "password";
+        eyeIcon.src = "../static/img/eye-open.svg";
+    }
  }
 
 

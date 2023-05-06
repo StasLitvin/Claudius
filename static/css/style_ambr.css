@@ -357,18 +357,16 @@
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 23px;
-  right: 23px;
-  background-repeat: no-repeat;
-  background-size: contain;
+  top: 25%;
+  right: 5%;
+  background: transparent;
+  border: none;
 }
-
-.btns__show-password {
-  background-image: url("../img/eye-close.svg");
-}
-
-.btns__show-password--open {
-  background-image: url("../img/eye-open.svg");
+/** svg иконка **/
+.btns__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .form__refresh-link {
