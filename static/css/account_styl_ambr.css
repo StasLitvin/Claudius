@@ -1,5 +1,8 @@
 /* Claudius // css */
-
+host = "melior.mysql.pythonanywhere-services.com"
+user = "melior"
+password = "admin"
+db_name = "claudius
 /* Doesn't work */
 $font-family-base: 'Montserrat', sans-serif;
 @import "~bootstrap/css/bootstrap";
