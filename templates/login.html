@@ -3,7 +3,6 @@
       <main>
       <br>
       <br>
-      <link rel="stylesheet" href="../static/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
@@ -31,10 +30,10 @@
               <input class="btns__login login" name="login" id="login" type="email"  placeholder="Логин | E-mail почта">
               <label class="visuallyhidden" for="password">password</label>
               <div class="btns__password-container">
-                <input class="btns__password password" name="password" id="password"  type="text"  placeholder="Введите пароль" required onfocus="clearPlaceholder1(this)" onblur="addPlaceholder1(this, 'Введите пароль')">
-              <div class="show-password-btn" id="password-toggle" onclick="togglePassword()">
-					<img src="../static/img/eye_logo.png" alt="">
-				</div>
+                <input class="btns__password password" name="password" id="password"  type="password"  placeholder="Введите пароль" required onfocus="clearPlaceholder1(this)" onblur="addPlaceholder1(this, 'Введите пароль')">
+              <button type="button" class="show-password-btn  btns__show-password" id="password-toggle" onpointerup="hidePassword()" onpointerdown="showPassword()">
+					<img class="btns__img" src="../static/img/eye-open.svg" alt="show-password-icon">
+				</button>
               </div>
               <input type="hidden" name="CSRFToken" value="{{ csrf_token }}">
               <a class="form__refresh-link refresh-link" href="/forgot_password">Забыли пароль?</a>
@@ -44,6 +43,7 @@
 
           </form>
         </div>
+        
       </div>
     </section>
       <br>
