@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Заголовок страницы в браузере -->
+    <title>{{ title }}</title>
+    <!-- Bootstrap CSS (jsDelivr CDN) -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/course_down_styl_intr.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="js/change.js"></script>
+
+
+    <body>
+    <main class="main">
+        <form method="post">
+
+        <input type="text" class="test-name" placeholder="Название курса">
+        <textarea class="test-name" placeholder="Описание курса"></textarea>
+                <p class="test-name">Тематика крса - <select id="emotional-condition" name="emotional_condition">
+							<option value="Интроверт">Интроверт</option>
+							<option value="Амбиверт">Амбиверт</option>
+							<option value="Экстраверт">Экстраверт</option>
+        </select></p>
+
+        <div class="osn-inf">
+
+                <p class="questions-left">0/0</p>
+                <input type="text" class="question" placeholder="Название лекции">
+                <label class="input-file">
+                    <input type="file" name="file">
+                    <span>Выберите файл лекции</span>
+                </label>
+                <div class="answer">
+                    <input type="text" class="question" placeholder="Название задачи"><br>
+                    <input type="text" class="answer" placeholder="Неправильный ответ "><br>
+                    <input type="text" class="answer" placeholder="Правильный ответ"><br>
+                    <input type="text" class="answer" placeholder="Неправильный ответ "><br>
+                    <div class="answer">
+                        <label class="input-file">
+                            <input type="file" name="file">
+                            <span>Выберите файл задачи</span>
+                        </label><br>
+                 </div>
+
+                </div>
+                    <div class="answer">
+                        <div class="answer" id="but1">
+                        <button type="button" class="border-button"  value="but1"
+                                onclick="set(this.value)">+ Добавить задачу
+                        </button>
+                    </div>
+                        </div>
+
+                <br>
+                <button  type="button" class="question border-button"  id="but_home1"
+                                onclick="set_lec(this.id)">+ Добавить лекцию
+                        </button>
+                <br>
+
+
+                <div class="another-question">
+                        <input type="hidden" id="radio_finish" name="radio" value="0">
+                        <input type="hidden" id="hid_finish" name="finish">
+                        <div><input type="submit" class="another-question-center"
+                                                             value="закончить тест"></div>
+
+                </div>
+            </div>
+            </form>
+        </div>
+
+        <br>
+        <br>
+        <br>
+    </main>
+    <script src="../static/js/index_down.js"></script>
+{% endblock %}

@@ -4,9 +4,14 @@
 </head>
 <body>
 <form action="{{ url_for('down') }}" method="post" enctype="multipart/form-data">
-    <input type="file" name="imges"/>
-    <input type="submit" value="Upload">
-    <input type="hidden" id="mas_test" value="{{ mas_test_lich }}">
+    <div><input type="text" class="question" placeholder="Название задачи"><br> <input type="text" class="answer"
+                                                                                       placeholder="Неправильный ответ "><br>
+        <input type="text" class="answer" placeholder="Правильный ответ"><br> <input type="text" class="answer"
+                                                                                     placeholder="Неправильный ответ "><br>
+        <div class="answer"><label class="input-file"> <input type="file" name="file" onchange="alert(1111)"> <span>Выберите файл задачи</span>
+        </label><br></div>
+    </div>
+
 
 </form>
 <h1 id="time">Итог -
@@ -20,7 +25,7 @@
     document.querySelector("#sad").addEventListener("click", Handler);
 
     function Handler(event) {
-        fetch('/down', {method: 'POST', body:""})
+        fetch('/down', {method: 'POST', body: ""})
             .then((response) => {
                 return response.json();
             })

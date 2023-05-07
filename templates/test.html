@@ -1,13 +1,23 @@
 <html>
 <head><title>Тест из нескольких задач по математике</title>
-<style>
-p {
- font-size:24px;
-}
-input {
- font-size:24px;
-}
-</style>
+    <input type="text" class="question" placeholder="Название задачи"><br> <input type="text" class="answer"
+                                                                                       placeholder="Неправильный ответ "><br>
+        <input type="text" class="answer" placeholder="Правильный ответ"><br> <input type="text" class="answer"
+                                                                                     placeholder="Неправильный ответ "><br>
+        <label class="input-file"> <input type="file" name="file" onload="alert(1111)"> <span>Выберите файл задачи</span>
+        </label><br>
+
+    ';
+
+    <style>
+        p {
+            font-size: 24px;
+        }
+
+        input {
+            font-size: 24px;
+        }
+    </style>
 </head>
 <body style="background-color:#d9ffd6;">
 <p>Выполните задания теста:</p>
@@ -17,27 +27,27 @@ input {
 <button onclick="proverit();">Проверить</button>
 <div id="rezultat"></div>
 <script>
-function proverit(){
-pr_otv_zadachi_1 = 55;
-pr_otv_zadachi_2 = -9;
-pr_otv_zadachi_3 = 85;
-otv_uch_1 = document.getElementById('z_1').value;
-otv_uch_2 = document.getElementById('z_2').value;
-otv_uch_3 = document.getElementById('z_3').value;
-ball = 0;
-if(otv_uch_1 == pr_otv_zadachi_1){
-ball +=1;
-}
-if(otv_uch_2 == pr_otv_zadachi_2){
-ball +=1;
-}
-if(otv_uch_3 == pr_otv_zadachi_3){
-ball +=1;
-}
-vsego_zadach = 3;
-procent_vip = ball/vsego_zadach * 100;
-document.getElementById('rezultat').innerHTML = "Задания выполнены верно на "+procent_vip+"%.";
-}
+    function proverit() {
+        pr_otv_zadachi_1 = 55;
+        pr_otv_zadachi_2 = -9;
+        pr_otv_zadachi_3 = 85;
+        otv_uch_1 = document.getElementById('z_1').value;
+        otv_uch_2 = document.getElementById('z_2').value;
+        otv_uch_3 = document.getElementById('z_3').value;
+        ball = 0;
+        if (otv_uch_1 == pr_otv_zadachi_1) {
+            ball += 1;
+        }
+        if (otv_uch_2 == pr_otv_zadachi_2) {
+            ball += 1;
+        }
+        if (otv_uch_3 == pr_otv_zadachi_3) {
+            ball += 1;
+        }
+        vsego_zadach = 3;
+        procent_vip = ball / vsego_zadach * 100;
+        document.getElementById('rezultat').innerHTML = "Задания выполнены верно на " + procent_vip + "%.";
+    }
 </script>
 </body>
 </html>

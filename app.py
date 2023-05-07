@@ -274,7 +274,8 @@ def class_rez(id_class):
             sh.append(i[1])
         print(sh)
         print(mas_studs)
-        return render_template('class.html', title="Результаты курса", href=type_css[session['user_href']], sh=sh, mas_studs=mas_studs,
+        return render_template('class.html', title="Результаты курса", href=type_css[session['user_href']], sh=sh,
+                               mas_studs=mas_studs,
                                navig=["Результаты курса"])
 
 
@@ -388,7 +389,6 @@ def down():
         print(0)
         return render_template('down.html', name="NO")
     elif request.method == 'POST':
-        return jsonify(mas_test_lich)
         print(request.files)
         file = request.files['imges']
         if file and allowed_file(file.filename):
@@ -401,6 +401,14 @@ def down():
 def exit():
     session.clear()
     return redirect(url_for('base'))
+
+
+@app.route('/course_down', methods=['GET', 'POST'])
+def course_down():
+    if request.method == 'POST':
+        print(1, request.form)
+        return render_template('course_down.html', title="Курсы", href=href_intr, navig=["Курсы"])
+    return render_template('course_down.html', title="Курсы", href=href_intr, navig=["Курсы"])
 
 
 if __name__ == '__main__':
