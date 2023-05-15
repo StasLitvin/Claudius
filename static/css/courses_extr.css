@@ -118,7 +118,7 @@ body {
   padding: 0 25px 21px 32px;
   margin-bottom: 30px;
   width: 384px;
-  background-image: linear-gradient(116.48deg, #fff5e0 0%, #ffdef3 100%);
+  background-image: linear-gradient(116.48deg, rgba(255, 245, 224, 1) 0%, rgba(255, 222, 243, 1) 100%);
 }
 
 .card__star {
@@ -190,4 +190,15 @@ body {
     width: auto;
     max-width: 300px;
     max-height: 300px;
+}
+.serch{
+  border: none;
+  background-image: url(../img/search.png);
+  background-repeat: no-repeat;
+  background-color: inherit;
+  position: relative;
+  width: 20px;
+  height: 25px;
+  bottom: 15px;
+  right: 370px;
 }

@@ -11,7 +11,7 @@ a{
 }
 
 .header{
-    background: #8CC5FF;
+    background: #10366A;
     height: 60px;
     display: flex;
     align-items: center;
@@ -25,7 +25,7 @@ a{
     margin: 0 0 0 9%;
     font-size: 29px;
     font-family: 'Montserrat';
-    color: #fff;
+    color: #B4F0FF;
 }
 .header__logomin{
     margin: 0.5% 100px 0 0.6%;
@@ -35,6 +35,42 @@ a{
 }
 .header__img{
     margin-right: 10px;
+}
+.header_mail{
+    background-image: url(../img/intr/mail.svg);
+    border-style: none;
+    margin-right: 5px;
+     margin-top: 18px;
+    width: 17px;
+    height: 14px;
+    background-color: #10366A;
+}
+.header_phone{
+    background-image: url(../img/intr/phone.svg);
+    border-style: none;
+    margin-right: 5px;
+     margin-top: 15px;
+    width: 13px;
+    height: 17px;
+    background-color: #10366A;
+    white-space: nowrap;
+}
+.sidebar_logo{
+    background-image: url(../img/intr/Claudius.svg);
+    border-style: none;
+    margin: 65px 120px 95px;
+    width: 260px;
+    height: 57px;
+    background-color: #80D9FF;
+}
+.exit_img{
+    background-image: url(../img/intr/exit.svg);
+    border-style: none;
+    margin-right: 1px;
+     margin-top: 5px;
+    width: 30px;
+    height: 25px;
+    background-color: #80D9FF;
 }
 .header__text{
     font-family: 'Montserrat';
@@ -61,7 +97,7 @@ a{
     align-items: center;
     justify-content: space-between;
     padding: 0 61px;
-    background: #A7DDFF;
+    background: #80D9FF;
 }
 .header__nav{
     display: flex;
@@ -85,7 +121,7 @@ a{
     opacity: 0.6;
 }
 .footer{
-    background: #8CC5FF;
+    background: #10366A;
     height: 250px;
 }
 .footer__logo{
@@ -131,7 +167,7 @@ a{
 }
 .footer__contacts {
     display: flex;
-    margin: 16px 0;
+    margin: 0;
 }
 .footer__copyhright{
     color: #fff
@@ -146,7 +182,7 @@ a{
     left: 0;
     width: 510px;
     height: 100%;
-    background-color: #8CC5FF;
+    background-color: #80D9FF;
     z-index: 2;
     border: 1px solid black;
     border-top-right-radius: 25px;
@@ -172,7 +208,7 @@ a{
     font-weight: 400;
     line-height: 23px;
     text-align: center;
-    width: calc(100% - 100px);
+    width: calc(100% - 70px);
     border-radius: 25px;
     margin-bottom: 29px;
     padding: 22px 0;
@@ -180,18 +216,23 @@ a{
     background-color: #A7DDFF;
 
 }
-
+.sidebar__button_category{
+    background-image: url(../img/intr/ic_twotone-arrow-right.svg);
+    background-repeat: no-repeat;
+    background-position: 100%;
+    color: #000000;
+}
 .sidebar__button_subcategory {
     width: calc(100% - 140px);
 }
 .close_sidebar{
-    background-image: url(../img/close.svg);
+    background-image: url(../img/intr/close.svg);
      border-style: none;
     width: 50px;
     height: 50px;
     margin-left: 15px;
     margin-top: 15px;
-    background-color: #8CC5FF;
+    background-color: #80D9FF;
 }
 .button{
     border: 0;
@@ -210,18 +251,20 @@ a{
     opacity: 0.6;
 }
 .wtf-button{
-    background-image: url(../img/wtf-btn.svg) ;
+    background-image: url(../img/intr/wtf-btn.svg) ;
     margin: 0 15px 0 5px;
     width: 18px;
     height: 25px;
     cursor:default;
+    background-color: #80D9FF;
 }
 .wtf-button:hover{
     opacity: 1;
 }
 .home-button{
-    background-image: url(../img/home-btn2.svg) ;
+    background-image: url(../img/intr/home-btn2.svg) ;
     margin: 0 21px 0 0;
+    background-color: #80D9FF;
 
 
 }

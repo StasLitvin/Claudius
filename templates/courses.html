@@ -13,17 +13,15 @@
             <span class="courses__additional-inf">
               Мы всегда рады вашим успехам.
             </span>
-            <div class="search">
-              <label for="search__input">
-                <input
-                  type="search"
-                  id="search__input"
-                  placeholder="Поиск по курсу"
-                />
-              </label>
-              <img src="../static/img/search.png" alt="Search" class="search__img" />
+
+            <form method="post" action="/courses">
+                <div class="search">
+                <input type="text" id="search__input" name="search__input" placeholder="Поиск по курсу" value=""/>
+                <button type="submit" class="serch" id="button"></button>
               <div class="search__span">Всего курсов: {{ count_courses }} </div>
-            </div>
+                    </div>
+            </form>
+
 
             <div class="cards">
                 {% for i in courses %}

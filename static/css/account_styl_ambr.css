@@ -101,7 +101,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .test-name {
 	position: relative;
-	margin: 1% 0 0 21%;
+	margin: 1% 0 0 25%;
 
 	font-family: 'Montserrat';
 	font-style: normal;
@@ -152,7 +152,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 	visibility: visible;
 
-	background: linear-gradient(116.48deg, #F4FFE7 0%, #FEFFE3 100%);
+	background: linear-gradient(116.48deg, rgba(254, 255, 200, 0.66) 0%, rgba(212, 255, 164, 0.66) 100%);
 }
 
 .questions-left {
@@ -282,7 +282,7 @@ input[type='radio']:checked:after {
 .another-question-left-img {
 	position: relative;
 	border: none;
-	background: #F6FFE6;
+	background-color: inherit;
 	cursor: pointer;
 
 	margin-left: 60px;
@@ -293,7 +293,7 @@ input[type='radio']:checked:after {
 .another-question-right-img {
 	position: relative;
 	border: none;
-	background: #FDFFE4;
+	background-color: inherit;
 	cursor: pointer;
 
 	margin-left: 60px;

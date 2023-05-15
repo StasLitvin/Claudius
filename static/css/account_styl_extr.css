@@ -14,8 +14,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -28,7 +28,7 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section { display: block; }
 body { line-height: 1; margin: 0;}
 ol, ul { list-style: none; }
@@ -97,7 +97,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .test-name {
 	position: relative;
-	margin: 1% 0 0 21%;
+	margin: 1% 0 0 25%;
 	font-family: 'Montserrat';
 	font-style: normal;
 	font-weight: 800;
@@ -147,7 +147,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 	visibility: visible;
 
-	background: linear-gradient(116.48deg, #FFF5E0 0%, #FFDEF3 100%);
+	background: linear-gradient(116.48deg, rgba(255, 241, 214, 0.66) 0%, rgba(255, 203, 236, 0.66) 100%);
 }
 
 .questions-left {
@@ -277,7 +277,7 @@ input[type='radio']:checked:after {
 .another-question-left-img {
 	position: relative;
 	border: none;
-	background: #FFEEE6;
+	background-color: inherit;
 	cursor: pointer;
 
 	margin-left: 60px;
@@ -288,7 +288,7 @@ input[type='radio']:checked:after {
 .another-question-right-img {
 	position: relative;
 	border: none;
-	background: #FFE1F0;
+	background-color: inherit;
 	cursor: pointer;
 
 	margin-left: 60px;

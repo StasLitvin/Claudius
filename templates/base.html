@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
@@ -12,12 +13,9 @@
             <div class="header__logo">Claudius</div>
             <div class="header__logomin">Бонусная система поощрения</div>
             <div class="header__contacts">
-
-                <img class="header__img" src="../static/img/phone.svg">
+                <button class="header_phone"></button>
                 <p class="header__text header__number">8 999 555 3322</p>
-
-
-                <img class="header__img" src="../static/img/mail.svg">
+                <button class="header_mail"></button>
                 <p class="header__text">support@claudius.ru</p>
             </div>
         </header>
@@ -31,14 +29,14 @@
           </div>
         {% if session['id_user'] %}
           <div class="header__nav">
-              <a href="/exit"><img src="../static/img/exit.svg" width="30px" height="30px"></a>
+              <a href="/exit" class="exit_img"></a>
 
           </div>
         {% endif %}
         </div>
 
 {% block content -%}
-    <p><h6>Когда-нибудь тут будет главная</h6></p>
+
 {% endblock -%}
         <link rel="stylesheet" id="style_header_f" href={{ href[6] }}>
         <footer class="footer">
@@ -63,18 +61,17 @@
             </div>
             <div class="footer__contacts">
 
-                  <img class="header__img" src="../static/img/phone.svg">
-                  <p class="header__text header__number">8 999 555 3322</p>
+                  <button class="header_phone"></button>
+                <p class="header__text header__number">8 999 555 3322</p>
 
-
-                  <img class="header__img" src="../static/img/mail.svg">
-                  <p class="header__text">support@claudius.ru</p>
+                <button class="header_mail"></button>
+                <p class="header__text">support@claudius.ru</p>
               </div>
           </div>
         </footer>
         <sidebar class="sidebar" id="sidebar" hidden>
           <button id="closeSidebar" class="close_sidebar"></button>
-          <img class="sidebar__logo" src="../static/img/Claudius.svg">
+            <button class="sidebar_logo"></button>
           <ul class="sidebar__buttons">
           <li>
               <button class="sidebar__button"><a href="/">Главная</a></button>
@@ -96,16 +93,17 @@
               <button class="sidebar__button"><a href="/courses">Курсы</a></button>
             </li>
             <li>
-              <button class="sidebar__button sidebar__button_category" id="progress-btn">Успеваемость</button>
-            </li>
-
-            <li>
-              <button class="sidebar__button sidebar__button_subcategory" id="progress" hidden>Оценки</button>
+              <button class="sidebar__button sidebar__button_category" id="progress-btn">Описание типов личностей</button>
             </li>
             <li>
-              <button class="sidebar__button sidebar__button_subcategory" id="progress" hidden>Сессия</button>
+              <button class="sidebar__button sidebar__button_subcategory" id="progress" hidden><a href="/ambivert">Амбиверт</a></button>
             </li>
-
+            <li>
+              <button class="sidebar__button sidebar__button_subcategory" id="progress" hidden><a href="/extrovert">Экстраверт</a></button>
+            </li>
+          <li>
+              <button class="sidebar__button sidebar__button_subcategory" id="progress" hidden><a href="/introvert">Интроверт</a></button>
+            </li>
 
 
           </ul>

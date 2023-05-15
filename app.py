@@ -7,7 +7,7 @@ from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg,
     password_reset_token_find, update_password, \
     user_update_coin, class_stud, user_rez, task_class, tasks_lec, answer_user, tasks_lec_rez, rez_coin, task_eval, \
     update_answer_coin, cards_corsers, cards_course, class_pre, href_update, password_reset_token_create, \
-    find_user_by_email, name_lec
+    find_user_by_email, name_lec, user_course, update_user_course, user_courses_count
 from werkzeug.utils import secure_filename
 from mail import send_mail, send_password_reset_mail
 
@@ -70,20 +70,24 @@ def base():
             rezult = rezult_test_lic(session['tasks_test_lich_rez'])
             session['tasks_test_lich_rez'] = [' '] * session['count_tasks_test_lich']
             session['now_task_test_lich'] = 1
-            if 'user_href' in session:
-                return render_template('main_rez.html', title="Главная", href=type_css[session['user_href']],
-                                       user=data_user(session['id_user']), task=[rezult])
-            return render_template('main_rez.html', title="Главная", href=href_intr, task=[rezult])
+            if rezult == "Интроверт":
+                return redirect(url_for("introvert"))
+            if rezult == "Экстраверт":
+                return redirect(url_for("extrovert"))
+            if rezult == "Амбиверт":
+                return redirect(url_for("ambivert"))
     if 'user_href' in session:
         return render_template('main.html', title="Главная", href=type_css[session['user_href']],
                                user=data_user(session['id_user']),
                                task=session['tasks_test_lich'][session['now_task_test_lich'] - 1],
                                count_tasks=session['count_tasks_test_lich'], now_task=session['now_task_test_lich'],
-                               rez_task=session['tasks_test_lich_rez'][session['now_task_test_lich'] - 1])
+                               rez_task=session['tasks_test_lich_rez'][session['now_task_test_lich'] - 1],
+                               navig=["Главная"])
     return render_template('main.html', title="Главная", href=href_intr,
                            task=session['tasks_test_lich'][session['now_task_test_lich'] - 1],
                            count_tasks=session['count_tasks_test_lich'], now_task=session['now_task_test_lich'],
-                           rez_task=session['tasks_test_lich_rez'][session['now_task_test_lich'] - 1])
+                           rez_task=session['tasks_test_lich_rez'][session['now_task_test_lich'] - 1],
+                           navig=["Главная"])
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -158,7 +162,8 @@ def forgot_password():
     if request.method == 'GET':
         csrf_token = generate_csrf_token()
         session['csrf_token'] = csrf_token
-        return render_template('forgot_password.html', href=href_intr, csrf_token=csrf_token, password_not_reset=True)
+        return render_template('forgot_password.html', href=href_intr, csrf_token=csrf_token, password_not_reset=True,
+                               navig=["Авторизация", "Восстановление пароля"])
     if request.method == 'POST':
         if request.form['CSRFToken'] == session['csrf_token']:
             if 'email' in request.form:
@@ -240,8 +245,20 @@ def profile():
                 href_update(session['id_user'], session['user_href'], request.form['nick'].split(" "))
             else:
                 href_update(session['id_user'], session['user_href'], [])
+        k = user_courses_count(session["id_user"])
+        passed_true = 0
+        passed_false = 0
+        if len(k) == 0:
+            k = 0
+        else:
+            for i in k:
+                if i[1] < 100:
+                    passed_false += 1
+                else:
+                    passed_true += 1
         return render_template('profile.html', title="Личный кабинет", href=type_css[session['user_href']],
-                               user=data_user(session['id_user'])[0], navig=["Личный кабинет"])
+                               user=data_user(session['id_user'])[0], navig=["Личный кабинет"], courses=k,
+                               passed_true=passed_true, passed_false=passed_false)
 
 
 @app.route('/class/<id_class>', methods=['GET'])
@@ -362,13 +379,30 @@ def rez_tasks(id_lecture, id_user):
 def course(id_course):
     if request.method == "GET":
 
-        if 'user_href' in session:
-            return render_template('course.html', tittle="Курс", href=type_css[session['user_href']],
+        if 'user_href' in session and 'id_user' in session:
+            stat = user_course(id_course, session["id_user"])
+            if len(stat) == 0:
+                stat = "Начать"
+                rez = 0
+            else:
+                stat = "Продолжить"
+                rez = user_course(id_course, session["id_user"])[0][0]
+            print(stat)
+            return render_template('course.html', tittle=cards_course(id_course)[0][0],
+                                   href=type_css[session['user_href']],
                                    course=cards_course(id_course)[0],
-                                   navig=["Курсы", cards_course(id_course)[0][0]])
+                                   navig=["Курсы", cards_course(id_course)[0][0]], course_nach=stat,
+                                   id_course=id_course, rez=rez)
 
-        return render_template('course.html', tittle="Курс", href=href_intr, course=cards_course(id_course)[0],
+        return render_template('course.html', tittle=cards_course(id_course)[0][0], href=href_intr,
+                               course=cards_course(id_course)[0],
                                navig=["Курсы", cards_course(id_course)[0][0]])
+    elif request.method == "POST":
+        if 'user_href' in session and 'id_user' in session:
+            stat = user_course(id_course, session["id_user"])
+            if len(stat) == 0:
+                update_user_course(id_course, session["id_user"])
+            return redirect(url_for('course', id_course=id_course))
 
 
 @app.route('/courses', methods=['GET', 'POST'])
@@ -380,6 +414,19 @@ def courses():
                                    href=type_css[session['user_href']], user=data_user(session['id_user']),
                                    navig=["Курсы"])
         return render_template('courses.html', title="Курсы", count_courses=cards[0], courses=cards[1],
+                               href=href_intr, navig=["Курсы"])
+    if request.method == "POST":
+        cards = cards_corsers()[1]
+        cards_true = []
+        for i in cards:
+            if request.form["search__input"].lower().replace("  ", " ") in i[0].lower():
+                cards_true += [i]
+        print(cards_true)
+        if 'user_href' in session:
+            return render_template('courses.html', title="Курсы", count_courses=len(cards_true), courses=cards_true,
+                                   href=type_css[session['user_href']], user=data_user(session['id_user']),
+                                   navig=["Курсы"])
+        return render_template('courses.html', title="Курсы", count_courses=len(cards_true), courses=cards_true,
                                href=href_intr, navig=["Курсы"])
 
 
@@ -409,6 +456,36 @@ def course_down():
         print(1, request.form)
         return render_template('course_down.html', title="Курсы", href=href_intr, navig=["Курсы"])
     return render_template('course_down.html', title="Курсы", href=href_intr, navig=["Курсы"])
+
+
+@app.route('/ambivert', methods=['GET', 'POST'])
+def ambivert():
+    if request.method == 'POST':
+        print(1, request.form)
+        return render_template('ambivert.html', title="Амбиверт", href=href_ambr,
+                               navig=["Описание типа личности", "Амбиверт"])
+    return render_template('ambivert.html', title="Амбиверт", href=href_ambr,
+                           navig=["Описание типа личности", "Амбиверт"])
+
+
+@app.route('/introvert', methods=['GET', 'POST'])
+def introvert():
+    if request.method == 'POST':
+        print(1, request.form)
+        return render_template('introvert.html', title="Интроверт", href=href_intr,
+                               navig=["Описание типа личности", "Интроверт"])
+    return render_template('introvert.html', title="Интроверт", href=href_intr,
+                           navig=["Описание типа личности", "Интроверт"])
+
+
+@app.route('/extrovert', methods=['GET', 'POST'])
+def extrovert():
+    if request.method == 'POST':
+        print(1, request.form)
+        return render_template('extrovert.html', title="Экстраверт", href=href_extr,
+                               navig=["Описание типа личности", "Экстраверт"])
+    return render_template('extrovert.html', title="Экстраверт", href=href_extr,
+                           navig=["Описание типа личности", "Экстраверт"])
 
 
 if __name__ == '__main__':

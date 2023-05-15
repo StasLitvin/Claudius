@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&family=Montserrat&family=Montserrat+Alternates:wght@400;500;800&display=swap');
 a{
   text-decoration: none;
-  color: #A4BA93;
+  color: #000000;
 }
 body {
  background-color: #FEFAEF;
@@ -27,16 +27,52 @@ body {
     margin: 0 0 0 9%;
     font-size: 29px;
     font-family: 'Montserrat';
-    color: #A4BA93;
+    color: #F5C184;
 }
 .header__logomin{
     margin: 0.5% 100px 0 0.6%;
 	font-size: 15px;
     font-family: 'Montserrat';
-    color: #A4BA93;
+    color: #fff;
 }
 .header__img{
     margin-right: 5px;
+}
+.header_mail{
+    background-image: url(../img/extr/mail.svg);
+    border-style: none;
+    margin-right: 5px;
+     margin-top: 18px;
+    width: 17px;
+    height: 14px;
+    background-color: #330F13;
+}
+.header_phone{
+    background-image: url(../img/extr/phone.svg);
+    border-style: none;
+    margin-right: 5px;
+     margin-top: 15px;
+    width: 13px;
+    height: 17px;
+    background-color: #330F13;
+    white-space: nowrap;
+}
+.sidebar_logo{
+    background-image: url(../img/extr/Claudius.svg);
+    border-style: none;
+    margin: 65px 120px 95px;
+    width: 260px;
+    height: 57px;
+    background-color: #90817C;
+}
+.exit_img{
+    background-image: url(../img/extr/exit.svg);
+    border-style: none;
+    margin-right: 1px;
+     margin-top: 5px;
+    width: 30px;
+    height: 25px;
+    background-color: #90817C;
 }
 .header__text{
     font-family: 'Montserrat';
@@ -45,7 +81,8 @@ body {
     font-weight: 600;
     vertical-align: middle;
     line-height: 22px;
-    color: #A4BA93;
+    color: #fff;
+    white-space: nowrap;
 }
 .header__nav-text{
     display: inline-block;
@@ -53,9 +90,11 @@ body {
     margin: 0;
     font-size: 20px;
     font-weight: 600;
+    color: #000000;
 }
 .header__number{
     margin-right: 100px;
+    white-space: nowrap;
 }
 .header__nav-container{
     height: 56px;
@@ -111,7 +150,7 @@ body {
 }
 
 .footer__link{
-    color: #A4BA93;
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
 
@@ -123,7 +162,7 @@ body {
     font-family: 'Montserrat';
     font-weight: 600;
     display: flex;
-    color:#A4BA93;
+    color:#fff;
     margin:0 8%;
     justify-content: space-between;
 }
@@ -133,13 +172,13 @@ body {
 }
 .footer__contacts {
     display: flex;
-    margin: 16px 0;
+    margin: 0;
 }
 .footer__copyhright{
-    color: #A4BA93;
+    color: #fff;
 }
 .footer__adress{
-    color: #A4BA93;
+    color: #fff;
 }
 .sidebar{
     position: fixed;
@@ -147,7 +186,7 @@ body {
     left: 0;
     width: 510px;
     height: 100%;
-    background-color: #330F13;
+    background-color: #90817C;
     z-index: 2;
     border: 1px solid black;
     border-top-right-radius: 25px;
@@ -173,26 +212,26 @@ body {
     font-weight: 400;
     line-height: 23px;
     text-align: center;
-    width: calc(100% - 100px);
+    width: calc(100% - 70px);
     border-radius: 25px;
     margin-bottom: 29px;
     padding: 22px 0;
     cursor: pointer;
-    background-color: #90817C;
+    background-color: #83736a;
 
 }
 .sidebar__button_category{
-    background-image: url(../img/ic_twotone-arrow-right.svg) ;
+    background-image: url(../img/extr/ic_twotone-arrow-right.svg);
     background-repeat: no-repeat;
-    background-position: 9px;
-    color: #A4BA93;
+    background-position: 100%;
+    color: #000000;
 }
 .sidebar__button_subcategory{
     width: calc(100% - 140px);
-    color: #A4BA93;
+    color: #000000;
 }
 .close_sidebar{
-    background-image: url(../img/close.svg);
+    background-image: url(../img/extr/close.svg);
      border-style: none;
     width: 50px;
     height: 50px;
@@ -217,7 +256,7 @@ body {
     opacity: 0.6;
 }
 .wtf-button{
-    background-image: url(../img/wtf-btn.svg) ;
+    background-image: url(../img/extr/wtf-btn.svg) ;
     margin: 0 15px 0 5px;
     width: 18px;
     height: 25px;
@@ -227,7 +266,7 @@ body {
     opacity: 1;
 }
 .home-button{
-    background-image: url(../img/home-btn2.svg) ;
+    background-image: url(../img/extr/home-btn2.svg) ;
     margin: 0 21px 0 0;
 
 

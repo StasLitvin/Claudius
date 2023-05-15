@@ -40,7 +40,7 @@
   font-weight: 600;
   font-size: 28px;
   line-height: 97%;
-  color: #A4BA93;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -55,7 +55,7 @@
   font-family: inherit;
   line-height: 188.5%;
   text-align: center;
-  color: #A4BA93;
+  color: #fff;
 }
 
 .nav__links {
@@ -75,7 +75,7 @@
   line-height: 15px;
   text-decoration: none;
   text-align: center;
-  color: #A4BA93;
+  color: #fff;
 }
 
 .container {
@@ -90,7 +90,7 @@
 }
 
 .auth__left-section {
-  padding-top: 222px;
+  padding-top: 170px;
 }
 
 .left-section {
@@ -99,7 +99,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #A4BA93;
+  color: #fff;
 }
 
 .auth__title {
@@ -118,7 +118,7 @@
 
 .auth__button {
   text-decoration: none;
-  color: #A4BA93;
+  color: #fff;
   font-size: 30px;
   font-weight: 500;
   padding: 1rem 2rem;
@@ -132,7 +132,7 @@
 }
 
 .auth__right-section {
-  padding-top: 167px;
+  padding-top: 170px;
 }
 
 .right-section {
@@ -333,24 +333,14 @@
   outline: 0;
   color: black;
 }
-.password--invalid,
-.login--invalid {
-  border: 3px solid #330F13;
-  outline: 0;
-  color: #330F13;
-}
 
-.password:focus::placeholder,
-.login:focus::placeholder {
-  color: transparent;
-}
 
-/** кнопка отображения пароля **/
+/** контейнер для кнопок  **/
 
 .btns__password-container {
   position: relative;
 }
-
+/** кнопка отображения пароля **/
 .btns__show-password {
   display: inline-block;
   width: 30px;
@@ -361,7 +351,6 @@
   background: transparent;
   border: none;
 }
-
 /** svg иконка **/
 .btns__img {
   width: 100%;
@@ -392,6 +381,7 @@
 }
 
 .submit-btn {
+  margin-bottom: 40px;
   background: #fefefe;
   border-radius: 60px;
   border: 5px solid var(--secondary-color);

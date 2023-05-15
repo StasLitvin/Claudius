@@ -22,7 +22,6 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
@@ -481,7 +480,7 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 }
 
 .CI-my-education-img {
-	margin-right: -1px; 
+	margin-right: -1px;
 	border: none;
 	background: none;
 	cursor: pointer;

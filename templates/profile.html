@@ -37,8 +37,8 @@
 
 						<div class="PI-dop">
 							<div class="PI-dop-code">Код&nbspстудента&nbsp&nbsp<p>2022-1234</p></div>
-							<div class="PI-dop-group">Всего&nbspвыбрано&nbspкурсов&nbsp&nbsp<p>7</p></div>
-							<div class="PI-dop-courses-finish">Пройдено&nbspкурсов&nbsp&nbsp<p>2</p></div>
+							<div class="PI-dop-group">Всего&nbspвыбрано&nbspкурсов&nbsp&nbsp<p>{{ passed_false }}</p></div>
+							<div class="PI-dop-courses-finish">Пройдено&nbspкурсов&nbsp&nbsp<p>{{ passed_true }}</p></div>
 
 							<div class="PI-edit-button-block"><button onClick="edit()" class="PI-edit-button"><img src="../static/img/edit.svg" class="PI-edit"></button></div>
 
@@ -57,65 +57,21 @@
 							<div class="CI-viewport">
 								<div class="CI-content-box" id="content__box">
 									<div class="CI-content-list">
+                                    {% if courses!=0 %}
+                                        {% for i in courses %}
 										<div class="CI-cours">
 											<div>
-												<div class="CI-cours-name">Python-разработчик</div>
-												<div class="CI-cours-info"><p>80%</p> материала пройдено</div>
+												<div class="CI-cours-name">{{ i[2] }}</div>
+												<div class="CI-cours-info"><p>{{ i[1] }}%</p> материала пройдено</div>
 											</div>
-											<div class="CI-cours-button"><a href="#"><button class="continue">Продолжить</button></a></div>
-										</div>
-
-										<div class="CI-cours">
-											<div>
-												<div class="CI-cours-name">Java-разработчик</div>
-												<div class="CI-cours-info"><p>78%</p> материала пройдено</div>
-											</div>
-											<div class="CI-cours-button"><a href="#"><button class="continue">Продолжить</button></a></div>
-										</div>
-
-										<div class="CI-cours">
-											<div>
-												<div class="CI-cours-name">Веб-разработчик</div>
-												<div class="CI-cours-info"><p>46%</p> материала пройдено</div>
-											</div>
-											<div class="CI-cours-button"><a href="#"><button class="continue">Продолжить</button></a></div>
-										</div>
-
-										<div class="CI-cours">
-											<div>
-												<div class="CI-cours-name">Data Scientist</div>
-												<div class="CI-cours-info"><p>38%</p> материала пройдено</div>
-											</div>
-											<div class="CI-cours-button"><a href="#"><button class="continue">Продолжить</button></a></div>
-										</div>
-
-										<div class="CI-cours">
-											<div>
-												<div class="CI-cours-name">1C-разработчик</div>
-												<div class="CI-cours-info"><p>20%</p> материала пройдено</div>
-											</div>
-											<div class="CI-cours-button"><a href="#"><button class="continue">Продолжить</button></a></div>
-										</div>
-
-										<div class="CI-cours">
-											<div>
-												<div class="CI-cours-name">Frontend-разработчик</div>
-												<div class="CI-cours-info"><p>100%</p> материала пройдено</div>
-											</div>
-											<div class="CI-cours-stars">
-												<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/afterStar.svg" alt="">
-											</div>
-										</div>
-
-										<div class="CI-cours">
-											<div>
-												<div class="CI-cours-name">Инженер по тестированию</div>
-												<div class="CI-cours-info"><p>100%</p> материала пройдено</div>
-											</div>
-											<div class="CI-cours-stars">
-												<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/beforeStar.svg" alt="">&nbsp<img src="../static/img/beforeStar.svg" alt="">
-											</div>
-										</div>
+                                            {% if i[1]<100 %}
+											<div class="CI-cours-button"><button class="continue"><a style="color: #fff" href="/courses/{{ i[0] }}">Продолжить</a></button></div>
+										    {% endif %}
+                                        </div>
+                                        {% endfor %}
+                                    {% else %}
+                                         <div style="margin-left: 220px; margin-top: 50px">Ни одного курса не выбрано</div>
+                                    {% endif %}
 
 									</div>
 

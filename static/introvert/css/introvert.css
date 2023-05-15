@@ -1,0 +1,95 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1520px;
+  padding: 0 150px;
+  margin: 0 auto;
+}
+
+/* Main */
+.main {
+  margin-bottom: 50px;
+}
+
+/* Section path */
+.path {
+  background-color: #b4f0ff;
+  padding: 12px 46px 12px 59px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.current-path {
+  display: flex;
+  align-items: center;
+  column-gap: 18px;
+}
+
+.path__h3 {
+  line-height: 10px;
+}
+
+.path__h3-courses {
+  margin-right: 29px;
+}
+
+.reminder {
+  display: flex;
+  align-items: center;
+  column-gap: 18px;
+}
+
+.reminder__h3 {
+  line-height: 32px;
+}
+
+/* Section personality type */
+.personality-type {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.personality-type__h1 {
+  margin-top: 28px;
+  margin-bottom: 50px;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 60px;
+  text-align: center;
+}
+
+.personality-type__frame {
+  background: linear-gradient(116.48deg, rgba(228, 250, 255, 0.66) 0%, rgba(95, 217, 255, 0.66) 100%);
+  border: 1px solid #fff;
+  padding: 50px;
+}
+
+.personality-type__desc {
+  margin-bottom: 50px;
+}
+
+.personality-type__images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 50px;
+}
+
+.personality-type__images img {
+  max-width: 550px;
+}

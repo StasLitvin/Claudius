@@ -22,7 +22,6 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
@@ -409,7 +408,9 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 
 	box-shadow: 3px 5px 5px rgba(0,0,0,.2), 6px 5px 8px rgba(0,0,0,.3);
 }
-
+.continue-text{
+	color: #fff;
+}
 .continue:hover {
 	box-shadow: inset 3px 6px 6px 1px rgba(0,0,0,0.5);
 }

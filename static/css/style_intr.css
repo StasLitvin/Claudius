@@ -24,13 +24,13 @@
   --header-color: #2278ee;
   --main-color: linear-gradient(
     141.69deg,
-    #8CC5FF 0%,
-    #8CC5FF 67.83%,
-    #A7DDFF 100%
+    #10366A 0%,
+    #154b86 67.83%,
+    #1c468a 100%
   );
-  --secondary-color: #8CC5FF;
-  --course-color: #8CC5FF;
-  --hover-submit: #A7DDFF;
+  --secondary-color: #10366A;
+  --course-color: #10366A;
+  --hover-submit: #10366A;
   --size-font: 12px;
   font-style: normal;
 }
@@ -90,7 +90,7 @@
 }
 
 .auth__left-section {
-  padding-top: 222px;
+  padding-top: 170px;
 }
 
 .left-section {
@@ -132,7 +132,7 @@
 }
 
 .auth__right-section {
-  padding-top: 167px;
+  padding-top: 170px;
 }
 
 .right-section {
@@ -333,17 +333,6 @@
   outline: 0;
   color: black;
 }
-.password--invalid,
-.login--invalid {
-  border: 3px solid #ff0000;
-  outline: 0;
-  color: #ff0000;
-}
-
-.password:focus::placeholder,
-.login:focus::placeholder {
-  color: transparent;
-}
 
 /** контейнер для кнопок  **/
 
@@ -393,6 +382,7 @@
 }
 
 .submit-btn {
+  margin-bottom: 40px;
   background: #fefefe;
   border-radius: 60px;
   border: 5px solid var(--secondary-color);

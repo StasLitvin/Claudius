@@ -4,7 +4,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href={{ href[3]}}>
         <link rel="stylesheet" href={{ href[0]}}>
 
 </div>
@@ -15,8 +14,8 @@
                 <ul class="bonuses__list">
                     {% for c in coup %}
                     <li class="bonuses__item">
-                        <h2 class="bonuses__title">{{ c[1] }} за {{ c[4] }}</h2>
-                        <p class="bonuses__text">{{ c[2] }} </p>
+                        <h2 class="bonuses__title">{{ c[1] }} </h2>
+                        <p class="bonuses__text">{{ c[2] }} за {{ c[4] }} пряников</p>
                         <form method="post">
                     <input hidden type="text" name="id_coup" value="{{ c[0] }}">
                     <button class="bonuses__button btn">Обменять</button>
@@ -27,4 +26,5 @@
             </div>
         </section>
     </main>
+    <br>
 {% endblock %}

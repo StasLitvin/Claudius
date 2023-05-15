@@ -28,7 +28,7 @@ body {
     margin: 0 0 0 9%;
     font-size: 29px;
     font-family: 'Montserrat';
-    color: #fff;
+    color: #ADC89D;
 }
 .header__logomin{
     margin: 0.5% 100px 0 0.6%;
@@ -39,6 +39,52 @@ body {
 .header__img{
     margin-right: 5px;
 }
+.header_mail{
+    background-image: url(../img/ambr/mail.svg);
+    border-style: none;
+    margin-right: 5px;
+     margin-top: 18px;
+    width: 17px;
+    height: 14px;
+    background-color: #0C2A22;
+}
+.exit_img{
+    background-image: url(../img/extr/exit.svg);
+    border-style: none;
+    margin-right: 1px;
+     margin-top: 5px;
+    width: 30px;
+    height: 25px;
+    background-color: #90817C;
+}
+.header_phone{
+    background-image: url(../img/ambr/phone.svg);
+    border-style: none;
+    margin-right: 5px;
+     margin-top: 15px;
+    width: 13px;
+    height: 17px;
+    background-color: #0C2A22;
+    white-space: nowrap;
+}
+.sidebar_logo{
+    background-image: url(../img/ambr/Claudius.svg);
+    border-style: none;
+    margin: 65px 120px 95px;
+    width: 260px;
+    height: 57px;
+    background-color: #BABB8F;
+}
+.exit_img{
+    background-image: url(../img/extr/exit.svg);
+    border-style: none;
+    margin-right: 1px;
+     margin-top: 5px;
+    width: 30px;
+    height: 25px;
+    background-color: #BABB8F;
+}
+
 .header__text{
     font-family: 'Montserrat';
     margin-left: 10px;
@@ -134,7 +180,7 @@ body {
 }
 .footer__contacts {
     display: flex;
-    margin: 16px 0;
+    margin: 0;
 }
 .footer__copyhright{
     color: #fff
@@ -148,7 +194,7 @@ body {
     left: 0;
     width: 510px;
     height: 100%;
-    background-color: #0C2A22;
+    background-color: #BABB8F;
     z-index: 2;
     border: 1px solid black;
     border-top-right-radius: 25px;
@@ -176,17 +222,17 @@ body {
     font-weight: 400;
     line-height: 23px;
     text-align: center;
-    width: calc(100% - 100px);
+    width: calc(100% - 70px);
     border-radius: 25px;
     margin-bottom: 29px;
-    padding: 22px 0;
+    padding: 22px 10px;
     cursor: pointer;
-    background-color: #BABB8F;
+    background-color: #F0FFE7;
 }
 .sidebar__button_category{
     background-image: url(../img/ic_twotone-arrow-right.svg) ;
     background-repeat: no-repeat;
-    background-position: 9px;
+    background-position: 100%;
 }
 .sidebar__button_subcategory{
     width: calc(100% - 140px);

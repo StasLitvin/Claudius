@@ -22,6 +22,8 @@ def coups_mas():
     cursor.close()
     connection.close()
     return result
+
+
 print(coups_mas())
 
 
@@ -80,6 +82,7 @@ def input_login(login):
     cursor.close()
     connection.close()
     return result
+
 
 def data_user(id):
     connection = data_con()
@@ -221,7 +224,7 @@ def rez_coin(id_lecture, id_user):
         quary = f'''SELECT point FROM complexity WHERE id="{i[1]}"'''
         cursor.execute(quary)
         mas.append(cursor.fetchall()[0][0])
-        print(i[0],id_user)
+        print(i[0], id_user)
         quary = f'''SELECT coin FROM answer_user WHERE id_task="{i[0]}" AND id_user="{id_user}"'''
         cursor.execute(quary)
         mas.append(cursor.fetchall()[0][0])
@@ -277,6 +280,8 @@ def cards_corsers():
     cursor.close()
     connection.close()
     return [len(rez), rez]
+
+
 def cards_course(id):
     connection = data_con()
     cursor = connection.cursor()
@@ -287,6 +292,7 @@ def cards_course(id):
     cursor.close()
     connection.close()
     return rez
+
 
 def class_pre(id):
     connection = data_con()
@@ -299,10 +305,11 @@ def class_pre(id):
     connection.close()
     return rez
 
-def href_update(id_user,href_user,mas):
+
+def href_update(id_user, href_user, mas):
     connection = data_con()
     cursor = connection.cursor()
-    if mas!=[]:
+    if mas != []:
         quary = f'''UPDATE users SET s="{href_user}",name="{mas[1]}",surname="{mas[0]}", fatherland="{mas[2]}" WHERE id="{id_user}"'''
     else:
         quary = f'''UPDATE users SET s="{href_user}" WHERE id="{id_user}"'''
@@ -359,12 +366,52 @@ def find_user_by_email(email):
     connection.close()
     return result
 
+
 def name_lec(id_lecture):
     connection = data_con()
     cursor = connection.cursor()
     query = '''SELECT name FROM lectures WHERE id=(%s)'''
     cursor.execute(query, (id_lecture,))
     result = cursor.fetchall()[0][0]
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result
+
+
+def user_course(id_course, id_user):
+    connection = data_con()
+    cursor = connection.cursor()
+    query = '''SELECT passed FROM classes_user WHERE id_classes=(%s) AND id_user=(%s)'''
+    cursor.execute(query, (id_course, id_user))
+    result = cursor.fetchall()
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result
+
+def update_user_course(id_course, id_user):
+    connection = data_con()
+    cursor = connection.cursor()
+    query = '''INSERT INTO classes_user(id_classes,id_user,passed) VALUES(%s,%s,0)'''
+    cursor.execute(query, (id_course, id_user))
+    result = cursor.fetchall()
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result
+def user_courses_count(id_user):
+    connection = data_con()
+    cursor = connection.cursor()
+    query = '''SELECT id_classes, passed FROM classes_user WHERE id_user=(%s)'''
+    cursor.execute(query, (id_user,))
+    result = cursor.fetchall()
+    for i in range(len(result)):
+        print(result[i])
+        quary = f'''SELECT name,subject,lecture_count,users_count,img,description FROM classes WHERE id="{result[i][0]}"'''
+        cursor.execute(quary)
+        print(result[i][0])
+        result[i] += cursor.fetchall()[0]
     connection.commit()
     cursor.close()
     connection.close()
