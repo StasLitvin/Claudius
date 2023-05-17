@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		root.style.setProperty('--CI-main-block-1', '#B1D3FF');
 		root.style.setProperty('--CI-main-block-2', '#B1D3FF');
 		root.style.setProperty('--CI-changing', '#044368');
-		root.style.setProperty('--CI-button', '#8CC5FF');
+		root.style.setProperty('--CI-button', '#10366A');
 		document.getElementById("select").value="Интроверт";
 	} else if (item === "Амбиверт") {
 		document.getElementById("dop-content").innerHTML = "Information about your emotional condition. (Ambivert)";
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		root.style.setProperty('--CI-main-block-1', '#359935');
 		root.style.setProperty('--CI-main-block-2', '#87E251');
 		root.style.setProperty('--CI-changing', '#0C2A22');
-		root.style.setProperty('--CI-button', '#ACA878');
+		root.style.setProperty('--CI-button', '#0C2A22');
 		document.getElementById("select").value="Амбиверт";
 	} else if (item === "Экстраверт") {
 		document.getElementById("dop-content").innerHTML = "Information about your emotional condition. (Ekstravert)";
