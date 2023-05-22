@@ -89,6 +89,7 @@ a, li {
 }
 
 .course__description-title {
+    text-align: center;
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
@@ -96,7 +97,7 @@ a, li {
 }
 
 .course__description-txt {
-  max-width: 555px;
+  max-width: 97%;
   font-style: normal;
   font-weight: 600;
   font-size: 24px;

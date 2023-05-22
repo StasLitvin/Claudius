@@ -398,3 +398,7 @@
   text-decoration: none;
   margin-left: 10px;
 }
+.select-reg{
+  appearance: none;
+  background: url(../img/ic_twotone-arrow-right.svg) no-repeat right;
+}
