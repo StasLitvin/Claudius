@@ -224,9 +224,10 @@ def mag():
             return redirect(url_for('login', title="Aвторизация", href=href_intr))
         else:
             user = data_user(session['id_user'])
-            if coup[0][-1] <= user[0][-1]:
-                user_update_coin(session['id_user'], user[0][-1] - coup[0][-1])
-                send_mail(user[0][4], coup[0][-2])
+            print(user)
+            print(coup)
+            if coup[0][-1] <= user[0][-2]:
+                user_update_coin(session['id_user'], user[0][-2] - coup[0][-1])
                 del_coup(id_coup)
         return render_template('mag.html', title="Обменник", coup=coups_mas(), href=type_css[session['user_href']],
                                navig=["Обменник"])

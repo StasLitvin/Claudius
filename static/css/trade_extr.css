@@ -89,11 +89,12 @@ h3 {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding-right: 45px;
     gap: 16px;
     background: linear-gradient(81.76deg, #DDB6F4 26.48%, #E2C8E6 55.96%, #FDBBE5 68.47%);
     border: 4px solid #0C2A22;
     border-radius: 81px;
-    padding-top: 38px;
+    padding-top: 65px;
     padding-bottom: 65px;
     margin-top: 58px;
 }
