@@ -5,7 +5,7 @@ from config import host, user, password, db_name
 def data_con():
     return mysql.connector.connect(
         host=host,
-        port=3360,
+        port=3306,
         user=user,
         password=password,
         database=db_name

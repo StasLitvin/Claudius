@@ -1,6 +1,6 @@
 site_url = '127.0.0.1:5000'
 host = "localhost"
-user = "admin"
+user = "root"
 password = "admin"
 db_name = "claudius"
 # папка для сохранения загруженных файлов

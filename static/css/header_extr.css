@@ -8,29 +8,32 @@ a{
 body {
  background-color: #FEFAEF;
 }
-.page{
-    min-width: 800px;
-}
 
 .header{
     background: #330F13;
+}
+
+.header_wrapper{
+    max-width: 1890px;
     height: 60px;
+    margin: 0 auto;
+    padding: 0 60px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
+
 .header__contacts{
     display: flex;
-    margin: 0 0 0 700px;
+    gap: 20px;
 }
 
 .header__logo{
-    margin: 0 0 0 9%;
     font-size: 29px;
     font-family: 'Montserrat';
     color: #F5C184;
 }
 .header__logomin{
-    margin: 0.5% 100px 0 0.6%;
 	font-size: 15px;
     font-family: 'Montserrat';
     color: #fff;
@@ -38,6 +41,18 @@ body {
 .header__img{
     margin-right: 5px;
 }
+
+.phone_wrapper,.mail_wrapper {
+    display: flex;
+    gap: 6px;
+}
+
+.logo_wrapper {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
 .header_mail{
     background-image: url(../img/extr/mail.svg);
     border-style: none;
@@ -76,7 +91,6 @@ body {
 }
 .header__text{
     font-family: 'Montserrat';
-    margin-left: 10px;
     font-size: 12px;
     font-weight: 600;
     vertical-align: middle;
@@ -92,21 +106,18 @@ body {
     font-weight: 600;
     color: #000000;
 }
-.header__number{
-    margin-right: 100px;
-    white-space: nowrap;
-}
+
 .header__nav-container{
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 61px;
     background: #90817C;
 }
 .header__nav{
+    margin: 0 auto;
+    max-width: 1920px;
+    height: 56px;
     display: flex;
     align-items: center;
+    max-width: 1920px;
+    padding: 0 30px;
 }
 
 .footer__point{
