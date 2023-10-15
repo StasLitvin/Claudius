@@ -135,6 +135,13 @@ a{
 .footer{
     background: #10366A;
 }
+
+.footer_wrapper{ 
+    max-width: 1920px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
 .footer__logo{
     width: 100px;
     margin-right: 25px;
@@ -144,7 +151,6 @@ a{
     display: flex;
     border-bottom: 1px solid gray;
     padding: 20px 0;
-    margin: 20px 8%;
 }
 
 .footer__links{
