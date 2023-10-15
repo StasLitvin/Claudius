@@ -79,18 +79,19 @@
 }
 
 .container {
-  max-width: 1600px;
+  max-width: 860px;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.auth__container {
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
-  min-height: 900px;
-}
+/* .auth__container {
+} */
 
 .auth__left-section {
   padding-top: 170px;
+  max-width: 430px;
+  width: 100%;
 }
 
 .left-section {
@@ -101,6 +102,22 @@
   align-items: center;
   color: white;
 }
+
+.left-section h2 {
+  max-width: 400px;
+  text-align: center;
+}
+
+.left-section p {
+  max-width: 400px;
+}
+
+/* .auth__container {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  min-height: 900px;
+}
+ */
 
 .auth__title {
   font-weight: 600;
@@ -133,6 +150,8 @@
 
 .auth__right-section {
   padding-top: 170px;
+  max-width: 430px;
+  width: 100%;
 }
 
 .right-section {
@@ -141,10 +160,18 @@
   border-radius: 0px 60px 60px 0px;
 }
 
+.right-section h2 {
+  max-width: 400px;
+  width: 100%;
+}
+
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .form__title {
@@ -164,11 +191,13 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  width: max-content;
+  max-width: 400px;
+  width: 100%;
+  /* width: max-content; */
 }
 
 .btns__login {
-  min-width: 400px;
+  /* min-width: 400px; */
   max-width: 401px;
   padding: 15px 0px 15px 24px;
 }
@@ -183,10 +212,14 @@
 }
 
 .btns__password {
-  min-width: 400px;
+  /* min-width: 400px; */
   max-width: 401px;
   padding: 16px 0px 16px 24px;
   margin: 0;
+}
+
+.login, .password {
+  width: 340px;
 }
 
 .password {
@@ -369,8 +402,11 @@
   font-size: 20px;
   line-height: 24px;
   text-align: center;
-
+  margin: 0 auto;
+  margin-bottom: 35px;
+  text-align: start;
   color: rgba(173, 173, 173, 0.6);
+  width: 340px;
 }
 
 .refresh-link:hover {
@@ -409,4 +445,72 @@
   width: 431px;
   max-width: 1000px;
   height: 65px;
+}
+
+@media (min-width:1281px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+
+@media (min-width:1281px) {
+  .auth__left-section p {
+    max-width: 490px;
+    margin-bottom: 150px;
+  }
+}
+
+@media (min-width:1281px) {
+  .login, .password {
+    max-width: 520px;
+  }
+}
+
+@media (min-width:1281px) {
+  .auth__left-section, .auth__right-section, form, .form, .form__btns {
+    max-width: 550px;
+  }
+}
+
+@media (min-width:1281px) {
+  .password, .login, .refresh-link {
+    width: 430px;
+  }
+}
+
+@media (min-width:1500px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+@media (min-width:1500px) {
+  .auth__left-section h2 {
+    max-width: 600px;
+  }
+}
+
+@media (min-width:1500px) {
+  .auth__left-section p {
+    max-width: 600px;
+    margin-bottom: 170px;
+  }
+}
+
+@media (min-width:1500px) {
+  .auth__right-section h2 {
+    max-width: 600px;
+  }
+}
+
+@media (min-width:1500px) {
+  .auth__left-section, .auth__right-section, .form, .form__btns, form {
+    max-width: 700px;
+  }
+}
+
+@media (min-width:1500px) {
+  .password, .login, .refresh-link {
+    width: 480px;
+  }
 }
