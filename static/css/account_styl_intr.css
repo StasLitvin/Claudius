@@ -74,7 +74,6 @@ table { border-collapse: collapse; border-spacing: 0; }
 /* Main-dop */
 .main {
 	width: 100%;
-	min-width: 1200px;
 	height: 100%;
 	margin: 0 auto;
 
@@ -95,9 +94,9 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 
 .test-name {
+	text-align: center;
 	position: relative;
-	margin: 1% 0 0 25%;
-
+	margin: 25px 0 0;
 	font-family: 'Montserrat';
 	font-style: normal;
 	font-weight: 800;
@@ -109,8 +108,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .test-descr {
 	position: relative;
-	margin: 0.3% 0 0 40%;
-
+	margin: 5px 0 0;
 	font-family: 'Montserrat';
 	font-style: normal;
 	font-weight: 400;
@@ -140,18 +138,33 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 
 .osn-inf {
-	position: absolute;
-	width: 1100px;
-	height: 700px;
-	margin: 2% 0 0 20%;
-
+	position: relative;
+	box-sizing: border-box;
+	margin-top: 50px;
+	padding: 0 110px;	
+	width: 100%;
+	max-width: 1100px;
+	min-height: 680px;
 	visibility: visible;
 
 	background: linear-gradient(116.48deg, rgba(228, 250, 255, 0.66) 0%, rgba(95, 217, 255, 0.66) 100%);
 }
 
+.arrow {
+	margin: 0;
+	padding: 0;
+}
+
+.questions_wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .questions-left {
-	margin: 4% 0 0 91%;
+	position: absolute;
+	top: 30px;
+	right: 45px;
 
 	font-family: 'Montserrat';
 	font-style: normal;
@@ -164,7 +177,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 
 .question {
-	margin: -1% 0 0 10%;
+	margin: 70px 0 0;
 
 	font-family: 'Montserrat';
 	font-style: normal;
@@ -177,7 +190,6 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 
 .answer {
-	margin: 7% 0 0 13%;
 	position: relative;
 
 	font-family: 'Montserrat';
@@ -189,6 +201,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 	color: #000000;
 	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 input[type='radio']{
 	visibility: hidden;
 }
@@ -222,16 +235,16 @@ input[type='radio']:checked:after {
 }
 
 .another-question {
+	position: absolute;
+	left: 40px;
+	right: 40px;
+	bottom: 60px;
 	display: flex;
-	align-items: center;
-
 	font-family: 'Montserrat';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 17px;
 	line-height: 32px;
-
-	margin: 10% 8% 8% 8%;
 }
 
 .radio-item-1 {
@@ -255,15 +268,14 @@ input[type='radio']:checked:after {
 }
 
 .third{ 
-	display:block; 
-	margin-right: 30%;
-	margin-top: -8%;
 	visibility: visible;
 }
 
 .another-question-center {
-	margin-top: -8%;
-	padding: 4px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
 	width: 200px;
 
 	background: #00AC65;
@@ -335,8 +347,6 @@ input[type='radio']:checked:after {
 
 
 .main-bottom-change {
-	margin: 35% 0 0 4%;
-
 	color: var(--text-header-2);
 	font-size: 21px;
 	letter-spacing: 0.025em;
