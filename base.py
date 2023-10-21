@@ -1,8 +1,10 @@
 import mysql.connector
 from config import host, user, password, db_name
 
+mas_q_a=[]
 
 def data_con():
+    """Подключение к БД"""
     return mysql.connector.connect(
         host=host,
         port=3360,
@@ -13,6 +15,7 @@ def data_con():
 
 
 def coups_mas():
+    """Возвращает массив купонов"""
     connection = data_con()
     cursor = connection.cursor()
     quary = '''SELECT * FROM coupons'''
@@ -28,6 +31,7 @@ print(coups_mas())
 
 
 def coup_mas(id):
+    """Возвращает купон по id"""
     connection = data_con()
     cursor = connection.cursor()
     quary = f'''SELECT * FROM coupons WHERE id="{id}"'''
@@ -40,6 +44,7 @@ def coup_mas(id):
 
 
 def del_coup(id):
+    """Удаленеи купона по id"""
     connection = data_con()
     cursor = connection.cursor()
     quary = f'''DELETE FROM coupons WHERE id="{id}"'''
@@ -50,6 +55,7 @@ def del_coup(id):
 
 
 def check_user_exist(email: str):
+    """Проверка на наличие акккаунта с данной почтой"""
     connection = data_con()
     cursor = connection.cursor()
     query = '''SELECT email FROM users WHERE email=(%s)'''
@@ -62,6 +68,7 @@ def check_user_exist(email: str):
 
 
 def data_user_reg(data):
+    """Создание пользователя по данным формы"""
     connection = data_con()
     cursor = connection.cursor()
 
@@ -73,6 +80,7 @@ def data_user_reg(data):
 
 
 def input_login(login):
+    """Поиск данных пользователя по почте"""
     connection = data_con()
     cursor = connection.cursor()
     quary = '''SELECT id,password,s,salt FROM users WHERE email=%s'''
@@ -85,6 +93,7 @@ def input_login(login):
 
 
 def data_user(id):
+    """Массви пользователя под данным id"""
     connection = data_con()
     cursor = connection.cursor()
     quary = f'''SELECT * FROM users WHERE id="{id}"'''
@@ -97,6 +106,7 @@ def data_user(id):
 
 
 def user_update_coin(id, coin):
+    """Измененние количества баллов(пряников) по id пользователя"""
     connection = data_con()
     cursor = connection.cursor()
     quary = f'''UPDATE users SET coin={coin} WHERE id="{id}"'''
@@ -108,6 +118,7 @@ def user_update_coin(id, coin):
 
 
 def class_stud(id_class):
+    """Данные о пользователе на определёном курсе по id курса"""
     connection = data_con()
     cursor = connection.cursor()
     quary = f'''SELECT * FROM classes_user WHERE id_classes="{id_class}"'''
@@ -120,6 +131,7 @@ def class_stud(id_class):
 
 
 def task_class(id_class):
+    """Массив заданий к лекциям из курса по id курса"""
     connection = data_con()
     cursor = connection.cursor()
     quary = f'''SELECT id,name FROM lectures WHERE id_class="{id_class}"'''
@@ -137,6 +149,7 @@ def task_class(id_class):
 
 
 def user_rez(id_user, mas_tasks):
+    """Обработка данных для страницы статистики курса"""
     connection = data_con()
     cursor = connection.cursor()
     result_task = []
@@ -160,6 +173,7 @@ def user_rez(id_user, mas_tasks):
 
 
 def tasks_lec(id_lecture):
+    """Массив задач по id лекции"""
     connection = data_con()
     cursor = connection.cursor()
     tasans = []
@@ -179,6 +193,7 @@ def tasks_lec(id_lecture):
 
 
 def answer_user(id_user, id_task, id_answer):
+    """Запись ответа по трём id"""
     connection = data_con()
     cursor = connection.cursor()
     data = (id_user, id_answer, id_task)
@@ -191,6 +206,7 @@ def answer_user(id_user, id_task, id_answer):
 
 
 def tasks_lec_rez(id_lecture, id_user):
+    """"""
     connection = data_con()
     cursor = connection.cursor()
     tasans = []
@@ -412,6 +428,51 @@ def user_courses_count(id_user):
         cursor.execute(quary)
         print(result[i][0])
         result[i] += cursor.fetchall()[0]
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result
+def max_id():
+    connection = data_con()
+    cursor = connection.cursor()
+    query = '''SELECT id FROM classes WHERE id=(SELECT MIN(id) FROM classes WHERE id>1)'''
+    cursor.execute(query)
+    result = cursor.fetchall()
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result
+print(max_id())
+
+def name_cours_id_lect(id_lecture):
+    connection = data_con()
+    cursor = connection.cursor()
+    query = '''SELECT id_class FROM lectures WHERE id=(%s)'''
+    cursor.execute(query, (id_lecture,))
+    result = cursor.fetchall()[0][0]
+    query = '''SELECT name FROM classes WHERE id=(%s)'''
+    cursor.execute(query, (result,))
+    result_name = cursor.fetchall()[0][0]
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result_name
+def mas_lecture(id_class):
+    connection = data_con()
+    cursor = connection.cursor()
+    query = '''SELECT id, name,lecture FROM lectures WHERE id_class=(%s)'''
+    cursor.execute(query, (id_class,))
+    result = cursor.fetchall()
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result
+def update_progress(id_class,id_user,progress):
+    connection = data_con()
+    cursor = connection.cursor()
+    query = '''UPDATE classes_user SET passed=(%s)  WHERE id_classes=(%s) and id_user=(%s)'''
+    cursor.execute(query, (progress,id_class,id_user))
+    result = cursor.fetchall()
     connection.commit()
     cursor.close()
     connection.close()

@@ -7,9 +7,12 @@ from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg,
     password_reset_token_find, update_password, \
     user_update_coin, class_stud, user_rez, task_class, tasks_lec, answer_user, tasks_lec_rez, rez_coin, task_eval, \
     update_answer_coin, cards_corsers, cards_course, class_pre, href_update, password_reset_token_create, \
-    find_user_by_email, name_lec, user_course, update_user_course, user_courses_count
+    find_user_by_email, name_lec, user_course, update_user_course, user_courses_count, name_cours_id_lect, mas_lecture, \
+    update_progress
 from werkzeug.utils import secure_filename
 from mail import send_mail, send_password_reset_mail
+import joblib
+from model import pipe
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'fsa87asd782asd'
@@ -24,13 +27,16 @@ def allowed_file(filename):
 
 href_intr = ["../static/css/trade_intr.css", "../static/css/profile_intr.css", "../static/css/style_intr.css",
              "../static/css/reset_intr.css", "../static/css/courses_intr.css", "../static/css/account_styl_intr.css",
-             "../static/css/header_intr.css", "intr", "../static/css/course_intr.css", "../static/css/table_intr.css"]
+             "../static/css/header_intr.css", "intr", "../static/css/course_intr.css", "../static/css/table_intr.css",
+             "../static/css/cours_lec_task_intr.css", "../static/css/rez_cours_intr.css", "../static/css/faq_intr.css"]
 href_extr = ["../static/css/trade_extr.css", "../static/css/profile_extr.css", "../static/css/style_extr.css",
              "../static/css/reset_extr.css", "../static/css/courses_extr.css", "../static/css/account_styl_extr.css",
-             "../static/css/header_extr.css", "extr", "../static/css/course_extr.css", "../static/css/table_extr.css"]
+             "../static/css/header_extr.css", "extr", "../static/css/course_extr.css", "../static/css/table_extr.css",
+             "../static/css/cours_lec_task_extr.css", "../static/css/rez_cours_extr.css", "../static/css/faq_extr.css"]
 href_ambr = ["../static/css/trade_ambr.css", "../static/css/profile_ambr.css", "../static/css/style_ambr.css",
              "../static/css/reset_ambr.css", "../static/css/courses_ambr.css", "../static/css/account_styl_ambr.css",
-             "../static/css/header_ambr.css", "ambr", "../static/css/course_ambr.css", "../static/css/table_ambr.css"]
+             "../static/css/header_ambr.css", "ambr", "../static/css/course_ambr.css", "../static/css/table_ambr.css",
+             "../static/css/cours_lec_task_ambr.css", "../static/css/rez_cours_ambr.css", "../static/css/faq_ambr.css"]
 type_css = {"Интроверт": href_intr, "Экстраверт": href_extr, "Амбиверт": href_ambr}
 
 
@@ -393,7 +399,7 @@ def course(id_course):
                                    href=type_css[session['user_href']],
                                    course=cards_course(id_course)[0],
                                    navig=["Курсы", cards_course(id_course)[0][0]], course_nach=stat,
-                                   id_course=id_course, rez=rez)
+                                   id_course=id_course, rez=rez, id_u=session["id_user"])
 
         return render_template('course.html', tittle=cards_course(id_course)[0][0], href=href_intr,
                                course=cards_course(id_course)[0],
@@ -487,6 +493,84 @@ def extrovert():
                                navig=["Описание типа личности", "Экстраверт"])
     return render_template('extrovert.html', title="Экстраверт", href=href_extr,
                            navig=["Описание типа личности", "Экстраверт"])
+
+
+@app.route('/send_message', methods=['POST'])
+def send_message():
+    message = request.form['message']
+    print(message)
+    jso = {
+        'message': pipe.predict([str(message)])[0]
+    }
+    return jsonify(jso)
+
+
+@app.route('/chat_bot', methods=['GET'])
+def chat_bot():
+    if 'user_href' in session:
+        return render_template('chat.html', title="Чат-бот", href=type_css[session['user_href']],
+                               user=data_user(session['id_user']),
+                               navig=["Чат-бот"])
+    return render_template('chat.html', title="Чат-бот", href=href_intr,
+                           navig=["Чат-бот"])
+
+
+@app.route('/faq', methods=['GET', 'POST'])
+def fag():
+    type_fill = {"Интроверт": "#E3F9FF", "Экстраверт": "#90817C", "Амбиверт": "#BABB8F"}
+    if 'user_href' in session:
+        return render_template('fag.html', title="Чат-бот", href=type_css[session['user_href']], fill=type_fill[session['user_href']],
+                               user=data_user(session['id_user']),
+                               navig=["Часто задаваемые вопросы"])
+    return render_template('fag.html', title="Чат-бот", href=href_intr,
+                           navig=["Часто задаваемые вопросы"], fill="#E3F9FF")
+
+
+@app.route('/rez_cour/<id_lecture>&<id_user>', methods=['GET'])
+def rez_cours(id_lecture, id_user):
+    print(rez_coin(id_lecture, session['id_user']))
+    if 'id_user' not in session:
+        return redirect(url_for('login'))
+    if session['id_user'] != int(id_user):
+        abort(401)
+    if request.method == "GET":
+        sum_coin = 0
+        all_coin = 0
+        for i in rez_coin(id_lecture, session['id_user']):
+            sum_coin += i[2]
+            all_coin += i[1]
+        n = name_lec(id_lecture)
+        cours = name_cours_id_lect(id_lecture)
+        return render_template('rez_cours.html', title="Просмотр попыток", href=type_css[session['user_href']],
+                               navig=["Мои курсы", cours, n], name_lec=n, rez_coin=sum_coin, all_coin=all_coin,
+                               i_l=id_lecture, i_u=id_user)
+
+
+@app.route('/cours_mas/<id_class>&<id_user>', methods=['GET'])
+def cours_mas(id_class, id_user):
+    if 'id_user' not in session:
+        return redirect(url_for('login'))
+    if session['id_user'] != int(id_user):
+        abort(401)
+    if request.method == "GET":
+        mas_inf = []
+        allsum_coin = 0
+        allcoin = 0
+        for j in mas_lecture(id_class):
+            id_lecture = j[0]
+            sum_coin = 0
+            all_coin = 0
+            for i in rez_coin(id_lecture, session['id_user']):
+                sum_coin += i[2]
+                all_coin += i[1]
+            allsum_coin += sum_coin
+            allcoin += all_coin
+            mas_inf.append([j[0], j[1], j[2], sum_coin, all_coin])
+        cours = name_cours_id_lect(id_lecture)
+        update_progress(id_class, id_user, int(allsum_coin / allcoin * 100))
+        return render_template('cours_lec_task.html', title="Материалы курса", href=type_css[session['user_href']],
+                               navig=["Мои курсы", cours], mas_inf=mas_inf, name_cours=cours, i_u=id_user,
+                               progress=int(allsum_coin / allcoin * 100))
 
 
 if __name__ == '__main__':

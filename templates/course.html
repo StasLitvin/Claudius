@@ -24,7 +24,11 @@
                         {% if id_course %}
                             <form method="post">
                                 <input type="hidden" id="id_course" value="{{ id_course }}">
+                                 {% if course_nach=="Продолжить" %}
+                                 <button class="course__button-start_form"><a href="/cours_mas/{{ id_course }}&{{ id_u }}">{{ course_nach }}</a></button>
+                                     {% else %}
                                 <button class="course__button-start_form">{{ course_nach }}</button>
+                                     {% endif %}
                             </form>
                         {% else %}
                             <a href="/login" class="course__button-start">Начать!</a>

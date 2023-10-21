@@ -6,29 +6,32 @@ a{
   text-decoration: none;
   color: black;
 }
-.page{
-    min-width: 800px;
-}
 
 .header{
     background: #10366A;
+}
+
+.header_wrapper{
+    max-width: 1890px;
     height: 60px;
+    margin: 0 auto;
+    padding: 0 60px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
+
 .header__contacts{
     display: flex;
-    margin: 0 0 0 700px;
+    gap: 20px;
 }
 
 .header__logo{
-    margin: 0 0 0 9%;
     font-size: 29px;
     font-family: 'Montserrat';
     color: #B4F0FF;
 }
 .header__logomin{
-    margin: 0.5% 100px 0 0.6%;
 	font-size: 15px;
     font-family: 'Montserrat';
     color: #fff;
@@ -36,6 +39,18 @@ a{
 .header__img{
     margin-right: 10px;
 }
+
+.phone_wrapper,.mail_wrapper {
+    display: flex;
+    gap: 6px;
+}
+
+.logo_wrapper {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
 .header_mail{
     background-image: url(../img/intr/mail.svg);
     border-style: none;
@@ -74,7 +89,6 @@ a{
 }
 .header__text{
     font-family: 'Montserrat';
-    margin-left: 10px;
     font-size: 12px;
     font-weight: 600;
     vertical-align: middle;
@@ -88,20 +102,17 @@ a{
     font-size: 20px;
     font-weight: 600;
 }
-.header__number{
-    margin-right: 100px;
-}
 .header__nav-container{
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 61px;
     background: #80D9FF;
 }
 .header__nav{
+    margin: 0 auto;
+    max-width: 1920px;
+    height: 56px;
     display: flex;
     align-items: center;
+    max-width: 1920px;
+    padding: 0 30px;
 }
 
 .footer__point{
@@ -120,10 +131,17 @@ a{
 .footer__point:hover{
     opacity: 0.6;
 }
+
 .footer{
     background: #10366A;
-    height: 250px;
 }
+
+.footer_wrapper{ 
+    max-width: 1920px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
 .footer__logo{
     width: 100px;
     margin-right: 25px;
@@ -133,7 +151,6 @@ a{
     display: flex;
     border-bottom: 1px solid gray;
     padding: 20px 0;
-    margin: 20px 8%;
 }
 
 .footer__links{

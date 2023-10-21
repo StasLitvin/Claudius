@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{href[11]}}" />
+  <body>
+    <main class="main">
+
+      <section class="attempts">
+        <div class="container">
+          <div class="attempts__inner">
+            <h1 class="attempts__h1">
+                {{ name_lec}}
+            </h1>
+            <div class="attempts__inf">
+              <p class="attemps__result">Результаты попыток</p>
+              <p class="attempts__max-score">Максимальный балл: {{ rez_coin }}/{{ all_coin }}</p>
+              <p class="attempts__numbers">Попыток: 1</p>
+            </div>
+            <ul class="attempts__list">
+              <li class="attempt">
+                <div class="attempt__num">1</div>
+                <div class="attempt__finished">Завершено</div>
+                <div class="attempt__score">{{ rez_coin }}/{{ all_coin }} баллов</div>
+                <a href="/rez_tasks/{{ i_l }}&{{ i_u }}" class="attempt__view">просмотреть</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+{% endblock %}

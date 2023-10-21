@@ -118,3 +118,15 @@ progressBtn.addEventListener('click', ()=> progress.forEach(i => i.hidden = !i.h
 const tableBtn = document.querySelector('#table');
 const table = document.querySelectorAll('#table1');
 tableBtn.addEventListener('click', ()=> table.forEach(i => i.hidden = !i.hidden));
+
+function clik_arrow(id){
+    if (document.getElementById(String(id)+"p").hidden===true) {
+        document.getElementById(String(id)+"p").hidden=false
+        document.getElementById(String(id)+"s").style="transform: rotate(0deg)"
+    }
+    else {
+        document.getElementById(String(id)+"p").hidden=true
+        document.getElementById(String(id)+"s").style="transform: rotate(180deg)"
+    }
+
+}

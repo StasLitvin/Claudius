@@ -6,6 +6,7 @@
 
 		<main class="main">
         <link rel="stylesheet" href="{{ href[5] }}" />
+        <div class="questions_wrapper">
 				<p class="test-name">Тест на определение типа личности</p>
 				<p class="test-descr">Кто я  - экстраверт, интроверт или амбиверт?</p>
 
@@ -34,7 +35,7 @@
                         <form class="first" method="post">
                             <input type="hidden" id="radio_back" name="radio">
                             <input type="hidden" id="hid_back" name="back">
-						<ul>
+						<ul class="arrow">
 							<li id="back_but"><button class="another-question-left-img"  ><img src="../static/img/arrows-right.svg" style="transform: scale(1, -1);"></button></li>
 							<li><p class="another-question-left">Перейти к предыдущему вопросу</p></li>
 						</ul>
@@ -51,7 +52,7 @@
                          <form class="second" method="post">
                              <input type="hidden" id="radio_next" name="radio">
                              <input type="hidden" id="hid_next" name="next">
-						<ul>
+                        <ul class="arrow">
 							<li id="next_but"><button class="another-question-right-img"  ><img src="../static/img/arrows-right.svg"></button></li>
 							<li><p class="another-question-right">Перейти к следующему вопросу</p></li>
 						</ul>
@@ -70,9 +71,7 @@
 						</select>
 					</div>
 				</div>
-        <br>
-        <br>
-        <br>
+        </div>
 		</main>
 
 <script>
