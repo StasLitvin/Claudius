@@ -7,7 +7,7 @@ def data_con():
     """Подключение к БД"""
     return mysql.connector.connect(
         host=host,
-        port=3360,
+        port=3306,
         user=user,
         password=password,
         database=db_name
