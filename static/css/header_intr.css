@@ -105,14 +105,18 @@ a{
 .header__nav-container{
     background: #80D9FF;
 }
-.header__nav{
+.header__nav_wrapper{
     margin: 0 auto;
     max-width: 1920px;
     height: 56px;
     display: flex;
     align-items: center;
-    max-width: 1920px;
     padding: 0 30px;
+    justify-content: space-between;
+}
+.header__nav{
+    display: flex;
+    align-items: center;
 }
 
 .footer__point{

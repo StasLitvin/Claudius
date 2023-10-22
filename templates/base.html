@@ -28,6 +28,7 @@
           </div>
         </header>
         <div class="header__nav-container">
+          <div class="header__nav_wrapper">
           <div class="header__nav">
             <button class="button home-button"  id="sidebar-btn"></button>
             {% for i in navig %}
@@ -35,12 +36,10 @@
             <p class="header__nav-text">{{ i }}</p>
             {% endfor %}
           </div>
-        {% if session['id_user'] %}
-          <div class="header__nav">
-              <a href="/exit" class="exit_img"></a>
-
-          </div>
-        {% endif %}
+          {% if session['id_user'] %}
+            <a href="/exit" class="exit_img"></a>
+          {% endif %}
+        </div>
         </div>
 
 {% block content -%}
