@@ -106,6 +106,7 @@ a{
     background: #80D9FF;
 }
 .header__nav_wrapper{
+    width: 100%;
     margin: 0 auto;
     max-width: 1920px;
     height: 56px;

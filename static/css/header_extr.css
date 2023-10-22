@@ -111,6 +111,7 @@ body {
     background: #90817C;
 }
 .header__nav_wrapper{
+    width: 100%;
     margin: 0 auto;
     max-width: 1920px;
     height: 56px;
