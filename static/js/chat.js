@@ -34,6 +34,7 @@ function submit_message(message) {
     $('#target').on('submit', function(e){
         e.preventDefault();
         const input_message = $('#input_message').val()
+        alert(input_message)
         // return if the user does not enter any text
         if (!input_message) {
           return

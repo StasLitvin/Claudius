@@ -25,7 +25,11 @@
                     {% for i in mas_inf %}
                     <li class="course-results__item">
                         <p class="item__name"><a href="{{ i[2] }}">{{ i[1] }}</a></p>
-                        <p class="item__result"><a href="/rez_cour/{{ i[0] }}&{{ i_u }}">{{ i[3] }}/{{ i[4] }} баллов</a></p>
+                        {% if i[3]==0 %}
+                        <p class="item__result"><a href="/tasks/{{ i[0] }}">{{ i[3] }}/{{ i[4] }} баллов</a></p>
+                        {% else %}
+                        <p class="item__result"><a href="/rez_tasks//{{ i[0] }}&{{ i_u }}">{{ i[3] }}/{{ i[4] }} баллов</a></p>
+                        {% endif %}
                     </li>
                     {% endfor %}
                 </ul>

@@ -130,3 +130,12 @@ function clik_arrow(id){
     }
 
 }
+function close(id){
+    if (document.getElementById(String(id)).hidden===true) {
+        document.getElementById(String(id)).hidden=false
+    }
+    else {
+        document.getElementById(String(id)).hidden=true
+    }
+
+}

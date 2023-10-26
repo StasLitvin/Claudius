@@ -1,13 +1,14 @@
 import mysql.connector
 from config import host, user, password, db_name
 
-mas_q_a=[]
+mas_q_a = []
+
 
 def data_con():
     """Подключение к БД"""
     return mysql.connector.connect(
         host=host,
-        port=3306,
+        port=3360,
         user=user,
         password=password,
         database=db_name
@@ -237,17 +238,23 @@ def rez_coin(id_lecture, id_user):
     tasks = cursor.fetchall()
     for i in tasks:
         mas = [i[0]]
+        print(i[1])
         quary = f'''SELECT point FROM complexity WHERE id="{i[1]}"'''
         cursor.execute(quary)
         mas.append(cursor.fetchall()[0][0])
         print(i[0], id_user)
         quary = f'''SELECT coin FROM answer_user WHERE id_task="{i[0]}" AND id_user="{id_user}"'''
         cursor.execute(quary)
-        mas.append(cursor.fetchall()[0][0])
+        rez = cursor.fetchall()
+        if len(rez) == 0:
+            mas.append(0)
+        else:
+            mas.append(rez[0][0])
         tasans.append(mas)
     connection.commit()
     cursor.close()
     connection.close()
+    print(tasans)
     return tasans
 
 
@@ -406,6 +413,7 @@ def user_course(id_course, id_user):
     connection.close()
     return result
 
+
 def update_user_course(id_course, id_user):
     connection = data_con()
     cursor = connection.cursor()
@@ -416,6 +424,8 @@ def update_user_course(id_course, id_user):
     cursor.close()
     connection.close()
     return result
+
+
 def user_courses_count(id_user):
     connection = data_con()
     cursor = connection.cursor()
@@ -432,6 +442,8 @@ def user_courses_count(id_user):
     cursor.close()
     connection.close()
     return result
+
+
 def max_id():
     connection = data_con()
     cursor = connection.cursor()
@@ -442,7 +454,10 @@ def max_id():
     cursor.close()
     connection.close()
     return result
+
+
 print(max_id())
+
 
 def name_cours_id_lect(id_lecture):
     connection = data_con()
@@ -457,6 +472,8 @@ def name_cours_id_lect(id_lecture):
     cursor.close()
     connection.close()
     return result_name
+
+
 def mas_lecture(id_class):
     connection = data_con()
     cursor = connection.cursor()
@@ -467,11 +484,13 @@ def mas_lecture(id_class):
     cursor.close()
     connection.close()
     return result
-def update_progress(id_class,id_user,progress):
+
+
+def update_progress(id_class, id_user, progress):
     connection = data_con()
     cursor = connection.cursor()
     query = '''UPDATE classes_user SET passed=(%s)  WHERE id_classes=(%s) and id_user=(%s)'''
-    cursor.execute(query, (progress,id_class,id_user))
+    cursor.execute(query, (progress, id_class, id_user))
     result = cursor.fetchall()
     connection.commit()
     cursor.close()

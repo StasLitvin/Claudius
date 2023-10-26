@@ -341,6 +341,7 @@ def tasks(id_lecture):
                     update_answer_coin(session['id_user'], i[3], 0)
             session[rez] = [' '] * session[count]
             session[now] = 1
+            print(session['id_user'])
             return redirect(url_for('rez_tasks', id_lecture=id_lecture, id_user=session['id_user']))
     return render_template('tasks.html', title="Главная", href=type_css[session['user_href']],
                            lecture=name_lec(id_lecture),
@@ -360,7 +361,7 @@ def rez_tasks(id_lecture, id_user):
     count = 'count_tasks_test_' + str(id_lecture) + 'rez'
     now = 'now_task_test_' + str(id_lecture) + 'rez'
     rez = 'tasks_test_rez_' + str(id_lecture) + 'rez'
-    if request.method == "GET" and test not in session:
+    if request.method == "GET":
         session[test] = tasks_lec_rez(id_lecture, session['id_user'])
         session[now] = 1
         session[count] = len(session[test])
@@ -519,7 +520,8 @@ def chat_bot():
 def fag():
     type_fill = {"Интроверт": "#E3F9FF", "Экстраверт": "#90817C", "Амбиверт": "#BABB8F"}
     if 'user_href' in session:
-        return render_template('fag.html', title="Чат-бот", href=type_css[session['user_href']], fill=type_fill[session['user_href']],
+        return render_template('fag.html', title="Чат-бот", href=type_css[session['user_href']],
+                               fill=type_fill[session['user_href']],
                                user=data_user(session['id_user']),
                                navig=["Часто задаваемые вопросы"])
     return render_template('fag.html', title="Чат-бот", href=href_intr,
