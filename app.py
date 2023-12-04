@@ -8,7 +8,7 @@ from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg,
     user_update_coin, class_stud, user_rez, task_class, tasks_lec, answer_user, tasks_lec_rez, rez_coin, task_eval, \
     update_answer_coin, cards_corsers, cards_course, class_pre, href_update, password_reset_token_create, \
     find_user_by_email, name_lec, user_course, update_user_course, user_courses_count, name_cours_id_lect, mas_lecture, \
-    update_progress
+    update_progress, faq_mas
 from werkzeug.utils import secure_filename
 from mail import send_mail, send_password_reset_mail
 import joblib
@@ -312,18 +312,19 @@ def tasks(id_lecture):
     count = 'count_tasks_test_' + str(id_lecture)
     now = 'now_task_test_' + str(id_lecture)
     rez = 'tasks_test_rez_' + str(id_lecture)
-    if request.method == "GET" and test not in session:
+    print(session.keys())
+    if request.method == "GET":
         session[test] = tasks_lec(id_lecture)
         session[now] = 1
         session[count] = len(session[test])
         session[rez] = [0] * session[count]
-    print(session[test])
     if request.method == "POST":
         print(request.form)
-        if 'back' in request.form and session[now] > 1:
+        if 'back' in request.form:
             session[rez][session[now] - 1] = int(request.form['radio'])
             session[now] -= 1
         if 'next' in request.form and session[now] < session[count]:
+            print("N")
             session[rez][session[now] - 1] = int(request.form['radio'])
             session[now] += 1
         print(session[rez])
@@ -343,6 +344,7 @@ def tasks(id_lecture):
             session[now] = 1
             print(session['id_user'])
             return redirect(url_for('rez_tasks', id_lecture=id_lecture, id_user=session['id_user']))
+    print(session[test])
     return render_template('tasks.html', title="Главная", href=type_css[session['user_href']],
                            lecture=name_lec(id_lecture),
                            user=data_user(session['id_user']),
@@ -361,19 +363,24 @@ def rez_tasks(id_lecture, id_user):
     count = 'count_tasks_test_' + str(id_lecture) + 'rez'
     now = 'now_task_test_' + str(id_lecture) + 'rez'
     rez = 'tasks_test_rez_' + str(id_lecture) + 'rez'
-    if request.method == "GET":
+
+    if request.method == "GET" or test not in session:
         session[test] = tasks_lec_rez(id_lecture, session['id_user'])
         session[now] = 1
         session[count] = len(session[test])
         session[rez] = rez_coin(id_lecture, session['id_user'])
-    print(session[test])
+
+    print(session.keys())
     if request.method == "POST":
         print(request.form)
-        if 'back' in request.form and session[now] > 1:
+        if 'back' in request.form:
             session[now] -= 1
         if 'next' in request.form and session[now] < session[count]:
-            session[now] += 1
+            session[now] = session[now] + 1
+
+        print(session[now])
         print(session[rez])
+
     return render_template('task_rez2.html', title="Результаты заданий", href=type_css[session['user_href']],
                            lecture=name_lec(id_lecture),
                            user=data_user(session['id_user']),
@@ -496,14 +503,11 @@ def extrovert():
                            navig=["Описание типа личности", "Экстраверт"])
 
 
-@app.route('/send_message', methods=['POST'])
+@app.route('/send_message', methods=['GET', 'POST'])
 def send_message():
-    message = request.form['message']
-    print(message)
-    jso = {
-        'message': pipe.predict([str(message)])[0]
-    }
-    return jsonify(jso)
+    message = request.json['message']
+
+    return jsonify({'message': pipe.predict([str(message)])[0]})
 
 
 @app.route('/chat_bot', methods=['GET'])
@@ -523,9 +527,10 @@ def fag():
         return render_template('fag.html', title="Чат-бот", href=type_css[session['user_href']],
                                fill=type_fill[session['user_href']],
                                user=data_user(session['id_user']),
-                               navig=["Часто задаваемые вопросы"])
+                               navig=["Часто задаваемые вопросы"],
+                               mas_q_a=faq_mas())
     return render_template('fag.html', title="Чат-бот", href=href_intr,
-                           navig=["Часто задаваемые вопросы"], fill="#E3F9FF")
+                           navig=["Часто задаваемые вопросы"], fill="#E3F9FF", mas_q_a=faq_mas())
 
 
 @app.route('/rez_cour/<id_lecture>&<id_user>', methods=['GET'])

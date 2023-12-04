@@ -18,14 +18,14 @@
             <div class="questions__questions-answers">
                 {% for i in mas_q_a %}
                 <div class="questions-answers__question-answer">
-                    <h2 class="question-answer__question">Как зарегистрироваться на платформе? </h2>
-                    <button class="question-answer__btn" id="1" onclick="clik_arrow(this.id)">
-                        <svg  width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" id="1s" style="transform: rotate(180deg)">
+                    <h2 class="question-answer__question">{{ i[1] }}</h2>
+                    <button class="question-answer__btn" id="{{ i[0] }}" onclick="clik_arrow(this.id)">
+                        <svg  width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" id="{{ i[0] }}s" style="transform: rotate(180deg)">
                             <path d="M34.3333 23.2222L26 14.8889L34.3333 23.2222ZM26 14.8889L17.6667 23.2222L26 14.8889ZM26 14.8889L26 37.1111L26 14.8889ZM1 26C1 12.1927 12.1928 0.999969 26 0.999969C39.8071 0.999969 51 12.1927 51 26C51 39.8071 39.8071 51 26 51C12.1928 51 1 39.8071 1 26Z" fill="{{ fill }}"/>
                             <path d="M34.3333 23.2222L26 14.8889M26 14.8889L17.6667 23.2222M26 14.8889L26 37.1111M1 26C1 12.1927 12.1928 0.999969 26 0.999969C39.8071 0.999969 51 12.1927 51 26C51 39.8071 39.8071 51 26 51C12.1928 51 1 39.8071 1 26Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
-                    <p class="question-answer__answer" id="1p" hidden>После прохождения теста на тип личности перейдите слева на вкладку "авторизация". Выберите регистрацию.</p>
+                    <p class="question-answer__answer" id="{{ i[0] }}p" hidden>{{ i[2] }}</p>
                 </div>
                 {% endfor %}
             </div>

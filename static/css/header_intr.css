@@ -299,14 +299,16 @@ a{
     margin: 0 21px 0 0;
 
 }
+/* support */
+
 .support {
     position: fixed;
     background-color: white;
     right: 36px;
     bottom: 53px;
     z-index: 1;
-    min-width: 250px;
-    min-height: 345px;
+    width: 250px;
+    height: 345px;
     border: 2px solid black;
     border-radius: 20px;
 }
@@ -342,6 +344,29 @@ a{
     background: none;
     border: none;
     margin-right: 5px;
+}
+
+.support__messages {
+    overflow: scroll;
+    max-height: 235px;
+    padding: 5px;
+}
+
+.support__support-message {
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #D9D9D9;
+    max-width: 60%;
+    border-radius: 10px;
+}
+
+.support__my-message {
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: auto;
+    background-color: #D9D9D9;
+    max-width: 60%;
+    border-radius: 10px;
 }
 
 .support__form {

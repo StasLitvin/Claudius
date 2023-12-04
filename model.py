@@ -30,7 +30,7 @@ def softmax(x):
 
 
 class NighborSampler(BaseEstimator):
-    def __init__(self, k=5, temperature=1.0):
+    def __init__(self, k=10, temperature=10.0):
         self.k = k
         self.temperature = temperature
 
@@ -50,4 +50,8 @@ ns = NighborSampler()
 ns.fit(matrix_small, good.reply)
 pipe = make_pipeline(vectorizer, svd, ns)
 
-print(pipe.predict(['Отправил отчет с ошибкой на эл.почту, когда я получу ответ об исправлении ошибки ?']))
+print(pipe.predict(['Есть ли форум, на котором можно обсуждать задания по курсам?']))
+print(pipe.predict(['Выслал отчет с ошибкой на почту, когда я встречу ответ об исправлении ошибки ?']))
+print(pipe.predict(['Как добавить курсы в избранные?']))
+print(pipe.predict(['Как часто добавляются новые товары в обменник баллов?']))
+print(pipe.predict(['где я?']))

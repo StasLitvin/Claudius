@@ -496,3 +496,13 @@ def update_progress(id_class, id_user, progress):
     cursor.close()
     connection.close()
     return result
+def faq_mas():
+    connection = data_con()
+    cursor = connection.cursor()
+    query = '''SELECT idfaq,faq_quest,faq_answer FROM faq'''
+    cursor.execute(query)
+    result = cursor.fetchall()
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result

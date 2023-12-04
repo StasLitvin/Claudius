@@ -30,8 +30,8 @@ function submit_message(message) {
           `)
           // remove the loading indicator
           $( "#loading" ).remove();
-    }
-    $('#target').on('submit', function(e){
+    }   $('#target').on('submit', function(e){
+        alert("asda")
         e.preventDefault();
         const input_message = $('#input_message').val()
         alert(input_message)
@@ -59,3 +59,14 @@ function submit_message(message) {
         // send the message
         submit_message(input_message)
     });
+function closee(id){
+    if (document.getElementById(String(id)+"s").style.display==="block") {
+        document.getElementById(String(id)+"s").style.display="none"
+        document.getElementById(String(id)+"c").style.display="block"
+    }
+    else {
+        document.getElementById(String(id)+"s").style.display="block"
+        document.getElementById(String(id)+"c").style.display="none"
+    }
+
+}
