@@ -418,12 +418,14 @@ def course(id_course):
         return render_template('course.html', tittle=cards_course(id_course)[0][0], href=href_intr,
                                course=cards_course(id_course)[0],
                                navig=["Курсы", cards_course(id_course)[0][0]])
+
     elif request.method == "POST":
         if 'user_href' in session and 'id_user' in session:
             stat = user_course(id_course, session["id_user"])
             if len(stat) == 0:
                 update_user_course(id_course, session["id_user"])
             return redirect(url_for('course', id_course=id_course))
+        return redirect(url_for('reg'))
 
 
 @app.route('/courses', methods=['GET', 'POST'])
