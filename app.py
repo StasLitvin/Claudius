@@ -3,6 +3,7 @@ import os
 from config import UPLOAD_FOLDER, ALLOWED_EXTENSIONS, mas_test_lich
 from main import rezult_test_lic
 from flask import Flask, render_template, request, session, url_for, redirect, abort, jsonify
+from flask_session import Session
 from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg, input_login, data_user, \
     password_reset_token_find, update_password, \
     user_update_coin, class_stud, user_rez, task_class, tasks_lec, answer_user, tasks_lec_rez, rez_coin, task_eval, \
@@ -17,7 +18,8 @@ from model import pipe
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'fsa87asd782asd'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 def allowed_file(filename):
     """ Функция проверки расширения файла """
@@ -359,12 +361,13 @@ def rez_tasks(id_lecture, id_user):
         return redirect(url_for('login'))
     if session['id_user'] != int(id_user):
         abort(401)
-    test = 'tasks_test_' + str(id_lecture) + 'rez'
-    count = 'count_tasks_test_' + str(id_lecture) + 'rez'
-    now = 'now_task_test_' + str(id_lecture) + 'rez'
-    rez = 'tasks_test_rez_' + str(id_lecture) + 'rez'
+    test = 'tasks_test_' + 'rez' + str(id_lecture)
+    count = 'count_tasks_test_' + 'rez' + str(id_lecture)
+    now = 'now_task_test_' + 'rez' + str(id_lecture)
+    rez = 'tasks_test_rez_' + 'rez' + str(id_lecture)
 
-    if request.method == "GET" or test not in session:
+    if request.method == "GET" and test not in session:
+        print("GET")
         session[test] = tasks_lec_rez(id_lecture, session['id_user'])
         session[now] = 1
         session[count] = len(session[test])
@@ -373,14 +376,17 @@ def rez_tasks(id_lecture, id_user):
     print(session.keys())
     if request.method == "POST":
         print(request.form)
-        if 'back' in request.form:
+        if 'back' in request.form and session[now] > 1:
+            print("B")
             session[now] -= 1
         if 'next' in request.form and session[now] < session[count]:
-            session[now] = session[now] + 1
+            print("N")
+            session[now] += 1
+            print('сейчас', session[now])
 
-        print(session[now])
         print(session[rez])
-
+        print('количество', session[count])
+    session.modified = True
     return render_template('task_rez2.html', title="Результаты заданий", href=type_css[session['user_href']],
                            lecture=name_lec(id_lecture),
                            user=data_user(session['id_user']),

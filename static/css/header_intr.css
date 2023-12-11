@@ -10,6 +10,11 @@ a{
 .header{
     background: #10366A;
 }
+body{
+    background-image: url("../img/intr_fon.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .header_wrapper{
     max-width: 1890px;
@@ -391,4 +396,13 @@ a{
     margin-right: 10px;
     border: none;
     background: none;
+}
+.support_c {
+    position: fixed;
+    right: 36px;
+    bottom: 53px;
+    z-index: 1;
+    width: 250px;
+    height: 345px;
+    border-radius: 20px;
 }

@@ -7,7 +7,9 @@ a{
   color: black;
 }
 body {
- background-color: #fff;
+ background-image: url("../img/ambr_fon.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .header{
@@ -395,4 +397,13 @@ body {
     margin-right: 10px;
     border: none;
     background: none;
+}
+.support_c {
+    position: fixed;
+    right: 36px;
+    bottom: 53px;
+    z-index: 1;
+    width: 250px;
+    height: 345px;
+    border-radius: 20px;
 }

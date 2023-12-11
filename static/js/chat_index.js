@@ -44,3 +44,14 @@ function createNewSupportMessage(supportMessageData) {
     allMessagesWrapper.appendChild(div);
 }
 
+function closee(id){
+    if (document.getElementById(String(id)+"s").style.display==="block") {
+        document.getElementById(String(id)+"s").style.display="none"
+        document.getElementById(String(id)+"c").style.display="block"
+    }
+    else {
+        document.getElementById(String(id)+"s").style.display="block"
+        document.getElementById(String(id)+"c").style.display="none"
+    }
+
+}

@@ -6,6 +6,9 @@
 
 body {
   font-family: "Montserrat", sans-serif;
+  background-image: url("../img/extr_fon.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
@@ -49,7 +52,9 @@ body {
 
 /* Section courses */
 .courses {
-  background-color: #fefaef;
+      background-image: url("../img/intr_fon.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
   padding-top: 80px;
   padding-bottom: 14px;
 }
