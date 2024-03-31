@@ -361,7 +361,7 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 .CI-cours {
 	margin: 30px 0 30px 0;
 
-	background: linear-gradient(180deg, rgba(255, 158, 219, 0.5) 0%, rgba(253, 223, 163, 0.5) 100%);;
+	background: linear-gradient(180deg, rgba(255, 158, 219, 0.5) 0%, rgba(253, 223, 163, 0.5) 100%);
 	border-radius: 20px;
 
 	display: flex;
@@ -403,10 +403,25 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 	width: 170px;
 	height: 46px;
 	border-radius: 30px;
-	background: var(--CI-button);
+	background: #90817C;
 	color: var(--CI-text-button);
 
 	box-shadow: 3px 5px 5px rgba(0,0,0,.2), 6px 5px 8px rgba(0,0,0,.3);
+}
+.continue_c {
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    font-size: 18px;
+
+    width: 170px;
+    height: 46px;
+    border-radius: 30px;
+    background: #330F13;
+    color: var(--CI-button);
+
+    box-shadow: 3px 5px 5px rgba(0,0,0,.2), 6px 5px 8px rgba(0,0,0,.3);
 }
 .continue-text{
 	color: #fff;
@@ -506,4 +521,47 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 
 .main-bottom-change-second:hover ~ .dop-content {
 	display: block;
+}
+/* NEW start !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+.CI-my-education-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+
+    width: 90%;
+    min-width: 60%;
+}
+
+.CI-my-education-button {
+    margin: -10px 0 15px 16px;
+}
+
+.CI-cours-bar-icons {
+    margin-top: -25px;
+    margin-bottom: -4px;
+
+    background: linear-gradient(180deg, rgba(255, 158, 219, 0.5) 0%, rgba(253, 223, 163, 0.5) 100%);
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+
+    font-size: 26px;
+
+    overflow-x: auto;
+}
+
+.CI-cours-bar-icons::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.CI-cours-bar-icons-all-img {
+    width: 40px;
+    background-color: white ;
+    border-radius: 20px;
+    margin: 0.5%;
 }

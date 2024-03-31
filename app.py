@@ -9,7 +9,7 @@ from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg,
     user_update_coin, class_stud, user_rez, task_class, tasks_lec, answer_user, tasks_lec_rez, rez_coin, task_eval, \
     update_answer_coin, cards_corsers, cards_course, class_pre, href_update, password_reset_token_create, \
     find_user_by_email, name_lec, user_course, update_user_course, user_courses_count, name_cours_id_lect, mas_lecture, \
-    update_progress, faq_mas
+    update_progress, faq_mas, leaders, icons, icon_users
 from werkzeug.utils import secure_filename
 from mail import send_mail, send_password_reset_mail
 import joblib
@@ -21,26 +21,30 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
+
 def allowed_file(filename):
     """ Функция проверки расширения файла """
     return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+        filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 href_intr = ["../static/css/trade_intr.css", "../static/css/profile_intr.css", "../static/css/style_intr.css",
              "../static/css/reset_intr.css", "../static/css/courses_intr.css", "../static/css/account_styl_intr.css",
              "../static/css/header_intr.css", "intr", "../static/css/course_intr.css", "../static/css/table_intr.css",
-             "../static/css/cours_lec_task_intr.css", "../static/css/rez_cours_intr.css", "../static/css/faq_intr.css"]
+             "../static/css/cours_lec_task_intr.css", "../static/css/rez_cours_intr.css", "../static/css/faq_intr.css",
+             "../static/css/leaderboard_intr.css"]
 href_extr = ["../static/css/trade_extr.css", "../static/css/profile_extr.css", "../static/css/style_extr.css",
              "../static/css/reset_extr.css", "../static/css/courses_extr.css", "../static/css/account_styl_extr.css",
              "../static/css/header_extr.css", "extr", "../static/css/course_extr.css", "../static/css/table_extr.css",
-             "../static/css/cours_lec_task_extr.css", "../static/css/rez_cours_extr.css", "../static/css/faq_extr.css"]
+             "../static/css/cours_lec_task_extr.css", "../static/css/rez_cours_extr.css", "../static/css/faq_extr.css",
+             "../static/css/leaderboard_extr.css"]
 href_ambr = ["../static/css/trade_ambr.css", "../static/css/profile_ambr.css", "../static/css/style_ambr.css",
              "../static/css/reset_ambr.css", "../static/css/courses_ambr.css", "../static/css/account_styl_ambr.css",
              "../static/css/header_ambr.css", "ambr", "../static/css/course_ambr.css", "../static/css/table_ambr.css",
-             "../static/css/cours_lec_task_ambr.css", "../static/css/rez_cours_ambr.css", "../static/css/faq_ambr.css"]
+             "../static/css/cours_lec_task_ambr.css", "../static/css/rez_cours_ambr.css", "../static/css/faq_ambr.css",
+             "../static/css/leaderboard_ambr.css"]
 type_css = {"Интроверт": href_intr, "Экстраверт": href_extr, "Амбиверт": href_ambr}
-
+type_svg = {"Интроверт": "intr", "Экстраверт": "extr", "Амбиверт": "ambr"}
 
 def generate_csrf_token():
     return hashlib.sha256(os.urandom(64)).hexdigest()
@@ -56,6 +60,12 @@ def generate_password_reset_token():
 
 def generate_password_hash(password, salt):
     return hashlib.sha3_256(str(password + salt).encode()).hexdigest()
+
+
+@app.route('/get_test_data', methods=['GET', 'POST'])
+def get_test_data():
+    if request.method == "GET":
+        return mas_test_lich.json()
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -221,9 +231,11 @@ def reset_password(token):
 def mag():
     if request.method == "GET":
         if 'user_href' in session:
-            return render_template('mag.html', title="Обменник", coup=coups_mas(), href=type_css[session['user_href']],
-                                   user=data_user(session['id_user']), navig=["Обменник"])
-        return render_template("mag.html", coup=coups_mas(), title="Обменник", href=href_intr, navig=["Обменник"])
+            return render_template('mag.html', title="Система поощерения", coup=coups_mas(),
+                                   href=type_css[session['user_href']],
+                                   user=data_user(session['id_user']), navig=["Система поощерения"])
+        return render_template("mag.html", coup=coups_mas(), title="Система поощерения", href=href_intr,
+                               navig=["Система поощерения"])
     if request.method == "POST":
         id_coup = request.form['id_coup']
         coup = coup_mas(id_coup)
@@ -267,7 +279,7 @@ def profile():
                     passed_true += 1
         return render_template('profile.html', title="Личный кабинет", href=type_css[session['user_href']],
                                user=data_user(session['id_user'])[0], navig=["Личный кабинет"], courses=k,
-                               passed_true=passed_true, passed_false=passed_false)
+                               passed_true=passed_true, passed_false=passed_false,href_svg=type_svg[session['user_href']])
 
 
 @app.route('/class/<id_class>', methods=['GET'])
@@ -530,7 +542,7 @@ def chat_bot():
 
 @app.route('/faq', methods=['GET', 'POST'])
 def fag():
-    type_fill = {"Интроверт": "#E3F9FF", "Экстраверт": "#90817C", "Амбиверт": "#BABB8F"}
+    type_fill = {"Интроверт": "#E3F9FF", "Экстраверт": "#90817C", "Амбиверт": "#FFC501"}
     if 'user_href' in session:
         return render_template('fag.html', title="Чат-бот", href=type_css[session['user_href']],
                                fill=type_fill[session['user_href']],
@@ -586,6 +598,25 @@ def cours_mas(id_class, id_user):
         return render_template('cours_lec_task.html', title="Материалы курса", href=type_css[session['user_href']],
                                navig=["Мои курсы", cours], mas_inf=mas_inf, name_cours=cours, i_u=id_user,
                                progress=int(allsum_coin / allcoin * 100))
+
+
+@app.route('/leaderboard', methods=['GET', 'POST'])
+def leaderboard():
+    if request.method == "GET":
+        board = leaders()
+        return render_template('leaderboard.html', title="Главная", href=type_css[session['user_href']],
+                               navig=["Таблица лидеров"], board=board)
+
+
+@app.route('/icons/<id_user>', methods=['GET'])
+def test(id_user):
+    if 'id_user' in session:
+        id_user=id_user
+
+        return render_template('icons.html', href=type_css[session['user_href']], title="Достижения", icons=icons(),
+                           navig=["Достижения"], href_svg=type_svg[session['user_href']],i_u=icon_users(id_user))
+
+    return redirect(url_for('login'))
 
 
 if __name__ == '__main__':

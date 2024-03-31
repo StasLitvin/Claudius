@@ -7,17 +7,29 @@ a{
   color: black;
 }
 body {
- background-image: url("../img/ambr_fon.jpg");
+     height: 100%
+    background-image: url("../img/ambr_fon.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-}
 
+}
+html {
+ height: 100%
+ }
+ .content{
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    height: 100%;
+    background-image: url("../img/ambr_fon.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    }
 .header{
-    background: #0C2A22;
+    background: #4A6401;
 }
 
 .header_wrapper{
-    max-width: 1890px;
+    max-width: 100%;
     height: 60px;
     margin: 0 auto;
     padding: 0 60px;
@@ -63,7 +75,7 @@ body {
      margin-top: 18px;
     width: 17px;
     height: 14px;
-    background-color: #0C2A22;
+    background-color: #4A6401;
 }
 .exit_img{
     background-image: url(../img/extr/exit.svg);
@@ -81,7 +93,7 @@ body {
      margin-top: 15px;
     width: 13px;
     height: 17px;
-    background-color: #0C2A22;
+    background-color: #4A6401;
     white-space: nowrap;
 }
 .sidebar_logo{
@@ -90,7 +102,7 @@ body {
     margin: 65px 120px 95px;
     width: 260px;
     height: 57px;
-    background-color: #BABB8F;
+    background-color: #AAC419;
 }
 .exit_img{
     background-image: url(../img/extr/exit.svg);
@@ -99,7 +111,7 @@ body {
      margin-top: 5px;
     width: 30px;
     height: 25px;
-    background-color: #BABB8F;
+    background-color: #AAC419;
 }
 
 .header__text{
@@ -119,7 +131,7 @@ body {
 }
 
 .header__nav-container{
-    background: #BABB8F;
+    background: #AAC419;
     display: flex;
     justify-content: space-between;
 }
@@ -155,7 +167,7 @@ body {
     opacity: 0.6;
 }
 .footer{
-    background: #0C2A22;
+    background: #4A6401;
     height: 250px;
 }
 .footer__logo{
@@ -215,7 +227,7 @@ body {
     left: 0;
     width: 510px;
     height: 100%;
-    background-color: #BABB8F;
+    background-color: #AAC419;
     z-index: 2;
     border: 1px solid black;
     border-top-right-radius: 25px;
@@ -265,7 +277,7 @@ body {
     height: 50px;
     margin-left: 15px;
     margin-top: 15px;
-    background-color: #BABB8F;
+    background-color: #AAC419;
 }
 .button{
     border: 0;
@@ -275,7 +287,7 @@ body {
     height: 25px;
     background-repeat:no-repeat;
     background-size: cover;
-    background-color: #BABB8F;
+    background-color: #AAC419;
     top: 9px;
     cursor: pointer;
     transition: opacity 0.2s;
@@ -322,7 +334,7 @@ body {
 .support__header {
     width: 100%;
     min-height: 35px;
-    background-color: #BABB8F;
+    background-color: #AAC419;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     display: flex;

@@ -11,10 +11,21 @@ a{
     background: #10366A;
 }
 body{
+    height: 100%
     background-image: url("../img/intr_fon.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
+html {
+ height: 100%
+ }
+ .content{
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    height: 100%;
+    background-image: url("../img/intr_fon.jpg");
+    background-size: contain;
+    }
 
 .header_wrapper{
     max-width: 1890px;
@@ -111,7 +122,6 @@ body{
     background: #80D9FF;
 }
 .header__nav_wrapper{
-    width: 100%;
     margin: 0 auto;
     max-width: 1920px;
     height: 56px;

@@ -94,18 +94,18 @@ body {
         width: 70%;
         height: 40px;
         border-radius: 20px;
-        color: #BABB8F;
+        color: #AAC419;
     }
     .gradient-progressbar progress::-webkit-progress-bar {
         background: #D9D9D9;
         border-radius: 20px;
     }
     .gradient-progressbar progress::-webkit-progress-value {
-        background: linear-gradient(to bottom, #BABB8F 0%, #BABB8F 100%);
+        background: linear-gradient(to bottom, #AAC419 0%, #AAC419 100%);
         border-radius: 20px;
     }
     .gradient-progressbar progress::-moz-progress-bar {
-        background: linear-gradient(to bottom, #BABB8F 0%, #BABB8F 100%);
+        background: linear-gradient(to bottom, #AAC419 0%, #AAC419 100%);
         border-radius: 20px;
     }
 

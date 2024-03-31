@@ -86,7 +86,7 @@ body {
   padding: 20px 18px 20px 50px;
   width: 384px;
   border: none;
-  background-color: #f2f2f2;
+  background-color: #DEDECB;
   border-radius: 4px;
 }
 
@@ -123,7 +123,7 @@ body {
   padding: 0 25px 21px 32px;
   margin-bottom: 30px;
   width: 384px;
-  background-image: linear-gradient(116.48deg, rgba(240, 255, 231, 1) 0%, rgba(254, 255, 227, 1) 100%);
+  background-image: linear-gradient(116.48deg, #FFC501 0%, #FFD03C 100%);
 }
 
 .card__star {
@@ -178,7 +178,7 @@ body {
 
 .card__start {
   padding: 8px 12px;
-  background-color: #00ac65;
+  background-color: #718C09;
   border-radius: 4px;
 
   font-family: "Montserrat", sans-serif;
