@@ -147,7 +147,8 @@ table { border-collapse: collapse; border-spacing: 0; }
 	min-height: 680px;
 	visibility: visible;
 
-	background: linear-gradient(116.48deg, rgba(228, 250, 255, 0.66) 0%, rgba(95, 217, 255, 0.66) 100%);
+	background: linear-gradient(116.48deg, #DCF2FF 0%, #F9FEFF 100%);
+	box-shadow: 0px 0px 50px 0px #00000040;
 }
 
 .arrow {
@@ -406,7 +407,11 @@ input[type='radio']:checked:after {
 	.osn-inf {
 		padding: 0 1rem;
 		margin: 1rem;
-		width: auto;
+		width: calc(100% - 4rem);
+		border-radius: 15px;
+		min-height: 480px;
+
+		box-shadow: 0px 0px 18px 0px #00000040;
 	}
 	.questions-left, .question, .answer {
 		font-size: 1rem;
