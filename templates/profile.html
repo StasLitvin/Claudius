@@ -49,7 +49,20 @@
 					<div class="Courses__Info">
 
 						<div class="CI-my-education">
-							<div class="CI-my-education-text">Моё обучение</div>
+                    <div class="CI-my-education-buttons">
+                        <div class="CI-my-education-button">
+                            <button class="continue" style="height: 35px; width: 138px"><a href="/courses">Курсы</a></button>
+                        </div>
+                        <div class="CI-my-education-button">
+                            <button class="continue" style="height: 35px; width: 138px"><a href="/mag">Обменник</a></button>
+                        </div>
+                        <div class="CI-my-education-button">
+                            <button class="continue" style="height: 35px; width: 138px"><a href="/icons/{{user[0]}}">Достижения</a></button>
+                        </div>
+                        <div class="CI-my-education-button">
+                            <button class="continue" style="height: 35px; width: 138px"><a href="/">Главная</a></button>
+                        </div>
+                    </div>
 							<div><button onClick="rotateImg()" class="CI-my-education-img button__scroll"><img id="imgScrollBar" src="../static/img/choice.svg" /></button></div>
 						</div>
 
@@ -58,16 +71,27 @@
 								<div class="CI-content-box" id="content__box">
 									<div class="CI-content-list">
                                     {% if courses!=0 %}
-                                        {% for i in courses %}
-										<div class="CI-cours">
-											<div>
-												<div class="CI-cours-name">{{ i[2] }}</div>
-												<div class="CI-cours-info"><p>{{ i[1] }}%</p> материала пройдено</div>
-											</div>
-                                            {% if i[1]<100 %}
-											<div class="CI-cours-button"><button class="continue"><a style="color: #fff" href="/courses/{{ i[0] }}">Продолжить</a></button></div>
-										    {% endif %}
+										{% for i in courses %}
+										        <div>
+
+
+                                    <div class="CI-cours">
+                                        <div>
+                                            <div class="CI-cours-name">{{ i[2] }}</div>
+                                            <div class="CI-cours-info"><p>{{ i[1] }}%</p> материала пройдено</div>
+											{% if i[1]<100 %}
                                         </div>
+                                        <div class="CI-cours-button"><button class="continue_c"><a style="color: #fff" href="/courses/{{ i[0] }}">Продолжить</a></button></div>
+										{% endif %}
+
+
+                                        </div>
+													<div class="CI-cours-bar-icons">
+														{% for j in i[8] %}
+                                        				<img src="../static/img/icons/{{href_svg}}_{{j[0]}}.svg" alt="" class="CI-cours-bar-icons-all-img">
+														{% endfor %}
+                                   		</div>
+													</div>
                                         {% endfor %}
                                     {% else %}
                                          <div style="margin-left: 220px; margin-top: 50px">Ни одного курса не выбрано</div>

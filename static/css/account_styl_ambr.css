@@ -152,7 +152,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 	min-height: 680px;
 	visibility: visible;
 
-	background: linear-gradient(116.48deg, rgba(254, 255, 200, 0.66) 0%, rgba(212, 255, 164, 0.66) 100%);
+	background: linear-gradient(116.48deg, #FFC501 0%, #FFD03C 100%);
 }
 
 .arrow {

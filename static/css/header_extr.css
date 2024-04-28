@@ -6,11 +6,22 @@ a{
   color: #000000;
 }
 body {
- background-image: url("../img/extr_fon.jpg");
+height: 100%
+    background-image: url("../img/extr_fon.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+html {
+ height: 100%
+ }
+ .content{
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    height: 100%;
+    background-image: url("../img/extr_fon.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    }
 .header{
     background: #330F13;
 }
@@ -113,7 +124,6 @@ body {
     background: #90817C;
 }
 .header__nav_wrapper{
-    width: 100%;
     margin: 0 auto;
     max-width: 1920px;
     height: 56px;

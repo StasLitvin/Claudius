@@ -437,11 +437,13 @@ def user_courses_count(id_user):
         cursor.execute(quary)
         print(result[i][0])
         result[i] += cursor.fetchall()[0]
+        query = '''SELECT icon_name FROM icons INNER JOIN users_classes_icons ON users_classes_icons.id_users=(%s) AND users_classes_icons.id_icons=icons.id AND users_classes_icons.id_classes=(%s)'''
+        cursor.execute(query, (id_user,result[i][0]))
+        result[i]+=tuple([cursor.fetchall()])
     connection.commit()
     cursor.close()
     connection.close()
     return result
-
 
 def max_id():
     connection = data_con()
@@ -500,6 +502,38 @@ def faq_mas():
     cursor = connection.cursor()
     query = '''SELECT idfaq,faq_quest,faq_answer FROM faq'''
     cursor.execute(query)
+    result = cursor.fetchall()
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result
+def leaders():
+    connection = data_con()
+    cursor = connection.cursor()
+    query = '''SELECT name, surname, fatherland, coin FROM users ORDER BY coin DESC LIMIT 5'''
+    cursor.execute(query)
+    result = cursor.fetchall()
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result
+
+def icons():
+    connection = data_con()
+    cursor = connection.cursor()
+    query = '''SELECT icon_name,icon_title,icon_lvl,icon_describtion FROM icons'''
+    cursor.execute(query)
+    result = cursor.fetchall()
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result
+
+def icon_users(id):
+    connection = data_con()
+    cursor = connection.cursor()
+    query = '''SELECT icon_name,icon_title,icon_lvl,icon_describtion FROM icons INNER JOIN users_classes_icons ON users_classes_icons.id_users=(%s) AND users_classes_icons.id_icons=icons.id'''
+    cursor.execute(query,(id,))
     result = cursor.fetchall()
     connection.commit()
     cursor.close()

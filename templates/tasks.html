@@ -39,7 +39,7 @@
 
 					<div class="another-question">
                     {% if now_task>1 %}
-                        <form class="first" method="post">
+                        <form class="first" data-role="back" method="post">
                             <input type="hidden" id="radio_back" name="radio" value="0" >
                             <input type="hidden" id="hid_back" name="back">
 						<ul>
@@ -49,21 +49,21 @@
                             </form>
                         {% endif %}
                     {% if now_task==count_tasks %}
-                        <form class="third" method="post">
+                        <form class="third" data-role="send" method="post">
                         <input type="hidden" id="radio_finish" name="radio" value="0">
                         <input type="hidden" id="hid_finish" name="finish">
 						<div onclick="radio_finish()" ><input type="submit"  class="another-question-center" value="закончить тест"></div>
                           </form>
                     {% endif %}
-                        {% if now_task<count_tasks %}
-                         <form class="second" method="post">
+                        {% if now_task_count_tasks %}
+                         <form class="second"  data-role="next" method="post">
                              <input type="hidden" id="radio_next" name="radio" value="0">
                              <input type="hidden" id="hid_next" name="next">
 						<ul>
 							<li  onclick="radio_next()"><button class="another-question-right-img"  ><img src="../static/img/arrows-right.svg"></button></li>
 							<li><p class="another-question-right">Перейти к следующему вопросу</p></li>
 						</ul>
-                              </form>
+                        </form>
                         {% endif %}
 
 					</div>

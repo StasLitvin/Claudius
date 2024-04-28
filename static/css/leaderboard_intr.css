@@ -113,7 +113,7 @@ h3 {
 
 .lboard__item {
     position: relative;
-    width: 500px;
+    width: 550px;
     height: 600px;
     margin: 0px 105px 80px 105px;
     background-color: rgba(128, 217, 255, 1);
@@ -169,7 +169,9 @@ h3 {
     font-weight: bold;
     color: #000000;
     font-size: 22px;
-    margin: 0px 0px 15px 50px;
+    margin: 0px 40px 15px 0px;
+    position: absolute;
+    right: 0;
 }
 
 .lboard__underline {

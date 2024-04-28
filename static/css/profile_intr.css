@@ -450,7 +450,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 .CI-content-box { height: 620px; position: absolute; left: 0; right: -17px; }
 .CI-content-box.noScroll {overflow-y: scroll;}
 
-.CI-content-list { padding: 0 20px 0 5px; -webkit-user-select: none; user-select: none; }
+.CI-content-list { padding: 0 20px 50px 5px; -webkit-user-select: none; user-select: none; }
 
 /* Scroll bar */
 .scrollbar, .scroller { width: 5px; position: absolute; top: 0; overflow-y: none; background: var(--PI-info-block); }
@@ -464,7 +464,7 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 .Courses__Info {
 	margin: 3% 12% 0 1%;
 	width: 850px;
-	min-width: 600px;
+	min-width: 640px;
 	height: 620px;
 }
 
@@ -533,12 +533,26 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 	width: 170px;
 	height: 46px;
 	border-radius: 30px;
-	background: var(--CI-button);
+	background: #80D9FF;
 	color: var(--CI-text-button);
 
 	box-shadow: 3px 5px 5px rgba(0,0,0,.2), 6px 5px 8px rgba(0,0,0,.3);
 }
+.continue_c {
+    border: none;
+    background: none;
+    cursor: pointer;
 
+    font-size: 18px;
+
+    width: 170px;
+    height: 46px;
+    border-radius: 30px;
+    background: #10366A;
+    color: var(--CI-button);
+
+    box-shadow: 3px 5px 5px rgba(0,0,0,.2), 6px 5px 8px rgba(0,0,0,.3);
+}
 .continue:hover {
 	box-shadow: inset 3px 6px 6px 1px rgba(0,0,0,0.5);
 }
@@ -634,4 +648,47 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 
 .main-bottom-change-second:hover ~ .dop-content {
 	display: block;
+}
+/* NEW start !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+.CI-my-education-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+
+    width: 90%;
+    min-width: 60%;
+}
+
+.CI-my-education-button {
+    margin: -10px 0 15px 16px;
+}
+
+.CI-cours-bar-icons {
+    margin-top: -25px;
+    margin-bottom: -4px;
+
+    background: #A7DDFF;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+
+    font-size: 26px;
+
+    overflow-x: auto;
+}
+
+.CI-cours-bar-icons::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.CI-cours-bar-icons-all-img {
+    width: 40px;
+    background-color: white ;
+    border-radius: 20px;
+    margin: 0.5%;
 }

@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.statistics {
+    padding-top: 75px;
+}
+
+.statistics__wrapper {
+    max-width: 1585px;
+    margin: 0 auto;
+}
+
+.statistics__title {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 61px;
+    text-align: center;
+}
+
+.statistics__progress-bar {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 44px;
+    margin-bottom: 71px;
+    gap: 19px;
+    max-width: fit-content;
+}
+
+.progress-bar{
+    width: 756px;
+    height: 22px;
+    background-color: #FFFFFF;
+    border: 1px solid black;
+    border-radius: 30px;
+    position: relative;
+}
+
+.progress-bar__inner {
+    height: 100%;
+    width: 177px;
+    border-radius: 30px;
+    background-color: #80D9FF;
+    opacity: 41%;
+    position: absolute;
+}
+
+.progress-bar__value {
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.course-results__title {
+    margin-top: 45px;
+    padding-left: 244px;
+    padding-bottom: 45px;
+    font-size: 36px;
+    border-bottom: 1px solid black;
+}
+
+.course-results__item {
+    display: flex;
+    padding: 31px 0px 29px 167px;
+    border-bottom: 1px solid black;
+}
+
+.item__name {
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.item__result {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: 163px;
+    text-decoration: underline;
+}
+
+/* support */
+
+.support {
+    position: fixed;
+    background-color: white;
+    right: 36px;
+    bottom: 53px;
+    z-index: 1;
+    width: 250px;
+    height: 345px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.support__header {
+    width: 100%;
+    min-height: 35px;
+    background-color: #70C6F9;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.support__btn-burger {
+    background: none;
+    border: none;
+    margin-left: 5px;
+}
+
+.support__title {
+    display: flex;
+    align-items: center;
+}
+
+.title__text {
+    font-size: 10px;
+    line-height: 16px;
+}
+
+.support__btn-close {
+    background: none;
+    border: none;
+    margin-right: 5px;
+}
+
+.support__messages {
+    overflow: scroll;
+    max-height: 235px;
+    padding: 5px;
+}
+
+.support__support-message {
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #D9D9D9;
+    max-width: 60%;
+    border-radius: 10px;
+}
+
+.support__my-message {
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: auto;
+    background-color: #D9D9D9;
+    max-width: 60%;
+    border-radius: 10px;
+}
+
+.support__form {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.support__user-input {
+    margin-left: 15px;
+    margin-bottom: 11px;
+    min-height: 41px;
+    min-width: 180px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.support__send-button {
+    margin-right: 10px;
+    border: none;
+    background: none;
+}
