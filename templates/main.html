@@ -17,13 +17,13 @@
 					<p class="question">{{ task[0] }}</p>
 
 					<div class="answer">
-						<ul>
+						<ul class="answer_list">
                             {% for i in task %}
                             {% if i!=task[0] %}
                                 {% if i==rez_task %}
-							        <li><label><input type="radio" name="radio" id="{{ i }}" value="{{ i }}" checked><p class="radio-item-1">{{i}}</p></label></li><br>
+							        <li><label><input type="radio" name="radio" id="{{ i }}" value="{{ i }}" checked><p class="radio-item-1">{{i}}</p></label></li>
                                 {% else %}
-                                    <li><label><input type="radio" name="radio" id="{{ i }}" value="{{ i }}"><p class="radio-item-1">{{i}}</p></label></li><br>
+                                    <li><label><input type="radio" name="radio" id="{{ i }}" value="{{ i }}"><p class="radio-item-1">{{i}}</p></label></li>
                                 {% endif %}
                             {% endif %}
                             {% endfor %}
