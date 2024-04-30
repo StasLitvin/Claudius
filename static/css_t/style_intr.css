@@ -1,0 +1,516 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+
+.visuallyhidden:not(:focus):not(:active) {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+:root {
+  --font-main: "Montserrat";
+  --font-secondary: "Montserrat", sans-serif;
+  font-family: var(--font-main);
+  --header-color: #2278ee;
+  --main-color: linear-gradient(
+    141.69deg,
+    #10366A 0%,
+    #154b86 67.83%,
+    #1c468a 100%
+  );
+  --secondary-color: #10366A;
+  --course-color: #10366A;
+  --hover-submit: #10366A;
+  --size-font: 12px;
+  font-style: normal;
+}
+
+.anchor {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 97%;
+  color: white;
+  text-decoration: none;
+}
+
+.anchor__desc {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+.desc {
+  font-weight: 400;
+  font-size: 12px;
+  font-family: inherit;
+  line-height: 188.5%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.nav__links {
+  display: flex;
+  gap: 37px;
+}
+
+.nav__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link {
+  font-family: var(--font-secondary);
+  font-size: 12px;
+  line-height: 15px;
+  text-decoration: none;
+  text-align: center;
+  color: #ffffff;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* .auth__container {
+} */
+
+.auth__left-section {
+  padding-top: 170px;
+  max-width: 430px;
+  width: 100%;
+}
+
+.left-section {
+  background: var(--main-color);
+  border-radius: 60px 0px 0px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.left-section h2 {
+  max-width: 400px;
+  text-align: center;
+}
+
+.left-section p {
+  max-width: 400px;
+}
+
+/* .auth__container {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  min-height: 900px;
+}
+ */
+
+.auth__title {
+  font-weight: 600;
+  font-size: 50px;
+  margin-bottom: 35px;
+}
+
+.auth__text {
+  font-weight: 500;
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 125px;
+  padding: 15px;
+}
+
+.auth__button {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  border: 5px solid white;
+  border-radius: 3rem;
+  transition: background-color 0.5s;
+}
+
+.auth__button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.auth__right-section {
+  padding-top: 170px;
+  max-width: 430px;
+  width: 100%;
+}
+
+.right-section {
+  box-shadow: 12px -2px 18px 0px rgba(0, 0, 0, 0.1);
+  background: #fefefe;
+  border-radius: 0px 60px 60px 0px;
+}
+
+.right-section h2 {
+  max-width: 400px;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.form__title {
+  margin-bottom: 38px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 61px;
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+.form__btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 400px;
+  width: 100%;
+  /* width: max-content; */
+}
+
+.btns__login {
+  /* min-width: 400px; */
+  max-width: 401px;
+  padding: 15px 0px 15px 24px;
+}
+
+.login {
+  background: #ffffff;
+  border: 3px solid #330f13;
+  border-radius: 25px;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 24px;
+}
+
+.btns__password {
+  /* min-width: 400px; */
+  max-width: 401px;
+  padding: 16px 0px 16px 24px;
+  margin: 0;
+}
+
+.login, .password {
+  width: 340px;
+}
+
+.password {
+  background: #ffffff;
+  border: 3px solid #330f13;
+  border-radius: 25px;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 22px;
+}
+/* Страница курса */
+
+.fs-20 {
+  font-size: 20px;
+}
+
+.fs-36 {
+  font-size: 36px;
+}
+
+.fs-48 {
+  font-size: 48px;
+}
+
+.course {
+  max-width: 1600px;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 35px;
+}
+
+.course__tittle {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 30px;
+  margin-left: 50px;
+}
+
+.course__container {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  min-height: 750px;
+}
+
+.course__section {
+  background-color: #E9E9E9;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.course__left-section {
+  border-radius: 60px 0px 0px 60px;
+}
+
+.course__right-section {
+  max-width: 85%;
+  max-height: 85%;
+  padding: 10%;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: stretch;
+  justify-content: center;
+  border-radius: 15%;
+  background-color: #FFFFFF;
+}
+
+.course__btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  margin: 0 15%;
+  background: var(--course-color);
+  border-radius: 50px;
+  border: none;
+  padding: 3rem;
+}
+
+.arrow {
+  position: relative;
+  width: 65px;
+  height: 65px;
+  background-color: #F6F6F6;
+  /*border: 3px solid gray;*/
+  border-radius: 50%;
+}
+
+.arrow:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: '';
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.arrow_rotate--right {
+  transform: rotate(180deg);
+}
+
+.course__progressbar {
+  background-color: #D9D9D9;
+  border-radius: 13px;
+  /* (height of inner div) / 2 + padding */
+}
+
+.course__progressbar>div {
+  background-color: var(--course-color);
+  width: 40%;
+  /* Adjust with JavaScript */
+  height: 25px;
+  border-radius: 10px;
+}
+
+.course__flex-content--center {
+  display: flex;
+  justify-content: center;
+}
+
+/** общиие стили **/
+
+.password::placeholder,
+.login::placeholder {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  color: #adadad;
+}
+
+.login:focus,
+.password:focus {
+  border: 3px solid #267aee;
+  outline: 0;
+  color: black;
+}
+
+/** контейнер для кнопок  **/
+
+.btns__password-container {
+  position: relative;
+}
+/** кнопка отображения пароля **/
+.btns__show-password {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 25%;
+  right: 5%;
+  background: transparent;
+  border: none;
+}
+
+/** svg иконка **/
+.btns__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+.form__refresh-link {
+  align-self: start;
+}
+
+.refresh-link {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 35px;
+  text-align: start;
+  color: rgba(173, 173, 173, 0.6);
+  width: 340px;
+}
+
+.refresh-link:hover {
+  color: rgba(173, 173, 173, 1);
+}
+
+.form__submit-btn {
+  padding: 20px 60px;
+}
+
+.submit-btn {
+  margin-bottom: 40px;
+  background: #fefefe;
+  border-radius: 60px;
+  border: 5px solid var(--secondary-color);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 37px;
+  text-align: center;
+  color: var(--secondary-color);
+  transition: background-color 0.8s, color 0.8s;
+}
+.submit-btn:hover {
+  color: white;
+  background: var(--hover-submit);
+}
+.soql {
+  font-family: "Montserrat";
+  font-size: 25px;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.select-reg{
+  appearance: none;
+  background: url(../img/ic_twotone-arrow-right.svg) no-repeat right;
+  width: 431px;
+  max-width: 1000px;
+  height: 65px;
+}
+
+@media (min-width:1281px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+
+@media (min-width:1281px) {
+  .auth__left-section p {
+    max-width: 490px;
+    margin-bottom: 150px;
+  }
+}
+
+@media (min-width:1281px) {
+  .login, .password {
+    max-width: 520px;
+  }
+}
+
+@media (min-width:1281px) {
+  .auth__left-section, .auth__right-section, form, .form, .form__btns {
+    max-width: 550px;
+  }
+}
+
+@media (min-width:1281px) {
+  .password, .login, .refresh-link {
+    width: 430px;
+  }
+}
+
+@media (min-width:1500px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+@media (min-width:1500px) {
+  .auth__left-section h2 {
+    max-width: 600px;
+  }
+}
+
+@media (min-width:1500px) {
+  .auth__left-section p {
+    max-width: 600px;
+    margin-bottom: 170px;
+  }
+}
+
+@media (min-width:1500px) {
+  .auth__right-section h2 {
+    max-width: 600px;
+  }
+}
+
+@media (min-width:1500px) {
+  .auth__left-section, .auth__right-section, .form, .form__btns, form {
+    max-width: 700px;
+  }
+}
+
+@media (min-width:1500px) {
+  .password, .login, .refresh-link {
+    width: 480px;
+  }
+}

@@ -1,0 +1,68 @@
+ /* <uniquifier>: Use a unique and descriptive class name */
+ /* <weight>: Use a value from 100 to 900 */
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+}
+
+img{
+    width:80px;
+
+}
+
+h2{
+    font-weight: 500;
+    font-size: 3.5rem !important;
+
+}
+.another_icons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3.5rem;
+}
+.card_icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.icon_title{
+    font-weight: 600;
+    font-size: 1.6rem !important;
+    line-height: 1.95rem;
+    letter-spacing: 2%;
+    text-align: center;
+    padding: 0;
+    margin: 0 0 0.3rem 0;
+}
+.icon_lvl{
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.4rem !important;
+    line-height: 1.7rem;
+    letter-spacing: 2%;
+    text-align: center;
+    padding: 0;
+    margin: 0 0 0.9rem 0;
+}
+
+.icon_describtion{
+    font-weight: 400;
+    font-size: 1.4rem !important;
+    line-height: 1.7rem;
+    letter-spacing: 2%;
+    text-align: center;
+    padding: 0;
+    margin:0;
+}
+.card_icon_text{
+    max-width: 16rem;
+    margin: 0.8rem 0 0 0;
+}
+.wrapper{
+    width: 100%;
+    max-width: 150rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}

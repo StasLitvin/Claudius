@@ -43,7 +43,24 @@ href_ambr = ["../static/css/trade_ambr.css", "../static/css/profile_ambr.css", "
              "../static/css/header_ambr.css", "ambr", "../static/css/course_ambr.css", "../static/css/table_ambr.css",
              "../static/css/cours_lec_task_ambr.css", "../static/css/rez_cours_ambr.css", "../static/css/faq_ambr.css",
              "../static/css/leaderboard_ambr.css"]
-type_css = {"Интроверт": href_intr, "Экстраверт": href_extr, "Амбиверт": href_ambr}
+
+href_intr_t = ["../static/css_t/trade_intr.css", "../static/css_t/profile_intr.css", "../static/css_t/style_intr.css",
+             "../static/css_t/reset_intr.css", "../static/css_t/courses_intr.css", "../static/css_t/account_styl_intr.css",
+             "../static/css_t/header_intr.css", "intr", "../static/css_t/course_intr.css", "../static/css_t/table_intr.css",
+             "../static/css_t/cours_lec_task_intr.css", "../static/css_t/rez_cours_intr.css", "../static/css_t/faq_intr.css",
+             "../static/css_t/leaderboard_intr.css"]
+href_extr_t = ["../static/css_t/trade_extr.css", "../static/css_t/profile_extr.css", "../static/css_t/style_extr.css",
+             "../static/css_t/reset_extr.css", "../static/css_t/courses_extr.css", "../static/css_t/account_styl_extr.css",
+             "../static/css_t/header_extr.css", "extr", "../static/css_t/course_extr.css", "../static/css_t/table_extr.css",
+             "../static/css_t/cours_lec_task_extr.css", "../static/css_t/rez_cours_extr.css", "../static/css_t/faq_extr.css",
+             "../static/css_t/leaderboard_extr.css"]
+href_ambr_t = ["../static/css_t/trade_ambr.css", "../static/css_t/profile_ambr.css", "../static/css_t/style_ambr.css",
+             "../static/css_t/reset_ambr.css", "../static/css_t/courses_ambr.css", "../static/css_t/account_styl_ambr.css",
+             "../static/css_t/header_ambr.css", "ambr", "../static/css_t/course_ambr.css", "../static/css_t/table_ambr.css",
+             "../static/css_t/cours_lec_task_ambr.css", "../static/css_t/rez_cours_ambr.css", "../static/css_t/faq_ambr.css",
+             "../static/css_t/leaderboard_ambr.css"]
+
+type_css = {"Интроверт": href_intr_t, "Экстраверт": href_extr_t, "Амбиверт": href_ambr_t}
 type_svg = {"Интроверт": "intr", "Экстраверт": "extr", "Амбиверт": "ambr"}
 
 def generate_csrf_token():

@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.a{
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+.statistics {
+    padding-top: 75px;
+}
+
+.statistics__wrapper {
+    max-width: 1585px;
+    margin: 0 auto;
+}
+
+.statistics__title {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 61px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.statistics__progress-bar {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 44px;
+    margin-bottom: 71px;
+    gap: 19px;
+    max-width: fit-content;
+}
+
+.progress-bar{
+    width: 756px;
+    height: 22px;
+    background-color: #FFFFFF;
+    border: 1px solid black;
+    border-radius: 30px;
+    position: relative;
+}
+
+.progress-bar__inner {
+    height: 100%;
+    width: 177px;
+    border-radius: 30px;
+    background-color: #FDDFA3;
+    opacity: 41%;
+    position: absolute;
+}
+
+.progress-bar__value {
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.course-results__title {
+    margin-top: 45px;
+    padding-left: 244px;
+    padding-bottom: 45px;
+    font-size: 36px;
+    border-bottom: 1px solid black;
+}
+
+.course-results__item {
+    display: flex;
+    padding: 31px 167px 29px 167px;
+    border-bottom: 1px solid black;
+    justify-content: space-between;
+}
+
+.item__name {
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.item__result {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+    max-width: fit-content;
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+.gradient-progressbar progress {
+        margin-left: 15%;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        border: none;
+        margin-top: 10px;
+        background: #D9D9D9;
+        border: 0;
+        width: 70%;
+        height: 40px;
+        border-radius: 20px;
+        color: #FF92AB;
+    }
+    .gradient-progressbar progress::-webkit-progress-bar {
+        background: #D9D9D9;
+        border-radius: 20px;
+    }
+    .gradient-progressbar progress::-webkit-progress-value {
+        background: linear-gradient(to bottom, #FF92AB 0%, #FF92AB 100%);
+        border-radius: 20px;
+    }
+    .gradient-progressbar progress::-moz-progress-bar {
+        background: linear-gradient(to bottom, #FF92AB 0%, #FF92AB 100%);
+        border-radius: 20px;
+    }
+
