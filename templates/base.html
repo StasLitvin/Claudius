@@ -5,42 +5,50 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <link rel="stylesheet" id="style_header_h" href={{ href[6] }}>
+    <link rel="stylesheet" href="/static/the_only_css.css"/>
+    <link rel="stylesheet" href="/static/intr_variables.css">
 
   </head>
   <body class="page">
-    <div class="content">
         <header class="header">
-          <div class="header_wrapper">
-          <div class="logo_wrapper">
-            <div class="header__logo">Claudius</div>
-            <div class="header__logomin">Бонусная система поощрения</div>
+          <div class="header__wrapper">
+          <div class="logo__wrapper">
+            <p class="header__logo">Claudius</p>
+            <p class="header__logomin">Бонусная система поощрения</p>
           </div>
             <div class="header__contacts">
-              <div class="phone_wrapper">
-                <button class="header_phone"></button>
-                <p class="header__text header__number">8 999 555 3322</p>
+              <div class="phone__wrapper">
+                  <svg class="header__phone" width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.38014 1.01504L3.35264 0.721904C4.45472 0.389707 5.63222 0.926569 6.10418 1.97642L6.85557 3.64786C7.25786 4.54271 7.04586 5.59438 6.32831 6.26351L5.08306 7.42472C5.04667 7.45866 5.02362 7.50451 5.0181 7.55396C4.98114 7.88492 5.20549 8.52942 5.72238 9.42469C6.09825 10.0757 6.43846 10.5323 6.72804 10.789C6.92979 10.9679 7.04085 11.0066 7.08813 10.9926L8.7634 10.4804C9.70139 10.1936 10.7179 10.5356 11.2918 11.331L12.3591 12.8102C13.0309 13.7412 12.9101 15.0256 12.0765 15.815L11.3379 16.5145C10.5408 17.2693 9.40621 17.5506 8.34891 17.2555C6.05384 16.6149 3.99609 14.6781 2.15286 11.4855C0.307066 8.28856 -0.340594 5.53485 0.256449 3.22503C0.529673 2.16796 1.33478 1.33013 2.38014 1.01504ZM2.74089 2.21185C2.11367 2.40091 1.63061 2.9036 1.46668 3.53784C0.964467 5.48077 1.53851 7.92149 3.23539 10.8605C4.93 13.7957 6.75412 15.5125 8.68497 16.0515C9.31935 16.2286 10.0001 16.0598 10.4783 15.6069L11.217 14.9074C11.5959 14.5486 11.6508 13.9648 11.3454 13.5416L10.2781 12.0624C10.0173 11.7009 9.55522 11.5454 9.12886 11.6758L7.44941 12.1892C6.47465 12.4798 5.58992 11.6952 4.63985 10.0497C3.99959 8.94074 3.70118 8.08351 3.77582 7.41522C3.81449 7.06902 3.9758 6.7481 4.23056 6.51053L5.47582 5.34932C5.80197 5.04517 5.89834 4.56714 5.71548 4.16038L4.96409 2.48895C4.74956 2.01174 4.21433 1.76771 3.71339 1.91871L2.74089 2.21185Z"/>
+                  </svg>                  
+                <p class="header__text">8 999 555 3322</p>
               </div>
-              <div class="mail_wrapper">
-                <button class="header_mail"></button>
+              <div class="mail__wrapper">
+                <svg class="header__mail" width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.87435 0.333252H14.1243C15.5685 0.333252 16.7487 1.46363 16.8284 2.8879L16.8327 3.04159V10.9582C16.8327 12.4024 15.7023 13.5826 14.278 13.6623L14.1243 13.6665H2.87435C1.43016 13.6665 0.249977 12.5362 0.170303 11.1119L0.166016 10.9582V3.04159C0.166016 1.59739 1.29639 0.417214 2.72066 0.337539L2.87435 0.333252H14.1243H2.87435ZM15.5827 4.81075L8.79044 8.38633C8.63426 8.46853 8.45196 8.48027 8.28832 8.42155L8.20826 8.38633L1.41602 4.81159V10.9582C1.41602 11.7234 2.00527 12.3509 2.75474 12.4117L2.87435 12.4165H14.1243C14.8895 12.4165 15.517 11.8273 15.5778 11.0778L15.5827 10.9582V4.81075ZM14.1243 1.58325H2.87435C2.1092 1.58325 1.48169 2.17251 1.42085 2.92198L1.41602 3.04159V3.39909L8.49935 7.12697L15.5827 3.39825V3.04159C15.5827 2.27644 14.9934 1.64893 14.244 1.58809L14.1243 1.58325Z"/>
+                  </svg>
                 <p class="header__text">support@claudius.ru</p>
               </div>
             </div>
           </div>
         </header>
-        <div class="header__nav-container">
-          <div class="header__nav_wrapper">
-          <div class="header__nav">
-            <button class="button home-button"  id="sidebar-btn"></button>
+        <div class="navigation">
+          <div class="navigation__wrapper">
+            <button class="navigation__home" id="sidebar-btn">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 8.735C1 8.156 1.2509 7.6054 1.6879 7.2256L8.6879 1.1406C9.4404 0.486499 10.5596 0.486499 11.3121 1.1406L18.3121 7.2256C18.7491 7.6054 19 8.156 19 8.735V17C19 18.1046 18.1046 19 17 19H14.25C13.1454 19 12.25 18.1046 12.25 17V14.2941C12.25 13.1895 11.3546 12.2941 10.25 12.2941H9.75C8.6454 12.2941 7.75 13.1895 7.75 14.2941V17C7.75 18.1046 6.8546 19 5.75 19H3C1.8954 19 1 18.1046 1 17V8.735Z" stroke="#000" stroke-linejoin="round"/>
+                </svg>
+            </button>
             {% for i in navig %}
-            <button class="button wtf-button"></button>
-            <p class="header__nav-text">{{ i }}</p>
+            <svg width="20" height="27" viewBox="0 0 20 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L19 13.5L1 26" stroke="#000" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p class="navigation__text">{{ i }}</p>
             {% endfor %}
           </div>
           {% if session['id_user'] %}
             <a href="/exit" class="exit_img"></a>
           {% endif %}
-        </div>
         </div>
         <div class="support" id="123s">
         <div class="support__header">
@@ -113,82 +121,84 @@
 {% block content -%}
 
 {% endblock -%}
-        <link rel="stylesheet" id="style_header_f" href={{ href[6] }}>
         <footer class="footer">
-          <div class="footer_wrapper">
+          <div class="footer__wrapper">
           <div class="footer__nav">
-            <img src="../static/img/mospolytech-logo-white.png" alt="" class="footer__logo">
             <ul class="footer__links">
-              <li><a class="footer__link">Сайт Московского Политеха</a></li>
-              <li><a class="footer__link">Сайт СДО</a></li>
-              <li><a class="footer__link">Учащимся</a></li>
-              <li><a class="footer__link">Все курсы</a></li>
-              <li><a class="footer__link">Правила пользования платформой</a></li>
-              <li><a class="footer__link">О нас</a></li>
-              <li><a class="footer__link">Помощь</a></li>
-              <li><a class="footer__link">Все контакты</a></li>
+              <li><a class="footer__link" href="/profile">Профиль</a></li>
+              <li><a class="footer__link" href="/courses">Курсы</a></li>
+              <li><a class="footer__link" href="/faq">FAQ</a></li>
+              <li><a class="footer__link" href="#">Расписание</a></li>
+              <li><a class="footer__link" href="#">Успеваемость</a></li>
+            </ul>
+            <div class="footer__logo-wrapper">
+              <p class="footer__logo">Claudius</p>
+              <p class="footer__logomin">Бонусная система поощрения</p>
+            </div>
+            <ul class="footer__medias">
+              <li><a class="footer__media" href="#"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M30 15C30 23.2843 23.2843 30 15 30C6.71572 30 0 23.2843 0 15C0 6.71572 6.71572 0 15 0C23.2843 0 30 6.71572 30 15ZM15.5375 11.0737C14.0786 11.6805 11.1627 12.9365 6.78989 14.8416C6.07981 15.124 5.70785 15.4002 5.67399 15.6704C5.61675 16.1269 6.18841 16.3066 6.96686 16.5514C7.07275 16.5848 7.18248 16.6192 7.29495 16.6558C8.06083 16.9048 9.09105 17.196 9.62664 17.2075C10.1125 17.218 10.6547 17.0177 11.2533 16.6066C15.339 13.8488 17.448 12.4548 17.5804 12.4247C17.6739 12.4035 17.8033 12.3769 17.891 12.4548C17.9786 12.5328 17.9701 12.6804 17.9608 12.72C17.9041 12.9614 15.6601 15.0476 14.4989 16.1273C14.1369 16.4638 13.8801 16.7025 13.8276 16.757C13.71 16.8792 13.5901 16.9947 13.475 17.1057C12.7635 17.7916 12.2299 18.306 13.5045 19.146C14.1171 19.5496 14.6072 19.8834 15.0962 20.2164C15.6302 20.5801 16.1629 20.9429 16.852 21.3946C17.0276 21.5098 17.1952 21.6292 17.3586 21.7456C17.9801 22.1887 18.5385 22.5868 19.2283 22.5233C19.6291 22.4864 20.0431 22.1095 20.2534 20.9855C20.7502 18.329 21.727 12.5731 21.9528 10.2012C21.9726 9.99341 21.9478 9.72746 21.9277 9.61073C21.9077 9.49397 21.866 9.32764 21.7143 9.2045C21.5345 9.05867 21.2571 9.02793 21.133 9.0301C20.5688 9.04005 19.7033 9.34102 15.5375 11.0737Z" fill="white"/>
+                </svg>
+                </a></li>
+              <li><a class="footer__media" href="#"><svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M26.4075 29.998H3.95619C3.46073 30.0145 2.96725 29.9277 2.50697 29.7433C2.0467 29.5589 1.62963 29.2809 1.28215 28.9268C0.931269 28.5812 0.655215 28.167 0.471191 27.7099C0.287167 27.2528 0.199117 26.7626 0.212529 26.27V3.75147C0.196143 3.25523 0.282744 2.76099 0.466855 2.29999C0.650966 1.839 0.928582 1.42128 1.28215 1.07325C1.62963 0.719132 2.0467 0.441083 2.50697 0.256684C2.96725 0.0722853 3.46073 -0.0144506 3.95619 0.00196123H26.4181C26.9136 -0.0144506 27.4071 0.0722853 27.8674 0.256684C28.3276 0.441083 28.7447 0.719132 29.0922 1.07325C29.4458 1.42128 29.7234 1.839 29.9075 2.29999C30.0916 2.76099 30.1782 3.25523 30.1618 3.75147V26.2485C30.1562 27.2431 29.7585 28.1951 29.0553 28.8974C28.3521 29.5996 27.4005 29.9952 26.4075 29.998ZM23.1986 22.3169C23.8344 22.3744 24.4725 22.2361 25.0276 21.9205C25.2144 21.7617 25.3598 21.5597 25.4511 21.332C25.5424 21.1042 25.577 20.8577 25.5518 20.6136V8.95793C25.5544 8.73254 25.5112 8.50898 25.4247 8.30086C25.3383 8.09274 25.2105 7.90442 25.049 7.74738C24.8938 7.58361 24.7061 7.4542 24.4979 7.36748C24.2898 7.28077 24.0658 7.23866 23.8404 7.24387H6.4484C6.22336 7.24124 6.00014 7.28452 5.79235 7.37109C5.58455 7.45765 5.39653 7.58568 5.23973 7.74738C5.07859 7.9024 4.95086 8.08884 4.8644 8.29519C4.77794 8.50155 4.73459 8.72345 4.73701 8.94722V20.6136C4.73459 20.8373 4.77794 21.0592 4.8644 21.2656C4.95086 21.4719 5.07859 21.6584 5.23973 21.8134C5.39653 21.9751 5.58455 22.1031 5.79235 22.1897C6.00014 22.2762 6.22336 22.3195 6.4484 22.3169H23.1986ZM7.47523 21.5027V11.9361L14.385 16.7033L7.47523 21.5027ZM22.5996 21.8991H7.69985L14.7914 16.939C14.8912 17.0337 15.0187 17.0938 15.1551 17.1104C15.2823 17.0756 15.402 17.0175 15.5081 16.939L22.5996 21.8991ZM15.1123 13.1681L7.69985 7.67239H22.5675L15.1123 13.1681ZM22.7494 21.5027L15.8396 16.7033L22.7494 11.9361V21.5027Z" fill="white"/>
+                </svg>
+                </a></li>
+                <li><a class="footer__media" href="#"><svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.24028 2.1C0.143555 4.22 0.143555 7.61 0.143555 14.4V15.6C0.143555 22.38 0.143555 25.77 2.24028 27.9C4.35697 30 7.74168 30 14.5211 30H15.7192C22.4886 30 25.8734 30 28 27.9C30.0968 25.7801 30.0968 22.39 30.0968 15.6V14.4C30.0968 7.62 30.0968 4.23 28 2.1C25.8834 1.78814e-07 22.4987 0 15.7192 0H14.5211C7.75167 0 4.36696 1.78814e-07 2.24028 2.1ZM5.19566 9.13C5.35541 16.93 9.24933 21.6101 16.0787 21.6101H16.4781V17.15C18.9841 17.4 20.8812 19.24 21.6399 21.6101H25.1844C24.8209 20.2633 24.1764 19.0091 23.2935 17.93C22.4106 16.851 21.3094 15.9717 20.0624 15.35C21.1798 14.6685 22.1449 13.7634 22.8974 12.6915C23.6498 11.6196 24.1735 10.4038 24.4356 9.12H21.2206C20.5218 11.6 18.445 13.8499 16.4781 14.0599V9.13H13.253V17.7701C11.2562 17.2699 8.74012 14.85 8.63028 9.13H5.19566Z" fill="white"/>
+                </svg></a></li>
             </ul>
           </div>
           <div class="footer__about">
-            <div class="footer__container">
-              <p class="footer__copyhright"> &#169;Cladius, 2023</p>
-              <p class="footer__adress">Адрес: г.Москва, ул. Большая Семеновская, д. 30, к. Н.</p>
-
-            </div>
-            <div class="footer__contacts">
-
-                  <button class="header_phone"></button>
-                <p class="header__text header__number">8 999 555 3322</p>
-
-                <button class="header_mail"></button>
-                <p class="header__text">support@claudius.ru</p>
-              </div>
+            <p class="footer__copyhright"> &#169; Cladius · 2023</p>
+              <ul class="contacts__links">
+                <li><a class="contacts__link" href="#">Служба поддержки</a></li>
+                <li><a class="contacts__link" href="#">Контакты</a></li>
+                <li><a class="contacts__link" href="#">Политика конфиденциальности</a></li>
+              </ul>
           </div>
           </div>
         </footer>
         <sidebar class="sidebar" id="sidebar" hidden>
           <button id="closeSidebar" class="close_sidebar"></button>
-            <button class="sidebar_logo"></button>
+          <p class="sidebar__logo">Claudius</p>
           <ul class="sidebar__buttons">
-          <li>
-              <button class="sidebar__button"><a href="/">Главная</a></button>
+          <li><a class="sidebar__button" href="/">Главная</a>
             </li>
               {% if session['id_user'] %}
-                  <li>
-              <button class="sidebar__button"><a href="/profile">Личный кабинет</a></button>
+                  <li><a class="sidebar__button" href="/profile">Личный кабинет</a>
             </li>
 
               {% else %}
             <li>
-              <button class="sidebar__button"><a href="/login">Авторизация</a></button>
+              <a class="sidebar__button" href="/login">Авторизация</a>
             </li>
             {% endif %}
               <li>
-              <button class="sidebar__button"><a href="/mag">Система поощерения</a></button>
+              <a class="sidebar__button" href="/mag">Система поощерения</a>
             </li>
           <li>
-              <button class="sidebar__button"><a href="/faq">FAQ</a></button>
+              <a class="sidebar__button" href="/faq">FAQ</a>
             </li>
             <li>
-              <button class="sidebar__button"><a href="/courses">Курсы</a></button>
+              <a class="sidebar__button" href="/courses">Курсы</a>
             </li>
             <li>
-              <button class="sidebar__button sidebar__button_category" id="progress-btn">Описание типов личностей</button>
+              <button class="sidebar__button" id="progress-btn">Описание типов личностей</button>
             </li>
             <li>
-              <button class="sidebar__button sidebar__button_subcategory" id="progress" hidden><a href="/ambivert">Амбиверт</a></button>
+              <a class="sidebar__button" id="progress" href="/ambivert">Амбиверт</a>
             </li>
             <li>
-              <button class="sidebar__button sidebar__button_subcategory" id="progress" hidden><a href="/extrovert">Экстраверт</a></button>
+              <a class="sidebar__button" id="progress" href="/extrovert">Экстраверт</a>
             </li>
           <li>
-              <button class="sidebar__button sidebar__button_subcategory" id="progress" hidden><a href="/introvert">Интроверт</a></button>
+              <a class="sidebar__button" id="progress" href="/introvert">Интроверт</a>
             </li>
 
 
           </ul>
         </sidebar>
-            </div>
     <script src="../static/js/index.js"></script>
     <script src="../static/js/chat_index.js"></script>
   </body>

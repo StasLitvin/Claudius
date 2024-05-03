@@ -1,11 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
-
-
-
 		<main class="main">
-        <link rel="stylesheet" href="{{ href[5] }}" />
         <div class="questions_wrapper">
 				<p class="test-name">Тест на определение типа личности</p>
 				<p class="test-descr">Кто я  - экстраверт, интроверт или амбиверт?</p>
@@ -21,9 +16,9 @@
                             {% for i in task %}
                             {% if i!=task[0] %}
                                 {% if i==rez_task %}
-							        <li><label><input type="radio" name="radio" id="{{ i }}" value="{{ i }}" checked><p class="radio-item-1">{{i}}</p></label></li>
+							        <li><label><input type="radio" name="radio" id="{{ i }}" value="{{ i }}" checked>{{i}}</label></li>
                                 {% else %}
-                                    <li><label><input type="radio" name="radio" id="{{ i }}" value="{{ i }}"><p class="radio-item-1">{{i}}</p></label></li>
+                                    <li><label><input type="radio" name="radio" id="{{ i }}" value="{{ i }}">{{i}}</label></li>
                                 {% endif %}
                             {% endif %}
                             {% endfor %}
@@ -36,7 +31,7 @@
                             <input type="hidden" id="radio_back" name="radio">
                             <input type="hidden" id="hid_back" name="back">
 						<ul class="arrow">
-							<li id="back_but"><button class="another-question-left-img"  ><img src="../static/img/arrows-right.svg" style="transform: scale(1, -1);"></button></li>
+							<li id="back_but"><button class="another-question-left-img"  ><img src="../static/img/arrows-right.svg" style="transform: scale(-1, 1);"></button></li>
 							<li><p class="another-question-left">Перейти к предыдущему вопросу</p></li>
 						</ul>
                             </form>
@@ -53,7 +48,7 @@
                              <input type="hidden" id="radio_next" name="radio">
                              <input type="hidden" id="hid_next" name="next">
                         <ul class="arrow">
-							<li id="next_but"><button class="another-question-right-img"  ><img src="../static/img/arrows-right.svg"></button></li>
+							<li id="next_but"><button class="another-question-right-img"><img src="../static/img/arrows-right.svg"></button></li>
 							<li><p class="another-question-right">Перейти к следующему вопросу</p></li>
 						</ul>
                               </form>

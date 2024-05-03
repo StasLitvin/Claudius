@@ -1,0 +1,10 @@
+:root {
+    --header-color: #10366A;
+    --header-text: #FFFFFF;
+    --main-color: #B4F0FF;
+    --footer-color: #202020;
+    --background: url("./img/intr_fon.jpg");
+    --test-grad: linear-gradient(116.48deg, #DCF2FF 0%, #F9FEFF 100%);
+    --info-grad: linear-gradient(116.48deg, rgba(228, 250, 255, 0.66) 0%, rgba(95, 217, 255, 0.66) 100%); 
+    --bonus-grad: linear-gradient(81.76deg, #768CEB 26.48%, #4BC0FF 55.96%, #6BDEFA 68.47%);
+}

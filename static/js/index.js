@@ -114,7 +114,7 @@ homeBtn.addEventListener('click', () =>sidebar.hidden = false);
 closeSidebar.addEventListener('click', () =>sidebar.hidden = true);
 const progressBtn = document.querySelector('#progress-btn');
 const progress = document.querySelectorAll('#progress');
-progressBtn.addEventListener('click', ()=> progress.forEach(i => i.hidden = !i.hidden));
+progressBtn.addEventListener('click', ()=> {progressBtn.classList.toggle('active') ;progress.forEach(i => {i.classList.toggle('active')})});
 const tableBtn = document.querySelector('#table');
 const table = document.querySelectorAll('#table1');
 tableBtn.addEventListener('click', ()=> table.forEach(i => i.hidden = !i.hidden));
