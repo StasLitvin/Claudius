@@ -1,0 +1,393 @@
+/* Claudius // css */
+
+/* Doesn't work */
+$font-family-base: 'Montserrat', sans-serif;
+@import "~bootstrap/css/bootstrap";
+
+/* HTML5 // reset css for browsers */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	color: #E2E2E2;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; margin: 0;}
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+
+/* For colours */
+:root {
+	/* Main */
+	--header-1:#8CC5FF;
+	--header-2:#A7DDFF;
+	--text-header-1:#fff;
+	--text-header-2:#fff;
+	--text-glow: #A7DDFF;
+
+	/* Balance */
+	--B-static:#8CC5FF;
+	--B-changing:#000;
+
+	/* Personal-Info */
+	--PI-name:#000;
+	--PI-info-block:#FAF8FE;
+	--PI-text-static:#74777C;
+	--PI-text-changing:#012034;
+
+	/* Courses-Info */
+	--CI-main-block-1:#A7DDFF;
+	--CI-main-block-2:#A7DDFF;
+	--CI-name:#000;
+	--CI-static:#57595B;
+	--CI-changing:#044368;
+	--CI-button:#99B8CC;
+	--CI-text-button:#FFF;
+}
+
+
+
+/* Main */
+
+/* Main-dop */
+.main {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 34px;
+	letter-spacing: -0.015em;
+}
+
+.main a {
+	text-decoration: none;
+	color: var(--text-header-2);
+}
+.main p {
+	color: #fff;
+}
+
+.test-name {
+	text-align: center;
+	position: relative;
+	margin: 25px 0 0;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 800;
+	font-size: 50px;
+	line-height: 60px;
+
+	color: #fff;
+}
+
+.test-descr {
+	position: relative;
+	margin: 5px 0 0;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 32px;
+
+	color: #000000;
+}
+
+.start {
+	position: absolute;
+	background: #00AC65;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+
+	color: #fff;
+
+	margin: 18% 0 0 40.5%;
+
+	width: 300px;
+	height: 50px;
+}
+
+.start.dop {
+	visibility: hidden;
+}
+
+.osn-inf {
+	position: relative;
+	box-sizing: border-box;
+	margin-top: 50px;
+	padding: 0 110px;	
+	width: 100%;
+	max-width: 1100px;
+	min-height: 680px;
+	visibility: visible;
+
+	background: linear-gradient(116.48deg, #702436 0%, #702436 100%);
+}
+
+.arrow {
+	margin: 0;
+	padding: 0;
+}
+
+.questions_wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.questions-left {
+	position: absolute;
+	top: 30px;
+	right: 45px;
+
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 32px;
+
+	color: #000000;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.question {
+	margin: 70px 0 0;
+
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 80px;
+
+	color: #000000;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.answer {
+	position: relative;
+
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 32px;
+
+	color: #000000;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	margin-bottom: 188px;
+}
+
+input[type='radio']{
+	visibility: hidden;
+}
+input[type='radio']:after {
+
+
+	width: 24px;
+	height: 24px;
+	border-radius: 15px;
+	top: -2px;
+	left: -1px;
+	position: relative;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid black;
+}
+
+input[type='radio']:checked:after {
+	width: 24px;
+	height: 24px;
+	border-radius: 15px;
+	top: -2px;
+	left: -1px;
+	position: relative;
+	background-color:#C1E8B3;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid black;
+}
+
+.another-question {
+	position: absolute;
+	left: 40px;
+	right: 40px;
+	bottom: 60px;
+	display: flex;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 17px;
+	line-height: 32px;
+}
+
+.radio-item-1 {
+	position: relative;
+	padding-left: 50px;
+	top: 5px;
+
+	display: inline;
+}
+
+.first{ 
+	display:block; 
+	margin-right: auto;
+	visibility: visible;
+}
+
+.second{ 
+	display:block; 
+	margin-left: auto;
+	visibility: visible;
+}
+
+.third{ 
+	visibility: visible;
+}
+
+.another-question-center {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 200px;
+
+	background: #00AC65;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+
+	color: #fff;
+}
+
+.another-question-left-img {
+	position: relative;
+	border: none;
+	background-color: inherit;
+	cursor: pointer;
+
+	margin-left: 60px;
+	bottom: -30px;
+	transform: rotate(180deg);
+}
+
+.another-question-right-img {
+	position: relative;
+	border: none;
+	background-color: inherit;
+	cursor: pointer;
+
+	margin-left: 60px;
+	bottom: -30px;
+}
+
+
+.link {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 15px;
+	position: relative;
+
+	color: var(--text-header-1);
+	text-decoration: none;
+
+	transition: color .1s linear;
+}
+
+	.link:after {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 3px;
+		opacity: 0;
+
+		background-color: var(--CI-button);
+
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 1;
+
+		transition: opacity .1s linear;
+	}
+
+	.link:hover {
+		color: var(--CI-button);
+	}
+
+	.link:hover:after {
+		opacity: 1;
+	}
+
+
+.main-bottom-change {
+	color: var(--text-header-2);
+	font-size: 21px;
+	letter-spacing: 0.025em;
+}
+
+.main-bottom-change-first {
+	visibility: hidden;
+}
+
+.main-bottom-change-first select {
+	border: none;
+	background: var(--header-2);
+	border-radius: 8px;
+	text-align: center;
+	color: var(--text-header-2);
+	font-size: 18px;
+	padding: 2px;
+}
+
+.main-bottom-change-first.dop {
+	visibility: visible;
+}
+
+.main-bottom-change-second {
+	visibility: visible;
+
+	color: var(--text-header-2);
+}
+
+.main-bottom-change-second.dop {
+	visibility: hidden;
+}
+
+.dop-content {
+	display: none;
+	margin: 0.2% 0 0 1%;
+
+	color: var(--CI-button);
+}
+
+.main-bottom-change-second:hover ~ .dop-content {
+	display: block;
+}

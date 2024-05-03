@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto&display=swap'); 
+
+body {
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+h2 {
+    font-weight: 400;
+}
+
+p {
+    font-weight: 400;
+}
+
+h3 {
+    font-weight: 400;
+}
+
+.visuallyhidden:not(:focus):not(:active) {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+
+.tel {
+    margin-right: 45px;
+}
+
+.tel-logo {
+    margin-left: 834px;
+}
+
+.contacts_link {
+    color: #633C3C;
+}
+
+.contacts_link:hover {
+    opacity: .5;
+}
+
+/* Header styles end */
+
+/* Main styles start */
+
+.btn-burger-menu {
+    background-color: #fff;
+}
+
+.btn-home-page {
+    background-color: #e9f7ff;
+    border: none;
+}
+
+.btn-mail {
+    background-color: #e9f7ff;
+    border: none;
+    margin-left: 1700px;
+}
+
+
+.bonuses__wrapper {
+    max-width: 1920px;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.bonuses__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-right: 45px;
+    gap: 16px;
+    background: linear-gradient(81.76deg, #35556E 26.48%, #557B9A 55.96%, #C9E8FD 68.47%);
+    border: 4px solid #fff;
+    border-radius: 81px;
+    padding-top: 65px;
+    padding-bottom: 65px;
+    margin-top: 58px;
+}
+
+.bonuses__item {
+    position: relative;
+    width: 440px;
+    height: 563px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 4px solid #fff;
+    border-radius: 69px;
+}
+
+.bonuses__title {
+    display: block;
+    text-align: center;
+    display: block;
+    max-width: 289px;
+    margin: 0 auto;
+    margin-top: 86px;
+    color: #070707;
+    font-size: 30px;
+    line-height: 29px;
+    border-bottom: 4px solid #000;
+    padding: 21px;
+}
+
+.bonuses__text {
+    text-align: center;
+    color: #070707;
+    font-size: 25px;
+    line-height: 167.2%;
+    margin-top: 51px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.bonuses__button {
+    position: absolute;
+    bottom: 60px;
+    right: 106px;
+}
+
+.btn {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 24px 48px;
+    border-radius: 25px;
+    font-size: 20px;
+    line-height: 19px;
+}
+
+.under-elements__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 80px;
+    margin-left: 125px;
+}
+
+.under-elements__text {
+    font-size: 22px;
+    line-height: 21px;
+    border-bottom: 1px solid #000;
+}
+
+.under-elements__available-bonuses {
+    margin-left: 655px;
+}
+
+.under-elements__message-icon {
+    margin-left: 67px;
+}
+
+
+.available-bonuses {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 209px;
+    height: 72px;
+    border: 2px solid #000;
+    border-radius: 18px;
+}
+
+.available-bonuses__text {
+    border-bottom: 1px solid #000;
+    font-weight: 700;
+}
+
+.under-elements__text2 {
+    font-size: 24px;
+    line-height: 23px;
+    border-bottom: 2px solid #000;
+}
+
+@media (min-width: 992px) and (max-width: 1500px) {
+    .under-elements__available-bonuses { margin-left: 100px;}
+    .btn-mail {margin-left: 1000px;}
+}
+
+/* Main styles end */
