@@ -1,0 +1,15 @@
+:root {
+    --header-color: #4A6401;
+    --navigation-color: #BABB8F;
+    --color-1: #4A6401;
+    --color-2: #BABB8F;
+    --color-3: #FFC501;
+    --header-text: #FFFFFF;
+    --footer-color: #202020;
+    --background: url("./img/ambr_fon.jpg");
+    --test-grad: linear-gradient(116.48deg, #FFC501 0%, #FFD03C 100%);
+    --info-grad: linear-gradient(116.48deg, #FFC501 0%, #FFD03C 100%);
+    --bonus-grad: linear-gradient(81.76deg, #FFD03C 26.48%, #FFD03C 55.96%, #FFC501 68.47%);
+    --card-grad: linear-gradient(116.48deg, #FFC501 0%, #FFD03C 100%);
+    
+}

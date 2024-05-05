@@ -1,0 +1,15 @@
+:root {
+    --header-color: #557B9A;
+    --navigation-color: #53656C;
+    --color-1: #35556E;
+    --color-2: #426E8F;
+    --color-3: #557B9A;
+    --header-text: #FFFFFF;
+    --footer-color: #202020;
+    --background: url("./img/intr_t_fon.jpg");
+    --test-grad: linear-gradient(116.48deg, #35556E 0%, #35556E 100%);
+    --info-grad: linear-gradient(116.48deg, #35556E 0%, #35556E 100%);
+    --bonus-grad: linear-gradient(81.76deg, #35556E 26.48%, #557B9A 55.96%, #C9E8FD 68.47%);
+    --card-grad: linear-gradient(116.48deg, #35556E 42%, #35556E 100%);
+    
+}

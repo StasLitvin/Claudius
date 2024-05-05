@@ -137,6 +137,8 @@ table { border-collapse: collapse; border-spacing: 0; }
 	visibility: hidden;
 }
 
+/* Mark for myself */
+
 .osn-inf {
 	position: relative;
 	box-sizing: border-box;

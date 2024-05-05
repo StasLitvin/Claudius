@@ -10,7 +10,7 @@
 		<!-- Bootstrap CSS (jsDelivr CDN) -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic" rel="stylesheet">
 		<!-- CSS -->
-		<link rel="stylesheet" href={{ href[1] }} />
+		<!-- <link rel="stylesheet" href={{ href[1] }} /> -->
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 		<script src="../static/js/account.scroll.button.js"></script>
@@ -20,7 +20,7 @@
 	<body>
 
 		<main class="main">
-
+			<div class="profile__wrapper">
 			<div class="Balance">
 				<div class="B-static">Баланс:</div>
 				<div class="B-changing">{{ user[9] }}</div>
@@ -51,16 +51,16 @@
 						<div class="CI-my-education">
                     <div class="CI-my-education-buttons">
                         <div class="CI-my-education-button">
-                            <button class="continue" style="height: 35px; width: 138px"><a href="/courses">Курсы</a></button>
+                            <button class="continue"><a href="/courses">Курсы</a></button>
                         </div>
                         <div class="CI-my-education-button">
-                            <button class="continue" style="height: 35px; width: 138px"><a href="/mag">Обменник</a></button>
+                            <button class="continue"><a href="/mag">Обменник</a></button>
                         </div>
                         <div class="CI-my-education-button">
-                            <button class="continue" style="height: 35px; width: 138px"><a href="/icons/{{user[0]}}">Достижения</a></button>
+                            <button class="continue"><a href="/icons/{{user[0]}}">Достижения</a></button>
                         </div>
                         <div class="CI-my-education-button">
-                            <button class="continue" style="height: 35px; width: 138px"><a href="/">Главная</a></button>
+                            <button class="continue"><a href="/">Главная</a></button>
                         </div>
                     </div>
 							<div><button onClick="rotateImg()" class="CI-my-education-img button__scroll"><img id="imgScrollBar" src="../static/img/choice.svg" /></button></div>
@@ -118,6 +118,7 @@
 					<div class="dop-content" id="dop-content">Information about your emotional condition.</div>
 				</div>
 			</form>
+		</div>
 		</main>
 	</body>
 {% endblock %}
