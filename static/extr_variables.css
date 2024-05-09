@@ -1,10 +1,13 @@
 :root {
     --header-color: #330F13;
-    --header-text: #FFFFFF;
+    --header-text: #000000;
+    --header-text-2: #FFFFFF;
     --main-color: #90817C;
     --footer-color: #202020;
     --background: url("./img/extr_fon.jpg");
     --test-grad: linear-gradient(116.48deg, rgb(255, 241, 214) 0%, rgba(255, 203, 236) 100%);
     --info-grad: linear-gradient(116.48deg, rgba(255, 241, 214, 0.66) 0%, rgba(255, 203, 236, 0.66) 100%); 
     --bonus-grad: linear-gradient(81.76deg, #DDB6F4 26.48%, #E2C8E6 55.96%, #FDBBE5 68.47%);
+
+    --close-sidbar: url(./img/intr/close.svg)
 }

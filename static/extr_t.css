@@ -5,6 +5,7 @@
     --color-2: #983C51;
     --color-3: #557B9A;
     --header-text: #FFFFFF;
+    --header-text-2: #FFFFFF;
     --footer-color: #202020;
     --background: url("./img/extr_t_fon.jpg");
     --test-grad: linear-gradient(116.48deg, #702436 0%, #702436 100%);
@@ -12,4 +13,5 @@
     --bonus-grad: linear-gradient(81.76deg, #702436 26.48%, #B74760 55.96%, #cf7689 68.47%);
     --card-grad: linear-gradient(116.48deg, #702436 42%, #702436 100%);
     
+    --close-sidbar: url(./img/intr/close_t.svg)
 }

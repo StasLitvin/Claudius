@@ -1,0 +1,15 @@
+:root {
+    --header-color: #817E3A;
+    --sidebar: #6A6B50;
+    --color-1: #535132;
+    --color-2: #757240;
+    --color-3: #817E3A;
+    --header-text: #FFFFFF;
+    --footer-color: #202020;
+    --background: #2A2A2A;
+    --test-grad: linear-gradient(116.48deg, #535132 0%, #535132 100%);
+    --info-grad: linear-gradient(116.48deg, #535132 0%, #535132 100%);
+    --bonus-grad: linear-gradient(81.76deg, #535132 26.48%, #817E3A 55.96%, #b3af6f 68.47%);
+    --card-grad: linear-gradient(116.48deg, #535132 42%, #535132 100%);
+    
+}
