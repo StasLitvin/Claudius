@@ -221,11 +221,75 @@ li:has(#progress.active) {
 /* THE CHAT */
 
 .support {
-    display: none;
+    z-index: 999;
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+    max-width: 250px;
+    height: 350px;
+    background-color: white;
+    border: 3px solid black;
+}
+
+.support__header {
+    display: flex;
+    padding: 8px;
+    background-color: var(--navigation-color);
+    text-align: center;
+}
+
+.support__messages {
+    margin: 8px;
+    overflow-y: scroll;
+    height: calc(100% - 150px);
+}
+
+.support__support-message {
+    margin-bottom: 8px;
+    padding: 8px;
+    background-color: var(--navigation-color);
+}
+
+.support__my-message {
+    margin-bottom: 8px;
+    padding: 8px;
+    background-color: lightgray;
+}
+
+.support__form {
+    background-color: white;
+    margin: 8px;
+    padding: 8px;
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    width: calc(100% - 16px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.support__user-input {
+    flex-grow: 1;
+}
+
+.support__send-button {
+    margin-bottom: -3px;
 }
 
 .main-bottom-change {
     visibility: hidden;
+}
+
+.support_c {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+}
+
+.support__send-button {
+    margin: 0 !important;
 }
 
 /* THE FOOTER */
