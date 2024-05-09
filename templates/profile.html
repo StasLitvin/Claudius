@@ -24,7 +24,7 @@
 			<div class="Balance">
 				<div class="B-static">Баланс:</div>
 				<div class="B-changing">{{ user[9] }}</div>
-				<div class="B-img"><img src="../static/img/gingerbread.svg" alt="">
+				<div class="B-img"><img src="../static/img/gingerbread{{svg_prog}}.svg" alt="">
                 </div>
 			</div>
 
@@ -88,7 +88,7 @@
                                         </div>
 													<div class="CI-cours-bar-icons">
 														{% for j in i[8] %}
-                                        				<img src="../static/img/icons/{{href_svg}}_{{j[0]}}.svg" alt="" class="CI-cours-bar-icons-all-img">
+                                        				<img src="../static/img/icons/{{svg_icons}}{{href_svg}}_{{j[0]}}.svg" alt="" class="CI-cours-bar-icons-all-img">
 														{% endfor %}
                                    		</div>
 													</div>
@@ -112,6 +112,10 @@
 							<option value="Интроверт">Интроверт</option>
 							<option value="Амбиверт">Амбиверт</option>
 							<option value="Экстраверт">Экстраверт</option>
+						</select>
+						<select class="emotional-condition" id="type-condition" name="type-condition">
+							<option value="0">Светлая</option>
+							<option value="1">Тёмная</option>
 						</select>
 					</div>
 					<div class="main-bottom-change-second link" id="main-bottom-change-second">Интроверт</div>

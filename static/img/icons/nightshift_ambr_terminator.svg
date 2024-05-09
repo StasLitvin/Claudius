@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 227.23846 227.23855">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 5.564px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1, .cls-3 {
+        stroke: #aac419;
+        stroke-miterlimit: 5.57;
+      }
+
+      .cls-4 {
+        isolation: isolate;
+      }
+
+      .cls-2, .cls-5 {
+        stroke-width: 0px;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-5 {
+        fill: #ffd03c;
+      }
+
+      .cls-3 {
+        stroke-width: 5.57px;
+      }
+
+      .cls-7 {
+        fill: #aac419;
+        font-family: ArialMT, Arial;
+        font-size: 79.1006px;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" x="79.63266" y="68.33828" width="74.8501" height="93.57007"/>
+    </clipPath>
+  </defs>
+  <path class="cls-3" d="M35.2474,35.24722c43.28369-43.28296,113.45996-43.28296,156.74365,0,43.2832,43.28418,43.2832,113.46008,0,156.74402-43.28369,43.28308-113.45996,43.28308-156.74365,0-43.2832-43.28394-43.2832-113.46082,0-156.74402Z"/>
+  <path class="cls-5" d="M159.05746,183.7294h-91.17236c-13.58594,0-24.59912-11.01294-24.59912-24.599v-91.172c0-13.58594,11.01221-24.59888,24.59912-24.59888h91.17236c13.58594,0,24.59863,11.01294,24.59863,24.59888v91.172c0,13.58606-11.0127,24.599-24.59863,24.599"/>
+  <rect class="cls-1" x="43.28598" y="43.35952" width="140.37012" height="140.36987" rx="24.59863" ry="24.59863"/>
+  <g class="cls-4">
+    <g class="cls-6">
+      <text class="cls-7" transform="translate(79.74924 136.22403)"><tspan x="0" y="0">AI</tspan></text>
+    </g>
+  </g>
+</svg>

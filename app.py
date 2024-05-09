@@ -9,7 +9,7 @@ from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg,
     user_update_coin, class_stud, user_rez, task_class, tasks_lec, answer_user, tasks_lec_rez, rez_coin, task_eval, \
     update_answer_coin, cards_corsers, cards_course, class_pre, href_update, password_reset_token_create, \
     find_user_by_email, name_lec, user_course, update_user_course, user_courses_count, name_cours_id_lect, mas_lecture, \
-    update_progress, faq_mas, leaders, icons, icon_users
+    update_progress, faq_mas, leaders, icons, icon_users, type_href, type_update
 from werkzeug.utils import secure_filename
 from mail import send_mail, send_password_reset_mail
 import joblib
@@ -28,40 +28,28 @@ def allowed_file(filename):
         filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-href_intr = ["../static/css/trade_intr.css", "../static/css/profile_intr.css", "../static/css/style_intr.css",
-             "../static/css/reset_intr.css", "../static/css/courses_intr.css", "../static/css/account_styl_intr.css",
-             "../static/css/header_intr.css", "intr", "../static/css/course_intr.css", "../static/css/table_intr.css",
-             "../static/css/cours_lec_task_intr.css", "../static/css/rez_cours_intr.css", "../static/css/faq_intr.css",
-             "../static/css/leaderboard_intr.css"]
-href_extr = ["../static/css/trade_extr.css", "../static/css/profile_extr.css", "../static/css/style_extr.css",
-             "../static/css/reset_extr.css", "../static/css/courses_extr.css", "../static/css/account_styl_extr.css",
-             "../static/css/header_extr.css", "extr", "../static/css/course_extr.css", "../static/css/table_extr.css",
-             "../static/css/cours_lec_task_extr.css", "../static/css/rez_cours_extr.css", "../static/css/faq_extr.css",
-             "../static/css/leaderboard_extr.css"]
-href_ambr = ["../static/css/trade_ambr.css", "../static/css/profile_ambr.css", "../static/css/style_ambr.css",
-             "../static/css/reset_ambr.css", "../static/css/courses_ambr.css", "../static/css/account_styl_ambr.css",
-             "../static/css/header_ambr.css", "ambr", "../static/css/course_ambr.css", "../static/css/table_ambr.css",
-             "../static/css/cours_lec_task_ambr.css", "../static/css/rez_cours_ambr.css", "../static/css/faq_ambr.css",
-             "../static/css/leaderboard_ambr.css"]
+href_intr = "../static/intr.css"
+href_extr = "../static/extr.css"
+href_ambr = "../static/ambr.css"
 
-href_intr_t = ["../static/css_t/trade_intr.css", "../static/css_t/profile_intr.css", "../static/css_t/style_intr.css",
-             "../static/css_t/reset_intr.css", "../static/css_t/courses_intr.css", "../static/css_t/account_styl_intr.css",
-             "../static/css_t/header_intr.css", "intr", "../static/css_t/course_intr.css", "../static/css_t/table_intr.css",
-             "../static/css_t/cours_lec_task_intr.css", "../static/css_t/rez_cours_intr.css", "../static/css_t/faq_intr.css",
-             "../static/css_t/leaderboard_intr.css"]
-href_extr_t = ["../static/css_t/trade_extr.css", "../static/css_t/profile_extr.css", "../static/css_t/style_extr.css",
-             "../static/css_t/reset_extr.css", "../static/css_t/courses_extr.css", "../static/css_t/account_styl_extr.css",
-             "../static/css_t/header_extr.css", "extr", "../static/css_t/course_extr.css", "../static/css_t/table_extr.css",
-             "../static/css_t/cours_lec_task_extr.css", "../static/css_t/rez_cours_extr.css", "../static/css_t/faq_extr.css",
-             "../static/css_t/leaderboard_extr.css"]
-href_ambr_t = ["../static/css_t/trade_ambr.css", "../static/css_t/profile_ambr.css", "../static/css_t/style_ambr.css",
-             "../static/css_t/reset_ambr.css", "../static/css_t/courses_ambr.css", "../static/css_t/account_styl_ambr.css",
-             "../static/css_t/header_ambr.css", "ambr", "../static/css_t/course_ambr.css", "../static/css_t/table_ambr.css",
-             "../static/css_t/cours_lec_task_ambr.css", "../static/css_t/rez_cours_ambr.css", "../static/css_t/faq_ambr.css",
-             "../static/css_t/leaderboard_ambr.css"]
+href_intr_t = "../static/intr_t.css"
+href_extr_t = "../static/extr_t.css"
+href_ambr_t = "../static/ambr_t.css"
 
-type_css = {"Интроверт": href_intr_t, "Экстраверт": href_extr_t, "Амбиверт": href_ambr_t}
+type_css = {"Интроверт": href_intr, "Экстраверт": href_extr, "Амбиверт": href_ambr}
+type_css_t = {"Интроверт": href_intr_t, "Экстраверт": href_extr_t, "Амбиверт": href_ambr_t}
 type_svg = {"Интроверт": "intr", "Экстраверт": "extr", "Амбиверт": "ambr"}
+svg_t = {0: "#000", 1: "#FFF"}
+svg_prog = {0: "", 1: "_t"}
+svg_icons = {0: "", 1: "nightshift_"}
+
+
+def type_href_css(type, href):
+    if type == 0:
+        return type_css[href]
+    else:
+        return type_css_t[href]
+
 
 def generate_csrf_token():
     return hashlib.sha256(os.urandom(64)).hexdigest()
@@ -112,17 +100,20 @@ def base():
             if rezult == "Амбиверт":
                 return redirect(url_for("ambivert"))
     if 'user_href' in session:
-        return render_template('main.html', title="Главная", href=type_css[session['user_href']],
+        session['type_href'] = type_href(session['id_user'])
+        return render_template('main.html', title="Главная",
+                               href=type_href_css(session['type_href'], session['user_href']),
                                user=data_user(session['id_user']),
                                task=session['tasks_test_lich'][session['now_task_test_lich'] - 1],
                                count_tasks=session['count_tasks_test_lich'], now_task=session['now_task_test_lich'],
                                rez_task=session['tasks_test_lich_rez'][session['now_task_test_lich'] - 1],
-                               navig=["Главная"])
+                               navig=["Главная"], href_svg=type_svg[session['user_href']],
+                               svg_t=svg_t[session['type_href']], svg_prog=svg_prog[session['type_href']])
     return render_template('main.html', title="Главная", href=href_intr,
                            task=session['tasks_test_lich'][session['now_task_test_lich'] - 1],
                            count_tasks=session['count_tasks_test_lich'], now_task=session['now_task_test_lich'],
                            rez_task=session['tasks_test_lich_rez'][session['now_task_test_lich'] - 1],
-                           navig=["Главная"])
+                           navig=["Главная"], href_svg="intr", svg_t=svg_t[0])
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -143,17 +134,17 @@ def reg():
                    password_hash, salt, request.form['pos'], request.form['s'], 0)
             if "Заполните поле!" in req or '' in req:
                 return render_template('reg.html', error_text="Некоторые поля не заполнены", href=href_intr,
-                                       navig=["Авторизация"])
+                                       navig=["Авторизация"], svg_t=svg_t[0])
             if check_user_exist(request.form['login']):
                 return render_template('reg.html', error_text="Этот e-mail уже зарегистрирован", href=href_intr,
-                                       navig=["Авторизация"])
+                                       navig=["Авторизация"], svg_t=svg_t[0])
             data_user_reg(list(req))
             return redirect('/login')
         else:
             csrf_token = generate_csrf_token()
             session['csrf_token'] = csrf_token
             return render_template('reg.html', title="Главная", href=href_intr, csrf_token=csrf_token,
-                                   error_text='Invalid cstf token', navig=["Авторизация"])
+                                   error_text='Invalid cstf token', navig=["Авторизация"], svg_t=svg_t[0])
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -178,6 +169,7 @@ def login():
                 print(input_login(request_login)[0])
                 session['id_user'] = user_id
                 session['user_href'] = user_s
+                session['type_href'] = type_href(session['id_user'])
                 print(input_login(session['user_href']))
                 session['login_user'] = request_login
                 return redirect(url_for('profile', username=session['login_user']))
@@ -249,10 +241,11 @@ def mag():
     if request.method == "GET":
         if 'user_href' in session:
             return render_template('mag.html', title="Система поощерения", coup=coups_mas(),
-                                   href=type_css[session['user_href']],
-                                   user=data_user(session['id_user']), navig=["Система поощерения"])
+                                   href=type_href_css(session['type_href'], session['user_href']),
+                                   user=data_user(session['id_user']), navig=["Система поощерения"],
+                                   svg_t=svg_t[session['type_href']])
         return render_template("mag.html", coup=coups_mas(), title="Система поощерения", href=href_intr,
-                               navig=["Система поощерения"])
+                               navig=["Система поощерения"], svg_t=svg_t[0])
     if request.method == "POST":
         id_coup = request.form['id_coup']
         coup = coup_mas(id_coup)
@@ -266,8 +259,9 @@ def mag():
             if coup[0][-1] <= user[0][-2]:
                 user_update_coin(session['id_user'], user[0][-2] - coup[0][-1])
                 del_coup(id_coup)
-        return render_template('mag.html', title="Обменник", coup=coups_mas(), href=type_css[session['user_href']],
-                               navig=["Обменник"])
+        return render_template('mag.html', title="Обменник", coup=coups_mas(),
+                               href=type_href_css(session['type_href'], session['user_href']),
+                               navig=["Обменник"], svg_t=svg_t[session['type_href']])
 
 
 @app.route('/profile', methods=['GET', 'POST'])
@@ -279,10 +273,12 @@ def profile():
             print(request.form['nick'])
             print(request.form)
             session['user_href'] = request.form['emotional_condition']
+            session['type_href'] = int(request.form['type-condition'])
             if len(request.form['nick'].split(" ")) == 3:
                 href_update(session['id_user'], session['user_href'], request.form['nick'].split(" "))
             else:
                 href_update(session['id_user'], session['user_href'], [])
+            type_update(session['id_user'], session['type_href'])
         k = user_courses_count(session["id_user"])
         passed_true = 0
         passed_false = 0
@@ -294,9 +290,12 @@ def profile():
                     passed_false += 1
                 else:
                     passed_true += 1
-        return render_template('profile.html', title="Личный кабинет", href=type_css[session['user_href']],
+        return render_template('profile.html', title="Личный кабинет",
+                               href=type_href_css(session['type_href'], session['user_href']),
                                user=data_user(session['id_user'])[0], navig=["Личный кабинет"], courses=k,
-                               passed_true=passed_true, passed_false=passed_false,href_svg=type_svg[session['user_href']])
+                               passed_true=passed_true, passed_false=passed_false,
+                               href_svg=type_svg[session['user_href']], svg_t=svg_t[session['type_href']],
+                               svg_prog=svg_prog[session['type_href']], svg_icons=svg_icons[session['type_href']])
 
 
 @app.route('/class/<id_class>', methods=['GET'])
@@ -329,7 +328,8 @@ def class_rez(id_class):
             sh.append(i[1])
         print(sh)
         print(mas_studs)
-        return render_template('class.html', title="Результаты курса", href=type_css[session['user_href']], sh=sh,
+        return render_template('class.html', title="Результаты курса",
+                               href=type_href_css(session['type_href'], session['user_href']), sh=sh,
                                mas_studs=mas_studs,
                                navig=["Результаты курса"])
 
@@ -376,7 +376,8 @@ def tasks(id_lecture):
             print(session['id_user'])
             return redirect(url_for('rez_tasks', id_lecture=id_lecture, id_user=session['id_user']))
     print(session[test])
-    return render_template('tasks.html', title="Главная", href=type_css[session['user_href']],
+    return render_template('tasks.html', title="Главная",
+                           href=type_href_css(session['type_href'], session['user_href']),
                            lecture=name_lec(id_lecture),
                            user=data_user(session['id_user']),
                            task=session[test][session[now] - 1],
@@ -416,13 +417,15 @@ def rez_tasks(id_lecture, id_user):
         print(session[rez])
         print('количество', session[count])
     session.modified = True
-    return render_template('task_rez2.html', title="Результаты заданий", href=type_css[session['user_href']],
+    return render_template('task_rez2.html', title="Результаты заданий",
+                           href=type_href_css(session['type_href'], session['user_href']),
                            lecture=name_lec(id_lecture),
                            user=data_user(session['id_user']),
                            i=session[test][session[now] - 1],
                            r=session[rez][session[now] - 1],
                            count_tasks=session[count], now_task=session[now],
-                           rez_task=session[rez][session[now] - 1], navig=["Результаты теста к лекции"])
+                           rez_task=session[rez][session[now] - 1], navig=["Результаты теста к лекции"],
+                           svg_prog=svg_prog[session['type_href']])
 
 
 @app.route('/courses/<id_course>', methods=['GET', 'POST'])
@@ -439,14 +442,15 @@ def course(id_course):
                 rez = user_course(id_course, session["id_user"])[0][0]
             print(stat)
             return render_template('course.html', tittle=cards_course(id_course)[0][0],
-                                   href=type_css[session['user_href']],
+                                   href=type_href_css(session['type_href'], session['user_href']),
                                    course=cards_course(id_course)[0],
                                    navig=["Курсы", cards_course(id_course)[0][0]], course_nach=stat,
-                                   id_course=id_course, rez=rez, id_u=session["id_user"])
+                                   id_course=id_course, rez=rez, id_u=session["id_user"],
+                                   href_svg=type_svg[session['user_href']])
 
         return render_template('course.html', tittle=cards_course(id_course)[0][0], href=href_intr,
                                course=cards_course(id_course)[0],
-                               navig=["Курсы", cards_course(id_course)[0][0]])
+                               navig=["Курсы", cards_course(id_course)[0][0]], href_svg="intr")
 
     elif request.method == "POST":
         if 'user_href' in session and 'id_user' in session:
@@ -463,10 +467,11 @@ def courses():
         cards = cards_corsers()
         if 'user_href' in session:
             return render_template('courses.html', title="Курсы", count_courses=cards[0], courses=cards[1],
-                                   href=type_css[session['user_href']], user=data_user(session['id_user']),
-                                   navig=["Курсы"])
+                                   href=type_href_css(session['type_href'], session['user_href']),
+                                   user=data_user(session['id_user']),
+                                   navig=["Курсы"], href_svg=type_svg[session['user_href']])
         return render_template('courses.html', title="Курсы", count_courses=cards[0], courses=cards[1],
-                               href=href_intr, navig=["Курсы"])
+                               href=href_intr, navig=["Курсы"], href_svg="intr")
     if request.method == "POST":
         cards = cards_corsers()[1]
         cards_true = []
@@ -476,10 +481,11 @@ def courses():
         print(cards_true)
         if 'user_href' in session:
             return render_template('courses.html', title="Курсы", count_courses=len(cards_true), courses=cards_true,
-                                   href=type_css[session['user_href']], user=data_user(session['id_user']),
-                                   navig=["Курсы"])
+                                   href=type_href_css(session['type_href'], session['user_href']),
+                                   user=data_user(session['id_user']),
+                                   navig=["Курсы"], href_svg=type_svg[session['user_href']])
         return render_template('courses.html', title="Курсы", count_courses=len(cards_true), courses=cards_true,
-                               href=href_intr, navig=["Курсы"])
+                               href=href_intr, navig=["Курсы"], href_svg="intr")
 
 
 @app.route('/down', methods=['GET', 'POST'])
@@ -515,9 +521,11 @@ def ambivert():
     if request.method == 'POST':
         print(1, request.form)
         return render_template('ambivert.html', title="Амбиверт", href=href_ambr,
-                               navig=["Описание типа личности", "Амбиверт"])
+                               navig=["Описание типа личности", "Амбиверт"], svg_t=svg_t[0], svg_prog=svg_prog[0],
+                               svg_icons=svg_icons[0])
     return render_template('ambivert.html', title="Амбиверт", href=href_ambr,
-                           navig=["Описание типа личности", "Амбиверт"])
+                           navig=["Описание типа личности", "Амбиверт"], svg_t=svg_t[0], svg_prog=svg_prog[0],
+                           svg_icons=svg_icons[0])
 
 
 @app.route('/introvert', methods=['GET', 'POST'])
@@ -525,9 +533,11 @@ def introvert():
     if request.method == 'POST':
         print(1, request.form)
         return render_template('introvert.html', title="Интроверт", href=href_intr,
-                               navig=["Описание типа личности", "Интроверт"])
+                               navig=["Описание типа личности", "Интроверт"], svg_t=svg_t[0], svg_prog=svg_prog[0],
+                               svg_icons=svg_icons[0])
     return render_template('introvert.html', title="Интроверт", href=href_intr,
-                           navig=["Описание типа личности", "Интроверт"])
+                           navig=["Описание типа личности", "Интроверт"], svg_t=svg_t[0], svg_prog=svg_prog[0],
+                           svg_icons=svg_icons[0])
 
 
 @app.route('/extrovert', methods=['GET', 'POST'])
@@ -535,9 +545,11 @@ def extrovert():
     if request.method == 'POST':
         print(1, request.form)
         return render_template('extrovert.html', title="Экстраверт", href=href_extr,
-                               navig=["Описание типа личности", "Экстраверт"])
+                               navig=["Описание типа личности", "Экстраверт"], svg_t=svg_t[0], svg_prog=svg_prog[0],
+                               svg_icons=svg_icons[0])
     return render_template('extrovert.html', title="Экстраверт", href=href_extr,
-                           navig=["Описание типа личности", "Экстраверт"])
+                           navig=["Описание типа личности", "Экстраверт"], svg_t=svg_t[0], svg_prog=svg_prog[0],
+                           svg_icons=svg_icons[0])
 
 
 @app.route('/send_message', methods=['GET', 'POST'])
@@ -550,7 +562,8 @@ def send_message():
 @app.route('/chat_bot', methods=['GET'])
 def chat_bot():
     if 'user_href' in session:
-        return render_template('chat.html', title="Чат-бот", href=type_css[session['user_href']],
+        return render_template('chat.html', title="Чат-бот",
+                               href=type_href_css(session['type_href'], session['user_href']),
                                user=data_user(session['id_user']),
                                navig=["Чат-бот"])
     return render_template('chat.html', title="Чат-бот", href=href_intr,
@@ -561,7 +574,8 @@ def chat_bot():
 def fag():
     type_fill = {"Интроверт": "#E3F9FF", "Экстраверт": "#90817C", "Амбиверт": "#FFC501"}
     if 'user_href' in session:
-        return render_template('fag.html', title="Чат-бот", href=type_css[session['user_href']],
+        return render_template('fag.html', title="Чат-бот",
+                               href=type_href_css(session['type_href'], session['user_href']),
                                fill=type_fill[session['user_href']],
                                user=data_user(session['id_user']),
                                navig=["Часто задаваемые вопросы"],
@@ -585,7 +599,8 @@ def rez_cours(id_lecture, id_user):
             all_coin += i[1]
         n = name_lec(id_lecture)
         cours = name_cours_id_lect(id_lecture)
-        return render_template('rez_cours.html', title="Просмотр попыток", href=type_css[session['user_href']],
+        return render_template('rez_cours.html', title="Просмотр попыток",
+                               href=type_href_css(session['type_href'], session['user_href']),
                                navig=["Мои курсы", cours, n], name_lec=n, rez_coin=sum_coin, all_coin=all_coin,
                                i_l=id_lecture, i_u=id_user)
 
@@ -612,7 +627,8 @@ def cours_mas(id_class, id_user):
             mas_inf.append([j[0], j[1], j[2], sum_coin, all_coin])
         cours = name_cours_id_lect(id_lecture)
         update_progress(id_class, id_user, int(allsum_coin / allcoin * 100))
-        return render_template('cours_lec_task.html', title="Материалы курса", href=type_css[session['user_href']],
+        return render_template('cours_lec_task.html', title="Материалы курса",
+                               href=type_href_css(session['type_href'], session['user_href']),
                                navig=["Мои курсы", cours], mas_inf=mas_inf, name_cours=cours, i_u=id_user,
                                progress=int(allsum_coin / allcoin * 100))
 
@@ -621,17 +637,21 @@ def cours_mas(id_class, id_user):
 def leaderboard():
     if request.method == "GET":
         board = leaders()
-        return render_template('leaderboard.html', title="Главная", href=type_css[session['user_href']],
+        return render_template('leaderboard.html', title="Главная",
+                               href=type_href_css(session['type_href'], session['user_href']),
                                navig=["Таблица лидеров"], board=board)
 
 
 @app.route('/icons/<id_user>', methods=['GET'])
 def test(id_user):
     if 'id_user' in session:
-        id_user=id_user
+        id_user = id_user
 
-        return render_template('icons.html', href=type_css[session['user_href']], title="Достижения", icons=icons(),
-                           navig=["Достижения"], href_svg=type_svg[session['user_href']],i_u=icon_users(id_user))
+        return render_template('icons.html', href=type_href_css(session['type_href'], session['user_href']),
+                               title="Достижения", icons=icons(),
+                               navig=["Достижения"], href_svg=type_svg[session['user_href']], i_u=icon_users(id_user),
+                               svg_t=svg_t[session['type_href']], svg_prog=svg_prog[session['type_href']],
+                               svg_icons=svg_icons[session['type_href']])
 
     return redirect(url_for('login'))
 

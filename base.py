@@ -8,7 +8,7 @@ def data_con():
     """Подключение к БД"""
     return mysql.connector.connect(
         host=host,
-        port=3306,
+        port=3360,
         user=user,
         password=password,
         database=db_name
@@ -539,3 +539,24 @@ def icon_users(id):
     cursor.close()
     connection.close()
     return result
+
+def type_href(id):
+    connection = data_con()
+    cursor = connection.cursor()
+    query = '''SELECT t FROM users WHERE id=(%s)'''
+    cursor.execute(query,(id,))
+    result = cursor.fetchall()
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return result[0][0]
+
+
+def type_update(id_user, type):
+    connection = data_con()
+    cursor = connection.cursor()
+    quary = f'''UPDATE users SET t="{type}" WHERE id="{id_user}"'''
+    cursor.execute(quary)
+    connection.commit()
+    cursor.close()
+    connection.close()
