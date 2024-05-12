@@ -91,6 +91,10 @@ button {
 .navigation svg {
     stroke: var(--header-text);
 }
+.navigation__home svg{
+    stroke: var(--header-text);
+    display:none;
+}
 
 .navigation__wrapper {
     display: flex;

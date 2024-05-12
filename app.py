@@ -3,7 +3,6 @@ import os
 from config import UPLOAD_FOLDER, ALLOWED_EXTENSIONS, mas_test_lich
 from main import rezult_test_lic
 from flask import Flask, render_template, request, session, url_for, redirect, abort, jsonify
-from flask_session import Session
 from base import check_user_exist, coups_mas, coup_mas, del_coup, data_user_reg, input_login, data_user, \
     password_reset_token_find, update_password, \
     user_update_coin, class_stud, user_rez, task_class, tasks_lec, answer_user, tasks_lec_rez, rez_coin, task_eval, \
@@ -19,7 +18,6 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'fsa87asd782asd'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config["SESSION_TYPE"] = "filesystem"
-Session(app)
 
 
 def allowed_file(filename):
