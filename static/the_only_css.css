@@ -91,8 +91,8 @@ button {
 .navigation svg {
     stroke: var(--header-text);
 }
-.navigation__home svg{
-    stroke: var(--header-text);
+#header-btn {
+    stroke: var(--header-text-2);
     display:none;
 }
 
@@ -1312,7 +1312,7 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 	}
 
 	.link:hover {
-		color: var(--CI-button);
+		color: var(--header-text-2);
 	}
 
 	.link:hover:after {
@@ -1323,6 +1323,7 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 .main-bottom-change {
 	color: var(--text-header-2);
 	font-size: 1.25rem;
+    position: relative;
 }
 
 .main-bottom-change-first {
@@ -1347,7 +1348,8 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 
 .main-bottom-change-second {
 	visibility: visible;
-
+    position: absolute;
+    left: 0;
 	color: var(--text-header-2);
     margin-bottom: 2rem;
 }
@@ -1359,8 +1361,10 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 .dop-content {
 	display: none;
     visibility: visible;
-
-	color: var(--CI-button);
+    position: absolute;
+    top: 64px;
+    text-align: left;
+	color: var(--text-header-2);
 }
 
 .main-bottom-change-second:hover ~ .dop-content {
@@ -1668,6 +1672,9 @@ style.css.visually-hidden:not(:focus):not(:active) {
         .header__wrapper {
             padding: 0 2rem;
         }
+        #header-btn {
+            display: block;
+        }
         main {
             min-height: calc(100dvh - 3.5rem);
             padding: 0 2rem;
@@ -1758,6 +1765,9 @@ style.css.visually-hidden:not(:focus):not(:active) {
         .CI-cours {
             font-size: 1rem;
         }
+        .main__osn {
+            gap: 3rem;
+        }
         .course__button-start_form {
             padding: 1rem;
             font-size: 1rem;
@@ -1842,6 +1852,10 @@ style.css.visually-hidden:not(:focus):not(:active) {
         .auth__right-section {
             padding: 1rem;
         }
+        .header__logomin {
+            display: none;
+        }
+        
     }
     @media (width <=625px) {
         .another-question-right, .another-question-left {

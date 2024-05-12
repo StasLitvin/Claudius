@@ -15,7 +15,7 @@
 
     --close-sidbar: url(./img/intr/close.svg)
 }
-
+/* 
 @media (prefers-color-scheme: dark) {
     :root {
         --header-color: #557B9A;
@@ -35,4 +35,4 @@
         --close-sidbar: url(./img/intr/close_t.svg)
         
     }
-  }
+  } */
