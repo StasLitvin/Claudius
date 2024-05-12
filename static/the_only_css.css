@@ -85,6 +85,11 @@ button {
 
 .navigation {
     background-color: var(--navigation-color);
+    position: relative;
+}
+
+.navigation svg {
+    stroke: var(--header-text);
 }
 
 .navigation__wrapper {
@@ -95,6 +100,16 @@ button {
     padding: 0 4rem;
     gap: 1rem;
     margin: 0 auto;
+}
+
+.exit_img {
+    position: absolute;
+    right: 64px;
+    top: 14px;
+}
+
+.exit_img path{
+    fill: var(--header-text);
 }
 
 .navigation__home {
@@ -121,7 +136,7 @@ button {
 
 .sidebar__logo{
     font-size: 3rem;
-    color: var(--header-color);
+    color: var(--header-text);
     font-weight: 700;
     text-align: center;
     margin-bottom: 1.5rem;
@@ -148,7 +163,7 @@ button {
     text-decoration: none;
     font-weight: 700;
     border-radius: 1.5rem;
-    border: 3px solid black;
+    border: 3px solid var(--header-text);
     color: var(--header-text);
     margin-bottom: 1.5rem;
     padding: 1rem 0;
@@ -239,6 +254,11 @@ li:has(#progress.active) {
     text-align: center;
 }
 
+.support__header * {
+    color: var(--header-text-2);
+    fill: var(--header-text-2);
+}
+
 .support__messages {
     margin: 8px;
     overflow-y: scroll;
@@ -260,7 +280,7 @@ li:has(#progress.active) {
 }
 
 .support__form {
-    background-color: var(--header-text);;
+    background-color: var(--header-text-2);;
     margin: 8px;
     padding: 8px;
     position: absolute;
@@ -293,6 +313,10 @@ li:has(#progress.active) {
 
 .support__send-button {
     margin: 0 !important;
+}
+
+.support__send-button > svg {
+    fill: #000;
 }
 
 /* THE FOOTER */
@@ -853,22 +877,17 @@ input[type='radio']:checked:after {
   }
 
 
-
-  .statistics {
-    padding-top: 75px;
-}
-
 .statistics__wrapper {
-    max-width: 1585px;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
 .statistics__title {
-    font-size: 50px;
+    font-size: 3rem;
     font-weight: 700;
-    line-height: 61px;
     text-align: center;
     color: var(--header-text);
+    margin: 2rem 0;
 }
 
 .statistics__progress-bar {
@@ -899,10 +918,10 @@ input[type='radio']:checked:after {
 }
 
 .progress-bar__value {
-    font-size: 30px;
-    font-weight: 500;
+    font-size: 2rem;
     text-align: center;
     color: var(--header-text);
+    margin-bottom: 1rem;
 }
 
 .course-results__title {
@@ -913,23 +932,23 @@ input[type='radio']:checked:after {
     border-bottom: 1px solid black;
 }
 
+.course-results__list {
+    margin-bottom: 2rem;
+}
+
 .course-results__item {
     display: flex;
-    padding: 31px 167px 29px 167px;
+    padding: 2rem;
     border-bottom: 1px solid black;
     justify-content: space-between;
 }
 
 .item__name {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 1.5rem;
 }
 
 .item__result {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 500;
-    max-width: fit-content;
+    font-size: 1.5rem;
     text-decoration: underline;
     color: var(--header-text);
 }
@@ -1140,14 +1159,14 @@ input[type='radio']:checked:after {
 	text-align: left;
 	border-radius: 1.25rem;
 	background: var(--color-2);
-	box-shadow: 3px -3px 5px var(--header-text), -1px 5px 8px var(--header-text);
+	box-shadow: 0 0 8px var(--header-text);
+    color: var(--header-text);
     position: relative;
 }
 
 	.PI-dop p {
         font-size: 1.25rem;
 		display: inline;
-		color: var(--header-text);
 	}
 
 /* Courses-Info */
@@ -1219,8 +1238,7 @@ _:-ms-input-placeholder, :root .content-list { padding-left: 20px; }
 }
 
 .CI-cours-info {
-
-	color: var(--CI-static);
+	color: var(--header-text);
 }
 
 .CI-cours-button {
@@ -1534,6 +1552,106 @@ style.css.visually-hidden:not(:focus):not(:active) {
           border-radius: 20px;
       }
   
+.questions__wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.questions__title {
+    margin: 2rem auto;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.questions-answers__question-answer {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.auth__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 2rem auto;
+}
+
+.auth__left-section {
+    text-align: center;
+    background: #10366A;
+    border-radius: 2rem 0 0 2rem;
+    padding: 2rem;
+    color: white;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+}
+
+.auth__button {
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 2rem;
+    border: 0.25rem white solid;
+    font-size: 1.5rem;
+}
+
+.form__submit-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    border: 0.25rem black solid;
+    font-size: 1.5rem;
+    background-color: transparent;
+}
+
+.auth__text {
+    font-size: 1.5rem;
+}
+
+.auth__right-section {
+    text-align: center;
+    border-radius: 0 2rem 2rem 0;
+    padding: 2rem;
+    background: white;
+}
+
+.auth__right-section form .form{
+    display: grid;
+    gap: 1rem;
+    grid-template-rows: 1fr 2fr;
+    justify-items: center;
+    align-items: center;
+}
+.form__btns {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: minmax(200px, 1fr);
+    gap: 1rem;
+}
+.auth__title, .form__title {
+    font-size: 3rem;
+}
+
+.show-password-btn {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+}
+
+.btns__password-container {
+    position: relative;
+}
+
+.btns__login, .btns__password {
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    border: #000 solid 1px;
+    border-radius: 1rem;
+}
 
       @media (width <= 900px) {
         *, *::after, *::before {
@@ -1546,7 +1664,7 @@ style.css.visually-hidden:not(:focus):not(:active) {
         .header__wrapper {
             padding: 0 2rem;
         }
-        .main {
+        main {
             min-height: calc(100dvh - 3.5rem);
             padding: 0 2rem;
         }
@@ -1554,6 +1672,7 @@ style.css.visually-hidden:not(:focus):not(:active) {
             gap: 2rem;
             grid-template-columns: auto;
             justify-items: center;
+            padding: 2rem 2rem 1rem;
         }
         .sudebar {
             width: auto;
@@ -1566,6 +1685,7 @@ style.css.visually-hidden:not(:focus):not(:active) {
             flex-direction: column;
             align-items: center;
             gap: 1rem;
+            padding: 2rem 2rem;
         }
         .contacts__links {
             flex-wrap: wrap;
@@ -1661,6 +1781,48 @@ style.css.visually-hidden:not(:focus):not(:active) {
             text-align: center;
             font-size: 1rem;
         }
+        .questions__title {
+            font-size: 2rem;
+        }
+        .statistics__title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .questions-answers__question-answer {
+            font-size: 1rem;
+        }
+        .course-results__item {
+            flex-direction: column;
+            text-align: center;
+            gap: 1rem;
+            padding: 1rem;
+        }
+        .progress-bar__value {
+            font-size: 1.5rem;
+        }
+
+        .auth__container {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+
+        .auth__left-section {
+            border-radius: 2rem 2rem 0 0;
+        }
+
+        .auth__right-section {
+            border-radius: 0 0 2rem 2rem;
+        }
+
+        .auth__title, .form__title {
+            font-size: 2rem;
+        }
+        .auth__text {
+            font-size: 1.25rem;
+        }
+        .auth__button,.form__submit-btn {
+            font-size: 1rem;
+        }
         
     }
     @media (width <= 425px) {
@@ -1669,6 +1831,12 @@ style.css.visually-hidden:not(:focus):not(:active) {
         }
         .course__title img {
             display: none;
+        }
+        .auth__left-section {
+            padding: 1rem;
+        }
+        .auth__right-section {
+            padding: 1rem;
         }
     }
     @media (width <=625px) {
