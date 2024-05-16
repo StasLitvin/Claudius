@@ -55,3 +55,13 @@ function closee(id){
     }
 
 }
+
+
+document.getElementById('header-btn').addEventListener('click', function() {
+  if (document.getElementById('sidebar').hidden==true) {
+    document.getElementById('sidebar').hidden=false;
+}
+else {
+    document.getElementById('sidebar').hidden==true;
+}
+});

@@ -202,3 +202,16 @@ function submit_message(message) {
         // send the message
         submit_message(input_message)
     });
+
+function closee_sid(id){
+    if (document.querySelector('#sidebar').hidden==true) {
+        document.querySelector('#sidebar').hidden==false;
+    }
+    else {
+        document.querySelector('#sidebar').hidden==true;
+    }
+
+}
+document.getElementById('header-btn').addEventListener('click', function() {
+    alert('Привет, мир!'); // Знакомое всем приветствие, не так ли?
+  });
